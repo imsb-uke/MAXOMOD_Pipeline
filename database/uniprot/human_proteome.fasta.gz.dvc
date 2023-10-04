@@ -1,0 +1,10 @@
+md5: acb0fa42e83acbef7a12b533e463cdd7
+frozen: true
+deps:
+- checksum: '144914393226234309076574124322102360983'
+  size: 0
+  path: https://rest.uniprot.org/uniprotkb/stream?compressed=true&format=fasta&query=%28%28proteome%3AUP000005640%29%29
+outs:
+- md5: ded9b513606b457cfe6bcc0400a35ae3
+  size: 17853175
+  path: human_proteome.fasta.gz

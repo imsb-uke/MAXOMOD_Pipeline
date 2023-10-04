@@ -1,0 +1,1028 @@
+# The omics goes first
+proteomics:
+  # Then the name of the stage you work on
+  organize_samples:
+    # default_system_settings are those settings that are shared by all the datasets and
+    # that do not change the results.
+    # For instance the number of CPUs to use in the analysis.
+    default_system_settings: {}
+    # default_settings are those settings that are shared by all the datasets, for instance
+    # the nextflow pipeline we want to use.
+    default_settings: {}
+    # This is used in the dvc file to generate multiple stages with a foreach
+    # https://dvc.org/doc/user-guide/project-structure/pipelines-files#foreach-stages
+    stages:
+      # For each dataset, we give its specific settings:
+      # Files should always be listed here:
+      sod1:
+        settings:
+          cohort: "datasets/consortium/SOD1-mouse/01_received_data/cohort/sample_annotations.csv"
+          maxquant_input: "datasets/consortium/SOD1-mouse/01_received_data/proteomics/SOD1_proteinGroups.txt"
+          output_directory: "datasets/consortium/SOD1-mouse/02_organized_data/proteomics/organized/"
+          intensity_column_prefix: "LFQ intensity "
+          intensity_name_pattern: "LFQ intensity (TG|WT)_"
+          intensity_name_replacement: "S"
+          rename_samples: "datasets/consortium/SOD1-mouse/01_received_data/proteomics/sample_map.tsv"
+      tdp43:
+        settings:
+          cohort: "datasets/consortium/TDP43-mouse/01_received_data/cohort/sample_annotations.csv"
+          maxquant_input: "datasets/consortium/TDP43-mouse/01_received_data/proteomics/TDP43_proteinGroups.txt"
+          output_directory: "datasets/consortium/TDP43-mouse/02_organized_data/proteomics/organized/"
+          intensity_column_prefix: "LFQ intensity "
+          intensity_name_pattern: "LFQ intensity (TG|WT)_"
+          intensity_name_replacement: "S"
+          rename_samples: "datasets/consortium/TDP43-mouse/01_received_data/proteomics/sample_map.tsv"
+      c9:
+        settings:
+          cohort: "datasets/consortium/C9orf72-mouse/01_received_data/cohort/sample_annotations.csv"
+          maxquant_input: "datasets/consortium/C9orf72-mouse/01_received_data/proteomics/C9_proteinGroups.txt"
+          output_directory: "datasets/consortium/C9orf72-mouse/02_organized_data/proteomics/organized/"
+          intensity_column_prefix: "LFQ intensity C"
+          intensity_name_pattern: "LFQ intensity (C[-0-9]+).*"
+          intensity_name_replacement: '\1'
+          rename_samples: "datasets/consortium/C9orf72-mouse/01_received_data/proteomics/sample_map.tsv"
+      fus:
+        settings:
+          cohort: "datasets/consortium/FUS-mouse/01_received_data/cohort/sample_annotations.csv"
+          rename_samples: "./datasets/consortium/FUS-mouse/01_received_data/proteomics/sample_map.tsv"
+          maxquant_input: "datasets/consortium/FUS-mouse/01_received_data/proteomics/FUS_proteinGroups.txt"
+          output_directory: "datasets/consortium/FUS-mouse/02_organized_data/proteomics/organized/"
+          intensity_column_prefix: "LFQ intensity FUS"
+          intensity_name_pattern: "LFQ intensity (FUS[-0-9]+).*"
+          intensity_name_replacement: '\1'
+          rename_samples: "datasets/consortium/FUS-mouse/01_received_data/proteomics/sample_map.tsv"
+      human:
+        settings:
+          cohort: "datasets/consortium/human-datasets/cohort/sample_annotations.csv"
+          maxquant_input: "datasets/consortium/human-datasets/proteomics/Human_proteinGroups.txt"
+          output_directory: "datasets/consortium/human-datasets/02_organized_data/proteomics/organized/"
+          intensity_column_prefix: "LFQ intensity "
+          intensity_name_pattern: "LFQ intensity ([A-Z]+)-([-A-Z0-9]+).*"
+          intensity_name_replacement: '\2'
+          rename_samples: "datasets/consortium/human-datasets/proteomics/sample_map.tsv"
+      human_csf:
+        settings:
+          cohort: "datasets/consortium/human-csf/01_received_data/cohort/sample_annotations.csv"
+          maxquant_input: "datasets/consortium/human-csf/01_received_data/proteomics/MaxomodCSF_proteinGroups.txt"
+          output_directory: "datasets/consortium/human-csf/02_organized_data/proteomics/organized/"
+          intensity_column_prefix: "LFQ intensity CSF"
+          intensity_name_pattern: "LFQ intensity (CSF[-0-9]+).*"
+          intensity_name_replacement: '\1'
+          rename_samples: "datasets/consortium/human-csf/01_received_data/proteomics/sample_map.tsv"
+          
+  prefiltering_pca:
+    # default_system_settings are those settings that are shared by all the datasets and
+    # that do not change the results.
+    # For instance the number of CPUs to use in the analysis.
+    default_system_settings: {}
+    # default_settings are those settings that are shared by all the datasets, for instance
+    # the nextflow pipeline we want to use.
+    default_settings:
+      exclude_samples: null
+      filter_low_counts:
+        stratify_by: ["Condition", "Sex"]
+        at_least_counts: 1
+        at_least_samples: 0.5
+        at_least_samples_mode: "fraction"
+      zero_value_imputation:
+        method: "missForest"
+      normalization:
+        method: "none"
+      pca_colour_by:
+       - "Condition"
+    # This is used in the dvc file to generate multiple stages with a foreach
+    # https://dvc.org/doc/user-guide/project-structure/pipelines-files#foreach-stages
+    stages:
+      # For each dataset, we give its specific settings:
+      # Files should always be listed here:
+      sod1:
+        settings:
+          cohort: "datasets/consortium/SOD1-mouse/01_received_data/cohort/sample_annotations.csv"
+          input_directory: "datasets/consortium/SOD1-mouse/02_organized_data/proteomics/organized/"
+          output_directory: "datasets/consortium/SOD1-mouse/02_organized_data/proteomics/prefiltering-pca/"
+      tdp43:
+        settings:
+          cohort: "datasets/consortium/TDP43-mouse/01_received_data/cohort/sample_annotations.csv"
+          input_directory: "datasets/consortium/TDP43-mouse/02_organized_data/proteomics/organized/"
+          output_directory: "datasets/consortium/TDP43-mouse/02_organized_data/proteomics/prefiltering-pca/"
+      c9:
+        settings:
+          cohort: "datasets/consortium/C9orf72-mouse/01_received_data/cohort/sample_annotations.csv"
+          input_directory: "datasets/consortium/C9orf72-mouse/02_organized_data/proteomics/organized/"
+          output_directory: "datasets/consortium/C9orf72-mouse/02_organized_data/proteomics/prefiltering-pca/"
+      fus:
+        settings:
+          cohort: "datasets/consortium/FUS-mouse/01_received_data/cohort/sample_annotations.csv"
+          input_directory: "datasets/consortium/FUS-mouse/02_organized_data/proteomics/organized/"
+          output_directory: "datasets/consortium/FUS-mouse/02_organized_data/proteomics/prefiltering-pca/"
+      human:
+        settings:
+          cohort: "datasets/consortium/human-datasets/cohort/sample_annotations.csv"
+          input_directory: "datasets/consortium/human-datasets/02_organized_data/proteomics/organized/"
+          output_directory: "datasets/consortium/human-datasets/02_organized_data/proteomics/prefiltering-pca/"
+          exclude_samples:
+             - "A-32469"
+          min_proteins_per_sample: 500
+          filter_low_counts:
+            stratify_by: ["Condition", "Sex"]
+            at_least_counts: 1
+            at_least_samples: 0.7
+            at_least_samples_mode: "fraction"
+          pca_colour_by:
+             - "Condition"
+             - "Center"
+             - "AgeAtDeath"
+             - "PostMortemInterval"
+      human_csf:
+        settings:
+          cohort: "datasets/consortium/human-csf/01_received_data/cohort/sample_annotations.csv"
+          input_directory: "datasets/consortium/human-csf/02_organized_data/proteomics/organized/"
+          output_directory: "datasets/consortium/human-csf/02_organized_data/proteomics/prefiltering-pca/"
+          exclude_samples: null
+          min_proteins_per_sample: 300
+          filter_low_counts:
+            stratify_by: ["Condition", "Sex"]
+            at_least_counts: 1
+            at_least_samples: 0.7
+            at_least_samples_mode: "fraction"
+          pca_colour_by:
+             - "Condition"
+          normalization:
+            method: "quantiles"
+  deg:
+    # default_system_settings are those settings that are shared by all the datasets and
+    # that do not change the results.
+    # For instance the number of CPUs to use in the analysis.
+    default_system_settings: {}
+    # default_settings are those settings that are shared by all the datasets, for instance
+    # the nextflow pipeline we want to use.
+    default_settings:
+      cohort_factors:
+        - factor: "Condition"
+          levels: ["ctrl", "mut"]
+        - factor: "Sex"
+          levels: ["female", "male"]
+      limma:
+        - name: "no_covariates"
+          formula: "~ Condition"
+          fit_method: "ls"
+          results:
+            - name: "mut_vs_ctrl"
+              coefficient: "Conditionmut"
+              padjust_method: "BH"
+        - name: "covariate_sex"
+          formula: "~ Sex + Condition"
+          fit_method: "ls"
+          results:
+            - name: "mut_vs_ctrl"
+              coefficient: "Conditionmut"
+              padjust_method: "BH"
+            - name: "male_vs_female"
+              coefficient: "Sexmale"
+              padjust_method: "BH"
+        - name: "only_males"
+          filter:
+            - field: "Sex"
+              value: "male"
+          formula: "~ Condition"
+          fit_method: "ls"
+          results:
+            - name: "mut_vs_ctrl"
+              coefficient: "Conditionmut"
+              padjust_method: "BH"
+        - name: "only_females"
+          filter:
+            - field: "Sex"
+              value: "female"
+          formula: "~ Condition"
+          fit_method: "ls"
+          results:
+            - name: "mut_vs_ctrl"
+              coefficient: "Conditionmut"
+              padjust_method: "BH"
+    # This is used in the dvc file to generate multiple stages with a foreach
+    # https://dvc.org/doc/user-guide/project-structure/pipelines-files#foreach-stages
+    stages:
+      # For each dataset, we give its specific settings:
+      # Files should always be listed here:
+      sod1:
+        settings:
+          cohort: "datasets/consortium/SOD1-mouse/02_organized_data/proteomics/prefiltering-pca/cohort_filtered.csv"
+          intensity_mat_for_limma: "datasets/consortium/SOD1-mouse/02_organized_data/proteomics/prefiltering-pca/intensity_mat_filtered_imputed_log2transf_norm.rds"
+          output_directory: "datasets/consortium/SOD1-mouse/02_organized_data/proteomics/deg/"
+      tdp43:
+        settings:
+          cohort: "datasets/consortium/TDP43-mouse/02_organized_data/proteomics/prefiltering-pca/cohort_filtered.csv"
+          intensity_mat_for_limma: "datasets/consortium/TDP43-mouse/02_organized_data/proteomics/prefiltering-pca/intensity_mat_filtered_imputed_log2transf_norm.rds"
+          output_directory: "datasets/consortium/TDP43-mouse/02_organized_data/proteomics/deg/"
+      c9:
+        settings:
+          cohort: "datasets/consortium/C9orf72-mouse/02_organized_data/proteomics/prefiltering-pca/cohort_filtered.csv"
+          intensity_mat_for_limma: "datasets/consortium/C9orf72-mouse/02_organized_data/proteomics/prefiltering-pca/intensity_mat_filtered_imputed_log2transf_norm.rds"
+          output_directory: "datasets/consortium/C9orf72-mouse/02_organized_data/proteomics/deg/"
+      fus:
+        settings:
+          cohort: "datasets/consortium/FUS-mouse/02_organized_data/proteomics/prefiltering-pca/cohort_filtered.csv"
+          intensity_mat_for_limma: "datasets/consortium/FUS-mouse/02_organized_data/proteomics/prefiltering-pca/intensity_mat_filtered_imputed_log2transf_norm.rds"
+          output_directory: "datasets/consortium/FUS-mouse/02_organized_data/proteomics/deg/"
+      human:
+        settings:
+          cohort: "datasets/consortium/human-datasets/02_organized_data/proteomics/prefiltering-pca/cohort_filtered.csv"
+          intensity_mat_for_limma: "datasets/consortium/human-datasets/02_organized_data/proteomics/prefiltering-pca/intensity_mat_filtered_imputed_log2transf_norm.rds"
+          output_directory: "datasets/consortium/human-datasets/02_organized_data/proteomics/deg/"
+          cohort_factors:
+            - factor: "Condition"
+              levels: ["ctrl", "als"]
+            - factor: "Sex"
+              levels: ["female", "male"]
+            - factor: "Center"
+          limma:
+            - name: "no_covariates"
+              formula: "~ Condition"
+              fit_method: "ls"
+              results:
+                - name: "mut_vs_ctrl"
+                  coefficient: "Conditionals"
+                  padjust_method: "BH"
+            - name: "covariate_sex"
+              formula: "~ Sex + Condition"
+              fit_method: "ls"
+              results:
+                - name: "mut_vs_ctrl"
+                  coefficient: "Conditionals"
+                  padjust_method: "BH"
+                - name: "male_vs_female"
+                  coefficient: "Sexmale"
+                  padjust_method: "BH"
+            - name: "covariate_sex_and_center"
+              formula: "~ Sex + Center + Condition"
+              fit_method: "ls"
+              results:
+                - name: "mut_vs_ctrl"
+                  coefficient: "Conditionals"
+                  padjust_method: "BH"
+                - name: "male_vs_female"
+                  coefficient: "Sexmale"
+                  padjust_method: "BH"
+            - name: "covariate_sex_center_and_age"
+              formula: "~ Sex + AgeAtDeath + Center + Condition"
+              fit_method: "ls"
+              results:
+                - name: "mut_vs_ctrl"
+                  coefficient: "Conditionals"
+                  padjust_method: "BH"
+                - name: "age"
+                  coefficient: "AgeAtDeath"
+                  padjust_method: "BH"
+            - name: "only_males_with_center"
+              filter:
+                - field: "Sex"
+                  value: "male"
+              formula: "~ Condition + Center"
+              fit_method: "ls"
+              results:
+                - name: "mut_vs_ctrl"
+                  coefficient: "Conditionals"
+                  padjust_method: "BH"
+            - name: "only_females_with_center"
+              filter:
+                - field: "Sex"
+                  value: "female"
+              formula: "~ Condition + Center"
+              fit_method: "ls"
+              results:
+                - name: "mut_vs_ctrl"
+                  coefficient: "Conditionals"
+                  padjust_method: "BH"
+            - name: "only_males"
+              filter:
+                - field: "Sex"
+                  value: "male"
+              formula: "~ Condition"
+              fit_method: "ls"
+              results:
+                - name: "mut_vs_ctrl"
+                  coefficient: "Conditionals"
+                  padjust_method: "BH"
+            - name: "only_females"
+              filter:
+                - field: "Sex"
+                  value: "female"
+              formula: "~ Condition"
+              fit_method: "ls"
+              results:
+                - name: "mut_vs_ctrl"
+                  coefficient: "Conditionals"
+                  padjust_method: "BH"
+      human_csf:
+        settings:
+          cohort: "datasets/consortium/human-csf/02_organized_data/proteomics/prefiltering-pca/cohort_filtered.csv"
+          intensity_mat_for_limma: "datasets/consortium/human-csf/02_organized_data/proteomics/prefiltering-pca/intensity_mat_filtered_imputed_log2transf_norm.rds"
+          output_directory: "datasets/consortium/human-csf/02_organized_data/proteomics/deg/"
+          cohort_factors:
+            - factor: "Condition"
+              levels: ["ctrl", "als"]
+            - factor: "Sex"
+              levels: ["female", "male"]
+          limma:
+            - name: "no_covariates"
+              formula: "~ Condition"
+              fit_method: "ls"
+              results:
+                - name: "mut_vs_ctrl"
+                  coefficient: "Conditionals"
+                  padjust_method: "BH"
+            - name: "covariate_sex"
+              formula: "~ Sex + Condition"
+              fit_method: "ls"
+              results:
+                - name: "mut_vs_ctrl"
+                  coefficient: "Conditionals"
+                  padjust_method: "BH"
+                - name: "male_vs_female"
+                  coefficient: "Sexmale"
+                  padjust_method: "BH"
+            - name: "only_males"
+              filter:
+                - field: "Sex"
+                  value: "male"
+              formula: "~ Condition"
+              fit_method: "ls"
+              results:
+                - name: "mut_vs_ctrl"
+                  coefficient: "Conditionals"
+                  padjust_method: "BH"
+            - name: "only_females"
+              filter:
+                - field: "Sex"
+                  value: "female"
+              formula: "~ Condition"
+              fit_method: "ls"
+              results:
+                - name: "mut_vs_ctrl"
+                  coefficient: "Conditionals"
+                  padjust_method: "BH"
+  # Then the name of the stage you work on
+  deg_digestion:
+    # default_system_settings are those settings that are shared by all the datasets and
+    # that do not change the results.
+    # For instance the number of CPUs to use in the analysis.
+    default_system_settings: {}
+    # default_settings are those settings that are shared by all the datasets, for instance
+    # the nextflow pipeline we want to use.
+    default_settings:
+      volcano_plots:
+        - name: "volcano_mut_vs_ctrl_with_and_without_stratifying"
+          subplots:
+            - name: ["only_males", "mut_vs_ctrl"]
+              title: "Mut vs Ctrl (only males)"
+            - name: ["only_females", "mut_vs_ctrl"]
+              title: "Mut vs Ctrl (only females)"
+            - name: ["covariate_sex", "mut_vs_ctrl"]
+              title: "Mut vs Ctrl (sex as covariate)"
+      merged_volcano:
+        - analysis: "only_males" 
+          result_name: "mut_vs_ctrl"
+          title: "significant for male"
+          color: "#00CCFF" #skyblue
+        - analysis: "only_females"
+          result_name: "mut_vs_ctrl"
+          title: "significant for female"
+          color: "#F07C04" #orange
+      de_thresholds:
+        strict:
+          up_log2fc: 0.2630344
+          down_log2fc: -0.2630344
+          padj: 0.05
+        loose:
+          up_log2fc: 0.2630344
+          down_log2fc: -0.2630344
+          padj: 0.10
+        strict_justpval:
+          up_log2fc: 0
+          down_log2fc: -0
+          padj: 0.05
+      gene_overlaps:
+        - name: "mut_vs_ctrl_sex_stratifying"
+          criterion: "strict"
+          sets:
+            - name: "female"
+              set: ["only_females", "mut_vs_ctrl"]
+            - name: "male"
+              set: ["only_males", "mut_vs_ctrl"]
+            - name: "sex_covariate"
+              set: ["covariate_sex", "mut_vs_ctrl"]
+    # This is used in the dvc file to generate multiple stages with a foreach
+    # https://dvc.org/doc/user-guide/project-structure/pipelines-files#foreach-stages
+    stages:
+      # For each dataset, we give its specific settings:
+      # Files should always be listed here:
+      sod1:
+        settings:
+          de_results_rds: "datasets/consortium/SOD1-mouse/02_organized_data/proteomics/deg/de_results.rds"
+          output_directory: "datasets/consortium/SOD1-mouse/02_organized_data/proteomics/deg_digestion/"
+      tdp43:
+        settings:
+          de_results_rds: "datasets/consortium/TDP43-mouse/02_organized_data/proteomics/deg/de_results.rds"
+          output_directory: "datasets/consortium/TDP43-mouse/02_organized_data/proteomics/deg_digestion/"
+      c9:
+        settings:
+          de_results_rds: "datasets/consortium/C9orf72-mouse/02_organized_data/proteomics/deg/de_results.rds"
+          output_directory: "datasets/consortium/C9orf72-mouse/02_organized_data/proteomics/deg_digestion/"
+      fus:
+        settings:
+          de_results_rds: "datasets/consortium/FUS-mouse/02_organized_data/proteomics/deg/de_results.rds"
+          output_directory: "datasets/consortium/FUS-mouse/02_organized_data/proteomics/deg_digestion/"
+      human:
+        settings:
+          de_results_rds: "datasets/consortium/human-datasets/02_organized_data/proteomics/deg/de_results.rds"
+          output_directory: "datasets/consortium/human-datasets/02_organized_data/proteomics/deg_digestion/"
+          volcano_plots:
+            - name: "volcano_mut_vs_ctrl_covariates_sex_and_center"
+              subplots:
+                - name: ["no_covariates", "mut_vs_ctrl"]
+                  title: "ALS vs Ctrl (no covariates)"
+                - name: ["covariate_sex", "mut_vs_ctrl"]
+                  title: "ALS vs Ctrl (sex as cov.)"
+                - name: ["covariate_sex_and_center", "mut_vs_ctrl"]
+                  title: "ALS vs Ctrl (sex and center as cov.)"
+                - name: ["covariate_sex_center_and_age", "mut_vs_ctrl"]
+                  title: "ALS vs Ctrl (sex, center, age as cov.)"
+            - name: "volcano_mut_vs_ctrl_sex_stratifying"
+              subplots:
+                - name: ["covariate_sex_and_center", "mut_vs_ctrl"]
+                  title: "ALS vs Ctrl (sex and center as cov.)"
+                - name: ["only_females", "mut_vs_ctrl"]
+                  title: "ALS vs Ctrl (females only)"
+                - name: ["only_males", "mut_vs_ctrl"]
+                  title: "ALS vs Ctrl (males only)"
+          gene_overlaps:
+            - name: "mut_vs_ctrl_with_sex_and_center_as_covariate_vs_stratifying_sex"
+              criterion: "strict"
+              sets:
+                - name: "female"
+                  set: ["only_females_covariate_center", "mut_vs_ctrl"]
+                - name: "male"
+                  set: ["only_males_covariate_center", "mut_vs_ctrl"]
+                - name: "all"
+                  set: ["covariate_sex_and_center", "mut_vs_ctrl"]
+            - name: "mut_vs_control_age_impact"
+              criterion: "strict"
+              sets:
+                - name: "without_age"
+                  set: ["covariate_sex_and_center", "mut_vs_ctrl"]
+                - name: "with_age"
+                  set: ["covariate_sex_center_and_age", "mut_vs_ctrl"]
+      human_csf:
+        settings:
+          de_results_rds: "datasets/consortium/human-csf/02_organized_data/proteomics/deg/de_results.rds"
+          output_directory: "datasets/consortium/human-csf/02_organized_data/proteomics/deg_digestion/"
+          volcano_plots:
+            - name: "volcano_mut_vs_ctrl_covariates_sex"
+              subplots:
+                - name: ["no_covariates", "mut_vs_ctrl"]
+                  title: "ALS vs Ctrl (no covariates)"
+                - name: ["covariate_sex", "mut_vs_ctrl"]
+                  title: "ALS vs Ctrl (sex as cov.)"
+            - name: "volcano_mut_vs_ctrl_sex_stratifying"
+              subplots:
+                - name: ["only_females", "mut_vs_ctrl"]
+                  title: "ALS vs Ctrl (females only)"
+                - name: ["only_males", "mut_vs_ctrl"]
+                  title: "ALS vs Ctrl (males only)"
+          gene_overlaps:
+            - name: "mut_vs_ctrl_with_sex_and_center_as_covariate_vs_stratifying_sex"
+              criterion: "strict"
+              sets:
+                - name: "female"
+                  set: ["only_females_covariate_center", "mut_vs_ctrl"]
+                - name: "male"
+                  set: ["only_males_covariate_center", "mut_vs_ctrl"]
+                - name: "all"
+                  set: ["covariate_sex_and_center", "mut_vs_ctrl"]
+            - name: "mut_vs_control_age_impact"
+              criterion: "strict"
+              sets:
+                - name: "without_age"
+                  set: ["covariate_sex_and_center", "mut_vs_ctrl"]
+                - name: "with_age"
+                  set: ["covariate_sex_center_and_age", "mut_vs_ctrl"]
+  # Then the name of the stage you work on
+  string_ppi:
+    # default_system_settings are those settings that are shared by all the datasets and
+    # that do not change the results.
+    # For instance the number of CPUs to use in the analysis.
+    default_system_settings:
+      cache: ".cache_string_ppi/"
+    # default_settings are those settings that are shared by all the datasets, for instance
+    # the nextflow pipeline we want to use.
+    default_settings:
+      string_combined_score_threshold: 400
+      ncbi_identifier: 10090
+    # This is used in the dvc file to generate multiple stages with a foreach
+    # https://dvc.org/doc/user-guide/project-structure/pipelines-files#foreach-stages
+    stages:
+      # For each dataset, we give its specific settings:
+      # Files should always be listed here:
+      sod1:
+        settings:
+          de_result_thresholds_rds: "datasets/consortium/SOD1-mouse/02_organized_data/proteomics/deg_digestion/de_tables/de_result_thresholds.rds"
+          uniprot_to_string: "database/stringdb/mouse.uniprot_2_string.2018.tsv.gz"
+          string_ppi_file: "database/stringdb/10090.protein.links.txt.gz"
+          output_directory: "datasets/consortium/SOD1-mouse/02_organized_data/proteomics/string_ppi/"
+      tdp43:
+        settings:
+          de_result_thresholds_rds: "datasets/consortium/TDP43-mouse/02_organized_data/proteomics/deg_digestion/de_tables/de_result_thresholds.rds"
+          uniprot_to_string: "database/stringdb/mouse.uniprot_2_string.2018.tsv.gz"
+          string_ppi_file: "database/stringdb/10090.protein.links.txt.gz"
+          output_directory: "datasets/consortium/TDP43-mouse/02_organized_data/proteomics/string_ppi/"
+      c9:
+        settings:
+          de_result_thresholds_rds: "datasets/consortium/C9orf72-mouse/02_organized_data/proteomics/deg_digestion/de_tables/de_result_thresholds.rds"
+          uniprot_to_string: "database/stringdb/mouse.uniprot_2_string.2018.tsv.gz"
+          string_ppi_file: "database/stringdb/10090.protein.links.txt.gz"
+          output_directory: "datasets/consortium/C9orf72-mouse/02_organized_data/proteomics/string_ppi/"
+      fus:
+        settings:
+          de_result_thresholds_rds: "datasets/consortium/FUS-mouse/02_organized_data/proteomics/deg_digestion/de_tables/de_result_thresholds.rds"
+          uniprot_to_string: "database/stringdb/mouse.uniprot_2_string.2018.tsv.gz"
+          string_ppi_file: "database/stringdb/10090.protein.links.txt.gz"
+          output_directory: "datasets/consortium/FUS-mouse/02_organized_data/proteomics/string_ppi/"
+      human:
+        settings:
+          de_result_thresholds_rds: "datasets/consortium/human-datasets/02_organized_data/proteomics/deg_digestion/de_tables/de_result_thresholds.rds"
+          uniprot_to_string: "database/stringdb/human.uniprot_2_string.2018.tsv.gz"
+          string_ppi_file: "database/stringdb/9606.protein.links.txt.gz"
+          ncbi_identifier: 9606
+          output_directory: "datasets/consortium/human-datasets/02_organized_data/proteomics/string_ppi/"
+      human_csf:
+        settings:
+          de_result_thresholds_rds: "datasets/consortium/human-csf/02_organized_data/proteomics/deg_digestion/de_tables/de_result_thresholds.rds"
+          uniprot_to_string: "database/stringdb/human.uniprot_2_string.2018.tsv.gz"
+          string_ppi_file: "database/stringdb/9606.protein.links.txt.gz"
+          ncbi_identifier: 9606
+          output_directory: "datasets/consortium/human-csf/02_organized_data/proteomics/string_ppi/"
+  # Then the name of the stage you work on
+  gsea_enrichment:
+    # default_system_settings are those settings that are shared by all the datasets and
+    # that do not change the results.
+    # For instance the number of CPUs to use in the analysis.
+    default_system_settings:
+      cache: ".cache_gene_enrichment_proteomics/"
+    # default_settings are those settings that are shared by all the datasets, for instance
+    # the nextflow pipeline we want to use.
+    default_settings: {}
+    # This is used in the dvc file to generate multiple stages with a foreach
+    # https://dvc.org/doc/user-guide/project-structure/pipelines-files#foreach-stages
+    stages:
+      # For each dataset, we give its specific settings:
+      # Files should always be listed here:
+      sod1:
+        settings:
+          protein_annotations_rds: "datasets/consortium/SOD1-mouse/02_organized_data/proteomics/organized/protein_annotations.rds"
+          uniprot_to_ensembl: "database/uniprot/uniprot_MOUSE_10090_idmapping_selected.tab.gz"
+          organism: "mmusculus"
+          de_results_rds: "datasets/consortium/SOD1-mouse/02_organized_data/proteomics/deg/de_results.rds"
+          output_directory: "datasets/consortium/SOD1-mouse/02_organized_data/proteomics/gsea_enrichment/"
+      tdp43:
+        settings:
+          protein_annotations_rds: "datasets/consortium/TDP43-mouse/02_organized_data/proteomics/organized/protein_annotations.rds"
+          uniprot_to_ensembl: "database/uniprot/uniprot_MOUSE_10090_idmapping_selected.tab.gz"
+          organism: "mmusculus"
+          de_results_rds: "datasets/consortium/TDP43-mouse/02_organized_data/proteomics/deg/de_results.rds"
+          output_directory: "datasets/consortium/TDP43-mouse/02_organized_data/proteomics/gsea_enrichment/"
+      c9:
+        settings:
+          protein_annotations_rds: "datasets/consortium/C9orf72-mouse/02_organized_data/proteomics/organized/protein_annotations.rds"
+          uniprot_to_ensembl: "database/uniprot/uniprot_MOUSE_10090_idmapping_selected.tab.gz"
+          organism: "mmusculus"
+          de_results_rds: "datasets/consortium/C9orf72-mouse/02_organized_data/proteomics/deg/de_results.rds"
+          output_directory: "datasets/consortium/C9orf72-mouse/02_organized_data/proteomics/gsea_enrichment/"
+      fus:
+        settings:
+          protein_annotations_rds: "datasets/consortium/FUS-mouse/02_organized_data/proteomics/organized/protein_annotations.rds"
+          uniprot_to_ensembl: "database/uniprot/uniprot_MOUSE_10090_idmapping_selected.tab.gz"
+          organism: "mmusculus"
+          de_results_rds: "datasets/consortium/FUS-mouse/02_organized_data/proteomics/deg/de_results.rds"
+          output_directory: "datasets/consortium/FUS-mouse/02_organized_data/proteomics/gsea_enrichment/"
+      human:
+        settings:
+          protein_annotations_rds: "datasets/consortium/human-datasets/02_organized_data/proteomics/organized/protein_annotations.rds"
+          uniprot_to_ensembl: "database/uniprot/uniprot_HUMAN_9606_idmapping_selected.tab.gz"
+          organism: "hsapiens"
+          de_results_rds: "datasets/consortium/human-datasets/02_organized_data/proteomics/deg/de_results.rds"
+          output_directory: "datasets/consortium/human-datasets/02_organized_data/proteomics/gsea_enrichment/"
+# Threw an error in  - covariate_sex * mut_vs_ctrl + BP -> FIX 45-gsea_enrichment.R and rerun again
+      human_csf:
+        settings:
+          protein_annotations_rds: "datasets/consortium/human-csf/02_organized_data/proteomics/organized/protein_annotations.rds"
+          uniprot_to_ensembl: "database/uniprot/uniprot_HUMAN_9606_idmapping_selected.tab.gz"
+          organism: "hsapiens"
+          de_results_rds: "datasets/consortium/human-csf/02_organized_data/proteomics/deg/de_results.rds"
+          output_directory: "datasets/consortium/human-csf/02_organized_data/proteomics/gsea_enrichment/"
+  deg_count:
+      sod1_female: "datasets/consortium/SOD1-mouse/02_organized_data/proteomics/deg_digestion/de_tables/only_females-mut_vs_ctrl-strict.csv"
+      tdp43_female: "datasets/consortium/TDP43-mouse/02_organized_data/proteomics/deg_digestion/de_tables/only_females-mut_vs_ctrl-strict.csv"
+      c9_female: "datasets/consortium/C9orf72-mouse/02_organized_data/proteomics/deg_digestion/de_tables/only_females-mut_vs_ctrl-strict.csv"
+      human_female: "datasets/consortium/human-datasets/02_organized_data/proteomics/deg_digestion/de_tables/only_females-mut_vs_ctrl-strict.csv"
+      fus_female: "datasets/consortium/FUS-mouse/02_organized_data/proteomics/deg_digestion/de_tables/only_females-mut_vs_ctrl-strict.csv"
+      human_csf_female: "datasets/consortium/human-csf/02_organized_data/proteomics/deg_digestion/de_tables/only_females-mut_vs_ctrl-strict.csv"
+      sod1_male: "datasets/consortium/SOD1-mouse/02_organized_data/proteomics/deg_digestion/de_tables/only_males-mut_vs_ctrl-strict.csv"
+      tdp43_male: "datasets/consortium/TDP43-mouse/02_organized_data/proteomics/deg_digestion/de_tables/only_males-mut_vs_ctrl-strict.csv"
+      c9_male: "datasets/consortium/C9orf72-mouse/02_organized_data/proteomics/deg_digestion/de_tables/only_males-mut_vs_ctrl-strict.csv"
+      human_male: "datasets/consortium/human-datasets/02_organized_data/proteomics/deg_digestion/de_tables/only_males-mut_vs_ctrl-strict.csv"
+      fus_male: "datasets/consortium/FUS-mouse/02_organized_data/proteomics/deg_digestion/de_tables/only_males-mut_vs_ctrl-strict.csv"
+      human_csf_male: "datasets/consortium/human-csf/02_organized_data/proteomics/deg_digestion/de_tables/only_males-mut_vs_ctrl-strict.csv"
+      
+  additional_QC:
+    # default_system_settings are those settings that are shared by all the datasets and
+    # that do not change the results.
+    # For instance the number of CPUs to use in the analysis.
+    default_system_settings: {}
+    # default_settings are those settings that are shared by all the datasets, for instance
+    # the nextflow pipeline we want to use.
+    default_settings:
+      exclude_samples: null
+      isLog2: TRUE
+      qc_ids_width: 7 #image width for protein identification QC plots
+      qc_dc_width: 40 #image width for data completeness QC plots
+      qc_pca_width: 7 #image width for pca and pca scree plot
+      pivot_longer_values_to: "intensity"
+    # This is used in the dvc file to generate multiple stages with a foreach
+    # https://dvc.org/doc/user-guide/project-structure/pipelines-files#foreach-stages
+    stages:
+      # For each dataset, we give its specific settings:
+      # Files should always be listed here:
+      sod1_preprocessed:
+        settings:
+          cohort: "datasets/consortium/SOD1-mouse/02_organized_data/proteomics/prefiltering-pca/cohort_filtered.csv"
+          input_data: "datasets/consortium/SOD1-mouse/02_organized_data/proteomics/prefiltering-pca/intensity_mat_filtered_imputed_log2transf_norm.csv" 
+          output_directory: "datasets/consortium/SOD1-mouse/02_organized_data/proteomics/additional_QC/preprocessed/"
+          qc_ids_width: 17
+          pivot_longer_names_to: "proteinID"
+          pivot_longer_exclude_col: "...1"
+          rename_index_old: "...1"
+          rename_index_new: "SampleID"
+      sod1_raw:
+        settings:
+          cohort: "datasets/consortium/SOD1-mouse/01_received_data/cohort/sample_annotations.csv"
+          input_data: "datasets/consortium/SOD1-mouse/02_organized_data/proteomics/organized/intensity.csv"
+          output_directory: "datasets/consortium/SOD1-mouse/02_organized_data/proteomics/additional_QC/raw/"
+          qc_ids_width: 17
+          pivot_longer_names_to: "SampleID"
+          pivot_longer_exclude_col: "UniProtName"
+          rename_index_old: "UniProtName"
+          rename_index_new: "proteinID"
+          isLog2: FALSE
+      c9orf72_preprocessed:
+        settings:
+          cohort: "datasets/consortium/C9orf72-mouse/02_organized_data/proteomics/prefiltering-pca/cohort_filtered.csv"
+          input_data: "datasets/consortium/C9orf72-mouse/02_organized_data/proteomics/prefiltering-pca/intensity_mat_filtered_imputed_log2transf_norm.csv" 
+          output_directory: "datasets/consortium/C9orf72-mouse/02_organized_data/proteomics/additional_QC/preprocessed/"
+          qc_ids_width: 17
+          pivot_longer_names_to: "proteinID"
+          pivot_longer_exclude_col: "...1"
+          rename_index_old: "...1"
+          rename_index_new: "SampleID"
+      c9orf72_raw:
+        settings:
+          cohort: "datasets/consortium/C9orf72-mouse/01_received_data/cohort/sample_annotations.csv"
+          input_data: "datasets/consortium/C9orf72-mouse/02_organized_data/proteomics/organized/intensity.csv"
+          output_directory: "datasets/consortium/C9orf72-mouse/02_organized_data/proteomics/additional_QC/raw/"
+          qc_ids_width: 17
+          pivot_longer_names_to: "SampleID"
+          pivot_longer_exclude_col: "UniProtName"
+          rename_index_old: "UniProtName"
+          rename_index_new: "proteinID"
+          isLog2: FALSE
+      fus_preprocessed:
+        settings:
+          cohort: "datasets/consortium/FUS-mouse/02_organized_data/proteomics/prefiltering-pca/cohort_filtered.csv"
+          input_data: "datasets/consortium/FUS-mouse/02_organized_data/proteomics/prefiltering-pca/intensity_mat_filtered_imputed_log2transf_norm.csv" 
+          output_directory: "datasets/consortium/FUS-mouse/02_organized_data/proteomics/additional_QC/preprocessed/"
+          qc_ids_width: 17
+          pivot_longer_names_to: "proteinID"
+          pivot_longer_exclude_col: "...1"
+          rename_index_old: "...1"
+          rename_index_new: "SampleID"
+      fus_raw:
+        settings:
+          cohort: "datasets/consortium/FUS-mouse/01_received_data/cohort/sample_annotations.csv"
+          input_data: "datasets/consortium/FUS-mouse/02_organized_data/proteomics/organized/intensity.csv"
+          output_directory: "datasets/consortium/FUS-mouse/02_organized_data/proteomics/additional_QC/raw/"
+          qc_ids_width: 17
+          pivot_longer_names_to: "SampleID"
+          pivot_longer_exclude_col: "UniProtName"
+          rename_index_old: "UniProtName"
+          rename_index_new: "proteinID"
+          isLog2: FALSE
+      tdp43_preprocessed:
+        settings:
+          cohort: "datasets/consortium/TDP43-mouse/02_organized_data/proteomics/prefiltering-pca/cohort_filtered.csv"
+          input_data: "datasets/consortium/TDP43-mouse/02_organized_data/proteomics/prefiltering-pca/intensity_mat_filtered_imputed_log2transf_norm.csv" 
+          output_directory: "datasets/consortium/TDP43-mouse/02_organized_data/proteomics/additional_QC/preprocessed/"
+          qc_ids_width: 17
+          pivot_longer_names_to: "proteinID"
+          pivot_longer_exclude_col: "...1"
+          rename_index_old: "...1"
+          rename_index_new: "SampleID"
+      tdp43_raw:
+        settings:
+          cohort: "datasets/consortium/TDP43-mouse/01_received_data/cohort/sample_annotations.csv"
+          input_data: "datasets/consortium/TDP43-mouse/02_organized_data/proteomics/organized/intensity.csv"
+          output_directory: "datasets/consortium/TDP43-mouse/02_organized_data/proteomics/additional_QC/raw/"
+          qc_ids_width: 17
+          pivot_longer_names_to: "SampleID"
+          pivot_longer_exclude_col: "UniProtName"
+          rename_index_old: "UniProtName"
+          rename_index_new: "proteinID"
+          isLog2: FALSE
+      human_preprocessed:
+        settings:
+          cohort: "datasets/consortium/human-datasets/02_organized_data/proteomics/prefiltering-pca/cohort_filtered.csv"
+          input_data: "datasets/consortium/human-datasets/02_organized_data/proteomics/prefiltering-pca/intensity_mat_filtered_imputed_log2transf_norm.csv"
+          output_directory: "datasets/consortium/human-datasets/02_organized_data/proteomics/additional_QC/preprocessed/"
+          exclude_samples:
+             - "A-32469"
+          qc_ids_width: 17
+          qc_pca_width: 40
+          pivot_longer_names_to: "proteinID"
+          pivot_longer_exclude_col: "...1"
+          rename_index_old: "...1"
+          rename_index_new: "SampleID"
+      human_raw:
+        settings:
+          cohort: "datasets/consortium/human-datasets/cohort/sample_annotations.csv"
+          input_data: "datasets/consortium/human-datasets/02_organized_data/proteomics/organized/intensity.csv"
+          output_directory: "datasets/consortium/human-datasets/02_organized_data/proteomics/additional_QC/raw/"
+          qc_ids_width: 17
+          qc_pca_width: 40
+          pivot_longer_names_to: "SampleID"
+          pivot_longer_exclude_col: "UniProtName"
+          rename_index_old: "UniProtName"
+          rename_index_new: "proteinID"
+          isLog2: FALSE
+      human_csf_peprocessed:
+        settings:
+          cohort: "datasets/consortium/human-csf/02_organized_data/proteomics/prefiltering-pca/cohort_filtered.csv"
+          input_data: "datasets/consortium/human-csf/02_organized_data/proteomics/prefiltering-pca/intensity_mat_filtered_imputed_log2transf_norm.csv"
+          output_directory: "datasets/consortium/human-csf/02_organized_data/proteomics/additional_QC/preprocessed"
+          qc_ids_width: 17
+          qc_pca_width: 40
+          pivot_longer_names_to: "proteinID"
+          pivot_longer_exclude_col: "...1"
+          rename_index_old: "...1"
+          rename_index_new: "SampleID"
+      human_csf_raw:
+        settings:
+          cohort: "datasets/consortium/human-csf/01_received_data/cohort/sample_annotations.csv"
+          input_data: "datasets/consortium/human-csf/02_organized_data/proteomics/organized/intensity.csv"
+          output_directory: "datasets/consortium/human-csf/02_organized_data/proteomics/additional_QC/raw/"
+          qc_ids_width: 17
+          qc_pca_width: 40
+          pivot_longer_names_to: "SampleID"
+          pivot_longer_exclude_col: "UniProtName"
+          rename_index_old: "UniProtName"
+          rename_index_new: "proteinID"
+          isLog2: FALSE
+
+  revigo:
+    # This is used in the dvc file to generate multiple stages with a foreach
+    # https://dvc.org/doc/user-guide/project-structure/pipelines-files#foreach-stages
+    stages:
+      # For each dataset, we give its specific settings:
+      # Files should always be listed here:
+      sod1:
+        settings:
+          input:
+              #analysis name -> sex specific analyis for female and male
+              only_females:
+                  #input enrichment files based on ontology
+                  BP: "datasets/consortium/SOD1-mouse/02_organized_data/proteomics/gsea_enrichment/gsea_results/only_females-mut_vs_ctrl-BP_gsea_results.csv"
+                  CC: "datasets/consortium/SOD1-mouse/02_organized_data/proteomics/gsea_enrichment/gsea_results/only_females-mut_vs_ctrl-CC_gsea_results.csv"
+                  MF: "datasets/consortium/SOD1-mouse/02_organized_data/proteomics/gsea_enrichment/gsea_results/only_females-mut_vs_ctrl-MF_gsea_results.csv"
+              only_males:
+                  #input enrichment files based on ontology
+                  BP: "datasets/consortium/SOD1-mouse/02_organized_data/proteomics/gsea_enrichment/gsea_results/only_males-mut_vs_ctrl-BP_gsea_results.csv"
+                  CC: "datasets/consortium/SOD1-mouse/02_organized_data/proteomics/gsea_enrichment/gsea_results/only_males-mut_vs_ctrl-CC_gsea_results.csv"
+                  MF: "datasets/consortium/SOD1-mouse/02_organized_data/proteomics/gsea_enrichment/gsea_results/only_males-mut_vs_ctrl-MF_gsea_results.csv"
+          organism: "mmusculus"
+          biological_model: "SOD1-mouse" #used for checking gsea_enrichment folder as dependency model specific
+          output_directory: "datasets/consortium/SOD1-mouse/02_organized_data/proteomics/revigo/"
+      tdp43:
+        settings:
+          input:
+              #analysis name -> sex specific analyis for female and male
+              only_females:
+                  #input enrichment files based on ontology - if not available -> null
+                  BP: "datasets/consortium/TDP43-mouse/02_organized_data/proteomics/gsea_enrichment/gsea_results/only_females-mut_vs_ctrl-BP_gsea_results.csv"
+                  CC: "datasets/consortium/TDP43-mouse/02_organized_data/proteomics/gsea_enrichment/gsea_results/only_females-mut_vs_ctrl-CC_gsea_results.csv"
+                  MF: "datasets/consortium/TDP43-mouse/02_organized_data/proteomics/gsea_enrichment/gsea_results/only_females-mut_vs_ctrl-MF_gsea_results.csv"
+              only_males:
+                  #input enrichment files based on ontology - if not available -> null
+                  BP: "datasets/consortium/TDP43-mouse/02_organized_data/proteomics/gsea_enrichment/gsea_results/only_males-mut_vs_ctrl-BP_gsea_results.csv"
+                  CC: "datasets/consortium/TDP43-mouse/02_organized_data/proteomics/gsea_enrichment/gsea_results/only_males-mut_vs_ctrl-CC_gsea_results.csv"
+                  MF: "datasets/consortium/TDP43-mouse/02_organized_data/proteomics/gsea_enrichment/gsea_results/only_males-mut_vs_ctrl-MF_gsea_results.csv"
+          organism: "mmusculus"
+          biological_model: "TDP43-mouse" #used for checking gsea_enrichment folder as dependency model specific
+          output_directory: "datasets/consortium/TDP43-mouse/02_organized_data/proteomics/revigo/"
+      c9:
+        settings:
+          input:
+              #analysis name -> sex specific analyis for female and male
+              only_females:
+                  #input enrichment files based on ontology - if not available -> null
+                  BP: "datasets/consortium/C9orf72-mouse/02_organized_data/proteomics/gsea_enrichment/gsea_results/only_females-mut_vs_ctrl-BP_gsea_results.csv"
+                  CC: "datasets/consortium/C9orf72-mouse/02_organized_data/proteomics/gsea_enrichment/gsea_results/only_females-mut_vs_ctrl-CC_gsea_results.csv"
+                  MF: "datasets/consortium/C9orf72-mouse/02_organized_data/proteomics/gsea_enrichment/gsea_results/only_females-mut_vs_ctrl-MF_gsea_results.csv"
+              only_males:
+                  #input enrichment files based on ontology - if not available -> null
+                  BP: "datasets/consortium/C9orf72-mouse/02_organized_data/proteomics/gsea_enrichment/gsea_results/only_males-mut_vs_ctrl-BP_gsea_results.csv"
+                  CC: "datasets/consortium/C9orf72-mouse/02_organized_data/proteomics/gsea_enrichment/gsea_results/only_males-mut_vs_ctrl-CC_gsea_results.csv"
+                  MF: "datasets/consortium/C9orf72-mouse/02_organized_data/proteomics/gsea_enrichment/gsea_results/only_males-mut_vs_ctrl-MF_gsea_results.csv"
+          organism: "mmusculus"
+          biological_model: "C9orf72-mouse" #used for checking gsea_enrichment folder as dependency model specific
+          output_directory: "datasets/consortium/C9orf72-mouse/02_organized_data/proteomics/revigo/"
+      fus:
+        settings:
+          input:
+              #analysis name -> sex specific analyis for female and male
+              only_females:
+                  #input enrichment files based on ontology - if not available -> null
+                  BP: "datasets/consortium/FUS-mouse/02_organized_data/proteomics/gsea_enrichment/gsea_results/only_females-mut_vs_ctrl-BP_gsea_results.csv"
+                  CC: "datasets/consortium/FUS-mouse/02_organized_data/proteomics/gsea_enrichment/gsea_results/only_females-mut_vs_ctrl-CC_gsea_results.csv"
+                  MF: "datasets/consortium/FUS-mouse/02_organized_data/proteomics/gsea_enrichment/gsea_results/only_females-mut_vs_ctrl-MF_gsea_results.csv"
+              only_males:
+                  #input enrichment files based on ontology - if not available -> null
+                  BP: "datasets/consortium/FUS-mouse/02_organized_data/proteomics/gsea_enrichment/gsea_results/only_males-mut_vs_ctrl-BP_gsea_results.csv"
+                  CC: "datasets/consortium/FUS-mouse/02_organized_data/proteomics/gsea_enrichment/gsea_results/only_males-mut_vs_ctrl-CC_gsea_results.csv"
+                  MF: "datasets/consortium/FUS-mouse/02_organized_data/proteomics/gsea_enrichment/gsea_results/only_males-mut_vs_ctrl-MF_gsea_results.csv"
+          organism: "mmusculus"
+          biological_model: "FUS-mouse" #used for checking gsea_enrichment folder as dependency model specific
+          output_directory: "datasets/consortium/FUS-mouse/02_organized_data/proteomics/revigo/"
+      human:
+        settings:
+          input:
+              #analysis name -> sex specific analyis for female and male
+              only_females:
+                  #input enrichment files based on ontology - if not available -> null
+                  BP: "datasets/consortium/human-datasets/02_organized_data/proteomics/gsea_enrichment/gsea_results/only_females-mut_vs_ctrl-BP_gsea_results.csv"
+                  CC: "datasets/consortium/human-datasets/02_organized_data/proteomics/gsea_enrichment/gsea_results/only_females-mut_vs_ctrl-CC_gsea_results.csv"
+                  MF: "datasets/consortium/human-datasets/02_organized_data/proteomics/gsea_enrichment/gsea_results/only_females-mut_vs_ctrl-MF_gsea_results.csv"
+              only_males:
+                  #input enrichment files based on ontology - if not available -> null
+                  BP: "datasets/consortium/human-datasets/02_organized_data/proteomics/gsea_enrichment/gsea_results/only_males-mut_vs_ctrl-BP_gsea_results.csv"
+                  CC: "datasets/consortium/human-datasets/02_organized_data/proteomics/gsea_enrichment/gsea_results/only_males-mut_vs_ctrl-CC_gsea_results.csv"
+                  MF: "datasets/consortium/human-datasets/02_organized_data/proteomics/gsea_enrichment/gsea_results/only_males-mut_vs_ctrl-MF_gsea_results.csv"
+          organism: "hsapiens"
+          biological_model: "human-datasets" #used for checking gsea_enrichment folder as dependency model specific
+          output_directory: "datasets/consortium/human-datasets/02_organized_data/proteomics/revigo/"
+      human_csf:
+        settings:
+          input:
+              #analysis name -> sex specific analyis for female and male
+              only_females:
+                  #input enrichment files based on ontology - if not available -> null
+                  BP: "datasets/consortium/human-csf/02_organized_data/proteomics/gsea_enrichment/gsea_results/only_females-mut_vs_ctrl-BP_gsea_results.csv"
+                  CC: "datasets/consortium/human-csf/02_organized_data/proteomics/gsea_enrichment/gsea_results/only_females-mut_vs_ctrl-CC_gsea_results.csv"
+                  MF: "datasets/consortium/human-csf/02_organized_data/proteomics/gsea_enrichment/gsea_results/only_females-mut_vs_ctrl-MF_gsea_results.csv"
+              only_males:
+                  #input enrichment files based on ontology - if not available -> null
+                  BP: "datasets/consortium/human-csf/02_organized_data/proteomics/gsea_enrichment/gsea_results/only_males-mut_vs_ctrl-BP_gsea_results.csv"
+                  CC: "datasets/consortium/human-csf/02_organized_data/proteomics/gsea_enrichment/gsea_results/only_males-mut_vs_ctrl-CC_gsea_results.csv"
+                  MF: "datasets/consortium/human-csf/02_organized_data/proteomics/gsea_enrichment/gsea_results/only_males-mut_vs_ctrl-MF_gsea_results.csv"
+          organism: "hsapiens"
+          biological_model: "human-csf" #used for checking gsea_enrichment folder as dependency model specific
+          output_directory: "datasets/consortium/human-csf/02_organized_data/proteomics/revigo/"
+          
+  gofigure:
+    # This is used in the dvc file to generate multiple stages with a foreach
+    # https://dvc.org/doc/user-guide/project-structure/pipelines-files#foreach-stages
+    stages:
+      # For each dataset, we give its specific settings:
+      # Files should always be listed here:
+      tdp43:
+        inputs: datasets/consortium/TDP43-mouse/02_organized_data/proteomics/gsea_enrichment/gsea_results
+        outputs: datasets/consortium/TDP43-mouse/02_organized_data/proteomics/gofigure/
+        settings:
+            level: [0]
+            commandline:
+            -  "--file_type"
+            - "pdf"
+      sod1:
+        inputs: datasets/consortium/SOD1-mouse/02_organized_data/proteomics/gsea_enrichment/gsea_results
+        outputs: datasets/consortium/SOD1-mouse/02_organized_data/proteomics/gofigure/
+        settings:
+            level: [0]
+            commandline:
+            -  "--file_type"
+            - "pdf"
+      fus:
+        inputs: datasets/consortium/FUS-mouse/02_organized_data/proteomics/gsea_enrichment/gsea_results
+        outputs: datasets/consortium/FUS-mouse/02_organized_data/proteomics/gofigure/
+        settings:
+            level: [0]
+            commandline:
+            -  "--file_type"
+            - "pdf"
+      c9:
+        inputs: datasets/consortium/C9orf72-mouse/02_organized_data/proteomics/gsea_enrichment/gsea_results
+        outputs: datasets/consortium/C9orf72-mouse/02_organized_data/proteomics/gofigure/
+        settings:
+            level: [0]
+            commandline:
+            -  "--file_type"
+            - "pdf"
+      human:
+        inputs: datasets/consortium/human-datasets/02_organized_data/proteomics/gsea_enrichment/gsea_results
+        outputs: datasets/consortium/human-datasets/02_organized_data/proteomics/gofigure/
+        settings:
+            level: [0]
+            commandline:
+            -  "--file_type"
+            - "pdf"
+
+  deg_boxplots:
+    # default_system_settings are those settings that are shared by all the datasets and
+    # that do not change the results.
+    # For instance the number of CPUs to use in the analysis.
+    default_system_settings: {}
+    # default_settings are those settings that are shared by all the datasets, for instance
+    # the nextflow pipeline we want to use.
+    default_settings: 
+      filepattern: "only_*males*-strict.csv"
+      splitby: "Sex"
+      pattern: "only_((fe)?male)s"
+      catplot_kwargs:
+        col_wrap: 4
+        sharey: False
+        kind: "box"
+        showmeans: True
+        meanline: True
+        meanprops:
+          color: "black"
+          linewidth: 1.5
+        hue: "Condition"
+      stripplot_kwargs:
+        alpha: 0.6
+        dodge: True
+        hue: "Condition"
+        color: "black"
+        size: 10
+    # This is used in the dvc file to generate multiple stages with a foreach
+    # https://dvc.org/doc/user-guide/project-structure/pipelines-files#foreach-stages
+    stages:
+      # For each dataset, we give its specific settings:
+      # Files should always be listed here:
+      sod1:
+        inputs:
+          raw: "datasets/consortium/SOD1-mouse/02_organized_data/proteomics/prefiltering-pca/intensity_mat_filtered_imputed_log2transf_norm.csv"
+          degpath: "datasets/consortium/SOD1-mouse/02_organized_data/proteomics/deg_digestion/de_tables/"
+          metadata: "datasets/consortium/SOD1-mouse/02_organized_data/proteomics/prefiltering-pca/cohort_filtered.csv"
+        output: "datasets/consortium/SOD1-mouse/02_organized_data/proteomics/deg_boxplots/"
+        settings: {}
+      tdp43:
+        inputs:
+          raw: "datasets/consortium/TDP43-mouse/02_organized_data/proteomics/prefiltering-pca/intensity_mat_filtered_imputed_log2transf_norm.csv"
+          degpath: "datasets/consortium/TDP43-mouse/02_organized_data/proteomics/deg_digestion/de_tables/"
+          metadata: "datasets/consortium/TDP43-mouse/02_organized_data/proteomics/prefiltering-pca/cohort_filtered.csv"
+        output: "datasets/consortium/TDP43-mouse/02_organized_data/proteomics/deg_boxplots/"
+        settings: {}
+      c9:
+        inputs:
+          raw: "datasets/consortium/C9orf72-mouse/02_organized_data/proteomics/prefiltering-pca/intensity_mat_filtered_imputed_log2transf_norm.csv"
+          degpath: "datasets/consortium/C9orf72-mouse/02_organized_data/proteomics/deg_digestion/de_tables/"
+          metadata: "datasets/consortium/C9orf72-mouse/02_organized_data/proteomics/prefiltering-pca/cohort_filtered.csv"
+        output: "datasets/consortium/C9orf72-mouse/02_organized_data/proteomics/deg_boxplots/"
+        settings:
+          catplot_kwargs:
+            col_wrap: 12
+            sharey: False
+            kind: "box"
+            showmeans: True
+            meanline: True
+            meanprops:
+              color: "black"
+              linewidth: 1.5
+            hue: "Condition"
+      fus:
+        inputs:
+          raw: "datasets/consortium/FUS-mouse/02_organized_data/proteomics/prefiltering-pca/intensity_mat_filtered_imputed_log2transf_norm.csv"
+          degpath: "datasets/consortium/FUS-mouse/02_organized_data/proteomics/deg_digestion/de_tables/"
+          metadata: "datasets/consortium/FUS-mouse/02_organized_data/proteomics/prefiltering-pca/cohort_filtered.csv"
+        output: "datasets/consortium/FUS-mouse/02_organized_data/proteomics/deg_boxplots/"
+        settings: {}
+      human_csf:
+        inputs:
+          raw: "datasets/consortium/human-csf/02_organized_data/proteomics/prefiltering-pca/intensity_mat_filtered_imputed_log2transf_norm.csv"
+          degpath: "datasets/consortium/human-csf/02_organized_data/proteomics/deg_digestion/de_tables/"
+          metadata: "datasets/consortium/human-csf/02_organized_data/proteomics/prefiltering-pca/cohort_filtered.csv"
+        output: "datasets/consortium/human-csf/02_organized_data/proteomics/deg_boxplots/"
+        settings: {}
+      human:
+        inputs:
+          raw: "datasets/consortium/human-datasets/02_organized_data/proteomics/prefiltering-pca/intensity_mat_filtered_imputed_log2transf_norm.csv"
+          degpath: "datasets/consortium/human-datasets/02_organized_data/proteomics/deg_digestion/de_tables/"
+          metadata: "datasets/consortium/human-datasets/02_organized_data/proteomics/prefiltering-pca/cohort_filtered.csv"
+        output: "datasets/consortium/human-datasets/02_organized_data/proteomics/deg_boxplots/"
+        settings: {}

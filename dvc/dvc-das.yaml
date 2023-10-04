@@ -1,0 +1,67 @@
+stages:
+  das_prep:
+    foreach: ${splicing_analysis_das.das_prep.stages} #key
+    do:
+      cmd: ./docker-wrapper.sh ./src/rnaseq/DAS_Analysis/das_prep.R --dataset-name ${key}
+      deps:
+      - ./src/shared/R-helpers/get_args.R
+      - ./src/shared/R-helpers/get_settings.R
+      - ./src/rnaseq/DAS_Analysis/das_prep.R
+      - ${item.settings.input_directory}
+      - ${item.settings.gtf}
+      - ${item.settings.nextflow}
+      - ${item.settings.annotation}
+
+      params:
+      - splicing_analysis_das.das_prep.stages.${key}.settings
+      outs:
+      - ${item.settings.output_directory} 
+      
+  das_decompress_anno_file:
+    foreach:
+      human: 
+        inputs: database/align-references/hsapiens/gencode.v37.annotation.gtf.gz
+        output: database/align-references/hsapiens/gencode.v37.annotation.gtf
+      mouse: 
+        inputs: database/align-references/mmusculus/gencode.vM26.annotation.gtf.gz
+        output: database/align-references/mmusculus/gencode.vM26.annotation.gtf
+    do:
+      cmd: zcat ${item.inputs}  > ${item.output}
+      deps:
+      - ${item.inputs}
+      outs:
+      - ${item.output}:
+          cache: false
+
+  das: 
+    foreach: ${splicing_analysis_das.das.stages}
+    do:
+      cmd: ./docker-wrapper.sh src/rnaseq/DAS_Analysis/DAS.sh --dataset-name ${key} --input_dir ${item.settings.input_directory} --gtf ${item.settings.gtf} --out_dir ${item.settings.output_directory}
+      deps:
+      - ./src/rnaseq/DAS_Analysis/DAS.sh
+      - ./src/shared/R-helpers/get_args.R
+      - ./src/shared/R-helpers/get_settings.R
+      - ${item.settings.input_directory}
+      - ${item.settings.data_input}
+      - ${item.settings.gtf}
+      params:
+      - splicing_analysis_das.das.stages.${key}.settings
+      outs:
+      - ${item.settings.output_directory} # why item?
+
+  das_ora:
+    foreach: ${splicing_analysis_das.das_ora.stages}
+    do:
+      cmd: ./docker-wrapper.sh ./src/rnaseq/ORA/das_ora.R --dataset-name ${key}
+      deps:
+      - ./src/rnaseq/ORA/das_ora.R
+      - ./src/shared/R-helpers/get_args.R
+      - ./src/shared/R-helpers/get_settings.R
+      - ${item.settings.input}
+      params:
+      - splicing_analysis_das.das_ora.stages.${key}.settings
+      outs:
+      - ${item.settings.output_directory}
+
+
+

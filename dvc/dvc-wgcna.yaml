@@ -1,0 +1,134 @@
+stages:
+    wgcna_proteomics:
+       foreach: ${WGCNA.proteomics.stages}
+       do:
+           cmd: ./docker-wrapper.sh Rscript src/shared/WGCNA/perform_WGCNA_protein.R --dataset-name ${key}
+           deps:
+           - src/shared/WGCNA/perform_WGCNA_protein.R
+           - src/shared/WGCNA/perform_WGCNA_functions.R
+           - src/shared/WGCNA/enrichment_WGCNA_functions.R
+           - ${item.input_file}
+           - ${item.annotations} 
+           - ${item.uniprot_to_ensembl}
+           - ${item.de_dir}
+           params:
+           - WGCNA.proteomics.stages.${key}
+           outs:
+           - ${item.output_dir}
+    wgcna_moduleUpset:
+        cmd: ./docker-wrapper.sh Rscript src/shared/WGCNA/moduleUpset.r
+        deps:
+            - src/shared/WGCNA/moduleUpset.r
+            - ${WGCNA.upset.stages.sod1}
+            - ${WGCNA.upset.stages.c9orf72}
+            - ${WGCNA.upset.stages.fus}
+            - ${WGCNA.upset.stages.tdp43}
+        params:
+            - WGCNA.upset.nintersects
+            - WGCNA.upset.order_by
+            - WGCNA.upset.matrix_plot_ratio
+            - WGCNA.upset.main_bar_plot_ratio
+            - WGCNA.upset.text_scale
+            - WGCNA.upset.png_width
+            - WGCNA.upset.png_height
+            - WGCNA.upset.png_res
+            - WGCNA.upset.out_dir
+            - WGCNA.upset.stages.sod1
+            - WGCNA.upset.stages.c9orf72
+            - WGCNA.upset.stages.fus
+            - WGCNA.upset.stages.tdp43
+        outs:
+            - ${WGCNA.upset.out_dir}
+    wgcna_rnaseq:
+       foreach: ${WGCNA.rnaseq.stages}
+       do:
+           cmd: ./docker-wrapper.sh Rscript src/rnaseq/WGCNA.r --dataset-name ${key}
+           deps:
+           - src/rnaseq/WGCNA.r
+           - ${item.input_file}
+           - ${item.annotations} 
+           - ${item.ensembl_to_symbol}
+           - ${item.de_dir}
+           params:
+           - WGCNA.rnaseq.stages.${key}.organism
+           - WGCNA.rnaseq.stages.${key}.selection
+           - WGCNA.rnaseq.stages.${key}.softPower
+           - WGCNA.rnaseq.stages.${key}.MEDissThres
+           - WGCNA.rnaseq.stages.${key}.moduleSelectionThreshold
+           outs:
+           - ${item.output_dir}
+           
+    wgcna_graph:
+       foreach: ${WGCNA.graph.stages}
+       do:
+           cmd: ./docker-wrapper.sh python3 src/shared/create_WGCNA_graph.py --stage ${key}
+           deps:
+           - src/shared/create_WGCNA_graph.py
+           - ${item.inputs}
+           params:
+           - WGCNA.graph.stages.${key}.settings
+           - WGCNA.graph.default_settings
+           outs:
+           - ${item.outputs}
+    wgcna_graph_filter:
+       foreach: ${WGCNA.graph_filter.stages}
+       do:
+           cmd: ./docker-wrapper.sh python3 src/shared/filter_WGCNA_graph.py --stage ${key}
+           deps:
+           - src/shared/filter_WGCNA_graph.py
+           - ${item.inputs}
+           params:
+           - WGCNA.graph_filter.stages.${key}.settings
+           - WGCNA.graph_filter.default_settings
+           outs:
+           - ${item.outputs}/filtered.gml
+           - ${item.outputs}/layout.npz
+           
+    wgcna_graph_plot_rnaseq:
+       foreach: ${WGCNA.graph_plot.rnaseq.stages}
+       do:
+           cmd: ./docker-wrapper.sh python3 src/shared/plot_WGCNA_graph.py --stage ${key} --omic rnaseq
+           params:
+           - WGCNA.graph_plot.rnaseq.stages.${key}.settings
+           - WGCNA.graph_plot.default_settings
+           deps:
+           - src/shared/plot_WGCNA_graph.py
+           - ${item.inputs.graph}
+           - ${item.inputs.layout}
+           - ${item.inputs.modules}
+           - ${item.inputs.celltype_marker}
+           - ${item.inputs.deg_female}
+           - ${item.inputs.deg_male}
+           - ${item.inputs.deg_full_female}
+           - ${item.inputs.deg_full_male}
+           outs:
+           - ${item.outputs}/graph_module.pdf
+           - ${item.outputs}/graph_celltype.pdf
+           - ${item.outputs}/graph_degs.pdf
+           - ${item.outputs}/graph_deg_foldchange.pdf
+
+    wgcna_graph_plot_proteomics:
+       foreach: ${WGCNA.graph_plot.proteomics.stages}
+       do:
+           cmd: ./docker-wrapper.sh python3 src/shared/plot_WGCNA_graph.py --stage ${key} --omic proteomics
+           params:
+           - WGCNA.graph_plot.proteomics.stages.${key}.settings
+           - WGCNA.graph_plot.default_settings
+           deps:
+           - src/shared/plot_WGCNA_graph.py
+           - ${item.inputs.graph}
+           - ${item.inputs.layout}
+           - ${item.inputs.modules}
+           - ${item.inputs.celltype_marker}
+           - ${item.inputs.deg_female}
+           - ${item.inputs.deg_male}
+           - ${item.inputs.deg_full_female}
+           - ${item.inputs.deg_full_male}
+           - ${item.inputs.uniprotmapping}
+           - ${item.inputs.ensemblmapping}
+           outs:
+           - ${item.outputs}/graph_module.pdf
+           - ${item.outputs}/graph_celltype.pdf
+           - ${item.outputs}/graph_degs.pdf
+           - ${item.outputs}/graph_deg_foldchange.pdf
+                

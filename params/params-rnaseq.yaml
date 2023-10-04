@@ -1,0 +1,1487 @@
+# The omics goes first
+rnaseq:
+  # Then the name of the stage you work on
+  nextflow:
+    # default_system_settings are those settings that are shared by all the datasets and
+    # that do not change the results.
+    # For instance the number of CPUs to use in the analysis.
+    default_system_settings:
+      nextflow: "nextflow-21.03.0-edge.5518"
+      nextflow_extra_args: []
+      cpus: 32
+      memory: '600.GB'
+      nf_profile: "docker"
+      resume: true
+    # default_settings are those settings that are shared by all the datasets, for instance
+    # the nextflow pipeline we want to use.
+    default_settings:
+      sample_to_filename_suffix_R1: "_R1.fastq.gz"
+      sample_to_filename_suffix_R2: null
+      nf_pipeline: "nf-core/rnaseq"
+      nf_pipeline_version: "3.0"
+      gencode: true
+      save_reference: true
+      deseq2_vst: true
+      skip_alignment: false
+      salmon_transcripts: true
+      strandedness: "reverse"
+    # This is used in the dvc file to generate multiple stages with a foreach
+    # https://dvc.org/doc/user-guide/project-structure/pipelines-files#foreach-stages
+    stages:
+      # For each dataset, we give its specific settings:
+      # Files should always be listed here:
+      sod1:
+        settings:
+          cohort: "datasets/consortium/SOD1-mouse/01_received_data/cohort/sample_annotations.csv"
+          input_directory: 'datasets/consortium/SOD1-mouse/01_received_data/rnaseq/NovaSeq_20200312_NOV338_o6670_DataDelivery/'
+          output_directory: 'datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/nf-rnaseq/'
+          sample_to_filename_pattern: "S([0-9]+)"
+          sample_to_filename_replacement: '20200312.A-\1_transcriptomics'
+          fasta: 'database/align-references/mmusculus/GRCm39.primary_assembly.genome.fa.gz'
+          gtf: 'database/align-references/mmusculus/gencode.vM26.annotation.gtf.gz'
+      tdp43:
+        settings:
+          cohort: "datasets/consortium/TDP43-mouse/01_received_data/cohort/sample_annotations.csv"
+          input_directory: 'datasets/consortium/TDP43-mouse/01_received_data/rnaseq/NovaSeq_20200312_NOV338_o6672_DataDelivery/'
+          output_directory: 'datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/nf-rnaseq/'
+          sample_to_filename_pattern: "S([0-9]+)"
+          sample_to_filename_replacement: '20200312.A-\1_transcriptomics'
+          fasta: 'database/align-references/mmusculus/GRCm39.primary_assembly.genome.fa.gz'
+          gtf: 'database/align-references/mmusculus/gencode.vM26.annotation.gtf.gz'
+      c9:
+        settings:
+          cohort: "datasets/consortium/C9orf72-mouse/01_received_data/cohort/sample_annotations.csv"
+          input_directory: 'datasets/consortium/C9orf72-mouse/01_received_data/rnaseq/NovaSeq_20200702_NOV400_o6998_DataDelivery/'
+          output_directory: 'datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/nf-rnaseq/'
+          sample_to_filename_pattern: "S([_0-9]+)"
+          sample_to_filename_replacement: '20200702.A-\1'
+          fasta: 'database/align-references/mmusculus/GRCm39.primary_assembly.genome.fa.gz'
+          gtf: 'database/align-references/mmusculus/gencode.vM26.annotation.gtf.gz'
+          save_reference: false
+      fus:
+        settings:
+          cohort: "datasets/consortium/FUS-mouse/01_received_data/cohort/sample_annotations.csv"
+          input_directory: 'datasets/consortium/FUS-mouse/01_received_data/rnaseq/NovaSeq_20201014_NOV483_o7476_part/'
+          output_directory: 'datasets/consortium/FUS-mouse/02_organized_data/rnaseq/nf-rnaseq/'
+          sample_to_filename_pattern: "S([0-9]+)"
+          sample_to_filename_replacement: '20201014.B-\1'
+          fasta: 'database/align-references/mmusculus/GRCm39.primary_assembly.genome.fa.gz'
+          gtf: 'database/align-references/mmusculus/gencode.vM26.annotation.gtf.gz'
+          save_reference: false
+      human:
+        system_settings:
+          # Workaround https://github.com/nextflow-io/nextflow/issues/1871
+          nextflow_extra_args: ["-Dnxf.pool.type=sync"]
+        settings:
+          cohort: "datasets/consortium/human-datasets/cohort/sample_annotations.csv"
+          input_directory: 'datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery'
+          output_directory: 'datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq/'
+          sample_to_filename_pattern: "(.+)"
+          sample_to_filename_replacement: '20200929.A-\1_small'
+          #genome: "GRCh38"
+          fasta: 'database/align-references/hsapiens/GRCh38.primary_assembly.genome.fa.gz'
+          gtf: 'database/align-references/hsapiens/gencode.v37.annotation.gtf.gz'
+      human_rerun:
+        system_settings:
+          # Workaround https://github.com/nextflow-io/nextflow/issues/1871
+          nextflow_extra_args: ["-Dnxf.pool.type=sync"]
+        settings:
+          cohort: "datasets/consortium/human-datasets/cohort/sample_annotations_rerun.csv"
+          input_directory: 'datasets/consortium/human-datasets/rnaseq/NovaSeq_20220921_NOV1449_o29081_DataDelivery/'
+          output_directory: 'datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_rerun/'
+          sample_to_filename_pattern: "(.+)"
+          sample_to_filename_replacement: '20220921.A-\1_REPEAT'
+          sample_to_filename_suffix_R2: null
+          #genome: "GRCh38"
+          fasta: 'database/align-references/hsapiens/GRCh38.primary_assembly.genome.fa.gz'
+          gtf: 'database/align-references/hsapiens/gencode.v37.annotation.gtf.gz'
+          #transcript_fasta: 'database/align-references/hsapiens/gencode.v37.transcripts.fa.gz'
+      human_merged:
+        system_settings:
+          # Workaround https://github.com/nextflow-io/nextflow/issues/1871
+          nextflow_extra_args: ["-Dnxf.pool.type=sync"]
+        settings:
+          cohort: "datasets/consortium/human-datasets/cohort/sample_annotations.csv"
+          input_directory: 'datasets/consortium/human-datasets/rnaseq/merged/'
+          output_directory: 'datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/'
+          sample_to_filename_pattern: "(.+)"
+          sample_to_filename_suffix_R2: null
+          sample_to_filename_replacement: 'merged_\1_RNA'
+          #genome: "GRCh38"
+          fasta: 'database/align-references/hsapiens/GRCh38.primary_assembly.genome.fa.gz'
+          gtf: 'database/align-references/hsapiens/gencode.v37.annotation.gtf.gz'
+          #transcript_fasta: 'database/align-references/hsapiens/gencode.v37.transcripts.fa.gz'
+
+
+  prefiltering_pca:
+    # default_system_settings are those settings that are shared by all the datasets and
+    # that do not change the results.
+    # For instance the number of CPUs to use in the analysis.
+    default_system_settings: {}
+    # default_settings are those settings that are shared by all the datasets, for instance
+    # the nextflow pipeline we want to use.
+    default_settings:
+      exclude_samples: null
+      filter_low_counts:
+        stratify_by:
+        - "Condition"
+        - "Sex"
+        at_least_counts: 10
+        at_least_samples: 0.5
+        at_least_samples_mode: "fraction"
+      pca_colour_by:
+        - "Condition"
+    # This is used in the dvc file to generate multiple stages with a foreach
+    # https://dvc.org/doc/user-guide/project-structure/pipelines-files#foreach-stages
+    stages:
+      # For each dataset, we give its specific settings:
+      # Files should always be listed here:
+      sod1:
+        settings:
+          cohort: "datasets/consortium/SOD1-mouse/01_received_data/cohort/sample_annotations.csv"
+          nfid_to_sample_id: "datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/nf-rnaseq/nextflow_ids_to_samples.csv"
+          counts: "datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/nf-rnaseq/results/salmon/salmon.merged.gene_counts.rds"
+          output_directory: "datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/prefiltering-pca/"
+      tdp43:
+        settings:
+          cohort: "datasets/consortium/TDP43-mouse/01_received_data/cohort/sample_annotations.csv"
+          nfid_to_sample_id: "datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/nf-rnaseq/nextflow_ids_to_samples.csv"
+          counts: "datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/nf-rnaseq/results/salmon/salmon.merged.gene_counts.rds"
+          output_directory: "datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/prefiltering-pca/"
+      c9:
+        settings:
+          cohort: "datasets/consortium/C9orf72-mouse/01_received_data/cohort/sample_annotations.csv"
+          nfid_to_sample_id: "datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/nf-rnaseq/nextflow_ids_to_samples.csv"
+          counts: "datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/nf-rnaseq/results/salmon/salmon.merged.gene_counts.rds"
+          output_directory: "datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/prefiltering-pca/"
+      fus:
+        settings:
+          cohort: "datasets/consortium/FUS-mouse/01_received_data/cohort/sample_annotations.csv"
+          nfid_to_sample_id: "datasets/consortium/FUS-mouse/02_organized_data/rnaseq/nf-rnaseq/nextflow_ids_to_samples.csv"
+          counts: "datasets/consortium/FUS-mouse/02_organized_data/rnaseq/nf-rnaseq/results/salmon/salmon.merged.gene_counts.rds"
+          output_directory: "datasets/consortium/FUS-mouse/02_organized_data/rnaseq/prefiltering-pca/"
+          exclude_samples:
+             - "S781"
+      human:
+        settings:
+          cohort: "datasets/consortium/human-datasets/cohort/sample_annotations_with_batch.csv"
+          nfid_to_sample_id: "datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/nextflow_ids_to_samples.csv"
+          counts: "datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/salmon/salmon.merged.gene_counts.rds"
+          output_directory: "datasets/consortium/human-datasets/02_organized_data/rnaseq/prefiltering-pca/"
+          exclude_samples:
+             - "A-32469"
+          pca_colour_by:
+             - "Condition"
+             - "Center"
+             - "AgeAtDeath"
+             - "PostMortemInterval"
+             - "RNAseqBatch"
+  deg:
+    # default_system_settings are those settings that are shared by all the datasets and
+    # that do not change the results.
+    # For instance the number of CPUs to use in the analysis.
+    default_system_settings: {}
+    # default_settings are those settings that are shared by all the datasets, for instance
+    # the nextflow pipeline we want to use.
+    default_settings:
+      cohort_factors:
+        - factor: "Condition"
+          levels: ["ctrl", "mut"]
+        - factor: "Sex"
+          levels: ["female", "male"]
+      deseq2:
+        - name: "no_covariates"
+          formula: "~ Condition"
+          results:
+            - name: "mut_vs_ctrl"
+              contrast: ["Condition_mut_vs_ctrl"]
+              padjust_method: "BH"
+        - name: "covariate_sex"
+          formula: "~ Sex + Condition"
+          results:
+            - name: "mut_vs_ctrl"
+              contrast: ["Condition_mut_vs_ctrl"]
+              padjust_method: "BH"
+            - name: "male_vs_female"
+              contrast: ["Sex_male_vs_female"]
+              padjust_method: "BH"
+        - name: "only_males"
+          filter:
+            - field: "Sex"
+              value: "male"
+          formula: "~ Condition"
+          results:
+            - name: "mut_vs_ctrl"
+              contrast: ["Condition_mut_vs_ctrl"]
+              padjust_method: "BH"
+        - name: "only_females"
+          filter:
+            - field: "Sex"
+              value: "female"
+          formula: "~ Condition"
+          results:
+            - name: "mut_vs_ctrl"
+              contrast: ["Condition_mut_vs_ctrl"]
+              padjust_method: "BH"
+    # This is used in the dvc file to generate multiple stages with a foreach
+    # https://dvc.org/doc/user-guide/project-structure/pipelines-files#foreach-stages
+    stages:
+      # For each dataset, we give its specific settings:
+      # Files should always be listed here:
+      sod1:
+        settings:
+          cohort: "datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/prefiltering-pca/cohort_excluded_outliers.csv"
+          prefiltpca_dir: "datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/prefiltering-pca/"
+          output_directory: "datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/deg/"
+      tdp43:
+        settings:
+          cohort: "datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/prefiltering-pca/cohort_excluded_outliers.csv"
+          prefiltpca_dir: "datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/prefiltering-pca/"
+          output_directory: "datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/deg/"
+      c9:
+        settings:
+          cohort: "datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/prefiltering-pca/cohort_excluded_outliers.csv"
+          prefiltpca_dir: "datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/prefiltering-pca/"
+          output_directory: "datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/deg/"
+      fus:
+        settings:
+          cohort: "datasets/consortium/FUS-mouse/02_organized_data/rnaseq/prefiltering-pca/cohort_excluded_outliers.csv"
+          prefiltpca_dir: "datasets/consortium/FUS-mouse/02_organized_data/rnaseq/prefiltering-pca/"
+          output_directory: "datasets/consortium/FUS-mouse/02_organized_data/rnaseq/deg/"
+      human:
+        settings:
+          cohort: "datasets/consortium/human-datasets/02_organized_data/rnaseq/prefiltering-pca/cohort_excluded_outliers.csv"
+          prefiltpca_dir: "datasets/consortium/human-datasets/02_organized_data/rnaseq/prefiltering-pca/"
+          output_directory: "datasets/consortium/human-datasets/02_organized_data/rnaseq/deg/"
+          cohort_factors:
+            - factor: "Condition"
+              levels: ["ctrl", "als"]
+            - factor: "Sex"
+              levels: ["female", "male"]
+            - factor: "Center"
+            - factor: "RNAseqBatch"
+          deseq2:
+            - name: "no_covariates"
+              formula: "~ Condition + RNAseqBatch"
+              results:
+                - name: "mut_vs_ctrl"
+                  contrast: ["Condition_als_vs_ctrl"]
+                  padjust_method: "BH"
+            - name: "covariate_sex"
+              formula: "~ Sex + Condition + RNAseqBatch"
+              results:
+                - name: "mut_vs_ctrl"
+                  contrast: ["Condition_als_vs_ctrl"]
+                  padjust_method: "BH"
+                - name: "male_vs_female"
+                  contrast: ["Sex_male_vs_female"]
+                  padjust_method: "BH"
+            - name: "covariate_sex_and_center"
+              formula: "~ Sex + Center + Condition + RNAseqBatch"
+              results:
+                - name: "mut_vs_ctrl"
+                  contrast: ["Condition_als_vs_ctrl"]
+                  padjust_method: "BH"
+                - name: "male_vs_female"
+                  contrast: ["Sex_male_vs_female"]
+                  padjust_method: "BH"
+            - name: "covariate_sex_center_and_age"
+              autoscale: ["AgeAtDeath"]
+              formula: "~ Sex + Center + AgeAtDeath + Condition + RNAseqBatch"
+              results:
+                - name: "mut_vs_ctrl"
+                  contrast: ["Condition_als_vs_ctrl"]
+                  padjust_method: "BH"
+                - name: "male_vs_female"
+                  contrast: ["Sex_male_vs_female"]
+                  padjust_method: "BH"
+                - name: "age"
+                  contrast: ["AgeAtDeath"]
+                  padjust_method: "BH"
+            - name: "only_males"
+              filter:
+                - field: "Sex"
+                  value: "male"
+              formula: "~ Condition + RNAseqBatch"
+              results:
+                - name: "mut_vs_ctrl"
+                  contrast: ["Condition_als_vs_ctrl"]
+                  padjust_method: "BH"
+            - name: "only_males_covariate_center"
+              filter:
+                - field: "Sex"
+                  value: "male"
+              formula: "~ Center + Condition + RNAseqBatch"
+              results:
+                - name: "mut_vs_ctrl"
+                  contrast: ["Condition_als_vs_ctrl"]
+                  padjust_method: "BH"
+            - name: "only_females"
+              filter:
+                - field: "Sex"
+                  value: "female"
+              formula: "~ Condition + RNAseqBatch"
+              results:
+                - name: "mut_vs_ctrl"
+                  contrast: ["Condition_als_vs_ctrl"]
+                  padjust_method: "BH"
+            - name: "only_females_covariate_center"
+              filter:
+                - field: "Sex"
+                  value: "female"
+              formula: "~ Center + Condition + RNAseqBatch"
+              results:
+                - name: "mut_vs_ctrl"
+                  contrast: ["Condition_als_vs_ctrl"]
+                  padjust_method: "BH"
+            - name: "CheckBatch"
+              formula: "~ RNAseqBatch"
+              results:
+                - name: "Batch2_vs_Batch1"
+                  contrast: ["RNAseqBatch_Batch2_vs_Batch1"]
+                  padjust_method: "BH"
+            - name: "only_males_no_batch"
+              filter:
+                - field: "Sex"
+                  value: "male"
+              formula: "~ Condition"
+              results:
+                - name: "mut_vs_ctrl"
+                  contrast: ["Condition_als_vs_ctrl"]
+                  padjust_method: "BH"
+            - name: "only_females_no_batch"
+              filter:
+                - field: "Sex"
+                  value: "female"
+              formula: "~ Condition"
+              results:
+                - name: "mut_vs_ctrl"
+                  contrast: ["Condition_als_vs_ctrl"]
+                  padjust_method: "BH"
+  deg_digestion:
+    # default_system_settings are those settings that are shared by all the datasets and
+    # that do not change the results.
+    # For instance the number of CPUs to use in the analysis.
+    default_system_settings:
+      cache: ".cache_rnaseq_deg_digestion/"
+    # default_settings are those settings that are shared by all the datasets, for instance
+    # the nextflow pipeline we want to use.
+    default_settings:
+      deseq2:
+        - name: "no_covariates"
+          results:
+            - name: "mut_vs_ctrl"
+        - name: "covariate_sex"
+          results:
+            - name: "mut_vs_ctrl"
+            - name: "male_vs_female"
+        - name: "only_males"
+          results:
+            - name: "mut_vs_ctrl"
+        - name: "only_females"
+          results:
+            - name: "mut_vs_ctrl"
+      volcano_plots:
+        - name: "volcano_mut_vs_ctrl_sex_covariate"
+          subplots:
+            - name: ["no_covariates", "mut_vs_ctrl"]
+              title: "Mut vs Ctrl (no covariates)"
+            - name: ["covariate_sex", "mut_vs_ctrl"]
+              title: "Mut vs Ctrl (sex as covariate)"
+        - name: "volcano_mut_vs_ctrl_sex_stratifying"
+          subplots:
+            - name: ["only_females", "mut_vs_ctrl"]
+              title: "Mut vs Ctrl (females only)"
+            - name: ["only_males", "mut_vs_ctrl"]
+              title: "Mut vs Ctrl (males only)"
+            - name: ["covariate_sex", "mut_vs_ctrl"]
+              title: "Mut vs Ctrl (sex as covariate)"
+      merged_volcano:
+          - analysis: "only_males"
+            result_name: "mut_vs_ctrl"
+            title: "significant for male"
+            color: "#00CCFF" #skyblue
+          - analysis: "only_females"
+            result_name: "mut_vs_ctrl"
+            title: "significant for female"
+            color: "#F07C04" #orange
+      de_thresholds:
+        strict:
+          up_log2fc: 0.5849625
+          down_log2fc: -0.5849625
+          padj: 0.05
+        loose:
+          up_log2fc: 0.5849625
+          down_log2fc: -0.5849625
+          padj: 0.10
+        strict_justpval:
+          up_log2fc: 0
+          down_log2fc: -0
+          padj: 0.05
+      gene_overlaps:
+        - name: "mut_vs_ctrl_sex_stratifying"
+          criterion: "strict"
+          sets:
+            - name: "female"
+              set: ["only_females", "mut_vs_ctrl"]
+            - name: "male"
+              set: ["only_males", "mut_vs_ctrl"]
+            - name: "sex_covariate"
+              set: ["covariate_sex", "mut_vs_ctrl"]
+      organism: "mmusculus"
+
+    # This is used in the dvc file to generate multiple stages with a foreach
+    # https://dvc.org/doc/user-guide/project-structure/pipelines-files#foreach-stages
+    stages:
+      # For each dataset, we give its specific settings:
+      # Files should always be listed here:
+      sod1:
+        settings:
+          deg_dir: "datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/deg/"
+          prefiltpca_dir: "datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/prefiltering-pca/"
+          output_directory: "datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/deg-digestion/"
+      tdp43:
+        settings:
+          deg_dir: "datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/deg/"
+          prefiltpca_dir: "datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/prefiltering-pca/"
+          output_directory: "datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/deg-digestion/"
+      c9:
+        settings:
+          deg_dir: "datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/deg/"
+          prefiltpca_dir: "datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/prefiltering-pca/"
+          output_directory: "datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/deg-digestion/"
+      fus:
+        settings:
+          deg_dir: "datasets/consortium/FUS-mouse/02_organized_data/rnaseq/deg/"
+          prefiltpca_dir: "datasets/consortium/FUS-mouse/02_organized_data/rnaseq/prefiltering-pca/"
+          output_directory: "datasets/consortium/FUS-mouse/02_organized_data/rnaseq/deg-digestion/"
+      human:
+        settings:
+          deg_dir: "datasets/consortium/human-datasets/02_organized_data/rnaseq/deg/"
+          prefiltpca_dir: "datasets/consortium/human-datasets/02_organized_data/rnaseq/prefiltering-pca/"
+          output_directory: "datasets/consortium/human-datasets/02_organized_data/rnaseq/deg-digestion/"
+          deseq2:
+            - name: "no_covariates"
+              results:
+                - name: "mut_vs_ctrl"
+            - name: "covariate_sex"
+              results:
+                - name: "mut_vs_ctrl"
+                - name: "male_vs_female"
+            - name: "covariate_sex_and_center"
+              results:
+                - name: "mut_vs_ctrl"
+                - name: "male_vs_female"
+            - name: "covariate_sex_center_and_age"
+              results:
+                - name: "mut_vs_ctrl"
+                - name: "male_vs_female"
+                - name: "age"
+            - name: "only_males"
+              results:
+                - name: "mut_vs_ctrl"
+            - name: "only_males_covariate_center"
+              results:
+                - name: "mut_vs_ctrl"
+            - name: "only_females"
+              results:
+                - name: "mut_vs_ctrl"
+            - name: "only_females_covariate_center"
+              results:
+                - name: "mut_vs_ctrl"
+          volcano_plots:
+            - name: "volcano_mut_vs_ctrl_covariates_sex_and_center"
+              subplots:
+                - name: ["no_covariates", "mut_vs_ctrl"]
+                  title: "ALS vs Ctrl (no covariates)"
+                - name: ["covariate_sex", "mut_vs_ctrl"]
+                  title: "ALS vs Ctrl (sex as cov.)"
+                - name: ["covariate_sex_and_center", "mut_vs_ctrl"]
+                  title: "ALS vs Ctrl (sex and center as cov.)"
+                - name: ["covariate_sex_center_and_age", "mut_vs_ctrl"]
+                  title: "ALS vs Ctrl (sex, center, age as cov.)"
+            - name: "volcano_mut_vs_ctrl_sex_stratifying"
+              subplots:
+                - name: ["covariate_sex_and_center", "mut_vs_ctrl"]
+                  title: "ALS vs Ctrl (sex and center as cov.)"
+                - name: ["only_females", "mut_vs_ctrl"]
+                  title: "ALS vs Ctrl (females only)"
+                - name: ["only_males", "mut_vs_ctrl"]
+                  title: "ALS vs Ctrl (males only)"
+          gene_overlaps:
+            - name: "mut_vs_ctrl_with_sex_and_center_as_covariate_vs_stratifying_sex"
+              criterion: "strict"
+              sets:
+                - name: "female"
+                  set: ["only_females_covariate_center", "mut_vs_ctrl"]
+                - name: "male"
+                  set: ["only_males_covariate_center", "mut_vs_ctrl"]
+                - name: "all"
+                  set: ["covariate_sex_and_center", "mut_vs_ctrl"]
+            - name: "mut_vs_control_age_impact"
+              criterion: "strict"
+              sets:
+                - name: "without_age"
+                  set: ["covariate_sex_and_center", "mut_vs_ctrl"]
+                - name: "with_age"
+                  set: ["covariate_sex_center_and_age", "mut_vs_ctrl"]
+          organism: "hsapiens"
+  gene_enrichment:
+    # default_system_settings are those settings that are shared by all the datasets and
+    # that do not change the results.
+    # For instance the number of CPUs to use in the analysis.
+    default_system_settings:
+      cache: ".cache_rnaseq_gene_enrichment/"
+    # default_settings are those settings that are shared by all the datasets, for instance
+    # the nextflow pipeline we want to use.
+    default_settings:
+      gene_enrichment:
+        - name: "covariate_sex"
+          results:
+            - name: "mut_vs_ctrl"
+            - name: "male_vs_female"
+        - name: "only_males"
+          results:
+            - name: "mut_vs_ctrl"
+        - name: "only_females"
+          results:
+            - name: "mut_vs_ctrl"
+      organism: "mmusculus"
+
+    # This is used in the dvc file to generate multiple stages with a foreach
+    # https://dvc.org/doc/user-guide/project-structure/pipelines-files#foreach-stages
+    stages:
+      # For each dataset, we give its specific settings:
+      # Files should always be listed here:
+      sod1:
+        settings:
+          deg_dir: "datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/deg/"
+          output_directory: "datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/gene-enrichment/"
+      tdp43:
+        settings:
+          deg_dir: "datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/deg/"
+          output_directory: "datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/gene-enrichment/"
+      c9:
+        settings:
+          deg_dir: "datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/deg/"
+          output_directory: "datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/gene-enrichment/"
+      fus:
+        settings:
+          deg_dir: "datasets/consortium/FUS-mouse/02_organized_data/rnaseq/deg/"
+          output_directory: "datasets/consortium/FUS-mouse/02_organized_data/rnaseq/gene-enrichment/"
+      human:
+        settings:
+          deg_dir: "datasets/consortium/human-datasets/02_organized_data/rnaseq/deg/"
+          output_directory: "datasets/consortium/human-datasets/02_organized_data/rnaseq/gene-enrichment/"
+          gene_enrichment:
+            - name: "no_covariates"
+              results:
+                - name: "mut_vs_ctrl"
+            - name: "covariate_sex"
+              results:
+                - name: "mut_vs_ctrl"
+                - name: "male_vs_female"
+            - name: "covariate_sex_and_center"
+              results:
+                - name: "mut_vs_ctrl"
+                - name: "male_vs_female"
+            - name: "covariate_sex_center_and_age"
+              results:
+                - name: "mut_vs_ctrl"
+                - name: "male_vs_female"
+                - name: "age"
+            - name: "only_males"
+              results:
+                - name: "mut_vs_ctrl"
+            - name: "only_males_covariate_center"
+              results:
+                - name: "mut_vs_ctrl"
+            - name: "only_females"
+              results:
+                - name: "mut_vs_ctrl"
+            - name: "only_females_covariate_center"
+              results:
+                - name: "mut_vs_ctrl"
+          organism: "hsapiens"
+  gene_gene_correlation:
+    # default_system_settings are those settings that are shared by all the datasets and
+    # that do not change the results.
+    # For instance the number of CPUs to use in the analysis.
+    default_system_settings:
+      cache: ".cache_gene_gene_correlation/"
+    # default_settings are those settings that are shared by all the datasets, for instance
+    # the nextflow pipeline we want to use.
+    default_settings:
+      organism: "mmusculus"
+      power: 6
+
+    # This is used in the dvc file to generate multiple stages with a foreach
+    # https://dvc.org/doc/user-guide/project-structure/pipelines-files#foreach-stages
+    stages:
+      # For each dataset, we give its specific settings:
+      # Files should always be listed here:
+      #sod1:
+      #  settings:
+      #    cohort: "datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/prefiltering-pca/cohort_excluded_outliers.csv"
+      #    deg_dir: "datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/deg/"
+      #    prefiltpca_dir: "datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/prefiltering-pca/"
+      #    output_directory: "datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/gene_gene_correlation/"
+      #tdp43:
+      #  settings:
+      #    cohort: "datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/prefiltering-pca/cohort_excluded_outliers.csv"
+      #    deg_dir: "datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/deg/"
+      #    prefiltpca_dir: "datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/prefiltering-pca/"
+      #    output_directory: "datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/gene_gene_correlation/"
+      c9:
+        settings:
+          cohort: "datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/prefiltering-pca/cohort_excluded_outliers.csv"
+          deg_dir: "datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/deg/"
+          prefiltpca_dir: "datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/prefiltering-pca/"
+          output_directory: "datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/gene_gene_correlation/"
+          power: 6
+          # FIXME: THE DEG results used to visualize some results are hardcoded to only_males and only_females in the script
+      #fus:
+      #  settings:
+      #    cohort: "datasets/consortium/FUS-mouse/02_organized_data/rnaseq/prefiltering-pca/cohort_excluded_outliers.csv"
+      #    deg_dir: "datasets/consortium/FUS-mouse/02_organized_data/rnaseq/deg/"
+      #    prefiltpca_dir: "datasets/consortium/FUS-mouse/02_organized_data/rnaseq/prefiltering-pca/"
+      #    output_directory: "datasets/consortium/FUS-mouse/02_organized_data/rnaseq/gene_gene_correlation/"
+      #human:
+      #  settings:
+      #    cohort: "datasets/consortium/human-datasets/02_organized_data/rnaseq/prefiltering-pca/cohort_excluded_outliers.csv"
+      #    deg_dir: "datasets/consortium/human-datasets/02_organized_data/rnaseq/deg/"
+      #    prefiltpca_dir: "datasets/consortium/human-datasets/02_organized_data/rnaseq/prefiltering-pca/"
+      #    output_directory: "datasets/consortium/human-datasets/02_organized_data/rnaseq/gene_gene_correlation/"
+      #    organism: "hsapiens"
+
+  genetonic:
+    # default_system_settings are those settings that are shared by all the datasets and
+    # that do not change the results.
+    # For instance the number of CPUs to use in the analysis.
+    default_system_settings:
+    # default_settings are those settings that are shared by all the datasets, for instance
+    # the nextflow pipeline we want to use.
+    default_settings:
+      categories:
+          - MF
+          - BP
+          - CC
+      foldchange_threshold: 0.5849625
+      padj_threshold: 0.05
+      nterms: 20
+
+    # This is used in the dvc file to generate multiple stages with a foreach
+    # https://dvc.org/doc/user-guide/project-structure/pipelines-files#foreach-stages
+    stages:
+      # For each dataset, we give its specific settings:
+      # Files should always be listed here:
+      sod1:
+        settings:
+          inputs_male: "datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/deg/only_males"
+          inputs_female: "datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/deg/only_females"
+          annotation: "datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/prefiltering-pca/cohort_excluded_outliers.csv"
+          output_directory: "datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/genetonic"
+          organism: "mmusculus"
+      tdp43:
+        settings:
+          inputs_male: "datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/deg/only_males"
+          inputs_female: "datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/deg/only_females"
+          annotation: "datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/prefiltering-pca/cohort_excluded_outliers.csv"
+          output_directory: "datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/genetonic/"
+          organism: "mmusculus"
+      c9:
+        settings:
+          inputs_male: "datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/deg/only_males"
+          inputs_female: "datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/deg/only_females"
+          annotation: "datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/prefiltering-pca/cohort_excluded_outliers.csv"
+          output_directory: "datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/genetonic/"
+          organism: "mmusculus"
+      fus:
+        settings:
+          inputs_male: "datasets/consortium/FUS-mouse/02_organized_data/rnaseq/deg/only_males"
+          inputs_female: "datasets/consortium/FUS-mouse/02_organized_data/rnaseq/deg/only_females"
+          annotation: "datasets/consortium/FUS-mouse/02_organized_data/rnaseq/prefiltering-pca/cohort_excluded_outliers.csv"
+          output_directory: "datasets/consortium/FUS-mouse/02_organized_data/rnaseq/genetonic/"
+          organism: "mmusculus"
+      human:
+        settings:
+          inputs_male: "datasets/consortium/human-datasets/02_organized_data/rnaseq/deg/only_males"
+          inputs_female: "datasets/consortium/human-datasets/02_organized_data/rnaseq/deg/only_females"
+          annotation: "datasets/consortium/human-datasets/02_organized_data/rnaseq/prefiltering-pca/cohort_excluded_outliers.csv"
+          output_directory: "datasets/consortium/human-datasets/02_organized_data/rnaseq/genetonic/"
+          organism: "hsapiens"
+
+  deg_count:
+      sod1_female: "datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/deg-digestion/de_tables/only_females-mut_vs_ctrl-strict.csv"
+      tdp43_female: "datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/deg-digestion/de_tables/only_females-mut_vs_ctrl-strict.csv"
+      c9_female: "datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/deg-digestion/de_tables/only_females-mut_vs_ctrl-strict.csv"
+      human_female: "datasets/consortium/human-datasets/02_organized_data/rnaseq/deg-digestion/de_tables/only_females-mut_vs_ctrl-strict.csv"
+      fus_female: "datasets/consortium/FUS-mouse/02_organized_data/rnaseq/deg-digestion/de_tables/only_females-mut_vs_ctrl-strict.csv"
+      sod1_male: "datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/deg-digestion/de_tables/only_males-mut_vs_ctrl-strict.csv"
+      tdp43_male: "datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/deg-digestion/de_tables/only_males-mut_vs_ctrl-strict.csv"
+      c9_male: "datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/deg-digestion/de_tables/only_males-mut_vs_ctrl-strict.csv"
+      human_male: "datasets/consortium/human-datasets/02_organized_data/rnaseq/deg-digestion/de_tables/only_males-mut_vs_ctrl-strict.csv"
+      fus_male: "datasets/consortium/FUS-mouse/02_organized_data/rnaseq/deg-digestion/de_tables/only_males-mut_vs_ctrl-strict.csv"
+
+  fastqscreen:
+    default_settings:
+      conf: database/FastQ_Screen_Genomes/fastq_screen.conf
+    stages:
+        c9orf72_34175_3:
+          inputs: datasets/consortium/C9orf72-mouse/01_received_data/rnaseq/NovaSeq_20200702_NOV400_o6998_DataDelivery/20200702.A-34175_3_R1.fastq.gz
+          output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/fastqscreen/34175_3
+        c9orf72_34176_1:
+          inputs: datasets/consortium/C9orf72-mouse/01_received_data/rnaseq/NovaSeq_20200702_NOV400_o6998_DataDelivery/20200702.A-34176_1_R1.fastq.gz
+          output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/fastqscreen/34176_1
+        c9orf72_34176_2:
+          inputs: datasets/consortium/C9orf72-mouse/01_received_data/rnaseq/NovaSeq_20200702_NOV400_o6998_DataDelivery/20200702.A-34176_2_R1.fastq.gz
+          output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/fastqscreen/34176_2
+        c9orf72_34176_3:
+          inputs: datasets/consortium/C9orf72-mouse/01_received_data/rnaseq/NovaSeq_20200702_NOV400_o6998_DataDelivery/20200702.A-34176_3_R1.fastq.gz
+          output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/fastqscreen/34176_3
+        c9orf72_35483_1:
+          inputs: datasets/consortium/C9orf72-mouse/01_received_data/rnaseq/NovaSeq_20200702_NOV400_o6998_DataDelivery/20200702.A-35483_1_R1.fastq.gz
+          output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/fastqscreen/35483_1
+        c9orf72_35483_2:
+          inputs: datasets/consortium/C9orf72-mouse/01_received_data/rnaseq/NovaSeq_20200702_NOV400_o6998_DataDelivery/20200702.A-35483_2_R1.fastq.gz
+          output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/fastqscreen/35483_2
+        c9orf72_35483_5:
+          inputs: datasets/consortium/C9orf72-mouse/01_received_data/rnaseq/NovaSeq_20200702_NOV400_o6998_DataDelivery/20200702.A-35483_5_R1.fastq.gz
+          output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/fastqscreen/35483_5
+        c9orf72_35483_6:
+          inputs: datasets/consortium/C9orf72-mouse/01_received_data/rnaseq/NovaSeq_20200702_NOV400_o6998_DataDelivery/20200702.A-35483_6_R1.fastq.gz
+          output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/fastqscreen/35483_6
+        c9orf72_35828_1:
+          inputs: datasets/consortium/C9orf72-mouse/01_received_data/rnaseq/NovaSeq_20200702_NOV400_o6998_DataDelivery/20200702.A-35828_1_R1.fastq.gz
+          output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/fastqscreen/35828_1
+        c9orf72_35828_2:
+          inputs: datasets/consortium/C9orf72-mouse/01_received_data/rnaseq/NovaSeq_20200702_NOV400_o6998_DataDelivery/20200702.A-35828_2_R1.fastq.gz
+          output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/fastqscreen/35828_2
+        c9orf72_35828_3:
+          inputs: datasets/consortium/C9orf72-mouse/01_received_data/rnaseq/NovaSeq_20200702_NOV400_o6998_DataDelivery/20200702.A-35828_3_R1.fastq.gz
+          output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/fastqscreen/35828_3
+        c9orf72_35828_4:
+          inputs: datasets/consortium/C9orf72-mouse/01_received_data/rnaseq/NovaSeq_20200702_NOV400_o6998_DataDelivery/20200702.A-35828_4_R1.fastq.gz
+          output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/fastqscreen/35828_4
+        c9orf72_35850_2:
+          inputs: datasets/consortium/C9orf72-mouse/01_received_data/rnaseq/NovaSeq_20200702_NOV400_o6998_DataDelivery/20200702.A-35850_2_R1.fastq.gz
+          output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/fastqscreen/35850_2
+        c9orf72_35850_3:
+          inputs: datasets/consortium/C9orf72-mouse/01_received_data/rnaseq/NovaSeq_20200702_NOV400_o6998_DataDelivery/20200702.A-35850_3_R1.fastq.gz
+          output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/fastqscreen/35850_3
+        c9orf72_35850_4:
+          inputs: datasets/consortium/C9orf72-mouse/01_received_data/rnaseq/NovaSeq_20200702_NOV400_o6998_DataDelivery/20200702.A-35850_4_R1.fastq.gz
+          output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/fastqscreen/35850_4
+        c9orf72_35850_5:
+          inputs: datasets/consortium/C9orf72-mouse/01_received_data/rnaseq/NovaSeq_20200702_NOV400_o6998_DataDelivery/20200702.A-35850_5_R1.fastq.gz
+          output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/fastqscreen/35850_5
+        c9orf72_35850_6:
+          inputs: datasets/consortium/C9orf72-mouse/01_received_data/rnaseq/NovaSeq_20200702_NOV400_o6998_DataDelivery/20200702.A-35850_6_R1.fastq.gz
+          output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/fastqscreen/35850_6
+        c9orf72_35863_1:
+          inputs: datasets/consortium/C9orf72-mouse/01_received_data/rnaseq/NovaSeq_20200702_NOV400_o6998_DataDelivery/20200702.A-35863_1_R1.fastq.gz
+          output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/fastqscreen/35863_1
+        c9orf72_35863_2:
+          inputs: datasets/consortium/C9orf72-mouse/01_received_data/rnaseq/NovaSeq_20200702_NOV400_o6998_DataDelivery/20200702.A-35863_2_R1.fastq.gz
+          output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/fastqscreen/35863_2
+        c9orf72_35863_3:
+          inputs: datasets/consortium/C9orf72-mouse/01_received_data/rnaseq/NovaSeq_20200702_NOV400_o6998_DataDelivery/20200702.A-35863_3_R1.fastq.gz
+          output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/fastqscreen/35863_3
+        fus_565:
+          inputs: datasets/consortium/FUS-mouse/01_received_data/rnaseq/NovaSeq_20201014_NOV483_o7476_part/20201014.B-565_R1.fastq.gz
+          output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/fastqscreen/565
+        fus_567:
+          inputs: datasets/consortium/FUS-mouse/01_received_data/rnaseq/NovaSeq_20201014_NOV483_o7476_part/20201014.B-567_R1.fastq.gz
+          output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/fastqscreen/567
+        fus_571:
+          inputs: datasets/consortium/FUS-mouse/01_received_data/rnaseq/NovaSeq_20201014_NOV483_o7476_part/20201014.B-571_R1.fastq.gz
+          output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/fastqscreen/571
+        fus_572:
+          inputs: datasets/consortium/FUS-mouse/01_received_data/rnaseq/NovaSeq_20201014_NOV483_o7476_part/20201014.B-572_R1.fastq.gz
+          output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/fastqscreen/572
+        fus_574:
+          inputs: datasets/consortium/FUS-mouse/01_received_data/rnaseq/NovaSeq_20201014_NOV483_o7476_part/20201014.B-574_R1.fastq.gz
+          output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/fastqscreen/574
+        fus_575:
+          inputs: datasets/consortium/FUS-mouse/01_received_data/rnaseq/NovaSeq_20201014_NOV483_o7476_part/20201014.B-575_R1.fastq.gz
+          output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/fastqscreen/575
+        fus_578:
+          inputs: datasets/consortium/FUS-mouse/01_received_data/rnaseq/NovaSeq_20201014_NOV483_o7476_part/20201014.B-578_R1.fastq.gz
+          output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/fastqscreen/578
+        fus_581:
+          inputs: datasets/consortium/FUS-mouse/01_received_data/rnaseq/NovaSeq_20201014_NOV483_o7476_part/20201014.B-581_R1.fastq.gz
+          output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/fastqscreen/581
+        fus_586:
+          inputs: datasets/consortium/FUS-mouse/01_received_data/rnaseq/NovaSeq_20201014_NOV483_o7476_part/20201014.B-586_R1.fastq.gz
+          output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/fastqscreen/586
+        fus_776:
+          inputs: datasets/consortium/FUS-mouse/01_received_data/rnaseq/NovaSeq_20201014_NOV483_o7476_part/20201014.B-776_R1.fastq.gz
+          output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/fastqscreen/776
+        fus_780:
+          inputs: datasets/consortium/FUS-mouse/01_received_data/rnaseq/NovaSeq_20201014_NOV483_o7476_part/20201014.B-780_R1.fastq.gz
+          output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/fastqscreen/780
+        fus_781:
+          inputs: datasets/consortium/FUS-mouse/01_received_data/rnaseq/NovaSeq_20201014_NOV483_o7476_part/20201014.B-781_R1.fastq.gz
+          output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/fastqscreen/781
+        fus_782:
+          inputs: datasets/consortium/FUS-mouse/01_received_data/rnaseq/NovaSeq_20201014_NOV483_o7476_part/20201014.B-782_R1.fastq.gz
+          output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/fastqscreen/782
+        fus_784:
+          inputs: datasets/consortium/FUS-mouse/01_received_data/rnaseq/NovaSeq_20201014_NOV483_o7476_part/20201014.B-784_R1.fastq.gz
+          output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/fastqscreen/784
+        fus_785:
+          inputs: datasets/consortium/FUS-mouse/01_received_data/rnaseq/NovaSeq_20201014_NOV483_o7476_part/20201014.B-785_R1.fastq.gz
+          output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/fastqscreen/785
+        fus_850:
+          inputs: datasets/consortium/FUS-mouse/01_received_data/rnaseq/NovaSeq_20201014_NOV483_o7476_part/20201014.B-850_R1.fastq.gz
+          output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/fastqscreen/850
+        fus_858:
+          inputs: datasets/consortium/FUS-mouse/01_received_data/rnaseq/NovaSeq_20201014_NOV483_o7476_part/20201014.B-858_R1.fastq.gz
+          output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/fastqscreen/858
+        fus_875:
+          inputs: datasets/consortium/FUS-mouse/01_received_data/rnaseq/NovaSeq_20201014_NOV483_o7476_part/20201014.B-875_R1.fastq.gz
+          output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/fastqscreen/875
+        fus_876:
+          inputs: datasets/consortium/FUS-mouse/01_received_data/rnaseq/NovaSeq_20201014_NOV483_o7476_part/20201014.B-876_R1.fastq.gz
+          output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/fastqscreen/876
+        fus_881:
+          inputs: datasets/consortium/FUS-mouse/01_received_data/rnaseq/NovaSeq_20201014_NOV483_o7476_part/20201014.B-881_R1.fastq.gz
+          output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/fastqscreen/881
+        human-datasets_A-10315:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-A-10315_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/A-10315
+        human-datasets_A-11068:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-A-11068_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/A-11068
+        human-datasets_A-15235:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-A-15235_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/A-15235
+        human-datasets_A-15235_REPEAT:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20220921_NOV1449_o29081_DataDelivery/20220921.A-A-15235_REPEAT_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/A-15235_REPEAT
+        human-datasets_A-26659:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-A-26659_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/A-26659
+        human-datasets_A-26670:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-A-26670_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/A-26670
+        human-datasets_A-26693:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-A-26693_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/A-26693
+        human-datasets_A-28156:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-A-28156_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/A-28156
+        human-datasets_A-28739:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-A-28739_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/A-28739
+        human-datasets_A-29008:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-A-29008_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/A-29008
+        human-datasets_A-29011:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-A-29011_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/A-29011
+        human-datasets_A-29594:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-A-29594_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/A-29594
+        human-datasets_A-29845:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-A-29845_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/A-29845
+        human-datasets_A-32469:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-A-32469_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/A-32469
+        human-datasets_A-32470:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-A-32470_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/A-32470
+        human-datasets_A-32591:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-A-32591_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/A-32591
+        human-datasets_B-04585:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-B-04585_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/B-04585
+        human-datasets_B-06239:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-B-06239_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/B-06239
+        human-datasets_B-06239_REPEAT:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20220921_NOV1449_o29081_DataDelivery/20220921.A-B-06239_REPEAT_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/B-06239_REPEAT
+        human-datasets_B-06247:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-B-06247_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/B-06247
+        human-datasets_B-06260:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-B-06260_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/B-06260
+        human-datasets_B-06262:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-B-06262_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/B-06262
+        human-datasets_B-06263:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-B-06263_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/B-06263
+        human-datasets_B-06266:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-B-06266_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/B-06266
+        human-datasets_B-06266_REPEAT:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20220921_NOV1449_o29081_DataDelivery/20220921.A-B-06266_REPEAT_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/B-06266_REPEAT
+        human-datasets_B-06267:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-B-06267_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/B-06267
+        human-datasets_B-06268:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-B-06268_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/B-06268
+        human-datasets_B-06270:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-B-06270_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/B-06270
+        human-datasets_B-06271:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-B-06271_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/B-06271
+        human-datasets_B-06277:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-B-06277_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/B-06277
+        human-datasets_B-06281:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-B-06281_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/B-06281
+        human-datasets_B-06282:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-B-06282_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/B-06282
+        human-datasets_B-06421:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-B-06421_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/B-06421
+        human-datasets_B-10269:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-B-10269_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/B-10269
+        human-datasets_B-10302:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-B-10302_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/B-10302
+        human-datasets_B-10991:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-B-10991_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/B-10991
+        human-datasets_B-15192:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-B-15192_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/B-15192
+        human-datasets_B-15605:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-B-15605_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/B-15605
+        human-datasets_B-16200:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-B-16200_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/B-16200
+        human-datasets_B-16208:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-B-16208_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/B-16208
+        human-datasets_B-20044:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-B-20044_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/B-20044
+        human-datasets_B-28151:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-B-28151_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/B-28151
+        human-datasets_B-28382:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-B-28382_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/B-28382
+        human-datasets_B-28832:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-B-28832_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/B-28832
+        human-datasets_B-28930:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-B-28930_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/B-28930
+        human-datasets_B-30042:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-B-30042_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/B-30042
+        human-datasets_C-03063:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-C-03063_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/C-03063
+        human-datasets_C-11112:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-C-11112_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/C-11112
+        human-datasets_C-12100:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-C-12100_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/C-12100
+        human-datasets_C-12111:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-C-12111_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/C-12111
+        human-datasets_C-15086:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-C-15086_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/C-15086
+        human-datasets_C-16010:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-C-16010_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/C-16010
+        human-datasets_C-16010_REPEAT:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20220921_NOV1449_o29081_DataDelivery/20220921.A-C-16010_REPEAT_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/C-16010_REPEAT
+        human-datasets_C-16073:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-C-16073_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/C-16073
+        human-datasets_C-16088:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-C-16088_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/C-16088
+        human-datasets_C-16088_REPEAT:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20220921_NOV1449_o29081_DataDelivery/20220921.A-C-16088_REPEAT_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/C-16088_REPEAT
+        human-datasets_C-99134:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-C-99134_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/C-99134
+        human-datasets_E-02945:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-E-02945_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/E-02945
+        human-datasets_E-02951:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-E-02951_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/E-02951
+        human-datasets_E-10317:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-E-10317_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/E-10317
+        human-datasets_E-10608:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-E-10608_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/E-10608
+        human-datasets_E-10608_REPEAT:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20220921_NOV1449_o29081_DataDelivery/20220921.A-E-10608_REPEAT_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/E-10608_REPEAT
+        human-datasets_E-11050:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-E-11050_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/E-11050
+        human-datasets_E-11051:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-E-11051_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/E-11051
+        human-datasets_E-11051_REPEAT:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20220921_NOV1449_o29081_DataDelivery/20220921.A-E-11051_REPEAT_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/E-11051_REPEAT
+        human-datasets_E-11053:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-E-11053_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/E-11053
+        human-datasets_E-19639:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-E-19639_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/E-19639
+        human-datasets_E-19663:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-E-19663_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/E-19663
+        human-datasets_E-24635:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-E-24635_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/E-24635
+        human-datasets_F-10242:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-F-10242_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/F-10242
+        human-datasets_F-15611:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-F-15611_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/F-15611
+        human-datasets_F-15611_REPEAT:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20220921_NOV1449_o29081_DataDelivery/20220921.A-F-15611_REPEAT_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/F-15611_REPEAT
+        human-datasets_F-15621:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-F-15621_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/F-15621
+        human-datasets_F-15626:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-F-15626_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/F-15626
+        human-datasets_F-15669:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-F-15669_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/F-15669
+        human-datasets_F-16253:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-F-16253_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/F-16253
+        human-datasets_F-16307:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-F-16307_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/F-16307
+        human-datasets_F-16317:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-F-16317_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/F-16317
+        human-datasets_F-21801:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-F-21801_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/F-21801
+        human-datasets_F-21801_REPEAT:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20220921_NOV1449_o29081_DataDelivery/20220921.A-F-21801_REPEAT_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/F-21801_REPEAT
+        human-datasets_F-30139:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-F-30139_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/F-30139
+        human-datasets_F-30139_REPEAT:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20220921_NOV1449_o29081_DataDelivery/20220921.A-F-30139_REPEAT_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/F-30139_REPEAT
+        human-datasets_F-30886:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-F-30886_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/F-30886
+        human-datasets_F-30886_REPEAT:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20220921_NOV1449_o29081_DataDelivery/20220921.A-F-30886_REPEAT_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/F-30886_REPEAT
+        human-datasets_F-32590:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-F-32590_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/F-32590
+        human-datasets_G-10007:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-G-10007_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/G-10007
+        human-datasets_G-11021:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-G-11021_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/G-11021
+        human-datasets_G-11044:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-G-11044_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/G-11044
+        human-datasets_G-11059:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-G-11059_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/G-11059
+        human-datasets_G-11082:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-G-11082_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/G-11082
+        human-datasets_G-11090:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-G-11090_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/G-11090
+        human-datasets_G-11114:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-G-11114_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/G-11114
+        human-datasets_G-11114_REPEAT:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20220921_NOV1449_o29081_DataDelivery/20220921.A-G-11114_REPEAT_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/G-11114_REPEAT
+        human-datasets_G-12088:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-G-12088_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/G-12088
+        human-datasets_G-15087:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-G-15087_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/G-15087
+        human-datasets_H-0C046:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-H-0C046_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/H-0C046
+        human-datasets_H-0C048:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-H-0C048_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/H-0C048
+        human-datasets_H-0C064:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-H-0C064_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/H-0C064
+        human-datasets_H-0C064_REPEAT:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20220921_NOV1449_o29081_DataDelivery/20220921.A-H-0C064_REPEAT_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/H-0C064_REPEAT
+        human-datasets_H-0C072:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-H-0C072_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/H-0C072
+        human-datasets_H-0C083:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-H-0C083_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/H-0C083
+        human-datasets_H-0C084:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-H-0C084_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/H-0C084
+        human-datasets_H-0C085:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-H-0C085_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/H-0C085
+        human-datasets_H-0C096:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-H-0C096_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/H-0C096
+        human-datasets_H-0C730:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-H-0C730_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/H-0C730
+        human-datasets_H-DC005:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-H-DC005_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/H-DC005
+        human-datasets_H-DC022:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-H-DC022_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/H-DC022
+        human-datasets_H-DC023:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-H-DC023_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/H-DC023
+        human-datasets_H-DC023_REPEAT:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20220921_NOV1449_o29081_DataDelivery/20220921.A-H-DC023_REPEAT_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/H-DC023_REPEAT
+        human-datasets_H-DC027:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-H-DC027_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/H-DC027
+        human-datasets_H-DC027_REPEAT:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20220921_NOV1449_o29081_DataDelivery/20220921.A-H-DC027_REPEAT_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/H-DC027_REPEAT
+        human-datasets_H-DC029:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-H-DC029_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/H-DC029
+        human-datasets_H-DC029_REPEAT:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20220921_NOV1449_o29081_DataDelivery/20220921.A-H-DC029_REPEAT_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/H-DC029_REPEAT
+        human-datasets_H-DC040:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-H-DC040_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/H-DC040
+        human-datasets_H-DC040_REPEAT:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20220921_NOV1449_o29081_DataDelivery/20220921.A-H-DC040_REPEAT_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/H-DC040_REPEAT
+        human-datasets_H-DC092:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-H-DC092_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/H-DC092
+        human-datasets_H-DC092_REPEAT:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20220921_NOV1449_o29081_DataDelivery/20220921.A-H-DC092_REPEAT_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/H-DC092_REPEAT
+        human-datasets_H-DC107:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-H-DC107_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/H-DC107
+        human-datasets_H-DC107_REPEAT:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20220921_NOV1449_o29081_DataDelivery/20220921.A-H-DC107_REPEAT_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/H-DC107_REPEAT
+        human-datasets_H-DC110:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-H-DC110_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/H-DC110
+        human-datasets_H-DC110_REPEAT:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20220921_NOV1449_o29081_DataDelivery/20220921.A-H-DC110_REPEAT_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/H-DC110_REPEAT
+        human-datasets_H-DC112:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/20200929.A-H-DC112_small_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/H-DC112
+        human-datasets_H-DC112_REPEAT:
+          inputs: datasets/consortium/human-datasets/rnaseq/NovaSeq_20220921_NOV1449_o29081_DataDelivery/20220921.A-H-DC112_REPEAT_R1.fastq.gz
+          output: datasets/consortium/human-datasets/02_organized_data/rnaseq/fastqscreen/H-DC112_REPEAT
+        sod1_1183:
+          inputs: datasets/consortium/SOD1-mouse/01_received_data/rnaseq/NovaSeq_20200312_NOV338_o6670_DataDelivery/20200312.A-1183_transcriptomics_R1.fastq.gz
+          output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/fastqscreen/1183
+        sod1_1434:
+          inputs: datasets/consortium/SOD1-mouse/01_received_data/rnaseq/NovaSeq_20200312_NOV338_o6670_DataDelivery/20200312.A-1434_transcriptomics_R1.fastq.gz
+          output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/fastqscreen/1434
+        sod1_1458:
+          inputs: datasets/consortium/SOD1-mouse/01_received_data/rnaseq/NovaSeq_20200312_NOV338_o6670_DataDelivery/20200312.A-1458_transcriptomics_R1.fastq.gz
+          output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/fastqscreen/1458
+        sod1_1502:
+          inputs: datasets/consortium/SOD1-mouse/01_received_data/rnaseq/NovaSeq_20200312_NOV338_o6670_DataDelivery/20200312.A-1502_transcriptomics_R1.fastq.gz
+          output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/fastqscreen/1502
+        sod1_1503:
+          inputs: datasets/consortium/SOD1-mouse/01_received_data/rnaseq/NovaSeq_20200312_NOV338_o6670_DataDelivery/20200312.A-1503_transcriptomics_R1.fastq.gz
+          output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/fastqscreen/1503
+        sod1_2604:
+          inputs: datasets/consortium/SOD1-mouse/01_received_data/rnaseq/NovaSeq_20200312_NOV338_o6670_DataDelivery/20200312.A-2604_transcriptomics_R1.fastq.gz
+          output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/fastqscreen/2604
+        sod1_2605:
+          inputs: datasets/consortium/SOD1-mouse/01_received_data/rnaseq/NovaSeq_20200312_NOV338_o6670_DataDelivery/20200312.A-2605_transcriptomics_R1.fastq.gz
+          output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/fastqscreen/2605
+        sod1_2608:
+          inputs: datasets/consortium/SOD1-mouse/01_received_data/rnaseq/NovaSeq_20200312_NOV338_o6670_DataDelivery/20200312.A-2608_transcriptomics_R1.fastq.gz
+          output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/fastqscreen/2608
+        sod1_2610:
+          inputs: datasets/consortium/SOD1-mouse/01_received_data/rnaseq/NovaSeq_20200312_NOV338_o6670_DataDelivery/20200312.A-2610_transcriptomics_R1.fastq.gz
+          output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/fastqscreen/2610
+        sod1_2611:
+          inputs: datasets/consortium/SOD1-mouse/01_received_data/rnaseq/NovaSeq_20200312_NOV338_o6670_DataDelivery/20200312.A-2611_transcriptomics_R1.fastq.gz
+          output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/fastqscreen/2611
+        sod1_8899:
+          inputs: datasets/consortium/SOD1-mouse/01_received_data/rnaseq/NovaSeq_20200312_NOV338_o6670_DataDelivery/20200312.A-8899_transcriptomics_R1.fastq.gz
+          output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/fastqscreen/8899
+        sod1_8905:
+          inputs: datasets/consortium/SOD1-mouse/01_received_data/rnaseq/NovaSeq_20200312_NOV338_o6670_DataDelivery/20200312.A-8905_transcriptomics_R1.fastq.gz
+          output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/fastqscreen/8905
+        sod1_8908:
+          inputs: datasets/consortium/SOD1-mouse/01_received_data/rnaseq/NovaSeq_20200312_NOV338_o6670_DataDelivery/20200312.A-8908_transcriptomics_R1.fastq.gz
+          output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/fastqscreen/8908
+        sod1_8909:
+          inputs: datasets/consortium/SOD1-mouse/01_received_data/rnaseq/NovaSeq_20200312_NOV338_o6670_DataDelivery/20200312.A-8909_transcriptomics_R1.fastq.gz
+          output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/fastqscreen/8909
+        sod1_8917:
+          inputs: datasets/consortium/SOD1-mouse/01_received_data/rnaseq/NovaSeq_20200312_NOV338_o6670_DataDelivery/20200312.A-8917_transcriptomics_R1.fastq.gz
+          output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/fastqscreen/8917
+        sod1_8919:
+          inputs: datasets/consortium/SOD1-mouse/01_received_data/rnaseq/NovaSeq_20200312_NOV338_o6670_DataDelivery/20200312.A-8919_transcriptomics_R1.fastq.gz
+          output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/fastqscreen/8919
+        sod1_8921:
+          inputs: datasets/consortium/SOD1-mouse/01_received_data/rnaseq/NovaSeq_20200312_NOV338_o6670_DataDelivery/20200312.A-8921_transcriptomics_R1.fastq.gz
+          output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/fastqscreen/8921
+        sod1_8926:
+          inputs: datasets/consortium/SOD1-mouse/01_received_data/rnaseq/NovaSeq_20200312_NOV338_o6670_DataDelivery/20200312.A-8926_transcriptomics_R1.fastq.gz
+          output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/fastqscreen/8926
+        sod1_8935:
+          inputs: datasets/consortium/SOD1-mouse/01_received_data/rnaseq/NovaSeq_20200312_NOV338_o6670_DataDelivery/20200312.A-8935_transcriptomics_R1.fastq.gz
+          output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/fastqscreen/8935
+        sod1_8950:
+          inputs: datasets/consortium/SOD1-mouse/01_received_data/rnaseq/NovaSeq_20200312_NOV338_o6670_DataDelivery/20200312.A-8950_transcriptomics_R1.fastq.gz
+          output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/fastqscreen/8950
+        tdp43_0841:
+          inputs: datasets/consortium/TDP43-mouse/01_received_data/rnaseq/NovaSeq_20200312_NOV338_o6672_DataDelivery/20200312.A-0841_transcriptomics_R1.fastq.gz
+          output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/fastqscreen/0841
+        tdp43_0842:
+          inputs: datasets/consortium/TDP43-mouse/01_received_data/rnaseq/NovaSeq_20200312_NOV338_o6672_DataDelivery/20200312.A-0842_transcriptomics_R1.fastq.gz
+          output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/fastqscreen/0842
+        tdp43_0843:
+          inputs: datasets/consortium/TDP43-mouse/01_received_data/rnaseq/NovaSeq_20200312_NOV338_o6672_DataDelivery/20200312.A-0843_transcriptomics_R1.fastq.gz
+          output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/fastqscreen/0843
+        tdp43_0844:
+          inputs: datasets/consortium/TDP43-mouse/01_received_data/rnaseq/NovaSeq_20200312_NOV338_o6672_DataDelivery/20200312.A-0844_transcriptomics_R1.fastq.gz
+          output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/fastqscreen/0844
+        tdp43_0845:
+          inputs: datasets/consortium/TDP43-mouse/01_received_data/rnaseq/NovaSeq_20200312_NOV338_o6672_DataDelivery/20200312.A-0845_transcriptomics_R1.fastq.gz
+          output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/fastqscreen/0845
+        tdp43_0846:
+          inputs: datasets/consortium/TDP43-mouse/01_received_data/rnaseq/NovaSeq_20200312_NOV338_o6672_DataDelivery/20200312.A-0846_transcriptomics_R1.fastq.gz
+          output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/fastqscreen/0846
+        tdp43_0847:
+          inputs: datasets/consortium/TDP43-mouse/01_received_data/rnaseq/NovaSeq_20200312_NOV338_o6672_DataDelivery/20200312.A-0847_transcriptomics_R1.fastq.gz
+          output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/fastqscreen/0847
+        tdp43_0848:
+          inputs: datasets/consortium/TDP43-mouse/01_received_data/rnaseq/NovaSeq_20200312_NOV338_o6672_DataDelivery/20200312.A-0848_transcriptomics_R1.fastq.gz
+          output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/fastqscreen/0848
+        tdp43_0849:
+          inputs: datasets/consortium/TDP43-mouse/01_received_data/rnaseq/NovaSeq_20200312_NOV338_o6672_DataDelivery/20200312.A-0849_transcriptomics_R1.fastq.gz
+          output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/fastqscreen/0849
+        tdp43_0850:
+          inputs: datasets/consortium/TDP43-mouse/01_received_data/rnaseq/NovaSeq_20200312_NOV338_o6672_DataDelivery/20200312.A-0850_transcriptomics_R1.fastq.gz
+          output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/fastqscreen/0850
+        tdp43_1812:
+          inputs: datasets/consortium/TDP43-mouse/01_received_data/rnaseq/NovaSeq_20200312_NOV338_o6672_DataDelivery/20200312.A-1812_transcriptomics_R1.fastq.gz
+          output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/fastqscreen/1812
+        tdp43_1814:
+          inputs: datasets/consortium/TDP43-mouse/01_received_data/rnaseq/NovaSeq_20200312_NOV338_o6672_DataDelivery/20200312.A-1814_transcriptomics_R1.fastq.gz
+          output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/fastqscreen/1814
+        tdp43_1815:
+          inputs: datasets/consortium/TDP43-mouse/01_received_data/rnaseq/NovaSeq_20200312_NOV338_o6672_DataDelivery/20200312.A-1815_transcriptomics_R1.fastq.gz
+          output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/fastqscreen/1815
+        tdp43_1816:
+          inputs: datasets/consortium/TDP43-mouse/01_received_data/rnaseq/NovaSeq_20200312_NOV338_o6672_DataDelivery/20200312.A-1816_transcriptomics_R1.fastq.gz
+          output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/fastqscreen/1816
+        tdp43_1821:
+          inputs: datasets/consortium/TDP43-mouse/01_received_data/rnaseq/NovaSeq_20200312_NOV338_o6672_DataDelivery/20200312.A-1821_transcriptomics_R1.fastq.gz
+          output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/fastqscreen/1821
+        tdp43_1827:
+          inputs: datasets/consortium/TDP43-mouse/01_received_data/rnaseq/NovaSeq_20200312_NOV338_o6672_DataDelivery/20200312.A-1827_transcriptomics_R1.fastq.gz
+          output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/fastqscreen/1827
+        tdp43_1835:
+          inputs: datasets/consortium/TDP43-mouse/01_received_data/rnaseq/NovaSeq_20200312_NOV338_o6672_DataDelivery/20200312.A-1835_transcriptomics_R1.fastq.gz
+          output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/fastqscreen/1835
+        tdp43_1840:
+          inputs: datasets/consortium/TDP43-mouse/01_received_data/rnaseq/NovaSeq_20200312_NOV338_o6672_DataDelivery/20200312.A-1840_transcriptomics_R1.fastq.gz
+          output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/fastqscreen/1840
+        tdp43_1843:
+          inputs: datasets/consortium/TDP43-mouse/01_received_data/rnaseq/NovaSeq_20200312_NOV338_o6672_DataDelivery/20200312.A-1843_transcriptomics_R1.fastq.gz
+          output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/fastqscreen/1843
+        tdp43_1845:
+          inputs: datasets/consortium/TDP43-mouse/01_received_data/rnaseq/NovaSeq_20200312_NOV338_o6672_DataDelivery/20200312.A-1845_transcriptomics_R1.fastq.gz
+          output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/fastqscreen/1845
+
+  rnaseq_merge:
+    stages:
+        merged:
+          inputs:
+            old: datasets/consortium/human-datasets/rnaseq/NovaSeq_20200929_NOV471_o6696_DataDelivery/
+            new: datasets/consortium/human-datasets/rnaseq/NovaSeq_20220921_NOV1449_o29081_DataDelivery/
+          output: datasets/consortium/human-datasets/rnaseq/merged
+
+  revigo:
+    # This is used in the dvc file to generate multiple stages with a foreach
+    # https://dvc.org/doc/user-guide/project-structure/pipelines-files#foreach-stages
+    stages:
+      # For each dataset, we give its specific settings:
+      # Files should always be listed here:
+      sod1:
+        settings:
+          input:
+              #analysis name -> sex specific analyis for female and male
+              only_females:
+                  #input enrichment files based on ontology
+                  BP: "datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/gene-enrichment/gene_set_enrichment/only_females/mut_vs_ctrl-BP.csv"
+                  CC: "datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/gene-enrichment/gene_set_enrichment/only_females/mut_vs_ctrl-CC.csv"
+                  MF: "datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/gene-enrichment/gene_set_enrichment/only_females/mut_vs_ctrl-MF.csv"
+              only_males:
+                  #input enrichment files based on ontology
+                  BP: "datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/gene-enrichment/gene_set_enrichment/only_males/mut_vs_ctrl-BP.csv"
+                  CC: "datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/gene-enrichment/gene_set_enrichment/only_males/mut_vs_ctrl-CC.csv"
+                  MF: "datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/gene-enrichment/gene_set_enrichment/only_males/mut_vs_ctrl-MF.csv"
+          organism: "mmusculus"
+          biological_model: "SOD1-mouse" #used for checking gene_enrichment folder as dependency model specific
+          output_directory: "datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/revigo/"
+      tdp43:
+        settings:
+          input:
+              #analysis name -> sex specific analyis for female and male
+              only_females:
+                  #input enrichment files based on ontology - if not available -> null
+                  BP: "datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/gene-enrichment/gene_set_enrichment/only_females/mut_vs_ctrl-BP.csv"
+                  CC: "datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/gene-enrichment/gene_set_enrichment/only_females/mut_vs_ctrl-CC.csv"
+                  MF: "datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/gene-enrichment/gene_set_enrichment/only_females/mut_vs_ctrl-MF.csv"
+              only_males:
+                  #input enrichment files based on ontology - if not available -> null
+                  BP: "datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/gene-enrichment/gene_set_enrichment/only_males/mut_vs_ctrl-BP.csv"
+                  CC: "datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/gene-enrichment/gene_set_enrichment/only_males/mut_vs_ctrl-CC.csv"
+                  MF: "datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/gene-enrichment/gene_set_enrichment/only_males/mut_vs_ctrl-MF.csv"
+          organism: "mmusculus"
+          biological_model: "TDP43-mouse" #used for checking gene_enrichment folder as dependency model specific
+          output_directory: "datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/revigo/"
+      c9:
+        settings:
+          input:
+              #analysis name -> sex specific analyis for female and male
+              only_females:
+                  #input enrichment files based on ontology - if not available -> null
+                  BP: "datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/gene-enrichment/gene_set_enrichment/only_females/mut_vs_ctrl-BP.csv"
+                  CC: "datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/gene-enrichment/gene_set_enrichment/only_females/mut_vs_ctrl-CC.csv"
+                  MF: "datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/gene-enrichment/gene_set_enrichment/only_females/mut_vs_ctrl-MF.csv"
+              only_males:
+                  #input enrichment files based on ontology - if not available -> null
+                  BP: "datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/gene-enrichment/gene_set_enrichment/only_males/mut_vs_ctrl-BP.csv"
+                  CC: "datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/gene-enrichment/gene_set_enrichment/only_males/mut_vs_ctrl-CC.csv"
+                  MF: "datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/gene-enrichment/gene_set_enrichment/only_males/mut_vs_ctrl-MF.csv"
+          organism: "mmusculus"
+          biological_model: "C9orf72-mouse" #used for checking gene_enrichment folder as dependency model specific
+          output_directory: "datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/revigo/"
+      fus:
+        settings:
+          input:
+              #analysis name -> sex specific analyis for female and male
+              only_females:
+                  #input enrichment files based on ontology - if not available -> null
+                  BP: "datasets/consortium/FUS-mouse/02_organized_data/rnaseq/gene-enrichment/gene_set_enrichment/only_females/mut_vs_ctrl-BP.csv"
+                  CC: "datasets/consortium/FUS-mouse/02_organized_data/rnaseq/gene-enrichment/gene_set_enrichment/only_females/mut_vs_ctrl-CC.csv"
+                  MF: "datasets/consortium/FUS-mouse/02_organized_data/rnaseq/gene-enrichment/gene_set_enrichment/only_females/mut_vs_ctrl-MF.csv"
+              only_males:
+                  #input enrichment files based on ontology - if not available -> null
+                  BP: "datasets/consortium/FUS-mouse/02_organized_data/rnaseq/gene-enrichment/gene_set_enrichment/only_males/mut_vs_ctrl-BP.csv"
+                  CC: "datasets/consortium/FUS-mouse/02_organized_data/rnaseq/gene-enrichment/gene_set_enrichment/only_males/mut_vs_ctrl-CC.csv"
+                  MF: "datasets/consortium/FUS-mouse/02_organized_data/rnaseq/gene-enrichment/gene_set_enrichment/only_males/mut_vs_ctrl-MF.csv"
+          organism: "mmusculus"
+          biological_model: "FUS-mouse" #used for checking gene_enrichment folder as dependency model specific
+          output_directory: "datasets/consortium/FUS-mouse/02_organized_data/rnaseq/revigo/"
+      human:
+        settings:
+          input:
+              #analysis name -> sex specific analyis for female and male
+              only_females:
+                  #input enrichment files based on ontology - if not available -> null
+                  BP: "datasets/consortium/human-datasets/02_organized_data/rnaseq/gene-enrichment/gene_set_enrichment/only_females/mut_vs_ctrl-BP.csv"
+                  CC: "datasets/consortium/human-datasets/02_organized_data/rnaseq/gene-enrichment/gene_set_enrichment/only_females/mut_vs_ctrl-CC.csv"
+                  MF: "datasets/consortium/human-datasets/02_organized_data/rnaseq/gene-enrichment/gene_set_enrichment/only_females/mut_vs_ctrl-MF.csv"
+              only_males:
+                  #input enrichment files based on ontology - if not available -> null
+                  BP: "datasets/consortium/human-datasets/02_organized_data/rnaseq/gene-enrichment/gene_set_enrichment/only_males/mut_vs_ctrl-BP.csv"
+                  CC: "datasets/consortium/human-datasets/02_organized_data/rnaseq/gene-enrichment/gene_set_enrichment/only_males/mut_vs_ctrl-CC.csv"
+                  MF: "datasets/consortium/human-datasets/02_organized_data/rnaseq/gene-enrichment/gene_set_enrichment/only_males/mut_vs_ctrl-MF.csv"
+          organism: "hsapiens"
+          biological_model: "human-datasets" #used for checking gene_enrichment folder as dependency model specific
+          output_directory: "datasets/consortium/human-datasets/02_organized_data/rnaseq/revigo/"
+
+  gofigure:
+    # This is used in the dvc file to generate multiple stages with a foreach
+    # https://dvc.org/doc/user-guide/project-structure/pipelines-files#foreach-stages
+    stages:
+      # For each dataset, we give its specific settings:
+      # Files should always be listed here:
+      tdp43:
+        inputs: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/gene-enrichment/gene_set_enrichment/
+        outputs: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/gofigure/
+        settings:
+            level: [0]
+            commandline:
+            -  "--file_type"
+            - "pdf"
+      sod1:
+        inputs: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/gene-enrichment/gene_set_enrichment/
+        outputs: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/gofigure/
+        settings:
+            level: [0]
+            commandline:
+            -  "--file_type"
+            - "pdf"
+      fus:
+        inputs: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/gene-enrichment/gene_set_enrichment/
+        outputs: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/gofigure/
+        settings:
+            level: [0]
+            commandline:
+            -  "--file_type"
+            - "pdf"
+      c9:
+        inputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/gene-enrichment/gene_set_enrichment/
+        outputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/gofigure/
+        settings:
+            level: [0]
+            commandline:
+            -  "--file_type"
+            - "pdf"
+      human:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/gene-enrichment/gene_set_enrichment/
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/gofigure/
+        settings:
+            level: [0]
+            commandline:
+            -  "--file_type"
+            - "pdf"
+
+

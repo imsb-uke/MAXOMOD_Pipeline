@@ -1,0 +1,474 @@
+# The omics goes first
+phosphoproteomics:
+  # Then the name of the stage you work on
+  organize_samples:
+    # default_system_settings are those settings that are shared by all the datasets and
+    # that do not change the results.
+    # For instance the number of CPUs to use in the analysis.
+    default_system_settings: {}
+    # default_settings are those settings that are shared by all the datasets, for instance
+    # the nextflow pipeline we want to use.
+    default_settings: {}
+    # This is used in the dvc file to generate multiple stages with a foreach
+    # https://dvc.org/doc/user-guide/project-structure/pipelines-files#foreach-stages
+    stages:
+      # For each dataset, we give its specific settings:
+      # Files should always be listed here:
+      sod1:
+        inputs:
+          samplesheet: "datasets/consortium/SOD1-mouse/01_received_data/phosphoproteomics/v2/sample_map.tsv"
+          inputs: "datasets/consortium/SOD1-mouse/01_received_data/phosphoproteomics/Phospho_SOD1_Hamburg_50imputed.xlsx"
+          cohort: "datasets/consortium/SOD1-mouse/01_received_data/cohort/sample_annotations.csv"
+        output: "datasets/consortium/SOD1-mouse/02_organized_data/phosphoproteomics/prefiltering-pca/"
+        settings:
+          exclude_samples: []
+          intensity_column_prefix: "Intensity_"
+      tdp43:
+        inputs:
+          samplesheet: "datasets/consortium/TDP43-mouse/01_received_data/phosphoproteomics/sample_map.tsv"
+          inputs: "datasets/consortium/TDP43-mouse/01_received_data/phosphoproteomics/Phospho_TDP43_Hamburg_50imputed.xlsx"
+          cohort: "datasets/consortium/TDP43-mouse/01_received_data/cohort/sample_annotations.csv"
+        output: "datasets/consortium/TDP43-mouse/02_organized_data/phosphoproteomics/prefiltering-pca/"
+        settings:
+          exclude_samples: []
+          intensity_column_prefix: "Intensity_"
+      c9:
+        inputs:
+          samplesheet: "datasets/consortium/C9orf72-mouse/01_received_data/phosphoproteomics/sample_map.tsv"
+          inputs: "datasets/consortium/C9orf72-mouse/01_received_data/phosphoproteomics/Phospho_C9_Hamburg_50imputed.xlsx"
+          cohort: "datasets/consortium/C9orf72-mouse/01_received_data/cohort/additional_sample_annotations.csv"
+        output: "datasets/consortium/C9orf72-mouse/02_organized_data/phosphoproteomics/prefiltering-pca/"
+        settings:
+          exclude_samples: []
+          intensity_column_prefix: "Intensity_"
+      fus:
+        inputs:
+          samplesheet: "datasets/consortium/FUS-mouse/01_received_data/phosphoproteomics/sample_map.tsv"
+          inputs: "datasets/consortium/FUS-mouse/01_received_data/phosphoproteomics/Phospho_FUS_Hamburg_50imputed.xlsx"
+          cohort: "datasets/consortium/FUS-mouse/01_received_data/cohort/sample_annotations.csv"
+        output: "datasets/consortium/FUS-mouse/02_organized_data/phosphoproteomics/prefiltering-pca/"
+        settings:
+          exclude_samples: []
+          intensity_column_prefix: "Intensity_"
+      human_csf:
+        inputs:
+          samplesheet: "datasets/consortium/human-csf/01_received_data/phosphoproteomics/sample_map.tsv"
+          inputs: "datasets/consortium/human-csf/01_received_data/phosphoproteomics/Phospho_CSF_Hamburg_50imputed.xlsx"
+          cohort: "datasets/consortium/human-csf/01_received_data/cohort/sample_annotations.csv"
+        output: "datasets/consortium/human-csf/02_organized_data/phosphoproteomics/prefiltering-pca/"
+        settings:
+          exclude_samples: 
+              - CSF4
+              - CSF6
+              - CSF15
+              - CSF32
+              - CSF34
+              - CSF74
+              - CSF84
+              - CSF92
+          intensity_column_prefix: "Intensity "
+
+  prefiltering_pca:
+    # default_system_settings are those settings that are shared by all the datasets and
+    # that do not change the results.
+    # For instance the number of CPUs to use in the analysis.
+    default_system_settings: {}
+    # default_settings are those settings that are shared by all the datasets, for instance
+    # the nextflow pipeline we want to use.
+    default_settings:
+      pca_colour_by:
+       - "Condition"
+    # This is used in the dvc file to generate multiple stages with a foreach
+    # https://dvc.org/doc/user-guide/project-structure/pipelines-files#foreach-stages
+    stages:
+      # For each dataset, we give its specific settings:
+      # Files should always be listed here:
+      sod1:
+        settings:
+          cohort: "datasets/consortium/SOD1-mouse/02_organized_data/phosphoproteomics/prefiltering-pca/cohort_filtered.csv"
+          input_intensity: "datasets/consortium/SOD1-mouse/02_organized_data/phosphoproteomics/prefiltering-pca/intensity_mat_filtered_imputed_log2transf_norm.csv"
+          output_directory: "datasets/consortium/SOD1-mouse/02_organized_data/phosphoproteomics/prefiltering-pca/"
+      tdp43:
+        settings:
+          cohort: "datasets/consortium/TDP43-mouse/02_organized_data/phosphoproteomics/prefiltering-pca/cohort_filtered.csv"
+          input_intensity: "datasets/consortium/TDP43-mouse/02_organized_data/phosphoproteomics/prefiltering-pca/intensity_mat_filtered_imputed_log2transf_norm.csv"
+          output_directory: "datasets/consortium/TDP43-mouse/02_organized_data/phosphoproteomics/prefiltering-pca/"
+      c9:
+        settings:
+          cohort: "datasets/consortium/C9orf72-mouse/02_organized_data/phosphoproteomics/prefiltering-pca/cohort_filtered.csv"
+          input_intensity: "datasets/consortium/C9orf72-mouse/02_organized_data/phosphoproteomics/prefiltering-pca/intensity_mat_filtered_imputed_log2transf_norm.csv"
+          output_directory: "datasets/consortium/C9orf72-mouse/02_organized_data/phosphoproteomics/prefiltering-pca/"
+      fus:
+        settings:
+          cohort: "datasets/consortium/FUS-mouse/02_organized_data/phosphoproteomics/prefiltering-pca/cohort_filtered.csv"
+          input_intensity: "datasets/consortium/FUS-mouse/02_organized_data/phosphoproteomics/prefiltering-pca/intensity_mat_filtered_imputed_log2transf_norm.csv"
+          output_directory: "datasets/consortium/FUS-mouse/02_organized_data/phosphoproteomics/prefiltering-pca/"
+      human_csf:
+        settings:
+          cohort: "datasets/consortium/human-csf/02_organized_data/phosphoproteomics/prefiltering-pca/cohort_filtered.csv"
+          input_intensity: "datasets/consortium/human-csf/02_organized_data/phosphoproteomics/prefiltering-pca/intensity_mat_filtered_imputed_log2transf_norm.csv"
+          output_directory: "datasets/consortium/human-csf/02_organized_data/phosphoproteomics/prefiltering-pca/"
+          
+  deg:
+    # default_system_settings are those settings that are shared by all the datasets and
+    # that do not change the results.
+    # For instance the number of CPUs to use in the analysis.
+    default_system_settings: {}
+    # default_settings are those settings that are shared by all the datasets, for instance
+    # the nextflow pipeline we want to use.
+    default_settings:
+      cohort_factors:
+        - factor: "Condition"
+          levels: ["ctrl", "mut"]
+        - factor: "Sex"
+          levels: ["female", "male"]
+      limma:
+        - name: "no_covariates"
+          formula: "~ Condition"
+          fit_method: "ls"
+          results:
+            - name: "mut_vs_ctrl"
+              coefficient: "Conditionmut"
+              padjust_method: "BH"
+        - name: "covariate_sex"
+          formula: "~ Sex + Condition"
+          fit_method: "ls"
+          results:
+            - name: "mut_vs_ctrl"
+              coefficient: "Conditionmut"
+              padjust_method: "BH"
+            - name: "male_vs_female"
+              coefficient: "Sexmale"
+              padjust_method: "BH"
+        - name: "only_males"
+          filter:
+            - field: "Sex"
+              value: "male"
+          formula: "~ Condition"
+          fit_method: "ls"
+          results:
+            - name: "mut_vs_ctrl"
+              coefficient: "Conditionmut"
+              padjust_method: "BH"
+        - name: "only_females"
+          filter:
+            - field: "Sex"
+              value: "female"
+          formula: "~ Condition"
+          fit_method: "ls"
+          results:
+            - name: "mut_vs_ctrl"
+              coefficient: "Conditionmut"
+              padjust_method: "BH"
+    # This is used in the dvc file to generate multiple stages with a foreach
+    # https://dvc.org/doc/user-guide/project-structure/pipelines-files#foreach-stages
+    stages:
+      # For each dataset, we give its specific settings:
+      # Files should always be listed here:
+      sod1:
+        settings:
+          cohort: "datasets/consortium/SOD1-mouse/02_organized_data/phosphoproteomics/prefiltering-pca/cohort_filtered.csv"
+          intensity_mat_for_limma: "datasets/consortium/SOD1-mouse/02_organized_data/phosphoproteomics/prefiltering-pca/intensity_mat_filtered_imputed_log2transf_norm.rds"
+          output_directory: "datasets/consortium/SOD1-mouse/02_organized_data/phosphoproteomics/deg/"
+      tdp43:
+        settings:
+          cohort: "datasets/consortium/TDP43-mouse/02_organized_data/phosphoproteomics/prefiltering-pca/cohort_filtered.csv"
+          intensity_mat_for_limma: "datasets/consortium/TDP43-mouse/02_organized_data/phosphoproteomics/prefiltering-pca/intensity_mat_filtered_imputed_log2transf_norm.rds"
+          output_directory: "datasets/consortium/TDP43-mouse/02_organized_data/phosphoproteomics/deg/"
+      c9:
+       settings:
+          cohort: "datasets/consortium/C9orf72-mouse/02_organized_data/phosphoproteomics/prefiltering-pca/cohort_filtered.csv"
+          intensity_mat_for_limma: "datasets/consortium/C9orf72-mouse/02_organized_data/phosphoproteomics/prefiltering-pca/intensity_mat_filtered_imputed_log2transf_norm.rds"
+          output_directory: "datasets/consortium/C9orf72-mouse/02_organized_data/phosphoproteomics/deg/"
+      fus:
+        settings:
+          cohort: "datasets/consortium/FUS-mouse/02_organized_data/phosphoproteomics/prefiltering-pca/cohort_filtered.csv"
+          intensity_mat_for_limma: "datasets/consortium/FUS-mouse/02_organized_data/phosphoproteomics/prefiltering-pca/intensity_mat_filtered_imputed_log2transf_norm.rds"
+          output_directory: "datasets/consortium/FUS-mouse/02_organized_data/phosphoproteomics/deg/"
+      human_csf:
+        settings:
+          cohort: "datasets/consortium/human-csf/02_organized_data/phosphoproteomics/prefiltering-pca/cohort_filtered.csv"
+          intensity_mat_for_limma: "datasets/consortium/human-csf/02_organized_data/phosphoproteomics/prefiltering-pca/intensity_mat_filtered_imputed_log2transf_norm.rds"
+          output_directory: "datasets/consortium/human-csf/02_organized_data/phosphoproteomics/deg/"
+          cohort_factors:
+            - factor: "Condition"
+              levels: ["ctrl", "als"]
+            - factor: "Sex"
+              levels: ["female", "male"]
+          limma:
+            - name: "no_covariates"
+              formula: "~ Condition"
+              fit_method: "ls"
+              results:
+                - name: "mut_vs_ctrl"
+                  coefficient: "Conditionals"
+                  padjust_method: "BH"
+            - name: "covariate_sex"
+              formula: "~ Sex + Condition"
+              fit_method: "ls"
+              results:
+                - name: "mut_vs_ctrl"
+                  coefficient: "Conditionals"
+                  padjust_method: "BH"
+                - name: "male_vs_female"
+                  coefficient: "Sexmale"
+                  padjust_method: "BH"
+            - name: "only_males"
+              filter:
+                - field: "Sex"
+                  value: "male"
+              formula: "~ Condition"
+              fit_method: "ls"
+              results:
+                - name: "mut_vs_ctrl"
+                  coefficient: "Conditionals"
+                  padjust_method: "BH"
+            - name: "only_females"
+              filter:
+                - field: "Sex"
+                  value: "female"
+              formula: "~ Condition"
+              fit_method: "ls"
+              results:
+                - name: "mut_vs_ctrl"
+                  coefficient: "Conditionals"
+                  padjust_method: "BH"
+  # Then the name of the stage you work on
+  deg_digestion:
+    # default_system_settings are those settings that are shared by all the datasets and
+    # that do not change the results.
+    # For instance the number of CPUs to use in the analysis.
+    default_system_settings: {}
+    # default_settings are those settings that are shared by all the datasets, for instance
+    # the nextflow pipeline we want to use.
+    default_settings:
+      volcano_plots:
+        - name: "volcano_mut_vs_ctrl_with_and_without_stratifying"
+          subplots:
+            - name: ["only_males", "mut_vs_ctrl"]
+              title: "Mut vs Ctrl (only males)"
+            - name: ["only_females", "mut_vs_ctrl"]
+              title: "Mut vs Ctrl (only females)"
+            - name: ["covariate_sex", "mut_vs_ctrl"]
+              title: "Mut vs Ctrl (sex as covariate)"
+      merged_volcano:
+        - analysis: "only_males" 
+          result_name: "mut_vs_ctrl"
+          title: "significant for male"
+          color: "#00CCFF" #skyblue
+        - analysis: "only_females"
+          result_name: "mut_vs_ctrl"
+          title: "significant for female"
+          color: "#F07C04" #orange
+      de_thresholds:
+        strict:
+          up_log2fc: 0.2630344
+          down_log2fc: -0.2630344
+          padj: 0.05
+        loose:
+          up_log2fc: 0.2630344
+          down_log2fc: -0.2630344
+          padj: 0.10
+        strict_justpval:
+          up_log2fc: 0
+          down_log2fc: -0
+          padj: 0.05
+      gene_overlaps:
+        - name: "mut_vs_ctrl_sex_stratifying"
+          criterion: "strict"
+          sets:
+            - name: "female"
+              set: ["only_females", "mut_vs_ctrl"]
+            - name: "male"
+              set: ["only_males", "mut_vs_ctrl"]
+            - name: "sex_covariate"
+              set: ["covariate_sex", "mut_vs_ctrl"]
+    # This is used in the dvc file to generate multiple stages with a foreach
+    # https://dvc.org/doc/user-guide/project-structure/pipelines-files#foreach-stages
+    stages:
+      # For each dataset, we give its specific settings:
+      # Files should always be listed here:
+      sod1:
+        settings:
+          de_results_rds: "datasets/consortium/SOD1-mouse/02_organized_data/phosphoproteomics/deg/de_results.rds"
+          output_directory: "datasets/consortium/SOD1-mouse/02_organized_data/phosphoproteomics/deg_digestion/"
+      tdp43:
+        settings:
+          de_results_rds: "datasets/consortium/TDP43-mouse/02_organized_data/phosphoproteomics/deg/de_results.rds"
+          output_directory: "datasets/consortium/TDP43-mouse/02_organized_data/phosphoproteomics/deg_digestion/"
+      c9:
+        settings:
+          de_results_rds: "datasets/consortium/C9orf72-mouse/02_organized_data/phosphoproteomics/deg/de_results.rds"
+          output_directory: "datasets/consortium/C9orf72-mouse/02_organized_data/phosphoproteomics/deg_digestion/"
+      fus:
+        settings:
+          de_results_rds: "datasets/consortium/FUS-mouse/02_organized_data/phosphoproteomics/deg/de_results.rds"
+          output_directory: "datasets/consortium/FUS-mouse/02_organized_data/phosphoproteomics/deg_digestion/"
+      human_csf:
+        settings:
+          de_results_rds: "datasets/consortium/human-csf/02_organized_data/phosphoproteomics/deg/de_results.rds"
+          output_directory: "datasets/consortium/human-csf/02_organized_data/phosphoproteomics/deg_digestion/"
+  # Then the name of the stage you work on
+  string_ppi:
+    # default_system_settings are those settings that are shared by all the datasets and
+    # that do not change the results.
+    # For instance the number of CPUs to use in the analysis.
+    default_system_settings:
+      cache: ".cache_string_ppi/"
+    # default_settings are those settings that are shared by all the datasets, for instance
+    # the nextflow pipeline we want to use.
+    default_settings:
+      string_combined_score_threshold: 400
+      ncbi_identifier: 10090
+    # This is used in the dvc file to generate multiple stages with a foreach
+    # https://dvc.org/doc/user-guide/project-structure/pipelines-files#foreach-stages
+    stages:
+      # For each dataset, we give its specific settings:
+      # Files should always be listed here:
+      sod1:
+        settings:
+          de_result_thresholds_rds: "datasets/consortium/SOD1-mouse/02_organized_data/phosphoproteomics/deg_digestion/de_tables/de_result_thresholds.rds"
+          uniprot_to_string: "database/stringdb/mouse.uniprot_2_string.2018.tsv.gz"
+          string_ppi_file: "database/stringdb/10090.protein.links.txt.gz"
+          output_directory: "datasets/consortium/SOD1-mouse/02_organized_data/phosphoproteomics/string_ppi/"
+      tdp43:
+        settings:
+          de_result_thresholds_rds: "datasets/consortium/TDP43-mouse/02_organized_data/phosphoproteomics/deg_digestion/de_tables/de_result_thresholds.rds"
+          uniprot_to_string: "database/stringdb/mouse.uniprot_2_string.2018.tsv.gz"
+          string_ppi_file: "database/stringdb/10090.protein.links.txt.gz"
+          output_directory: "datasets/consortium/TDP43-mouse/02_organized_data/phosphoproteomics/string_ppi/"
+      c9:
+        settings:
+          de_result_thresholds_rds: "datasets/consortium/C9orf72-mouse/02_organized_data/phosphoproteomics/deg_digestion/de_tables/de_result_thresholds.rds"
+          uniprot_to_string: "database/stringdb/mouse.uniprot_2_string.2018.tsv.gz"
+          string_ppi_file: "database/stringdb/10090.protein.links.txt.gz"
+          output_directory: "datasets/consortium/C9orf72-mouse/02_organized_data/phosphoproteomics/string_ppi/"
+      fus:
+        settings:
+          de_result_thresholds_rds: "datasets/consortium/FUS-mouse/02_organized_data/phosphoproteomics/deg_digestion/de_tables/de_result_thresholds.rds"
+          uniprot_to_string: "database/stringdb/mouse.uniprot_2_string.2018.tsv.gz"
+          string_ppi_file: "database/stringdb/10090.protein.links.txt.gz"
+          output_directory: "datasets/consortium/FUS-mouse/02_organized_data/phosphoproteomics/string_ppi/"
+      human_csf:
+        settings:
+          de_result_thresholds_rds: "datasets/consortium/human-csf/02_organized_data/phosphoproteomics/deg_digestion/de_tables/de_result_thresholds.rds"
+          uniprot_to_string: "database/stringdb/human.uniprot_2_string.2018.tsv.gz"
+          string_ppi_file: "database/stringdb/9606.protein.links.txt.gz"
+          output_directory: "datasets/consortium/human-csf/02_organized_data/phosphoproteomics/string_ppi/"
+  # Then the name of the stage you work on
+  gsea_enrichment:
+    # default_system_settings are those settings that are shared by all the datasets and
+    # that do not change the results.
+    # For instance the number of CPUs to use in the analysis.
+    default_system_settings:
+      cache: ".cache_gene_enrichment_phosphoproteomics/"
+    # default_settings are those settings that are shared by all the datasets, for instance
+    # the nextflow pipeline we want to use.
+    default_settings: {}
+    # This is used in the dvc file to generate multiple stages with a foreach
+    # https://dvc.org/doc/user-guide/project-structure/pipelines-files#foreach-stages
+    stages:
+      # For each dataset, we give its specific settings:
+      # Files should always be listed here:
+      sod1:
+        settings:
+          uniprot_to_ensembl: "database/uniprot/uniprot_MOUSE_10090_idmapping_selected.tab.gz"
+          organism: "mmusculus"
+          de_results_rds: "datasets/consortium/SOD1-mouse/02_organized_data/phosphoproteomics/deg/de_results.rds"
+          output_directory: "datasets/consortium/SOD1-mouse/02_organized_data/phosphoproteomics/gsea_enrichment/"
+      tdp43:
+        settings:
+          uniprot_to_ensembl: "database/uniprot/uniprot_MOUSE_10090_idmapping_selected.tab.gz"
+          organism: "mmusculus"
+          de_results_rds: "datasets/consortium/TDP43-mouse/02_organized_data/phosphoproteomics/deg/de_results.rds"
+          output_directory: "datasets/consortium/TDP43-mouse/02_organized_data/phosphoproteomics/gsea_enrichment/"
+      c9:
+        settings:
+          uniprot_to_ensembl: "database/uniprot/uniprot_MOUSE_10090_idmapping_selected.tab.gz"
+          organism: "mmusculus"
+          de_results_rds: "datasets/consortium/C9orf72-mouse/02_organized_data/phosphoproteomics/deg/de_results.rds"
+          output_directory: "datasets/consortium/C9orf72-mouse/02_organized_data/phosphoproteomics/gsea_enrichment/"
+      fus:
+        settings:
+          uniprot_to_ensembl: "database/uniprot/uniprot_MOUSE_10090_idmapping_selected.tab.gz"
+          organism: "mmusculus"
+          de_results_rds: "datasets/consortium/FUS-mouse/02_organized_data/phosphoproteomics/deg/de_results.rds"
+          output_directory: "datasets/consortium/FUS-mouse/02_organized_data/phosphoproteomics/gsea_enrichment/"
+          
+  deg_count:
+      sod1_female: "datasets/consortium/SOD1-mouse/02_organized_data/phosphoproteomics/deg_digestion/de_tables/only_females-mut_vs_ctrl-strict.csv"
+      tdp43_female: "datasets/consortium/TDP43-mouse/02_organized_data/phosphoproteomics/deg_digestion/de_tables/only_females-mut_vs_ctrl-strict.csv"
+      c9_female: "datasets/consortium/C9orf72-mouse/02_organized_data/phosphoproteomics/deg_digestion/de_tables/only_females-mut_vs_ctrl-strict.csv"
+      fus_female: "datasets/consortium/FUS-mouse/02_organized_data/phosphoproteomics/deg_digestion/de_tables/only_females-mut_vs_ctrl-strict.csv"
+      sod1_male: "datasets/consortium/SOD1-mouse/02_organized_data/phosphoproteomics/deg_digestion/de_tables/only_males-mut_vs_ctrl-strict.csv"
+      tdp43_male: "datasets/consortium/TDP43-mouse/02_organized_data/phosphoproteomics/deg_digestion/de_tables/only_males-mut_vs_ctrl-strict.csv"
+      c9_male: "datasets/consortium/C9orf72-mouse/02_organized_data/phosphoproteomics/deg_digestion/de_tables/only_males-mut_vs_ctrl-strict.csv"
+      fus_male: "datasets/consortium/FUS-mouse/02_organized_data/phosphoproteomics/deg_digestion/de_tables/only_males-mut_vs_ctrl-strict.csv"
+
+  deg_boxplots:
+    # default_system_settings are those settings that are shared by all the datasets and
+    # that do not change the results.
+    # For instance the number of CPUs to use in the analysis.
+    default_system_settings: {}
+    # default_settings are those settings that are shared by all the datasets, for instance
+    # the nextflow pipeline we want to use.
+    default_settings: 
+      filepattern: "only_*males*-strict.csv"
+      splitby: "Sex"
+      pattern: "only_((fe)?male)s"
+      catplot_kwargs:
+        col_wrap: 4
+        sharey: False
+        kind: "box"
+        showmeans: True
+        meanline: True
+        meanprops:
+          color: "black"
+          linewidth: 1.5
+        hue: "Condition"
+      stripplot_kwargs:
+        alpha: 0.6
+        dodge: True
+        hue: "Condition"
+        color: "black"
+        size: 10
+    # This is used in the dvc file to generate multiple stages with a foreach
+    # https://dvc.org/doc/user-guide/project-structure/pipelines-files#foreach-stages
+    stages:
+      # For each dataset, we give its specific settings:
+      # Files should always be listed here:
+      sod1:
+        inputs:
+          raw: "datasets/consortium/SOD1-mouse/02_organized_data/phosphoproteomics/prefiltering-pca/intensity_mat_filtered_imputed_log2transf_norm.csv"
+          degpath: "datasets/consortium/SOD1-mouse/02_organized_data/phosphoproteomics/deg_digestion/de_tables/"
+          metadata: "datasets/consortium/SOD1-mouse/02_organized_data/phosphoproteomics/prefiltering-pca/cohort_filtered.csv"
+        output: "datasets/consortium/SOD1-mouse/02_organized_data/phosphoproteomics/deg_boxplots/"
+        settings: {}
+      tdp43:
+        inputs:
+          raw: "datasets/consortium/TDP43-mouse/02_organized_data/phosphoproteomics/prefiltering-pca/intensity_mat_filtered_imputed_log2transf_norm.csv"
+          degpath: "datasets/consortium/TDP43-mouse/02_organized_data/phosphoproteomics/deg_digestion/de_tables/"
+          metadata: "datasets/consortium/TDP43-mouse/02_organized_data/phosphoproteomics/prefiltering-pca/cohort_filtered.csv"
+        output: "datasets/consortium/TDP43-mouse/02_organized_data/phosphoproteomics/deg_boxplots/"
+        settings: {}
+      c9:
+        inputs:
+          raw: "datasets/consortium/C9orf72-mouse/02_organized_data/phosphoproteomics/prefiltering-pca/intensity_mat_filtered_imputed_log2transf_norm.csv"
+          degpath: "datasets/consortium/C9orf72-mouse/02_organized_data/phosphoproteomics/deg_digestion/de_tables/"
+          metadata: "datasets/consortium/C9orf72-mouse/02_organized_data/phosphoproteomics/prefiltering-pca/cohort_filtered.csv"
+        output: "datasets/consortium/C9orf72-mouse/02_organized_data/phosphoproteomics/deg_boxplots/"
+        settings: {}
+      fus:
+        inputs:
+          raw: "datasets/consortium/FUS-mouse/02_organized_data/phosphoproteomics/prefiltering-pca/intensity_mat_filtered_imputed_log2transf_norm.csv"
+          degpath: "datasets/consortium/FUS-mouse/02_organized_data/phosphoproteomics/deg_digestion/de_tables/"
+          metadata: "datasets/consortium/FUS-mouse/02_organized_data/phosphoproteomics/prefiltering-pca/cohort_filtered.csv"
+        output: "datasets/consortium/FUS-mouse/02_organized_data/phosphoproteomics/deg_boxplots/"
+        settings: {}
+      human_csf:
+        inputs:
+          raw: "datasets/consortium/human-csf/02_organized_data/phosphoproteomics/prefiltering-pca/intensity_mat_filtered_imputed_log2transf_norm.csv"
+          degpath: "datasets/consortium/human-csf/02_organized_data/phosphoproteomics/deg_digestion/de_tables/"
+          metadata: "datasets/consortium/human-csf/02_organized_data/phosphoproteomics/prefiltering-pca/cohort_filtered.csv"
+        output: "datasets/consortium/human-csf/02_organized_data/phosphoproteomics/deg_boxplots/"
+        settings: {}

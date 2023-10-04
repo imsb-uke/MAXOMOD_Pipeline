@@ -1,0 +1,165 @@
+stages:
+  rnaseq_srna_intersection:
+    foreach: ${integration.rnaseq_srna_intersection.stages}
+    do:
+      cmd: ./docker-wrapper.sh ./src/integration/20-rnaseq-srna-intersection.R --dataset-name ${key}
+      params:
+      - integration.rnaseq_srna_intersection.default_settings
+      - integration.rnaseq_srna_intersection.stages.${key}.settings
+      deps:
+      - ./src/integration/20-rnaseq-srna-intersection.R
+      - ./src/shared/R-helpers/get_args.R
+      - ./src/shared/R-helpers/update_list.R
+      - ./src/shared/R-helpers/get_settings.R
+      - ./src/shared/R-helpers/remove_ensembl_version.R
+      - ${item.settings.rnaseq_prefiltpca_dir}/ENSG_to_symbol.rds
+      - ${item.settings.rnaseq_de_digested_dir}/de_tables/de_result_thresholds.rds
+      - ${item.settings.srna_deg_digestion_dir}/de_results_with_targets.rds
+      outs:
+      - ${item.settings.output_directory}
+
+  rnaseq_proteomics_intersection:
+    foreach: ${integration.rnaseq_proteomics_intersection.stages}
+    do:
+      cmd: ./docker-wrapper.sh ./src/integration/21-rnaseq-proteomics-intersection.R --dataset-name ${key}
+      params:
+      - integration.rnaseq_proteomics_intersection.default_settings
+      - integration.rnaseq_proteomics_intersection.stages.${key}.settings
+      deps:
+      - ./src/integration/21-rnaseq-proteomics-intersection.R
+      - ./src/shared/R-helpers/get_args.R
+      - ./src/shared/R-helpers/update_list.R
+      - ./src/shared/R-helpers/get_settings.R
+      - ./src/shared/R-helpers/remove_ensembl_version.R
+      - ${item.settings.proteomics_de_results}
+      - ${item.settings.protein_group_to_proteins}
+      - ${item.settings.rnaseq_de_results}
+      - ${item.settings.uniprot_to_ensembl}
+      outs:
+      - ${item.settings.output_directory}
+      
+  map_de_genes:
+    foreach: ${integration.map_de_genes.stages}
+    do:
+      cmd: ./docker-wrapper.sh ./src/integration/22-map_de.py --stage ${key} --key integration --method map_de_genes
+      params:
+      - integration.map_de_genes.default_settings
+      - integration.map_de_genes.stages.${key}.settings
+      deps:
+      - ./src/integration/22-map_de.py
+      - ${item.inputs.de}
+      - ${item.inputs.mapping}
+      - ${integration.map_de_genes.default_settings.species_mapping}
+      outs:
+      - ${item.output}
+      
+  merge_de:
+    foreach: ${integration.cluster_profiler_merge.stages}
+    do:
+      cmd: ./docker-wrapper.sh ./src/integration/23-merge-de-lists.py --stage ${key} --key integration --method cluster_profiler_merge
+      params:
+      - integration.cluster_profiler_merge.stages.${key}.settings
+      deps:
+      - ${item.inputs}
+      outs:
+      - ${item.output}:
+          cache: false
+
+  cluster_profiler_compare:
+    foreach: ${integration.cluster_profiler_compare.stages}
+    do:
+      cmd: ./docker-wrapper.sh ./src/integration/24-clusterprofiler.R --dataset-name ${key}
+      deps:
+      - ./src/integration/24-clusterprofiler.R
+      - ./src/shared/R-helpers/get_args.R
+      - ./src/shared/R-helpers/get_settings.R
+      - ${item.settings.inputs}
+      params:
+      - integration.cluster_profiler_compare.default_settings
+      - integration.cluster_profiler_compare.stages.${key}.settings
+      outs:
+      - ${item.settings.output_directory}
+
+  merge_all_pathways:
+    cmd: ./docker-wrapper.sh ./src/integration/merge_pathways.py
+    deps:
+    - src/integration/merge_pathways.py
+    - results/DTU/C9orf72-mouse/ORA
+    - results/DTU/FUS-mouse/ORA
+    - results/DTU/SOD1-mouse/ORA
+    - results/DTU/TDP43-mouse/ORA
+    - results/DTU/human/ORA
+    - results/DAS/C9orf72-mouse/ORA
+    - results/DAS/FUS-mouse/ORA
+    - results/DAS/SOD1-mouse/ORA
+    - results/DAS/TDP43-mouse/ORA
+    - results/DAS/human/ORA
+    - results/WGCNA/c9orf72_results
+    - results/WGCNA/fus_results
+    - results/WGCNA/human_results
+    - results/WGCNA/sod1_results
+    - results/WGCNA/tdp43_results
+    - results/WGCNA_rnaseq/c9orf72_results
+    - results/WGCNA_rnaseq/fus_results
+    - results/WGCNA_rnaseq/human_results
+    - results/WGCNA_rnaseq/sod1_results
+    - results/WGCNA_rnaseq/tdp43_results
+    - datasets/consortium/human-datasets/02_organized_data/rnaseq/gene-enrichment/gene_set_enrichment/
+    - datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/gene-enrichment/gene_set_enrichment/
+    - datasets/consortium/FUS-mouse/02_organized_data/rnaseq/gene-enrichment/gene_set_enrichment/
+    - datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/gene-enrichment/gene_set_enrichment/
+    - datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/gene-enrichment/gene_set_enrichment/
+    - datasets/consortium/human-datasets/02_organized_data/proteomics/gsea_enrichment/gsea_results/
+    - datasets/consortium/SOD1-mouse/02_organized_data/proteomics/gsea_enrichment/gsea_results/
+    - datasets/consortium/FUS-mouse/02_organized_data/proteomics/gsea_enrichment/gsea_results/
+    - datasets/consortium/C9orf72-mouse/02_organized_data/proteomics/gsea_enrichment/gsea_results/
+    - datasets/consortium/TDP43-mouse/02_organized_data/proteomics/gsea_enrichment/gsea_results/
+    - datasets/consortium/human-datasets/02_organized_data/rnaseq/genetonic/
+    - datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/genetonic/
+    - datasets/consortium/FUS-mouse/02_organized_data/rnaseq/genetonic/
+    - datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/genetonic/
+    - datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/genetonic/
+    outs:
+    - results/integration/pathways/all_pathways.csv
+    
+  generate_genesets_pathwayscoring:
+    cmd: ./docker-wrapper.sh python ./src/integration/generate_genesets.py
+    deps:
+    - src/integration/generate_genesets.py
+    - database/genesets/raw_lists/
+    - database/uniprot/uniprot_HUMAN_9606_idmapping_selected.tab.gz
+    - database/biomaRt/ensembl_to_symbol_human.csv
+    - database/uniprot/uniprot_MOUSE_10090_idmapping_selected.tab.gz
+    - human_rat_mouse_protein_gene_link.csv.gz
+    outs:
+    - database/genesets/all_genesets.json.gz
+
+  pathway_scores_rnaseq:
+    foreach: ${integration.pathway_scores_rnaseq.stages}
+    do:
+      cmd: ./docker-wrapper.sh python3 ./src/shared/score_pathways.py --stage ${key} --key integration --method pathway_scores_rnaseq
+      deps:
+      - ./src/shared/score_pathways.py
+      - ${item.inputs.expression}
+      - ${item.inputs.genelists}
+      params:
+      - integration.pathway_scores_rnaseq.default_settings
+      - integration.pathway_scores_rnaseq.stages.${key}.settings
+      outs:
+      - ${item.output}.csv
+      - ${item.output}.ncount.csv
+
+  pathway_scores_proteomics:
+    foreach: ${integration.pathway_scores_proteomics.stages}
+    do:
+      cmd: ./docker-wrapper.sh python3 ./src/shared/score_pathways.py --stage ${key} --key integration --method pathway_scores_proteomics
+      deps:
+      - ./src/shared/score_pathways.py
+      - ${item.inputs.expression}
+      - ${item.inputs.genelists}
+      params:
+      - integration.pathway_scores_proteomics.default_settings
+      - integration.pathway_scores_proteomics.stages.${key}.settings
+      outs:
+      - ${item.output}.csv
+      - ${item.output}.ncount.csv

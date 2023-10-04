@@ -1,0 +1,38 @@
+stages:
+  splicing_analysis:
+    foreach: ${splicing_analysis.dtu.stages}
+    do:
+      cmd: ./docker-wrapper.sh ./src/rnaseq/DTU_Analysis/DTU.R --dataset-name ${key} 
+      deps:
+      - ./src/rnaseq/DTU_Analysis/DTU.R
+      - ./src/shared/R-helpers/get_args.R
+      - ./src/shared/R-helpers/get_settings.R
+      - ./src/rnaseq/DTU_Analysis/DEXSeq_DTU_analysis.R
+      - ./src/rnaseq/DTU_Analysis/DRIMSeq_DTU_analysis.R
+      - ./src/rnaseq/DTU_Analysis/stageR_DTU_significanceTesting.R
+      - ${item.settings.cohort}
+      - ${item.settings.input_directory}
+      - ${item.settings.gtf}
+      - ${item.settings.nfs_to_sample_id}
+      params:
+      - splicing_analysis.dtu.stages.${key}.settings
+      outs:
+      - ${item.settings.output_directory} 
+
+  ora_dtu:
+    foreach: ${splicing_analysis.ora_dtu.stages}
+    do:
+      cmd: ./docker-wrapper.sh ./src/rnaseq/ORA/dtu_ora.R --dataset-name ${key}
+      deps:
+      - ./src/rnaseq/ORA/dtu_ora.R
+      - ./src/shared/R-helpers/get_args.R
+      - ./src/shared/R-helpers/get_settings.R
+      - ${item.settings.inputdex}
+      - ${item.settings.inputdrim}
+      params:
+      - splicing_analysis.ora_dtu.stages.${key}.settings
+      outs:
+      - ${item.settings.output_directory}
+
+
+

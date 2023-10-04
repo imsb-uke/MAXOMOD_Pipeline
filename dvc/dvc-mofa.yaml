@@ -1,0 +1,132 @@
+#Major issues with adding MOFA package to Docker, please install MOFA locally
+stages:
+    mofa_tps2:
+       foreach: ${mofa_tps2.stages}
+       do:
+          cmd: MX_DOCKERIMAGE="ghcr.io/imsb-uke/maxomod_pipeline-mofa" ./docker-wrapper.sh Rscript src/shared/integrative/mofa_analysis.r --dataset-name ${key} --mofa-type mofa_tps2
+          params:
+              - mofa_tps2.stages.${key}.organism
+              - mofa_tps2.stages.${key}.sex_selection
+              - mofa_tps2.stages.${key}.factor_combinations
+              - mofa_tps2.stages.${key}.model_training
+              - mofa_tps2.stages.${key}.topN_byVar
+          deps:
+              - src/shared/integrative/mofa_analysis.r
+              - ${item.omics.transcriptomics.annotation_file}
+              - ${item.omics.transcriptomics.expression_file}
+              - ${item.omics.proteomics.annotation_file}
+              - ${item.omics.proteomics.expression_file}
+              - ${item.omics.srna_mature.annotation_file}
+              - ${item.omics.srna_mature.keep_file}
+              - ${item.omics.srna_mature.expression_file}
+              - ${item.omics.srna_hairpin.annotation_file}
+              - ${item.omics.srna_hairpin.keep_file}
+              - ${item.omics.srna_hairpin.expression_file}
+          outs:
+              - ${item.out_dir}
+
+    mofa_tpsm_c9:
+       foreach: ${mofa_tpsm_c9.stages}
+       do:
+          cmd: MX_DOCKERIMAGE="ghcr.io/imsb-uke/maxomod_pipeline-mofa" ./docker-wrapper.sh Rscript src/shared/integrative/mofa_analysis.r --dataset-name ${key} --mofa-type mofa_tpsm_c9
+          params:
+              - mofa_tpsm_c9.stages.${key}.organism
+              - mofa_tpsm_c9.stages.${key}.sex_selection
+              - mofa_tpsm_c9.stages.${key}.factor_combinations
+              - mofa_tpsm_c9.stages.${key}.model_training
+              - mofa_tpsm_c9.stages.${key}.topN_byVar
+          deps:
+              - src/shared/integrative/mofa_analysis.r
+              - ${item.omics.transcriptomics.annotation_file}
+              - ${item.omics.transcriptomics.expression_file}
+              - ${item.omics.proteomics.annotation_file}
+              - ${item.omics.proteomics.expression_file}
+              - ${item.omics.srna_mature.annotation_file}
+              - ${item.omics.srna_mature.keep_file}
+              - ${item.omics.srna_mature.expression_file}
+              - ${item.omics.metabolomics.annotation_file}
+              - ${item.omics.metabolomics.sample_mapping}
+              - ${item.omics.metabolomics.expression_file}
+          outs:
+              - ${item.out_dir}
+
+    mofa_tp2sm:
+       foreach: ${mofa_tp2sm.stages}
+       do:
+          cmd: MX_DOCKERIMAGE="ghcr.io/imsb-uke/maxomod_pipeline-mofa" ./docker-wrapper.sh Rscript src/shared/integrative/mofa_analysis.r --dataset-name ${key} --mofa-type mofa_tp2sm
+          params:
+              - mofa_tp2sm.stages.${key}.organism
+              - mofa_tp2sm.stages.${key}.sex_selection
+              - mofa_tp2sm.stages.${key}.factor_combinations
+              - mofa_tp2sm.stages.${key}.model_training
+              - mofa_tp2sm.stages.${key}.topN_byVar
+          deps:
+              - src/shared/integrative/mofa_analysis.r
+              - ${item.omics.transcriptomics.annotation_file}
+              - ${item.omics.transcriptomics.expression_file}
+              - ${item.omics.proteomics.annotation_file}
+              - ${item.omics.proteomics.expression_file}
+              - ${item.omics.srna_mature.annotation_file}
+              - ${item.omics.srna_mature.keep_file}
+              - ${item.omics.srna_mature.expression_file}
+              - ${item.omics.metabolomics.annotation_file}
+              - ${item.omics.metabolomics.expression_file}
+              - ${item.omics.phosphoproteomics.annotation_file}
+              - ${item.omics.phosphoproteomics.expression_file}
+          outs:
+              - ${item.out_dir}
+
+    mofa_tp2sm_c9:
+       foreach: ${mofa_tp2sm_c9.stages}
+       do:
+          cmd: MX_DOCKERIMAGE="ghcr.io/imsb-uke/maxomod_pipeline-mofa" ./docker-wrapper.sh Rscript src/shared/integrative/mofa_analysis.r --dataset-name ${key} --mofa-type mofa_tp2sm_c9
+          params:
+              - mofa_tp2sm_c9.stages.${key}.organism
+              - mofa_tp2sm_c9.stages.${key}.sex_selection
+              - mofa_tp2sm_c9.stages.${key}.factor_combinations
+              - mofa_tp2sm_c9.stages.${key}.model_training
+              - mofa_tp2sm_c9.stages.${key}.topN_byVar
+          deps:
+              - src/shared/integrative/mofa_analysis.r
+              - ${item.omics.transcriptomics.annotation_file}
+              - ${item.omics.transcriptomics.expression_file}
+              - ${item.omics.proteomics.annotation_file}
+              - ${item.omics.proteomics.expression_file}
+              - ${item.omics.srna_mature.annotation_file}
+              - ${item.omics.srna_mature.keep_file}
+              - ${item.omics.srna_mature.expression_file}
+              - ${item.omics.metabolomics.annotation_file}
+              - ${item.omics.metabolomics.sample_mapping}
+              - ${item.omics.metabolomics.expression_file}
+              - ${item.omics.phosphoproteomics.annotation_file}
+              - ${item.omics.phosphoproteomics.sample_matching}
+              - ${item.omics.phosphoproteomics.expression_file}
+          outs:
+              - ${item.out_dir}
+
+    mofa_tp2sm_fus:
+       foreach: ${mofa_tp2sm_fus.stages}
+       do:
+          cmd: MX_DOCKERIMAGE="ghcr.io/imsb-uke/maxomod_pipeline-mofa" ./docker-wrapper.sh Rscript src/shared/integrative/mofa_analysis.r --dataset-name ${key} --mofa-type mofa_tp2sm_fus
+          params:
+              - mofa_tp2sm_fus.stages.${key}.organism
+              - mofa_tp2sm_fus.stages.${key}.sex_selection
+              - mofa_tp2sm_fus.stages.${key}.factor_combinations
+              - mofa_tp2sm_fus.stages.${key}.model_training
+              - mofa_tp2sm_fus.stages.${key}.topN_byVar
+          deps:
+              - src/shared/integrative/mofa_analysis.r
+              - ${item.omics.transcriptomics.annotation_file}
+              - ${item.omics.transcriptomics.expression_file}
+              - ${item.omics.proteomics.annotation_file}
+              - ${item.omics.proteomics.expression_file}
+              - ${item.omics.srna_mature.annotation_file}
+              - ${item.omics.srna_mature.keep_file}
+              - ${item.omics.srna_mature.expression_file}
+              - ${item.omics.metabolomics.annotation_file}
+              - ${item.omics.metabolomics.sample_mapping}
+              - ${item.omics.metabolomics.expression_file}
+              - ${item.omics.phosphoproteomics.annotation_file}
+              - ${item.omics.phosphoproteomics.expression_file}
+          outs:
+              - ${item.out_dir}

@@ -1,0 +1,203 @@
+stages:
+  rnaseq_download_refs:
+    cmd: ./src/rnaseq/01-download-alignment-refs.sh
+    outs:
+    - database/align-references/hsapiens/GRCh38.p13.genome.fa.gz
+    - database/align-references/hsapiens/GRCh38.primary_assembly.genome.fa.gz
+    - database/align-references/hsapiens/gencode.v37.transcripts.fa.gz
+    - database/align-references/hsapiens/gencode.v37.annotation.gtf.gz
+    - database/align-references/mmusculus/GRCm39.genome.fa.gz
+    - database/align-references/mmusculus/GRCm39.primary_assembly.genome.fa.gz
+    - database/align-references/mmusculus/gencode.vM26.transcripts.fa.gz
+    - database/align-references/mmusculus/gencode.vM26.annotation.gtf.gz
+  rnaseq_nextflow:
+    foreach: ${rnaseq.nextflow.stages}
+    do:
+      cmd: ./src/rnaseq/10-nextflow.py --dataset-name ${key}
+      params:
+      - rnaseq.nextflow.default_settings
+      - rnaseq.nextflow.stages.${key}.settings
+      deps:
+      - ./src/rnaseq/10-nextflow.py
+      - ${item.settings.input_directory}
+      - ${item.settings.cohort}
+      - ${item.settings.fasta}
+      - ${item.settings.gtf}
+      outs:
+      - ${item.settings.output_directory}/samplesheet.csv
+      - ${item.settings.output_directory}/nextflow_ids_to_samples.csv
+      - ${item.settings.output_directory}/results/
+  rnaseq_prefiltering_pca:
+    foreach: ${rnaseq.prefiltering_pca.stages}
+    do:
+      cmd: ./docker-wrapper.sh ./src/rnaseq/20-prefiltering-pca.R --dataset-name ${key}
+      params:
+      - rnaseq.prefiltering_pca.default_settings
+      - rnaseq.prefiltering_pca.stages.${key}.settings
+      deps:
+      - ./src/rnaseq/20-prefiltering-pca.R
+      - ./src/shared/R-helpers/cohort_to_factors.R
+      - ./src/shared/R-helpers/get_args.R
+      - ./src/shared/R-helpers/update_list.R
+      - ./src/shared/R-helpers/get_settings.R
+      - ./src/shared/R-helpers/get_top_n_variance.R
+      - ./src/shared/R-helpers/pc_scores_loadings_plot.R
+      - ./src/shared/R-helpers/pca_fit.R
+      - ${item.settings.cohort}
+      - ${item.settings.nfid_to_sample_id}
+      - ${item.settings.counts}
+      outs:
+      - ${item.settings.output_directory}
+  rnaseq_deg:
+    foreach: ${rnaseq.deg.stages}
+    do:
+      cmd: ./docker-wrapper.sh ./src/rnaseq/30-deg.R --dataset-name ${key}
+      deps:
+      - ./src/rnaseq/30-deg.R
+      - ./src/shared/R-helpers/get_args.R
+      - ./src/shared/R-helpers/update_list.R
+      - ./src/shared/R-helpers/get_settings.R
+      - ./src/shared/R-helpers/cohort_to_factors.R
+      - ./src/shared/R-helpers/deseq2_analysis.R
+      - ${item.settings.cohort}
+      - ${item.settings.prefiltpca_dir}
+      params:
+      - rnaseq.deg.default_settings
+      - rnaseq.deg.stages.${key}.settings
+      outs:
+      - ${item.settings.output_directory}
+  rnaseq_deg_digestion:
+    foreach: ${rnaseq.deg_digestion.stages}
+    do:
+      cmd: ./docker-wrapper.sh ./src/rnaseq/40-deg-digestion.R --dataset-name ${key}
+      deps:
+      - ./src/rnaseq/40-deg-digestion.R
+      - ./src/shared/R-helpers/get_args.R
+      - ./src/shared/R-helpers/update_list.R
+      - ./src/shared/R-helpers/get_settings.R
+      - ./src/shared/R-helpers/remove_ensembl_version.R
+      - ./src/shared/R-helpers/create_volcano_plot.R
+      - ./src/shared/R-helpers/memoise_decorator.R
+      - ${item.settings.deg_dir}
+      - ${item.settings.prefiltpca_dir}
+      params:
+      - rnaseq.deg_digestion.default_settings
+      - rnaseq.deg_digestion.stages.${key}.settings
+      outs:
+      - ${item.settings.output_directory}
+  rnaseq_gene_enrichment:
+    foreach: ${rnaseq.gene_enrichment.stages}
+    do:
+      cmd: ./docker-wrapper.sh ./src/rnaseq/45-gsea-enrichment.R --dataset-name ${key}
+      deps:
+      - ./src/rnaseq/45-gsea-enrichment.R
+      - ./src/shared/R-helpers/get_args.R
+      - ./src/shared/R-helpers/update_list.R
+      - ./src/shared/R-helpers/get_settings.R
+      - ./src/shared/R-helpers/remove_ensembl_version.R
+      - ./src/shared/R-helpers/gseGO_memoise.R
+      - ./src/shared/R-helpers/memoise_decorator.R
+      - ${item.settings.deg_dir}
+      params:
+      - rnaseq.gene_enrichment.default_settings
+      - rnaseq.gene_enrichment.stages.${key}.settings
+      outs:
+      - ${item.settings.output_directory}
+  rnaseq_gene_gene_correlation:
+    foreach: ${rnaseq.gene_gene_correlation.stages}
+    do:
+      cmd: ./docker-wrapper.sh ./src/rnaseq/50-gene-gene-correlation.R --dataset-name ${key}
+      deps:
+      - ./src/rnaseq/50-gene-gene-correlation.R
+      - ./src/shared/R-helpers/get_args.R
+      - ./src/shared/R-helpers/update_list.R
+      - ./src/shared/R-helpers/get_settings.R
+      - ./src/shared/R-helpers/remove_ensembl_version.R
+      - ./src/shared/R-helpers/gseGO_memoise.R
+      - ./src/shared/R-helpers/memoise_decorator.R
+      - ${item.settings.cohort}
+      - ${item.settings.deg_dir}
+      - ${item.settings.prefiltpca_dir}
+      params:
+      - rnaseq.gene_gene_correlation.default_settings
+      - rnaseq.gene_gene_correlation.stages.${key}.settings
+      outs:
+      - ${item.settings.output_directory}
+      
+  rnaseq_genetonic:
+    foreach: ${rnaseq.genetonic.stages}
+    do:
+      cmd: ./docker-wrapper.sh ./src/rnaseq/51-genetonic.R --dataset-name ${key}
+      deps:
+      - ./src/rnaseq/51-genetonic.R
+      - ${item.settings.inputs_female}
+      - ${item.settings.inputs_male}
+      - ${item.settings.annotation}
+      params:
+      - rnaseq.genetonic.default_settings
+      - rnaseq.genetonic.stages.${key}.settings
+      outs:
+      - ${item.settings.output_directory}
+
+  rnaseq_deg_count:
+    cmd: ./docker-wrapper.sh python ./src/rnaseq/46-get_deg_counts.py
+    deps:
+    - ./src/rnaseq/46-get_deg_counts.py
+    - ${rnaseq.deg_count.sod1_female}
+    - ${rnaseq.deg_count.tdp43_female}
+    - ${rnaseq.deg_count.c9_female}
+    - ${rnaseq.deg_count.human_female}
+    - ${rnaseq.deg_count.fus_female}
+    - ${rnaseq.deg_count.sod1_male}
+    - ${rnaseq.deg_count.tdp43_male}
+    - ${rnaseq.deg_count.c9_male}
+    - ${rnaseq.deg_count.human_male}
+    - ${rnaseq.deg_count.fus_male}
+    metrics:
+    - results/integration/rnaseq/deg_counts.yaml
+
+  fastqscreen:
+    foreach: ${rnaseq.fastqscreen.stages}
+    do:
+      cmd: ./docker-wrapper.sh fastq_screen --subset 0 --tag --outdir ${item.output} --conf ${rnaseq.fastqscreen.default_settings.conf} ${item.inputs}
+      deps:
+      - ${item.inputs}
+      - ${rnaseq.fastqscreen.default_settings.conf}
+      outs:
+      - ${item.output}
+  rnaseq_merge_raw:
+    foreach: ${rnaseq.rnaseq_merge.stages}
+    do:
+      cmd: ./src/rnaseq/merge_inputs.py --stage ${key}
+      deps:
+      - ./src/rnaseq/merge_inputs.py
+      - ${item.inputs.new}
+      - ${item.inputs.old}
+      outs:
+      - ${item.output}
+  rnaseq_revigo:
+    foreach: ${rnaseq.revigo.stages}
+    do:
+      cmd: ./docker-wrapper.sh python ./src/shared/REVIGO/revigo_restful_advanced.py --dataset_name ${key} --omics_type rnaseq
+      params:
+      - rnaseq.revigo.stages.${key}.settings
+      deps:
+      - ./src/shared/REVIGO/revigo_restful_advanced.py
+      - ./datasets/consortium/${item.settings.biological_model}/02_organized_data/rnaseq/gene-enrichment
+      outs:
+      - ${item.settings.output_directory}
+
+  rnaseq_gofigure:
+    foreach: ${rnaseq.gofigure.stages}
+    do:
+      cmd: ./docker-wrapper.sh python3 src/shared/GoFigure/run_gofigure.py --key rnaseq --method gofigure --stage ${key}
+      params:
+      - rnaseq.gofigure.stages.${key}.settings.level
+      - rnaseq.gofigure.stages.${key}.settings.commandline
+      deps:
+      - ${item.inputs}
+      - src/shared/GoFigure/gofigure.py
+      - src/shared/GoFigure/run_gofigure.py
+      - src/shared/GoFigure/data/
+      outs:
+      - ${item.outputs}

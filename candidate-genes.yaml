@@ -1,0 +1,48 @@
+sources:
+  - name: "clinvarminer.genetics.utah.edu"
+    source: "https://clinvarminer.genetics.utah.edu/variants-by-condition/Amyotrophic%20lateral%20sclerosis"
+    gene_keytype: "SYMBOL"
+    species: "hsapiens"
+    genes: 
+    - ALS2
+    - ANG
+    - PDK4
+    - ATXN2
+    - CAPN14
+    - CFAP410
+    - CHRNA3
+    - CHRNA4
+    - CHRNB4
+    - DAO
+    - DCTN1
+    - DDX20
+    - DNAJC7
+    - ELP3
+    - ERBB4
+    - EWSR1
+    - FIG4
+    - GLE1
+    - KIF5A
+    - OPTN
+    - MOBP
+    - NEFH
+    - NEK1
+    - NIPA1
+    - PFN1
+    - PNPLA6
+    - PON1
+    - PON3
+    - PRPH
+    - TROAP
+    - SARM1
+    - SCFD1
+    - SETX
+    - SOD1
+    - SPG11
+    - SQSTM1
+    - SS18L1
+    - TNIP1
+    - UBQLN2
+    - UNC13A
+    - VCP
+

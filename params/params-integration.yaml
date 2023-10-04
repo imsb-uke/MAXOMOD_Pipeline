@@ -1,0 +1,470 @@
+# The omics goes first
+integration:
+  # Then the name of the stage you work on
+  rnaseq_srna_intersection:
+    # default_system_settings are those settings that are shared by all the datasets and
+    # that do not change the results.
+    # For instance the number of CPUs to use in the analysis.
+    default_system_settings: {}
+    # default_settings are those settings that are shared by all the datasets, for instance
+    # the nextflow pipeline we want to use.
+    default_settings: {}
+    # This is used in the dvc file to generate multiple stages with a foreach
+    # https://dvc.org/doc/user-guide/project-structure/pipelines-files#foreach-stages
+    stages:
+      # For each dataset, we give its specific settings:
+      # Files should always be listed here:
+      sod1:
+        settings:
+          rnaseq_prefiltpca_dir: "datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/prefiltering-pca/"
+          rnaseq_de_digested_dir: "datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/deg-digestion/"
+          srna_deg_digestion_dir: "datasets/consortium/SOD1-mouse/02_organized_data/srna/deg-digestion/"
+          output_directory: 'results/integration/rnaseq_srna_intersection/SOD1-mouse'
+      tdp43:
+        settings:
+          rnaseq_prefiltpca_dir: "datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/prefiltering-pca/"
+          rnaseq_de_digested_dir: "datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/deg-digestion/"
+          srna_deg_digestion_dir: "datasets/consortium/TDP43-mouse/02_organized_data/srna/deg-digestion/"
+          output_directory: 'results/integration/rnaseq_srna_intersection/TDP43-mouse'
+      c9:
+        settings:
+          rnaseq_prefiltpca_dir: "datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/prefiltering-pca/"
+          rnaseq_de_digested_dir: "datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/deg-digestion/"
+          srna_deg_digestion_dir: "datasets/consortium/C9orf72-mouse/02_organized_data/srna/deg-digestion/"
+          output_directory: 'results/integration/rnaseq_srna_intersection/C9orf72-mouse'
+      fus:
+        settings:
+          rnaseq_prefiltpca_dir: "datasets/consortium/FUS-mouse/02_organized_data/rnaseq/prefiltering-pca/"
+          rnaseq_de_digested_dir: "datasets/consortium/FUS-mouse/02_organized_data/rnaseq/deg-digestion/"
+          srna_deg_digestion_dir: "datasets/consortium/FUS-mouse/02_organized_data/srna/deg-digestion/"
+          output_directory: 'results/integration/rnaseq_srna_intersection/FUS-mouse'
+      human:
+        settings:
+          rnaseq_prefiltpca_dir: "datasets/consortium/human-datasets/02_organized_data/rnaseq/prefiltering-pca/"
+          rnaseq_de_digested_dir: "datasets/consortium/human-datasets/02_organized_data/rnaseq/deg-digestion/"
+          srna_deg_digestion_dir: "datasets/consortium/human-datasets/02_organized_data/srna/deg-digestion/"
+          output_directory: 'results/integration/rnaseq_srna_intersection/human-brain'
+  # Then the name of the stage you work on
+  rnaseq_proteomics_intersection:
+    # default_system_settings are those settings that are shared by all the datasets and
+    # that do not change the results.
+    # For instance the number of CPUs to use in the analysis.
+    default_system_settings: {}
+    # default_settings are those settings that are shared by all the datasets, for instance
+    # the nextflow pipeline we want to use.
+    default_settings: {}
+    # This is used in the dvc file to generate multiple stages with a foreach
+    # https://dvc.org/doc/user-guide/project-structure/pipelines-files#foreach-stages
+    stages:
+      # For each dataset, we give its specific settings:
+      # Files should always be listed here:
+      sod1:
+        settings:
+          proteomics_de_results: "datasets/consortium/SOD1-mouse/02_organized_data/proteomics/deg/covariate_sex/mut_vs_ctrl.rds"
+          protein_group_to_proteins: "datasets/consortium/SOD1-mouse/02_organized_data/proteomics/organized/protein_group_to_proteins.rds"
+          rnaseq_de_results: "datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/deg-digestion/de_tables/covariate_sex-mut_vs_ctrl-strict_justpval.csv"
+          uniprot_to_ensembl: "database/uniprot/uniprot_MOUSE_10090_idmapping_selected.tab.gz"
+          output_directory: 'results/integration/rnaseq_proteomics/SOD1-mouse/'
+      tdp43:
+        settings:
+          proteomics_de_results: "datasets/consortium/TDP43-mouse/02_organized_data/proteomics/deg/covariate_sex/mut_vs_ctrl.rds"
+          protein_group_to_proteins: "datasets/consortium/TDP43-mouse/02_organized_data/proteomics/organized/protein_group_to_proteins.rds"
+          rnaseq_de_results: "datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/deg-digestion/de_tables/covariate_sex-mut_vs_ctrl-strict_justpval.csv"
+          uniprot_to_ensembl: "database/uniprot/uniprot_MOUSE_10090_idmapping_selected.tab.gz"
+          output_directory: 'results/integration/rnaseq_proteomics/TDP43-mouse/'
+      c9:
+        settings:
+          proteomics_de_results: "datasets/consortium/C9orf72-mouse/02_organized_data/proteomics/deg/covariate_sex/mut_vs_ctrl.rds"
+          protein_group_to_proteins: "datasets/consortium/C9orf72-mouse/02_organized_data/proteomics/organized/protein_group_to_proteins.rds"
+          rnaseq_de_results: "datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/deg-digestion/de_tables/covariate_sex-mut_vs_ctrl-strict_justpval.csv"
+          uniprot_to_ensembl: "database/uniprot/uniprot_MOUSE_10090_idmapping_selected.tab.gz"
+          output_directory: 'results/integration/rnaseq_proteomics/C9orf72-mouse/'
+      fus:
+        settings:
+          proteomics_de_results: "datasets/consortium/FUS-mouse/02_organized_data/proteomics/deg/covariate_sex/mut_vs_ctrl.rds"
+          protein_group_to_proteins: "datasets/consortium/FUS-mouse/02_organized_data/proteomics/organized/protein_group_to_proteins.rds"
+          rnaseq_de_results: "datasets/consortium/FUS-mouse/02_organized_data/rnaseq/deg-digestion/de_tables/covariate_sex-mut_vs_ctrl-strict_justpval.csv"
+          uniprot_to_ensembl: "database/uniprot/uniprot_MOUSE_10090_idmapping_selected.tab.gz"
+          output_directory: 'results/integration/rnaseq_proteomics/FUS-mouse/'
+      human:
+        settings:
+          proteomics_de_results: "datasets/consortium/human-datasets/02_organized_data/proteomics/deg/covariate_sex/mut_vs_ctrl.rds"
+          protein_group_to_proteins: "datasets/consortium/human-datasets/02_organized_data/proteomics/organized/protein_group_to_proteins.rds"
+          rnaseq_de_results: "datasets/consortium/human-datasets/02_organized_data/rnaseq/deg-digestion/de_tables/covariate_sex-mut_vs_ctrl-strict_justpval.csv"
+          uniprot_to_ensembl: "database/uniprot/uniprot_HUMAN_9606_idmapping_selected.tab.gz"
+          output_directory: 'results/integration/rnaseq_proteomics/human/'
+      
+  map_de_genes:
+    default_settings:
+      species_mapping: human_rat_mouse_protein_gene_link.csv.gz
+      target: human
+    default_system_settings: {}
+    stages:
+      c9orf72_proteomics_females:
+        inputs:
+          de: datasets/consortium/C9orf72-mouse/02_organized_data/proteomics/deg/only_females/mut_vs_ctrl.csv
+          mapping: database/uniprot/uniprot_MOUSE_10090_idmapping_selected.tab.gz
+        output: results/integration/deg/lists/c9orf72_proteomics_females.csv
+        settings:
+          datatype: proteomics
+          species: mouse
+      c9orf72_proteomics_males:
+        inputs:
+          de: datasets/consortium/C9orf72-mouse/02_organized_data/proteomics/deg/only_males/mut_vs_ctrl.csv
+          mapping: database/uniprot/uniprot_MOUSE_10090_idmapping_selected.tab.gz
+        output: results/integration/deg/lists/c9orf72_proteomics_males.csv
+        settings:
+          datatype: proteomics
+          species: mouse
+      c9orf72_rnaseq_females:
+        inputs:
+          de: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/deg/only_females/mut_vs_ctrl.csv
+          mapping: database/uniprot/uniprot_MOUSE_10090_idmapping_selected.tab.gz
+        output: results/integration/deg/lists/c9orf72_rnaseq_females.csv
+        settings:
+          datatype: rnaseq
+          species: mouse
+      c9orf72_rnaseq_males:
+        inputs:
+          de: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/deg/only_males/mut_vs_ctrl.csv
+          mapping: database/uniprot/uniprot_MOUSE_10090_idmapping_selected.tab.gz
+        output: results/integration/deg/lists/c9orf72_rnaseq_males.csv
+        settings:
+          datatype: rnaseq
+          species: mouse
+      fus_proteomics_females:
+        inputs:
+          de: datasets/consortium/FUS-mouse/02_organized_data/proteomics/deg/only_females/mut_vs_ctrl.csv
+          mapping: database/uniprot/uniprot_MOUSE_10090_idmapping_selected.tab.gz
+        output: results/integration/deg/lists/fus_proteomics_females.csv
+        settings:
+          datatype: proteomics
+          species: mouse
+      fus_proteomics_males:
+        inputs:
+          de: datasets/consortium/FUS-mouse/02_organized_data/proteomics/deg/only_males/mut_vs_ctrl.csv
+          mapping: database/uniprot/uniprot_MOUSE_10090_idmapping_selected.tab.gz
+        output: results/integration/deg/lists/fus_proteomics_males.csv
+        settings:
+          datatype: proteomics
+          species: mouse
+      fus_rnaseq_females:
+        inputs:
+          de: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/deg/only_females/mut_vs_ctrl.csv
+          mapping: database/uniprot/uniprot_MOUSE_10090_idmapping_selected.tab.gz
+        output: results/integration/deg/lists/fus_rnaseq_females.csv
+        settings:
+          datatype: rnaseq
+          species: mouse
+      fus_rnaseq_males:
+        inputs:
+          de: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/deg/only_males/mut_vs_ctrl.csv
+          mapping: database/uniprot/uniprot_MOUSE_10090_idmapping_selected.tab.gz
+        output: results/integration/deg/lists/fus_rnaseq_males.csv
+        settings:
+          datatype: rnaseq
+          species: mouse
+      human_proteomics_females:
+        inputs:
+          de: datasets/consortium/human-datasets/02_organized_data/proteomics/deg/only_females/mut_vs_ctrl.csv
+          mapping: database/uniprot/uniprot_HUMAN_9606_idmapping_selected.tab.gz
+        output: results/integration/deg/lists/human_proteomics_females.csv
+        settings:
+          datatype: proteomics
+          species: human
+      human_proteomics_males:
+        inputs:
+          de: datasets/consortium/human-datasets/02_organized_data/proteomics/deg/only_males/mut_vs_ctrl.csv
+          mapping: database/uniprot/uniprot_HUMAN_9606_idmapping_selected.tab.gz
+        output: results/integration/deg/lists/human_proteomics_males.csv
+        settings:
+          datatype: proteomics
+          species: human
+      human_rnaseq_females:
+        inputs:
+          de: datasets/consortium/human-datasets/02_organized_data/rnaseq/deg/only_females/mut_vs_ctrl.csv
+          mapping: database/uniprot/uniprot_HUMAN_9606_idmapping_selected.tab.gz
+        output: results/integration/deg/lists/human_rnaseq_females.csv
+        settings:
+          datatype: rnaseq
+          species: human
+      human_rnaseq_males:
+        inputs:
+          de: datasets/consortium/human-datasets/02_organized_data/rnaseq/deg/only_males/mut_vs_ctrl.csv
+          mapping: database/uniprot/uniprot_HUMAN_9606_idmapping_selected.tab.gz
+        output: results/integration/deg/lists/human_rnaseq_males.csv
+        settings:
+          datatype: rnaseq
+          species: human
+      sod1_proteomics_females:
+        inputs:
+          de: datasets/consortium/SOD1-mouse/02_organized_data/proteomics/deg/only_females/mut_vs_ctrl.csv
+          mapping: database/uniprot/uniprot_MOUSE_10090_idmapping_selected.tab.gz
+        output: results/integration/deg/lists/sod1_proteomics_females.csv
+        settings:
+          datatype: proteomics
+          species: mouse
+      sod1_proteomics_males:
+        inputs:
+          de: datasets/consortium/SOD1-mouse/02_organized_data/proteomics/deg/only_males/mut_vs_ctrl.csv
+          mapping: database/uniprot/uniprot_MOUSE_10090_idmapping_selected.tab.gz
+        output: results/integration/deg/lists/sod1_proteomics_males.csv
+        settings:
+          datatype: proteomics
+          species: mouse
+      sod1_rnaseq_females:
+        inputs:
+          de: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/deg/only_females/mut_vs_ctrl.csv
+          mapping: database/uniprot/uniprot_MOUSE_10090_idmapping_selected.tab.gz
+        output: results/integration/deg/lists/sod1_rnaseq_females.csv
+        settings:
+          datatype: rnaseq
+          species: mouse
+      sod1_rnaseq_males:
+        inputs:
+          de: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/deg/only_males/mut_vs_ctrl.csv
+          mapping: database/uniprot/uniprot_MOUSE_10090_idmapping_selected.tab.gz
+        output: results/integration/deg/lists/sod1_rnaseq_males.csv
+        settings:
+          datatype: rnaseq
+          species: mouse
+      tdp43_proteomics_females:
+        inputs:
+          de: datasets/consortium/TDP43-mouse/02_organized_data/proteomics/deg/only_females/mut_vs_ctrl.csv
+          mapping: database/uniprot/uniprot_MOUSE_10090_idmapping_selected.tab.gz
+        output: results/integration/deg/lists/tdp43_proteomics_females.csv
+        settings:
+          datatype: proteomics
+          species: mouse
+      tdp43_proteomics_males:
+        inputs:
+          de: datasets/consortium/TDP43-mouse/02_organized_data/proteomics/deg/only_males/mut_vs_ctrl.csv
+          mapping: database/uniprot/uniprot_MOUSE_10090_idmapping_selected.tab.gz
+        output: results/integration/deg/lists/tdp43_proteomics_males.csv
+        settings:
+          datatype: proteomics
+          species: mouse
+      tdp43_rnaseq_females:
+        inputs:
+          de: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/deg/only_females/mut_vs_ctrl.csv
+          mapping: database/uniprot/uniprot_MOUSE_10090_idmapping_selected.tab.gz
+        output: results/integration/deg/lists/tdp43_rnaseq_females.csv
+        settings:
+          datatype: rnaseq
+          species: mouse
+      tdp43_rnaseq_males:
+        inputs:
+          de: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/deg/only_males/mut_vs_ctrl.csv
+          mapping: database/uniprot/uniprot_MOUSE_10090_idmapping_selected.tab.gz
+        output: results/integration/deg/lists/tdp43_rnaseq_males.csv
+        settings:
+          datatype: rnaseq
+          species: mouse
+          
+  cluster_profiler_merge:
+    # default_system_settings are those settings that are shared by all the datasets and
+    # that do not change the results.
+    # For instance the number of CPUs to use in the analysis.
+    default_system_settings: {}
+    # default_settings are those settings that are shared by all the datasets, for instance
+    # the nextflow pipeline we want to use.
+    default_settings: {}
+    # This is used in the dvc file to generate multiple stages with a foreach
+    # https://dvc.org/doc/user-guide/project-structure/pipelines-files#foreach-stages
+    stages:
+      # For each dataset, we give its specific settings:
+      # Files should always be listed here:
+      all:
+        inputs: results/integration/deg/lists/
+        output: results/integration/deg/all_models.csv
+        settings:
+          filter: False
+      proteomics:
+        inputs: results/integration/deg/lists/
+        output: results/integration/deg/proteomics.csv
+        settings:
+          filter: "OMIC == 'proteomics'"
+      rnaseq:
+        inputs: results/integration/deg/lists/
+        output: results/integration/deg/rnaseq.csv
+        settings:
+          filter: "OMIC == 'rnaseq'"
+      human_rnaseq:
+        inputs: results/integration/deg/lists/
+        output: results/integration/deg/human_rnaseq.csv
+        settings:
+          filter: "MODEL == 'HUMAN' & OMIC == 'rnaseq'"
+
+  cluster_profiler_compare:
+    # default_system_settings are those settings that are shared by all the datasets and
+    # that do not change the results.
+    # For instance the number of CPUs to use in the analysis.
+    default_system_settings: {}
+    # default_settings are those settings that are shared by all the datasets, for instance
+    # the nextflow pipeline we want to use.
+    default_settings: {}
+    # This is used in the dvc file to generate multiple stages with a foreach
+    # https://dvc.org/doc/user-guide/project-structure/pipelines-files#foreach-stages
+    stages:
+      # For each dataset, we give its specific settings:
+      # Files should always be listed here:
+      sex_omic_model:
+        settings:
+          formula: "SEX + OMIC + MODEL"
+          function: "enrichGO"
+          inputs: results/integration/deg/all_models.csv
+          splitby: null
+          pvalue_cutoff: 0.05
+          absfoldchange_cutoff: 0.29
+          pos_foldchange_cutoff: -1000000
+          neg_foldchange_cutoff: 1000000
+          output_directory: results/integration/clusterprofiler/sex_omic_model/
+      rnaseq_sex_model:
+        settings:
+          formula: "SEX + MODEL"
+          function: "enrichGO"
+          splitby: 
+              - "SEX"
+              - "MODEL"
+          inputs: results/integration/deg/rnaseq.csv
+          pvalue_cutoff: 0.05
+          absfoldchange_cutoff: 0.29
+          pos_foldchange_cutoff: -1000000
+          neg_foldchange_cutoff: 1000000
+          output_directory: results/integration/clusterprofiler/rnaseq_sex_model/
+      proteomics_sex_model:
+        settings:
+          formula: "SEX + MODEL"
+          function: "enrichGO"
+          splitby: 
+              - "SEX"
+              - "MODEL"
+          inputs: results/integration/deg/proteomics.csv
+          pvalue_cutoff: 0.05
+          absfoldchange_cutoff: 0.29
+          pos_foldchange_cutoff: -1000000
+          neg_foldchange_cutoff: 1000000
+          output_directory: results/integration/clusterprofiler/proteomics_sex_model/
+      human_rnaseq:
+        settings:
+          formula: "SEX"
+          function: "enrichGO"
+          inputs: results/integration/deg/human_rnaseq.csv
+          pvalue_cutoff: 0.05
+          absfoldchange_cutoff: 0.29
+          pos_foldchange_cutoff: -1000000
+          neg_foldchange_cutoff: 1000000
+          output_directory: results/integration/clusterprofiler/human_rnaseq/
+
+
+  pathway_scores_rnaseq:
+    # default_system_settings are those settings that are shared by all the datasets and
+    # that do not change the results.
+    # For instance the number of CPUs to use in the analysis.
+    default_system_settings: {}
+    # default_settings are those settings that are shared by all the datasets, for instance
+    # the nextflow pipeline we want to use.
+    default_settings: 
+      methods:
+        - mlm
+        - ulm
+        - wsum
+      omic: rnaseq
+      idtype: ENSEMBL
+      args: {}
+    # This is used in the dvc file to generate multiple stages with a foreach
+    # https://dvc.org/doc/user-guide/project-structure/pipelines-files#foreach-stages
+    stages:
+      # For each dataset, we give its specific settings:
+      # Files should always be listed here:
+      c9:
+        inputs:
+          expression: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/prefiltering-pca/counts_norm_vst.csv
+          genelists: "database/genesets/all_genesets.json.gz"
+        output: results/decoupler/rnaseq/c9
+        settings:
+          species: mouse
+      fus:
+        inputs:
+          expression: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/prefiltering-pca/counts_norm_vst.csv
+          genelists: "database/genesets/all_genesets.json.gz"
+        output: results/decoupler/rnaseq/fus
+        settings:
+          species: mouse
+      human:
+        inputs:
+          expression: datasets/consortium/human-datasets/02_organized_data/rnaseq/prefiltering-pca/counts_norm_vst.csv
+          genelists: "database/genesets/all_genesets.json.gz"
+        output: results/decoupler/rnaseq/human
+        settings:
+          species: human
+      sod1:
+        inputs:
+          expression: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/prefiltering-pca/counts_norm_vst.csv
+          genelists: "database/genesets/all_genesets.json.gz"
+        output: results/decoupler/rnaseq/sod1
+        settings:
+          species: mouse
+      tdp43:
+        inputs:
+          expression: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/prefiltering-pca/counts_norm_vst.csv
+          genelists: "database/genesets/all_genesets.json.gz"
+        output: results/decoupler/rnaseq/tdp43
+        settings:
+          species: mouse
+
+  pathway_scores_proteomics:
+    # default_system_settings are those settings that are shared by all the datasets and
+    # that do not change the results.
+    # For instance the number of CPUs to use in the analysis.
+    default_system_settings: {}
+    # default_settings are those settings that are shared by all the datasets, for instance
+    # the nextflow pipeline we want to use.
+    default_settings: 
+      methods:
+        - mlm
+        - ulm
+        - wsum
+      omic: proteomics
+      idtype: UNIPROT
+      args: {}
+    # This is used in the dvc file to generate multiple stages with a foreach
+    # https://dvc.org/doc/user-guide/project-structure/pipelines-files#foreach-stages
+    stages:
+      # For each dataset, we give its specific settings:
+      # Files should always be listed here:
+      sod1:
+        inputs:
+          expression: "datasets/consortium/SOD1-mouse/02_organized_data/proteomics/prefiltering-pca/intensity_mat_filtered_imputed_log2transf_norm.csv"
+          genelists: "database/genesets/all_genesets.json.gz"
+        output: results/decoupler/proteomics/sod1
+        settings: 
+          species: mouse
+      fus:
+        inputs:
+          expression: "datasets/consortium/FUS-mouse/02_organized_data/proteomics/prefiltering-pca/intensity_mat_filtered_imputed_log2transf_norm.csv"
+          genelists: "database/genesets/all_genesets.json.gz"
+        output: results/decoupler/proteomics/fus
+        settings: 
+          species: mouse
+      tdp43:
+        inputs:
+          expression: "datasets/consortium/TDP43-mouse/02_organized_data/proteomics/prefiltering-pca/intensity_mat_filtered_imputed_log2transf_norm.csv"
+          genelists: "database/genesets/all_genesets.json.gz"
+        output: results/decoupler/proteomics/tdp43
+        settings: 
+          species: mouse
+      c9:
+        inputs:
+          expression: "datasets/consortium/C9orf72-mouse/02_organized_data/proteomics/prefiltering-pca/intensity_mat_filtered_imputed_log2transf_norm.csv"
+          genelists: "database/genesets/all_genesets.json.gz"
+        output: results/decoupler/proteomics/c9
+        settings: 
+          species: mouse
+      human:
+        inputs:
+          expression: "datasets/consortium/human-datasets/02_organized_data/proteomics/prefiltering-pca/intensity_mat_filtered_imputed_log2transf_norm.csv"
+          genelists: "database/genesets/all_genesets.json.gz"
+        output: results/decoupler/proteomics/human
+        settings: 
+          species: human

@@ -1,0 +1,193 @@
+splicing_analysis:
+#### DTU analysis
+  dtu:
+    default_system_settings: {}
+### maybe:change names of Mut/ctrl label (for human: mut = 'als')
+    stages:
+      sod1_DRIMSeq: #dataset name??
+        settings:
+          cohort: "datasets/consortium/SOD1-mouse/01_received_data/cohort/sample_annotations.csv"
+          nfs_to_sample_id: "datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/nf-rnaseq/nextflow_ids_to_samples.csv"
+          input_directory: 'datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/nf-rnaseq/results/salmon/'
+          output_directory: 'results/DTU/SOD1-mouse/DRIMSeq/'
+          method: 'DRIMSeq_method'
+          num_samples: 20
+          gtf: "database/align-references/mmusculus/gencode.vM26.annotation.gtf.gz"
+          organism: "mmusculus"
+      tdp43_DRIMSeq:
+        settings:
+          cohort: "datasets/consortium/TDP43-mouse/01_received_data/cohort/sample_annotations.csv"
+          nfs_to_sample_id: "datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/nf-rnaseq/nextflow_ids_to_samples.csv"
+          input_directory: 'datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/nf-rnaseq/results/salmon/'
+          output_directory: 'results/DTU/TDP43-mouse/DRIMSeq/'
+          method: 'DRIMSeq_method'     
+          num_samples: 20
+          gtf: "database/align-references/mmusculus/gencode.vM26.annotation.gtf.gz"
+          organism: "mmusculus"
+      c9_DRIMSeq:
+        settings:
+          cohort: "datasets/consortium/C9orf72-mouse/01_received_data/cohort/sample_annotations.csv"
+          nfs_to_sample_id: "datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/nf-rnaseq/nextflow_ids_to_samples.csv"
+          input_directory: 'datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/nf-rnaseq/results/salmon/'
+          output_directory: 'results/DTU/C9orf72-mouse/DRIMSeq/'
+          method: 'DRIMSeq_method'
+          num_samples: 20
+          gtf: "database/align-references/mmusculus/gencode.vM26.annotation.gtf.gz"
+          organism: "mmusculus"
+      fus_DRIMSeq:
+        settings:
+          cohort: "datasets/consortium/FUS-mouse/01_received_data/cohort/sample_annotations.csv"
+          nfs_to_sample_id: "datasets/consortium/FUS-mouse/02_organized_data/rnaseq/nf-rnaseq/nextflow_ids_to_samples.csv"
+          input_directory: 'datasets/consortium/FUS-mouse/02_organized_data/rnaseq/nf-rnaseq/results/salmon/'
+          output_directory: 'results/DTU/FUS-mouse/DRIMSeq/'
+          method: 'DRIMSeq_method'      
+          num_samples: 20
+          gtf: "database/align-references/mmusculus/gencode.vM26.annotation.gtf.gz"
+          organism: "mmusculus"
+      human_DRIMSeq:
+        settings:
+          cohort: "datasets/consortium/human-datasets/cohort/sample_annotations.csv"
+          nfs_to_sample_id: "datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/nextflow_ids_to_samples.csv"
+          input_directory: 'datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/salmon/'
+          output_directory: 'results/DTU/human/DRIMSeq/'
+          method: 'DRIMSeq_method'
+          num_samples: 102
+          gtf: "database/align-references/hsapiens/gencode.v37.annotation.gtf.gz"
+          organism: "hsapiens"
+      sod1_DEXSeq:
+        settings:
+          cohort: "datasets/consortium/SOD1-mouse/01_received_data/cohort/sample_annotations.csv"
+          nfs_to_sample_id: "datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/nf-rnaseq/nextflow_ids_to_samples.csv"
+          input_directory: 'datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/nf-rnaseq/results/salmon/'
+          output_directory: 'results/DTU/SOD1-mouse/DEXSeq/'
+          method: 'DEXSeq_method'
+          num_samples: 20
+          gtf: "database/align-references/mmusculus/gencode.vM26.annotation.gtf.gz"
+          organism: "mmusculus"
+      tdp43_DEXSeq:
+        settings:
+          cohort: "datasets/consortium/TDP43-mouse/01_received_data/cohort/sample_annotations.csv"
+          nfs_to_sample_id: "datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/nf-rnaseq/nextflow_ids_to_samples.csv"
+          input_directory: 'datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/nf-rnaseq/results/salmon/'
+          output_directory: 'results/DTU/TDP43-mouse/DEXSeq/'
+          method: 'DEXSeq_method'   
+          num_samples: 20
+          gtf: 'database/align-references/mmusculus/gencode.vM26.annotation.gtf.gz'
+          organism: "mmusculus"
+      c9_DEXSeq:
+        settings:
+          cohort: "datasets/consortium/C9orf72-mouse/01_received_data/cohort/sample_annotations.csv"
+          nfs_to_sample_id: "datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/nf-rnaseq/nextflow_ids_to_samples.csv"
+          input_directory: 'datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/nf-rnaseq/results/salmon/'
+          output_directory: 'results/DTU/C9orf72-mouse/DEXSeq/'
+          method: 'DEXSeq_method'
+          num_samples: 20
+          gtf: "database/align-references/mmusculus/gencode.vM26.annotation.gtf.gz"
+          organism: "mmusculus"
+      fus_DEXSeq:
+        settings:
+          cohort: "datasets/consortium/FUS-mouse/01_received_data/cohort/sample_annotations.csv"
+          nfs_to_sample_id: "datasets/consortium/FUS-mouse/02_organized_data/rnaseq/nf-rnaseq/nextflow_ids_to_samples.csv"
+          input_directory: 'datasets/consortium/FUS-mouse/02_organized_data/rnaseq/nf-rnaseq/results/salmon/'
+          output_directory: 'results/DTU/FUS-mouse/DEXSeq/'
+          method: 'DEXSeq_method'          
+          num_samples: 20
+          gtf: "database/align-references/mmusculus/gencode.vM26.annotation.gtf.gz"
+          organism: "mmusculus"
+
+      human_DEXSeq:
+        settings:
+          cohort: "datasets/consortium/human-datasets/cohort/sample_annotations.csv"
+          nfs_to_sample_id: "datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/nextflow_ids_to_samples.csv"
+          input_directory: 'datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/salmon/'
+          output_directory: 'results/DTU/human/DEXSeq/'
+          method: 'DEXSeq_method'
+          num_samples: 102
+          gtf: "database/align-references/hsapiens/gencode.v37.annotation.gtf.gz"
+          organism: 'hsapiens'
+ 
+
+### Over-Representation Analysis (ORA)
+  ora_dtu:
+    stages:
+      sod1_strict:
+        settings:
+            inputdrim: 'results/DTU/SOD1-mouse/DRIMSeq/'
+            inputdex: 'results/DTU/SOD1-mouse/DEXSeq/'
+            output_directory:  'results/DTU/SOD1-mouse/ORA_strict/'
+            organism: "mmusculus"
+            pvalue: 0.05
+            qvalue: 0.05
+      tdp43_strict:
+        settings:
+            inputdrim: 'results/DTU/TDP43-mouse/DRIMSeq/'
+            inputdex: 'results/DTU/TDP43-mouse/DEXSeq/'
+            output_directory:  'results/DTU/TDP43-mouse/ORA_strict/'
+            organism: "mmusculus"
+            pvalue: 0.05
+            qvalue: 0.05
+      c9_strict:
+        settings:
+            inputdrim: 'results/DTU/C9orf72-mouse/DRIMSeq/'
+            inputdex: 'results/DTU/C9orf72-mouse/DEXSeq/'
+            output_directory: 'results/DTU/C9orf72-mouse/ORA_strict/'
+            organism: "mmusculus"
+            pvalue: 0.05
+            qvalue: 0.05
+      fus_strict:
+        settings:
+            inputdrim: 'results/DTU/FUS-mouse/DRIMSeq/'
+            inputdex: 'results/DTU/FUS-mouse/DEXSeq/'
+            output_directory: 'results/DTU/FUS-mouse/ORA_strict/'
+            organism: "mmusculus"
+            pvalue: 0.05
+            qvalue: 0.05
+      human_strict:
+        settings:
+            inputdrim: 'results/DTU/human/DRIMSeq/'
+            inputdex: 'results/DTU/human/DEXSeq/'
+            output_directory: 'results/DTU/human/ORA_strict/'
+            organism: "hsapiens"
+            pvalue: 0.05
+            qvalue: 0.05
+      sod1:
+        settings:
+            inputdrim: 'results/DTU/SOD1-mouse/DRIMSeq/'
+            inputdex: 'results/DTU/SOD1-mouse/DEXSeq/'
+            output_directory:  'results/DTU/SOD1-mouse/ORA/'
+            organism: "mmusculus"
+            pvalue: 0.1
+            qvalue: 0.1
+      tdp43:
+        settings:
+            inputdrim: 'results/DTU/TDP43-mouse/DRIMSeq/'
+            inputdex: 'results/DTU/TDP43-mouse/DEXSeq/'
+            output_directory:  'results/DTU/TDP43-mouse/ORA/'
+            organism: "mmusculus"
+            pvalue: 0.1
+            qvalue: 0.1
+      c9:
+        settings:
+            inputdrim: 'results/DTU/C9orf72-mouse/DRIMSeq/'
+            inputdex: 'results/DTU/C9orf72-mouse/DEXSeq/'
+            output_directory: 'results/DTU/C9orf72-mouse/ORA/'
+            organism: "mmusculus"
+            pvalue: 0.1
+            qvalue: 0.1
+      fus:
+        settings:
+            inputdrim: 'results/DTU/FUS-mouse/DRIMSeq/'
+            inputdex: 'results/DTU/FUS-mouse/DEXSeq/'
+            output_directory: 'results/DTU/FUS-mouse/ORA/'
+            organism: "mmusculus"
+            pvalue: 0.1
+            qvalue: 0.1
+      human:
+        settings:
+            inputdrim: 'results/DTU/human/DRIMSeq/'
+            inputdex: 'results/DTU/human/DEXSeq/'
+            output_directory: 'results/DTU/human/ORA/'
+            organism: "hsapiens"
+            pvalue: 0.1
+            qvalue: 0.1
+ 

@@ -1,0 +1,173 @@
+stages:   
+  phosphoproteomics_organize_samples:
+    foreach: ${phosphoproteomics.organize_samples.stages}
+    do:
+      cmd: ./docker-wrapper.sh ./src/phosphoproteomics/10-organize_samples.py --stage ${key}
+      params:
+      - phosphoproteomics.organize_samples.default_settings
+      - phosphoproteomics.organize_samples.stages.${key}.settings
+      deps:
+      - ./src/phosphoproteomics/10-organize_samples.py
+      - ${item.inputs.cohort}
+      - ${item.inputs.inputs}
+      - ${item.inputs.samplesheet}
+      outs:
+      - ${item.output}/cohort_filtered.csv
+      - ${item.output}/intensity_mat_filtered_imputed_log2transf_norm.csv
+      
+
+  phosphoproteomics_prefiltering_pca:
+    foreach: ${phosphoproteomics.prefiltering_pca.stages}
+    do:
+      cmd: ./docker-wrapper.sh ./src/phosphoproteomics/20-prefiltering_pca.R --dataset-name ${key}
+      params:
+      - phosphoproteomics.prefiltering_pca.default_settings
+      - phosphoproteomics.prefiltering_pca.stages.${key}.settings
+      deps:
+      - ./src/phosphoproteomics/20-prefiltering_pca.R
+      - ./src/shared/R-helpers/get_args.R
+      - ./src/shared/R-helpers/update_list.R
+      - ./src/shared/R-helpers/get_settings.R
+      - ./src/shared/R-helpers/get_top_n_variance.R
+      - ./src/shared/R-helpers/pc_scores_loadings_plot.R
+      - ./src/shared/R-helpers/pca_fit.R
+      - ${item.settings.cohort}
+      - ${item.settings.input_intensity}
+      outs:
+      - ${item.settings.output_directory}/pca
+      - ${item.settings.output_directory}/intensity_mat_filtered_imputed_log2transf_norm.rds
+    
+  phosphoproteomics_deg:
+    foreach: ${phosphoproteomics.deg.stages}
+    do:
+      cmd: ./docker-wrapper.sh ./src/phosphoproteomics/30-deg.R --dataset-name ${key}
+      params:
+      - proteomics.deg.default_settings
+      - proteomics.deg.stages.${key}.settings
+      deps:
+      - ./src/phosphoproteomics/30-deg.R
+      - ./src/shared/R-helpers/get_args.R
+      - ./src/shared/R-helpers/update_list.R
+      - ./src/shared/R-helpers/get_settings.R
+      - ./src/shared/R-helpers/cohort_to_factors.R
+      - ./src/shared/R-helpers/limma_analysis.R
+      - ${item.settings.cohort}
+      - ${item.settings.intensity_mat_for_limma}
+      outs:
+      - ${item.settings.output_directory}
+
+#  proteomics_ensemble_symbol_mappings_human:
+#    cmd: ./src/proteomics/35-download-ensembl-to-symbol-human.R
+#    deps:
+#    - ./src/proteomics/35-download-ensembl-to-symbol-human.R
+#    outs:
+#    - database/biomaRt/ensembl_to_symbol_human.csv
+#    - database/biomaRt/ensembl_to_symbol_human.rds
+#  proteomics_ensemble_symbol_mappings_mouse:
+#    cmd: ./src/proteomics/35-download-ensembl-to-symbol-mouse.R
+#    deps:
+#    - ./src/proteomics/35-download-ensembl-to-symbol-mouse.R
+#    outs:
+#    - database/biomaRt/ensembl_to_symbol_mouse.csv
+#    - database/biomaRt/ensembl_to_symbol_mouse.rds
+#  proteomics_uniprot_ensemble_mappings:
+#    cmd: ./src/proteomics/44-download-uniprot-to-gene-mappings.sh
+#    deps:
+#    - ./src/proteomics/44-download-uniprot-to-gene-mappings.sh
+#    outs:
+#    - database/uniprot/uniprot_MOUSE_10090_idmapping_selected.tab.gz
+#    - database/uniprot/uniprot_HUMAN_9606_idmapping_selected.tab.gz
+#  phosphoproteomics_download_string_ppi:
+#    cmd: ./src/proteomics/44-download-string-protein-protein-interactions.sh
+#    deps:
+#    - ./src/proteomics/44-download-string-protein-protein-interactions.sh
+#    outs:
+#    - "database/stringdb/mouse.uniprot_2_string.2018.tsv.gz"
+#    - "database/stringdb/human.uniprot_2_string.2018.tsv.gz"
+#    - "database/stringdb/10090.protein.links.v11.0.txt.gz"
+#    - "database/stringdb/9606.protein.links.v11.0.txt.gz"
+  phosphoproteomics_deg_digestion:
+    foreach: ${phosphoproteomics.deg_digestion.stages}
+    do:
+      cmd: ./docker-wrapper.sh ./src/phosphoproteomics/40-deg_digestion.R --dataset-name ${key}
+      params:
+      - phosphoproteomics.deg_digestion.default_settings
+      - phosphoproteomics.deg_digestion.stages.${key}.settings
+      deps:
+      - ./src/phosphoproteomics/40-deg_digestion.R
+      - ./src/shared/R-helpers/get_args.R
+      - ./src/shared/R-helpers/update_list.R
+      - ./src/shared/R-helpers/get_settings.R
+      - ./src/shared/R-helpers/create_volcano_plot.R
+      - ${item.settings.de_results_rds}
+      outs:
+      - ${item.settings.output_directory}
+          
+
+  phosphoproteomics_gsea_enrichment:
+    foreach: ${phosphoproteomics.gsea_enrichment.stages}
+    do:
+      cmd: ./docker-wrapper.sh ./src/phosphoproteomics/45-gsea_enrichment.R --dataset-name ${key}
+      params:
+      - phosphoproteomics.gsea_enrichment.default_settings
+      - phosphoproteomics.gsea_enrichment.stages.${key}.settings
+      deps:
+      - ./src/phosphoproteomics/45-gsea_enrichment.R
+      - ./src/shared/R-helpers/get_args.R
+      - ./src/shared/R-helpers/update_list.R
+      - ./src/shared/R-helpers/get_settings.R
+      - ./src/shared/R-helpers/gseGO_memoise.R
+      - ./src/shared/R-helpers/gseKEGG_memoise.R
+      - ./src/shared/R-helpers/memoise_decorator.R
+      - ${item.settings.uniprot_to_ensembl}
+      - ${item.settings.de_results_rds}
+      outs:
+      - ${item.settings.output_directory}
+
+  phosphoproteomics_string_ppi:
+    foreach: ${phosphoproteomics.string_ppi.stages}
+    do:
+      cmd: ./docker-wrapper.sh ./src/phosphoproteomics/45-string_ppi.R --dataset-name ${key}
+      params:
+      - phosphoproteomics.string_ppi.default_settings
+      - phosphoproteomics.string_ppi.stages.${key}.settings
+      deps:
+      - ./src/phosphoproteomics/45-string_ppi.R
+      - ./src/shared/R-helpers/get_args.R
+      - ./src/shared/R-helpers/update_list.R
+      - ./src/shared/R-helpers/get_settings.R
+      - ${item.settings.uniprot_to_string}
+      - ${item.settings.de_result_thresholds_rds}
+      - ${item.settings.string_ppi_file}
+      outs:
+      - ${item.settings.output_directory}
+
+  phosphoproteomics_deg_count:
+    cmd: ./docker-wrapper.sh python ./src/phosphoproteomics/46-get_deg_counts.py
+    deps:
+    - ./src/phosphoproteomics/46-get_deg_counts.py
+    - ${phosphoproteomics.deg_count.sod1_female}
+    - ${phosphoproteomics.deg_count.tdp43_female}
+    - ${phosphoproteomics.deg_count.c9_female}
+    - ${phosphoproteomics.deg_count.fus_female}
+    - ${phosphoproteomics.deg_count.sod1_male}
+    - ${phosphoproteomics.deg_count.tdp43_male}
+    - ${phosphoproteomics.deg_count.c9_male}
+    - ${phosphoproteomics.deg_count.fus_male}
+    metrics:
+    - results/integration/phosphoproteomics/deg_counts.yaml
+
+  phosphoproteomics_deg_boxplots:
+    foreach: ${phosphoproteomics.deg_boxplots.stages}
+    do:
+      cmd: ./docker-wrapper.sh ./src/phosphoproteomics/47-boxplots_deg_results.py --stage ${key}
+      params:
+      - phosphoproteomics.deg_boxplots.default_settings
+      - phosphoproteomics.deg_boxplots.stages.${key}.settings
+      deps:
+      - ./src/phosphoproteomics/47-boxplots_deg_results.py
+      - ${item.inputs.raw}
+      - ${item.inputs.metadata}
+      - ${item.inputs.degpath}
+      outs:
+      - ${item.output}

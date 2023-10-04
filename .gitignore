@@ -1,0 +1,15 @@
+.Rproj.user
+.Rhistory
+.RData
+.ipynb_checkpoints/
+*.log
+*.txt.gz
+*.tsv.gz
+__pycache__
+.nextflow
+.cache_*/
+02_organized_data
+/Rplots*.pdf
+/deg_counts.yaml
+/human_rat_mouse_protein_gene_link.csv.gz
+/.cache

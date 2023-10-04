@@ -1,0 +1,108 @@
+stages:
+  srna_organize_samples:
+    foreach: ${srna.organize_samples.stages}
+    do:
+      cmd: ./src/srna/10-organize_samples.py --dataset-name ${key}
+      params:
+      - srna.organize_samples.default_settings
+      - srna.organize_samples.stages.${key}.settings
+      deps:
+      - ./src/srna/10-organize_samples.py
+      - ${item.settings.input_directory}
+      outs:
+      - ${item.settings.output_directory}
+  srna_download_gtf:
+    cmd: ./src/srna/05-download-mirbase.sh
+    deps:
+    - ./src/srna/05-download-mirbase.sh
+    outs:
+    - database/mirbase/mmusculus/mirbase_mmu.gff3
+    - database/mirbase/hsapiens/mirbase_hsa.gff3
+  srna_nextflow:
+    foreach: ${srna.nextflow.stages}
+    do:
+      cmd: ./src/srna/15-nextflow.py --dataset-name ${key}
+      params:
+      - srna.nextflow.default_settings
+      - srna.nextflow.stages.${key}.settings
+      deps:
+      - ./src/srna/15-nextflow.py
+      - ${item.settings.input_directory}
+      - ${item.settings.mirna_gtf}
+      outs:
+      - ${item.settings.output_directory}/results
+  srna_prefiltering_pca:
+    foreach: ${srna.prefiltering_pca.stages}
+    do:
+      cmd: ./docker-wrapper.sh ./src/srna/20-prefiltering_pca.R --dataset-name ${key}
+      params:
+      - srna.prefiltering_pca.default_settings
+      - srna.prefiltering_pca.stages.${key}.settings
+      deps:
+      - ./src/srna/20-prefiltering_pca.R
+      - ./src/shared/R-helpers/get_settings.R
+      - ./src/shared/R-helpers/cohort_to_factors.R
+      - ./src/shared/R-helpers/get_args.R
+      - ./src/shared/R-helpers/update_list.R
+      - ./src/shared/R-helpers/get_settings.R
+      - ./src/shared/R-helpers/get_top_n_variance.R
+      - ./src/shared/R-helpers/pc_scores_loadings_plot.R
+      - ./src/shared/R-helpers/pca_fit.R
+      - ${item.settings.cohort}
+      - ${item.settings.input_directory}/results
+      outs:
+      - ${item.settings.output_directory}
+  srna_deg:
+    foreach: ${srna.deg.stages}
+    do:
+      cmd: ./docker-wrapper.sh ./src/srna/30-deg.R --dataset-name ${key}
+      params:
+      - srna.deg.default_settings
+      - srna.deg.stages.${key}.settings
+      deps:
+      - ./src/srna/30-deg.R
+      - ./src/shared/R-helpers/cohort_to_factors.R
+      - ./src/shared/R-helpers/get_args.R
+      - ./src/shared/R-helpers/update_list.R
+      - ./src/shared/R-helpers/get_settings.R
+      - ./src/shared/R-helpers/deseq2_analysis.R
+      - ${item.settings.cohort}
+      - ${item.settings.prefilt_dir}/to_keep_mirna_mature.rds
+      - ${item.settings.prefilt_dir}/mature_counts_mat.rds
+      - ${item.settings.prefilt_dir}/to_keep_mirna_hairpin.rds
+      - ${item.settings.prefilt_dir}/hairpin_counts_mat.rds
+      outs:
+      - ${item.settings.output_directory}
+  srna_download_miRDB_targets:
+    cmd: ./src/srna/39-download-mirDB.sh
+    outs:
+    - database/miRDB/miRDB_v6.0_prediction_result.txt.gz
+  srna_download_refseq_mrna_to_ensembl_mouse:
+    cmd: ./docker-wrapper.sh ./src/srna/39-download-refseqmrna-to-ensembl-mouse.R
+    deps:
+    - ./src/srna/39-download-refseqmrna-to-ensembl-mouse.R
+    outs:
+    - database/biomaRt/refseq_mrna_to_ensembl_gene_id_mouse.csv
+  srna_download_refseq_mrna_to_ensembl_human:
+    cmd: ./docker-wrapper.sh ./src/srna/39-download-refseqmrna-to-ensembl-human.R
+    deps:
+    - ./src/srna/39-download-refseqmrna-to-ensembl-human.R
+    outs:
+    - database/biomaRt/refseq_mrna_to_ensembl_gene_id_human.csv
+  srna_deg_digestion:
+    foreach: ${srna.deg_digestion.stages}
+    do:
+      cmd: ./docker-wrapper.sh ./src/srna/40-deg_digestion.R --dataset-name ${key}
+      params:
+      - srna.deg_digestion.default_settings
+      - srna.deg_digestion.stages.${key}.settings
+      deps:
+      - ./src/srna/40-deg_digestion.R
+      - ./src/shared/R-helpers/get_args.R
+      - ./src/shared/R-helpers/update_list.R
+      - ./src/shared/R-helpers/get_settings.R
+      - ${item.settings.deg_dir}
+      - ${item.settings.miRDB_prediction}
+      - ${item.settings.refseq_mrna_to_ensembl_gene_id}
+      outs:
+      - ${item.settings.output_directory}

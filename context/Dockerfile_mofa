@@ -1,0 +1,30 @@
+
+FROM gtca/mofa2@sha256:2e858d684c5f639385bb1a528d0d5ea63d72bea87d2640273a4c733b7d5bbc32
+
+RUN apt-get update --allow-releaseinfo-change && apt-get install -y \
+    libssl-dev \
+    libxml2-dev \
+    libcurl4-openssl-dev
+
+RUN install2.r --error --deps TRUE --skipinstalled \
+    tidyverse \
+    argparse \
+    data.table \
+    purrr \
+    ggplot2 \
+    cowplot \
+    msigdbr \
+    reshape2 \
+    pheatmap \
+    && rm -rf /tmp/downloaded_packages
+
+RUN install2.r --error --deps TRUE littler && rm -rf /tmp/downloaded_packages
+
+RUN R -e 'install.packages("https://cran.r-project.org/src/contrib/Archive/locfit/locfit_1.5-9.4.tar.gz", repos=NULL, type="source")' \
+    && rm -rf /tmp/downloaded_packages
+
+RUN /usr/local/lib/R/site-library/littler/examples/installBioc.r \
+    DESeq2 \
+    org.Mm.eg.db \
+    org.Hs.eg.db \
+    && rm -rf /tmp/downloaded_packages

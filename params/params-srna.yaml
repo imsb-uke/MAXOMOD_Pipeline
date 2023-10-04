@@ -1,0 +1,484 @@
+# The omics goes first
+srna:
+  # Then the name of the stage you work on
+  organize_samples:
+    # default_system_settings are those settings that are shared by all the datasets and
+    # that do not change the results.
+    # For instance the number of CPUs to use in the analysis.
+    default_system_settings: {}
+    # default_settings are those settings that are shared by all the datasets, for instance
+    # the nextflow pipeline we want to use.
+    default_settings: {}
+    # This is used in the dvc file to generate multiple stages with a foreach
+    # https://dvc.org/doc/user-guide/project-structure/pipelines-files#foreach-stages
+    stages:
+      # For each dataset, we give its specific settings:
+      # Files should always be listed here:
+      sod1:
+        settings:
+          input_directory: 'datasets/consortium/SOD1-mouse/01_received_data/srna/HiSeq2500_20200605_RUN542_o6671_DataDelivery/'
+          output_directory: 'datasets/consortium/SOD1-mouse/02_organized_data/srna/fastq_files/'
+          input_name_pattern: '^20200605.B-([0-9]+)_smallRNA_R1.fastq.gz$'
+          output_name_replacement: 'S\1_R1.fastq.gz'
+      tdp43:
+        settings:
+          input_directory: 'datasets/consortium/TDP43-mouse/01_received_data/srna/HiSeq2500_20200605_RUN542_o6673_DataDelivery/'
+          output_directory: 'datasets/consortium/TDP43-mouse/02_organized_data/srna/fastq_files/'
+          input_name_pattern: '^20200605.B-([0-9]+)_smallRNA_R1.fastq.gz$'
+          output_name_replacement: 'S\1_R1.fastq.gz'
+      c9:
+        settings:
+          input_directory: 'datasets/consortium/C9orf72-mouse/01_received_data/srna/HiSeq2500_20200923_RUN547_o6999_DataDelivery/'
+          output_directory: 'datasets/consortium/C9orf72-mouse/02_organized_data/srna/fastq_files/'
+          input_name_pattern: '^20200923.A-([_0-9]+)_R1.fastq.gz$'
+          output_name_replacement: 'S\1_R1.fastq.gz'
+      fus:
+        settings:
+          input_directory: 'datasets/consortium/FUS-mouse/01_received_data/srna/HiSeq2500_20201201_RUN549_o7478_part/'
+          output_directory: 'datasets/consortium/FUS-mouse/02_organized_data/srna/fastq_files/'
+          input_name_pattern: '^20201201.A-([0-9]+)_R([12]).fastq.gz$'
+          output_name_replacement: 'S\1_R\2.fastq.gz'
+      human:
+        settings:
+          input_directory: 'datasets/consortium/human-datasets/srna/HiSeq2500_20200923_RUN547_o6697_DataDelivery/'
+          output_directory: 'datasets/consortium/human-datasets/02_organized_data/srna/fastq_files/'
+          input_name_pattern: '^20200923.A-([-A-Z_0-9]+)_small_R1.fastq.gz$'
+          output_name_replacement: '\1_R1.fastq.gz'
+  # Then the name of the stage you work on
+  nextflow:
+    # default_system_settings are those settings that are shared by all the datasets and
+    # that do not change the results.
+    # For instance the number of CPUs to use in the analysis.
+    default_system_settings:
+      nextflow: "nextflow-21.03.0-edge.5518"
+      cpus: 32
+      memory: '300.GB'
+      nf_profile: "docker"
+      resume: true
+    # default_settings are those settings that are shared by all the datasets, for instance
+    # the nextflow pipeline we want to use.
+    default_settings:
+      nf_pipeline: 'https://github.com/zeehio/smrnaseq' #"nf-core/smrnaseq"
+      nf_pipeline_version: "sergio-cherry-pick-mirtrace"
+      genome: "GRCm38"
+      delete_intermediate: true
+    # This is used in the dvc file to generate multiple stages with a foreach
+    # https://dvc.org/doc/user-guide/project-structure/pipelines-files#foreach-stages
+    stages:
+      # For each dataset, we give its specific settings:
+      # Files should always be listed here:
+      sod1:
+        settings:
+          input_directory: 'datasets/consortium/SOD1-mouse/02_organized_data/srna/fastq_files/'
+          input_glob: '*_R1.fastq.gz'
+          output_directory: 'datasets/consortium/SOD1-mouse/02_organized_data/srna/nf-smrna/'
+          mirna_gtf: 'database/mirbase/mmusculus/mirbase_mmu.gff3'
+      tdp43:
+        settings:
+          input_directory: 'datasets/consortium/TDP43-mouse/02_organized_data/srna/fastq_files/'
+          input_glob: '*_R1.fastq.gz'
+          output_directory: 'datasets/consortium/TDP43-mouse/02_organized_data/srna/nf-smrna/'
+          mirna_gtf: 'database/mirbase/mmusculus/mirbase_mmu.gff3'
+      c9:
+        settings:
+          input_directory: 'datasets/consortium/C9orf72-mouse/02_organized_data/srna/fastq_files/'
+          input_glob: '*_R1.fastq.gz'
+          output_directory: 'datasets/consortium/C9orf72-mouse/02_organized_data/srna/nf-smrna/'
+          mirna_gtf: 'database/mirbase/mmusculus/mirbase_mmu.gff3'
+      fus:
+        settings:
+          input_directory: 'datasets/consortium/FUS-mouse/02_organized_data/srna/fastq_files/'
+          input_glob: '*.fastq.gz'
+          output_directory: 'datasets/consortium/FUS-mouse/02_organized_data/srna/nf-smrna/'
+          mirna_gtf: 'database/mirbase/mmusculus/mirbase_mmu.gff3'
+      human:
+        settings:
+          input_directory: 'datasets/consortium/human-datasets/02_organized_data/srna/fastq_files/'
+          input_glob: '*_R1.fastq.gz'
+          output_directory: 'datasets/consortium/human-datasets/02_organized_data/srna/nf-smrna/'
+          mirna_gtf: 'database/mirbase/hsapiens/mirbase_hsa.gff3'
+          genome: "GRCh37"
+  # Then the name of the stage you work on
+  prefiltering_pca:
+    # default_system_settings are those settings that are shared by all the datasets and
+    # that do not change the results.
+    # For instance the number of CPUs to use in the analysis.
+    default_system_settings: {}
+    # default_settings are those settings that are shared by all the datasets, for instance
+    # the nextflow pipeline we want to use.
+    default_settings:
+      exclude_samples: null
+      filter_low_counts:
+        stratify_by:
+         - "Condition"
+         - "Sex"
+        at_least_counts: 10
+        at_least_samples: 0.5
+        at_least_samples_mode: "fraction"
+    # This is used in the dvc file to generate multiple stages with a foreach
+    # https://dvc.org/doc/user-guide/project-structure/pipelines-files#foreach-stages
+    stages:
+      # For each dataset, we give its specific settings:
+      # Files should always be listed here:
+      sod1:
+        settings:
+          cohort: "datasets/consortium/SOD1-mouse/01_received_data/cohort/sample_annotations.csv"
+          input_directory: 'datasets/consortium/SOD1-mouse/02_organized_data/srna/nf-smrna/'
+          output_directory: 'datasets/consortium/SOD1-mouse/02_organized_data/srna/prefiltering_pca/'
+      tdp43:
+        settings:
+          cohort: "datasets/consortium/TDP43-mouse/01_received_data/cohort/sample_annotations.csv"
+          input_directory: 'datasets/consortium/TDP43-mouse/02_organized_data/srna/nf-smrna/'
+          output_directory: 'datasets/consortium/TDP43-mouse/02_organized_data/srna/prefiltering_pca/'
+      c9:
+        settings:
+          cohort: "datasets/consortium/C9orf72-mouse/01_received_data/cohort/sample_annotations.csv"
+          input_directory: 'datasets/consortium/C9orf72-mouse/02_organized_data/srna/nf-smrna/'
+          output_directory: 'datasets/consortium/C9orf72-mouse/02_organized_data/srna/prefiltering_pca/'
+      fus:
+        settings:
+          cohort: "datasets/consortium/FUS-mouse/01_received_data/cohort/sample_annotations.csv"
+          input_directory: 'datasets/consortium/FUS-mouse/02_organized_data/srna/nf-smrna/'
+          output_directory: 'datasets/consortium/FUS-mouse/02_organized_data/srna/prefiltering_pca/'
+          exclude_samples:
+           - "S858"
+      human:
+        settings:
+          cohort: "datasets/consortium/human-datasets/cohort/sample_annotations.csv"
+          input_directory: 'datasets/consortium/human-datasets/02_organized_data/srna/nf-smrna/'
+          output_directory: 'datasets/consortium/human-datasets/02_organized_data/srna/prefiltering_pca/'
+          exclude_samples:
+           - "A-32469"
+  # Then the name of the stage you work on
+  deg:
+    # default_system_settings are those settings that are shared by all the datasets and
+    # that do not change the results.
+    # For instance the number of CPUs to use in the analysis.
+    default_system_settings: {}
+    # default_settings are those settings that are shared by all the datasets, for instance
+    # the nextflow pipeline we want to use.
+    default_settings:
+      cohort_factors:
+        - factor: "Condition"
+          levels: ["ctrl", "mut"]
+        - factor: "Sex"
+          levels: ["female", "male"]
+      deseq2:
+        - name: "no_covariates"
+          formula: "~ Condition"
+          results:
+            - name: "mut_vs_ctrl"
+              contrast: ["Condition_mut_vs_ctrl"]
+              padjust_method: "BH"
+        - name: "covariate_sex"
+          formula: "~ Sex + Condition"
+          results:
+            - name: "mut_vs_ctrl"
+              contrast: ["Condition_mut_vs_ctrl"]
+              padjust_method: "BH"
+            - name: "male_vs_female"
+              contrast: ["Sex_male_vs_female"]
+              padjust_method: "BH"
+        - name: "only_males"
+          filter:
+            - field: "Sex"
+              value: "male"
+          formula: "~ Condition"
+          results:
+            - name: "mut_vs_ctrl"
+              contrast: ["Condition_mut_vs_ctrl"]
+              padjust_method: "BH"
+        - name: "only_females"
+          filter:
+            - field: "Sex"
+              value: "female"
+          formula: "~ Condition"
+          results:
+            - name: "mut_vs_ctrl"
+              contrast: ["Condition_mut_vs_ctrl"]
+              padjust_method: "BH"
+    # This is used in the dvc file to generate multiple stages with a foreach
+    # https://dvc.org/doc/user-guide/project-structure/pipelines-files#foreach-stages
+    stages:
+      # For each dataset, we give its specific settings:
+      # Files should always be listed here:
+      sod1:
+        settings:
+          cohort: "datasets/consortium/SOD1-mouse/02_organized_data/srna/prefiltering_pca/cohort_excluded_outliers.csv"
+          prefilt_dir: 'datasets/consortium/SOD1-mouse/02_organized_data/srna/prefiltering_pca/'
+          output_directory: "datasets/consortium/SOD1-mouse/02_organized_data/srna/deg/"
+      tdp43:
+        settings:
+          cohort: "datasets/consortium/TDP43-mouse/02_organized_data/srna/prefiltering_pca/cohort_excluded_outliers.csv"
+          prefilt_dir: 'datasets/consortium/TDP43-mouse/02_organized_data/srna/prefiltering_pca/'
+          output_directory: "datasets/consortium/TDP43-mouse/02_organized_data/srna/deg/"
+      c9:
+        settings:
+          cohort: "datasets/consortium/C9orf72-mouse/02_organized_data/srna/prefiltering_pca/cohort_excluded_outliers.csv"
+          prefilt_dir: 'datasets/consortium/C9orf72-mouse/02_organized_data/srna/prefiltering_pca/'
+          output_directory: "datasets/consortium/C9orf72-mouse/02_organized_data/srna/deg/"
+      fus:
+        settings:
+          cohort: "datasets/consortium/FUS-mouse/02_organized_data/srna/prefiltering_pca/cohort_excluded_outliers.csv"
+          prefilt_dir: 'datasets/consortium/FUS-mouse/02_organized_data/srna/prefiltering_pca/'
+          output_directory: "datasets/consortium/FUS-mouse/02_organized_data/srna/deg/"
+      human:
+        settings:
+          cohort: "datasets/consortium/human-datasets/02_organized_data/srna/prefiltering_pca/cohort_excluded_outliers.csv"
+          prefilt_dir: 'datasets/consortium/human-datasets/02_organized_data/srna/prefiltering_pca/'
+          output_directory: "datasets/consortium/human-datasets/02_organized_data/srna/deg/"
+          cohort_factors:
+            - factor: "Condition"
+              levels: ["ctrl", "als"]
+            - factor: "Sex"
+              levels: ["female", "male"]
+            - factor: "Center"
+          deseq2:
+            - name: "no_covariates"
+              formula: "~ Condition"
+              results:
+                - name: "mut_vs_ctrl"
+                  contrast: ["Condition_als_vs_ctrl"]
+                  padjust_method: "BH"
+            - name: "covariate_sex"
+              formula: "~ Sex + Condition"
+              results:
+                - name: "mut_vs_ctrl"
+                  contrast: ["Condition_als_vs_ctrl"]
+                  padjust_method: "BH"
+                - name: "male_vs_female"
+                  contrast: ["Sex_male_vs_female"]
+                  padjust_method: "BH"
+            - name: "covariate_sex_and_center"
+              formula: "~ Sex + Center + Condition"
+              results:
+                - name: "mut_vs_ctrl"
+                  contrast: ["Condition_als_vs_ctrl"]
+                  padjust_method: "BH"
+                - name: "male_vs_female"
+                  contrast: ["Sex_male_vs_female"]
+                  padjust_method: "BH"
+            - name: "covariate_sex_center_and_age"
+              formula: "~ Sex + Center + AgeAtDeath + Condition"
+              autoscale: ["AgeAtDeath"]
+              results:
+                - name: "mut_vs_ctrl"
+                  contrast: ["Condition_als_vs_ctrl"]
+                  padjust_method: "BH"
+                - name: "male_vs_female"
+                  contrast: ["Sex_male_vs_female"]
+                  padjust_method: "BH"
+                - name: "age"
+                  contrast: ["AgeAtDeath"]
+                  padjust_method: "BH"
+            - name: "only_males"
+              filter:
+                - field: "Sex"
+                  value: "male"
+              formula: "~ Condition"
+              results:
+                - name: "mut_vs_ctrl"
+                  contrast: ["Condition_als_vs_ctrl"]
+                  padjust_method: "BH"
+            - name: "only_males_covariate_center"
+              filter:
+                - field: "Sex"
+                  value: "male"
+              formula: "~ Center + Condition"
+              results:
+                - name: "mut_vs_ctrl"
+                  contrast: ["Condition_als_vs_ctrl"]
+                  padjust_method: "BH"
+            - name: "only_females"
+              filter:
+                - field: "Sex"
+                  value: "female"
+              formula: "~ Condition"
+              results:
+                - name: "mut_vs_ctrl"
+                  contrast: ["Condition_als_vs_ctrl"]
+                  padjust_method: "BH"
+            - name: "only_females_covariate_center"
+              filter:
+                - field: "Sex"
+                  value: "female"
+              formula: "~ Center + Condition"
+              results:
+                - name: "mut_vs_ctrl"
+                  contrast: ["Condition_als_vs_ctrl"]
+                  padjust_method: "BH"
+
+  # Then the name of the stage you work on
+  deg_digestion:
+    # default_system_settings are those settings that are shared by all the datasets and
+    # that do not change the results.
+    # For instance the number of CPUs to use in the analysis.
+    default_system_settings: {}
+    # default_settings are those settings that are shared by all the datasets, for instance
+    # the nextflow pipeline we want to use.
+    default_settings:
+      deseq2:
+        - name: "no_covariates"
+          results:
+            - name: "mut_vs_ctrl"
+        - name: "covariate_sex"
+          results:
+            - name: "mut_vs_ctrl"
+            - name: "male_vs_female"
+        - name: "only_males"
+          results:
+            - name: "mut_vs_ctrl"
+        - name: "only_females"
+          results:
+            - name: "mut_vs_ctrl"
+      volcano_plots:
+        - name: "volcano_mut_vs_ctrl_sex_covariate"
+          subplots:
+            - name: ["no_covariates", "mut_vs_ctrl"]
+              title: "Mut vs Ctrl (no covariates)"
+            - name: ["covariate_sex", "mut_vs_ctrl"]
+              title: "Mut vs Ctrl (sex as covariate)"
+        - name: "volcano_mut_vs_ctrl_sex_stratifying"
+          subplots:
+            - name: ["only_females", "mut_vs_ctrl"]
+              title: "Mut vs Ctrl (females only)"
+            - name: ["only_males", "mut_vs_ctrl"]
+              title: "Mut vs Ctrl (males only)"
+            - name: ["covariate_sex", "mut_vs_ctrl"]
+              title: "Mut vs Ctrl (sex as covariate)"
+      merged_volcano:
+          - analysis: "only_males"
+            result_name: "mut_vs_ctrl"
+            title: "significant for male"
+            color: "#00CCFF" #skyblue
+          - analysis: "only_females"
+            result_name: "mut_vs_ctrl"
+            title: "significant for female"
+            color: "#F07C04" #orange
+      de_thresholds:
+        strict:
+          up_log2fc: 0.5849625
+          down_log2fc: -0.5849625
+          padj: 0.05
+        loose:
+          up_log2fc: 0.5849625
+          down_log2fc: -0.5849625
+          padj: 0.10
+        strict_justpval:
+          up_log2fc: 0
+          down_log2fc: -0
+          padj: 0.05
+      gene_overlaps:
+        - name: "mut_vs_ctrl_sex_stratifying"
+          criterion: "strict"
+          sets:
+            - name: "female"
+              set: ["only_females", "mut_vs_ctrl"]
+            - name: "male"
+              set: ["only_males", "mut_vs_ctrl"]
+            - name: "sex_covariate"
+              set: ["covariate_sex", "mut_vs_ctrl"]
+      organism: "mouse"
+      mirDB_target_score: 60 # 60 is recommended at http://mirdb.org/faq.html#How_to_perform_target_mining
+      mirDB_max_targets: 800 # 800 is recommended at http://mirdb.org/faq.html#How_to_perform_target_mining
+    # This is used in the dvc file to generate multiple stages with a foreach
+    # https://dvc.org/doc/user-guide/project-structure/pipelines-files#foreach-stages
+    stages:
+      # For each dataset, we give its specific settings:
+      # Files should always be listed here:
+      sod1:
+        settings:
+          deg_dir: "datasets/consortium/SOD1-mouse/02_organized_data/srna/deg/"
+          output_directory: "datasets/consortium/SOD1-mouse/02_organized_data/srna/deg-digestion/"
+          refseq_mrna_to_ensembl_gene_id: "database/biomaRt/refseq_mrna_to_ensembl_gene_id_mouse.csv"
+          miRDB_prediction: "database/miRDB/miRDB_v6.0_prediction_result.txt.gz"
+      tdp43:
+        settings:
+          deg_dir: "datasets/consortium/TDP43-mouse/02_organized_data/srna/deg/"
+          output_directory: "datasets/consortium/TDP43-mouse/02_organized_data/srna/deg-digestion/"
+          refseq_mrna_to_ensembl_gene_id: "database/biomaRt/refseq_mrna_to_ensembl_gene_id_mouse.csv"
+          miRDB_prediction: "database/miRDB/miRDB_v6.0_prediction_result.txt.gz"
+      c9:
+        settings:
+          deg_dir: "datasets/consortium/C9orf72-mouse/02_organized_data/srna/deg/"
+          output_directory: "datasets/consortium/C9orf72-mouse/02_organized_data/srna/deg-digestion/"
+          refseq_mrna_to_ensembl_gene_id: "database/biomaRt/refseq_mrna_to_ensembl_gene_id_mouse.csv"
+          miRDB_prediction: "database/miRDB/miRDB_v6.0_prediction_result.txt.gz"
+      fus:
+        settings:
+          deg_dir: "datasets/consortium/FUS-mouse/02_organized_data/srna/deg/"
+          output_directory: "datasets/consortium/FUS-mouse/02_organized_data/srna/deg-digestion/"
+          refseq_mrna_to_ensembl_gene_id: "database/biomaRt/refseq_mrna_to_ensembl_gene_id_mouse.csv"
+          miRDB_prediction: "database/miRDB/miRDB_v6.0_prediction_result.txt.gz"
+      human:
+        settings:
+          deg_dir: "datasets/consortium/human-datasets/02_organized_data/srna/deg/"
+          output_directory: "datasets/consortium/human-datasets/02_organized_data/srna/deg-digestion/"
+          refseq_mrna_to_ensembl_gene_id: "database/biomaRt/refseq_mrna_to_ensembl_gene_id_human.csv"
+          miRDB_prediction: "database/miRDB/miRDB_v6.0_prediction_result.txt.gz"
+          deseq2:
+            - name: "no_covariates"
+              results:
+                - name: "mut_vs_ctrl"
+            - name: "covariate_sex"
+              results:
+                - name: "mut_vs_ctrl"
+                - name: "male_vs_female"
+            - name: "covariate_sex_and_center"
+              results:
+                - name: "mut_vs_ctrl"
+                - name: "male_vs_female"
+            - name: "covariate_sex_center_and_age"
+              results:
+                - name: "mut_vs_ctrl"
+                - name: "male_vs_female"
+                - name: "age"
+            - name: "only_males"
+              results:
+                - name: "mut_vs_ctrl"
+            - name: "only_males_covariate_center"
+              results:
+                - name: "mut_vs_ctrl"
+            - name: "only_females"
+              results:
+                - name: "mut_vs_ctrl"
+            - name: "only_females_covariate_center"
+              results:
+                - name: "mut_vs_ctrl"
+          volcano_plots:
+            - name: "volcano_mut_vs_ctrl_covariates_sex_and_center"
+              subplots:
+                - name: ["no_covariates", "mut_vs_ctrl"]
+                  title: "ALS vs Ctrl (no covariates)"
+                - name: ["covariate_sex", "mut_vs_ctrl"]
+                  title: "ALS vs Ctrl (sex as cov.)"
+                - name: ["covariate_sex_and_center", "mut_vs_ctrl"]
+                  title: "ALS vs Ctrl (sex and center as cov.)"
+                - name: ["covariate_sex_center_and_age", "mut_vs_ctrl"]
+                  title: "ALS vs Ctrl (sex, center, age as cov.)"
+            - name: "volcano_mut_vs_ctrl_sex_stratifying"
+              subplots:
+                - name: ["covariate_sex_and_center", "mut_vs_ctrl"]
+                  title: "ALS vs Ctrl (sex and center as cov.)"
+                - name: ["only_females", "mut_vs_ctrl"]
+                  title: "ALS vs Ctrl (females only)"
+                - name: ["only_males", "mut_vs_ctrl"]
+                  title: "ALS vs Ctrl (males only)"
+          gene_overlaps:
+            - name: "mut_vs_ctrl_with_sex_and_center_as_covariate_vs_stratifying_sex"
+              criterion: "strict"
+              sets:
+                - name: "female"
+                  set: ["only_females_covariate_center", "mut_vs_ctrl"]
+                - name: "male"
+                  set: ["only_males_covariate_center", "mut_vs_ctrl"]
+                - name: "all"
+                  set: ["covariate_sex_and_center", "mut_vs_ctrl"]
+            - name: "mut_vs_control_age_impact"
+              criterion: "strict"
+              sets:
+                - name: "without_age"
+                  set: ["covariate_sex_and_center", "mut_vs_ctrl"]
+                - name: "with_age"
+                  set: ["covariate_sex_center_and_age", "mut_vs_ctrl"]
+          organism: "human"

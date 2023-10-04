@@ -1,0 +1,387 @@
+WGCNA:
+    proteomics:
+        literature_dir: "results/textmining/csv/literature_top_100_gene.csv"
+        als_markers_source: "ALS_genes_source.csv"
+        stages:
+            sod1:
+                annotations: "datasets/consortium/SOD1-mouse/02_organized_data/proteomics/prefiltering-pca/cohort_filtered.csv"
+                input_file: "datasets/consortium/SOD1-mouse/02_organized_data/proteomics/prefiltering-pca/intensity_mat_filtered_imputed_log2transf_norm.csv"
+                uniprot_to_ensembl: "database/uniprot/uniprot_MOUSE_10090_idmapping_selected.tab.gz"
+                de_dir: "datasets/consortium/SOD1-mouse/02_organized_data/proteomics/deg"
+                output_dir: "results/WGCNA/sod1_results"
+                organism: "Mus musculus"
+            c9orf72:
+                annotations: "datasets/consortium/C9orf72-mouse/02_organized_data/proteomics/prefiltering-pca/cohort_filtered.csv"
+                input_file: "datasets/consortium/C9orf72-mouse/02_organized_data/proteomics/prefiltering-pca/intensity_mat_filtered_imputed_log2transf_norm.csv"
+                uniprot_to_ensembl: "database/uniprot/uniprot_MOUSE_10090_idmapping_selected.tab.gz"
+                de_dir: "datasets/consortium/C9orf72-mouse/02_organized_data/proteomics/deg"
+                output_dir: "results/WGCNA/c9orf72_results"
+                organism: "Mus musculus"
+            fus:
+                annotations: "datasets/consortium/FUS-mouse/02_organized_data/proteomics/prefiltering-pca/cohort_filtered.csv"
+                input_file: "datasets/consortium/FUS-mouse/02_organized_data/proteomics/prefiltering-pca/intensity_mat_filtered_imputed_log2transf_norm.csv"
+                uniprot_to_ensembl: "database/uniprot/uniprot_MOUSE_10090_idmapping_selected.tab.gz"
+                de_dir: "datasets/consortium/FUS-mouse/02_organized_data/proteomics/deg"
+                output_dir: "results/WGCNA/fus_results"
+                organism: "Mus musculus"
+            tdp43:
+                annotations: "datasets/consortium/TDP43-mouse/02_organized_data/proteomics/prefiltering-pca/cohort_filtered.csv"
+                input_file: "datasets/consortium/TDP43-mouse/02_organized_data/proteomics/prefiltering-pca/intensity_mat_filtered_imputed_log2transf_norm.csv"
+                uniprot_to_ensembl: "database/uniprot/uniprot_MOUSE_10090_idmapping_selected.tab.gz"
+                de_dir: "datasets/consortium/TDP43-mouse/02_organized_data/proteomics/deg"
+                output_dir: "results/WGCNA/tdp43_results"
+                organism: "Mus musculus"
+            human:
+                annotations: "datasets/consortium/human-datasets/02_organized_data/proteomics/prefiltering-pca/cohort_filtered.csv"
+                input_file: "datasets/consortium/human-datasets/02_organized_data/proteomics/prefiltering-pca/intensity_mat_filtered_imputed_log2transf_norm.csv"
+                uniprot_to_ensembl: "database/uniprot/uniprot_HUMAN_9606_idmapping_selected.tab.gz"
+                de_dir: "datasets/consortium/human-datasets/02_organized_data/proteomics/deg"
+                output_dir: "results/WGCNA/human_results"
+                organism: "Homo sapiens"
+    rnaseq:
+        stages:
+            sod1:
+                annotations: "datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/prefiltering-pca/cohort_excluded_outliers.csv"
+                input_file: "datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/prefiltering-pca/counts_norm_vst.csv"
+                ensembl_to_symbol: "datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/prefiltering-pca/ENSG_to_symbol.csv"
+                de_dir: "datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/deg"
+                output_dir: "results/WGCNA_rnaseq/sod1_results"
+                organism: "Mus musculus"
+                selection:
+                    - ctrl_female
+                    - ctrl_male
+                    - mut_female
+                    - mut_male
+                MEDissThres: 0.4
+                softPower: 19
+                moduleSelectionThreshold: 0.5
+            c9orf72:
+                annotations: "datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/prefiltering-pca/cohort_excluded_outliers.csv"
+                input_file: "datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/prefiltering-pca/counts_norm_vst.csv"
+                ensembl_to_symbol: "datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/prefiltering-pca/ENSG_to_symbol.csv"
+                de_dir: "datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/deg"
+                output_dir: "results/WGCNA_rnaseq/c9orf72_results"
+                organism: "Mus musculus"
+                selection:
+                    - ctrl_female
+                    - ctrl_male
+                    - mut_female
+                    - mut_male
+                MEDissThres: 0.4
+                softPower: 22
+                moduleSelectionThreshold: 0.3
+            fus:
+                annotations: "datasets/consortium/FUS-mouse/02_organized_data/rnaseq/prefiltering-pca/cohort_excluded_outliers.csv"
+                input_file: "datasets/consortium/FUS-mouse/02_organized_data/rnaseq/prefiltering-pca/counts_norm_vst.csv"
+                ensembl_to_symbol: "datasets/consortium/FUS-mouse/02_organized_data/rnaseq/prefiltering-pca/ENSG_to_symbol.csv"
+                de_dir: "datasets/consortium/FUS-mouse/02_organized_data/rnaseq/deg"
+                output_dir: "results/WGCNA_rnaseq/fus_results"
+                organism: "Mus musculus"
+                selection:
+                    - ctrl_female
+                    - ctrl_male
+                    - mut_female
+                    - mut_male
+                MEDissThres: 0.5
+                softPower: 12
+                moduleSelectionThreshold: 0.3
+            tdp43:
+                annotations: "datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/prefiltering-pca/cohort_excluded_outliers.csv"
+                input_file: "datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/prefiltering-pca/counts_norm_vst.csv"
+                ensembl_to_symbol: "datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/prefiltering-pca/ENSG_to_symbol.csv"
+                de_dir: "datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/deg"
+                output_dir: "results/WGCNA_rnaseq/tdp43_results"
+                organism: "Mus musculus"
+                selection:
+                    - ctrl_female
+                    - ctrl_male
+                    - mut_female
+                    - mut_male
+                MEDissThres: 0.4
+                softPower: 15
+                moduleSelectionThreshold: 0.5
+            human:
+                annotations: "datasets/consortium/human-datasets/02_organized_data/rnaseq/prefiltering-pca/cohort_excluded_outliers.csv"
+                input_file: "datasets/consortium/human-datasets/02_organized_data/rnaseq/prefiltering-pca/counts_norm_vst.csv"
+                ensembl_to_symbol: "datasets/consortium/human-datasets/02_organized_data/rnaseq/prefiltering-pca/ENSG_to_symbol.csv"
+                de_dir: "datasets/consortium/human-datasets/02_organized_data/rnaseq/deg"
+                output_dir: "results/WGCNA_rnaseq/human_results"
+                organism: "Homo sapiens"
+                selection:
+                    - ctrl_female
+                    - ctrl_male
+                    - als_female
+                    - als_male
+                MEDissThres: 0
+                softPower: 8
+                moduleSelectionThreshold: 2
+    upset:
+        nintersects: 50
+        order_by: "freq"
+        matrix_plot_ratio: 0.5
+        main_bar_plot_ratio: 0.5
+        text_scale: 0.7
+        png_width: 1920
+        png_height: 1080
+        png_res: 150
+        out_dir: "results/WGCNA/upset"
+        stages:
+            sod1: "results/WGCNA/sod1_results/module_genes.json"
+            c9orf72: "results/WGCNA/c9orf72_results/module_genes.json"
+            fus: "results/WGCNA/fus_results/module_genes.json"
+            tdp43: "results/WGCNA/tdp43_results/module_genes.json"
+
+    graph:
+        default_system_settings: {}
+        default_settings:
+          threshold: 0.6
+        stages:
+          # For each dataset, we give its specific settings:
+          # Files should always be listed here:
+          sod1_rnaseq:
+            settings: {}
+            inputs: results/WGCNA_rnaseq/sod1_results/adjacency_matrix.feather
+            outputs: results/WGCNA_graphs/sod1_rnaseq/graph.gml
+          c9orf72_rnaseq:
+            settings: 
+                threshold: 0.8
+            inputs: results/WGCNA_rnaseq/c9orf72_results/adjacency_matrix.feather
+            outputs: results/WGCNA_graphs/c9orf72_rnaseq/graph.gml
+          fus_rnaseq:
+            settings: {}
+            inputs: results/WGCNA_rnaseq/fus_results/adjacency_matrix.feather
+            outputs: results/WGCNA_graphs/fus_rnaseq/graph.gml
+          tdp43_rnaseq:
+            settings: {}
+            inputs: results/WGCNA_rnaseq/tdp43_results/adjacency_matrix.feather
+            outputs: results/WGCNA_graphs/tdp43_rnaseq/graph.gml
+          human_rnaseq:
+            settings: {}
+            inputs: results/WGCNA_rnaseq/human_results/adjacency_matrix.feather
+            outputs: results/WGCNA_graphs/human_rnaseq/graph.gml
+          sod1_proteomics:
+            settings: 
+                threshold: 0.1
+            inputs: results/WGCNA/sod1_results/adjacency_matrix.feather
+            outputs: results/WGCNA_graphs/sod1_proteomics/graph.gml
+          c9orf72_proteomics:
+            settings: 
+                threshold: 0.1
+            inputs: results/WGCNA/c9orf72_results/adjacency_matrix.feather
+            outputs: results/WGCNA_graphs/c9orf72_proteomics/graph.gml
+          fus_proteomics:
+            settings: 
+                threshold: 0.1
+            inputs: results/WGCNA/fus_results/adjacency_matrix.feather
+            outputs: results/WGCNA_graphs/fus_proteomics/graph.gml
+          tdp43_proteomics:
+            settings: 
+                threshold: 0.1
+            inputs: results/WGCNA/tdp43_results/adjacency_matrix.feather
+            outputs: results/WGCNA_graphs/tdp43_proteomics/graph.gml
+          human_proteomics:
+            settings: 
+                threshold: 0.05
+            inputs: results/WGCNA/human_results/adjacency_matrix.feather
+            outputs: results/WGCNA_graphs/human_proteomics/graph.gml
+            
+    graph_filter:
+        default_system_settings: {}
+        default_settings:
+          min_size: 10
+          max_size: null
+          layout: spring
+          layout_kwargs: null
+        stages:
+          # For each dataset, we give its specific settings:
+          # Files should always be listed here:
+          sod1_rnaseq:
+            settings: {}
+            outputs: results/WGCNA_graphs/sod1_rnaseq/
+            inputs: results/WGCNA_graphs/sod1_rnaseq/graph.gml
+          c9orf72_rnaseq:
+            settings: {}
+            outputs: results/WGCNA_graphs/c9orf72_rnaseq/
+            inputs: results/WGCNA_graphs/c9orf72_rnaseq/graph.gml
+          fus_rnaseq:
+            settings: {}
+            outputs: results/WGCNA_graphs/fus_rnaseq/
+            inputs: results/WGCNA_graphs/fus_rnaseq/graph.gml
+          tdp43_rnaseq:
+            settings: {}
+            outputs: results/WGCNA_graphs/tdp43_rnaseq/
+            inputs: results/WGCNA_graphs/tdp43_rnaseq/graph.gml
+          human_rnaseq:
+            settings: {}
+            outputs: results/WGCNA_graphs/human_rnaseq/
+            inputs: results/WGCNA_graphs/human_rnaseq/graph.gml
+          sod1_proteomics:
+            settings: {}
+            outputs: results/WGCNA_graphs/sod1_proteomics/
+            inputs: results/WGCNA_graphs/sod1_proteomics/graph.gml
+          c9orf72_proteomics:
+            settings: {}
+            outputs: results/WGCNA_graphs/c9orf72_proteomics/
+            inputs: results/WGCNA_graphs/c9orf72_proteomics/graph.gml
+          fus_proteomics:
+            settings: {}
+            outputs: results/WGCNA_graphs/fus_proteomics/
+            inputs: results/WGCNA_graphs/fus_proteomics/graph.gml
+          tdp43_proteomics:
+            settings: {}
+            outputs: results/WGCNA_graphs/tdp43_proteomics/
+            inputs: results/WGCNA_graphs/tdp43_proteomics/graph.gml
+          human_proteomics:
+            settings: {}
+            outputs: results/WGCNA_graphs/human_proteomics/
+            inputs: results/WGCNA_graphs/human_proteomics/graph.gml
+            
+            
+    graph_plot:
+        default_settings: {}
+        default_system_settings: {}
+        rnaseq:
+            stages:
+              sod1:
+                settings: 
+                    species: Mouse
+                outputs: results/WGCNA_graphs/sod1_rnaseq/
+                inputs: 
+                    graph: results/WGCNA_graphs/sod1_rnaseq/filtered.gml
+                    layout: results/WGCNA_graphs/sod1_rnaseq/layout.npz
+                    modules: results/WGCNA_rnaseq/sod1_results/module_genes.json
+                    celltype_marker: database/celltype_signatures.csv
+                    deg_female: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/deg-digestion/de_tables/only_females-mut_vs_ctrl-strict.csv
+                    deg_male: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/deg-digestion/de_tables/only_males-mut_vs_ctrl-strict.csv
+                    deg_full_male: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/deg/only_males/mut_vs_ctrl.csv
+                    deg_full_female: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/deg/only_females/mut_vs_ctrl.csv
+              c9orf72:
+                settings: 
+                    species: Mouse
+                outputs: results/WGCNA_graphs/c9orf72_rnaseq/
+                inputs: 
+                    graph: results/WGCNA_graphs/c9orf72_rnaseq/filtered.gml
+                    layout: results/WGCNA_graphs/c9orf72_rnaseq/layout.npz
+                    modules: results/WGCNA_rnaseq/c9orf72_results/module_genes.json
+                    celltype_marker: database/celltype_signatures.csv
+                    deg_female: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/deg-digestion/de_tables/only_females-mut_vs_ctrl-strict.csv
+                    deg_male: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/deg-digestion/de_tables/only_males-mut_vs_ctrl-strict.csv
+                    deg_full_male: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/deg/only_males/mut_vs_ctrl.csv
+                    deg_full_female: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/deg/only_females/mut_vs_ctrl.csv
+              fus:
+                settings: 
+                    species: Mouse
+                outputs: results/WGCNA_graphs/fus_rnaseq/
+                inputs: 
+                    graph: results/WGCNA_graphs/fus_rnaseq/filtered.gml
+                    layout: results/WGCNA_graphs/fus_rnaseq/layout.npz
+                    modules: results/WGCNA_rnaseq/fus_results/module_genes.json
+                    celltype_marker: database/celltype_signatures.csv
+                    deg_female: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/deg-digestion/de_tables/only_females-mut_vs_ctrl-strict.csv
+                    deg_male: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/deg-digestion/de_tables/only_males-mut_vs_ctrl-strict.csv
+                    deg_full_male: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/deg/only_males/mut_vs_ctrl.csv
+                    deg_full_female: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/deg/only_females/mut_vs_ctrl.csv
+              tdp43:
+                settings: 
+                    species: Mouse
+                outputs: results/WGCNA_graphs/tdp43_rnaseq/
+                inputs: 
+                    graph: results/WGCNA_graphs/tdp43_rnaseq/filtered.gml
+                    layout: results/WGCNA_graphs/tdp43_rnaseq/layout.npz
+                    modules: results/WGCNA_rnaseq/tdp43_results/module_genes.json
+                    celltype_marker: database/celltype_signatures.csv
+                    deg_female: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/deg-digestion/de_tables/only_females-mut_vs_ctrl-strict.csv
+                    deg_male: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/deg-digestion/de_tables/only_males-mut_vs_ctrl-strict.csv
+                    deg_full_male: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/deg/only_males/mut_vs_ctrl.csv
+                    deg_full_female: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/deg/only_females/mut_vs_ctrl.csv
+              human:
+                settings: 
+                    species: Human
+                outputs: results/WGCNA_graphs/human_rnaseq/
+                inputs: 
+                    graph: results/WGCNA_graphs/human_rnaseq/filtered.gml
+                    layout: results/WGCNA_graphs/human_rnaseq/layout.npz
+                    modules: results/WGCNA_rnaseq/human_results/module_genes.json
+                    celltype_marker: database/celltype_signatures.csv
+                    deg_female: datasets/consortium/human-datasets/02_organized_data/rnaseq/deg-digestion/de_tables/only_females-mut_vs_ctrl-strict.csv
+                    deg_male: datasets/consortium/human-datasets/02_organized_data/rnaseq/deg-digestion/de_tables/only_males-mut_vs_ctrl-strict.csv
+                    deg_full_male: datasets/consortium/human-datasets/02_organized_data/rnaseq/deg/only_males/mut_vs_ctrl.csv
+                    deg_full_female: datasets/consortium/human-datasets/02_organized_data/rnaseq/deg/only_females/mut_vs_ctrl.csv
+        proteomics:
+            stages:
+              sod1:
+                settings: 
+                    species: Mouse
+                outputs: results/WGCNA_graphs/sod1_proteomics/
+                inputs:
+                    graph: results/WGCNA_graphs/sod1_proteomics/filtered.gml
+                    layout: results/WGCNA_graphs/sod1_proteomics/layout.npz
+                    modules: results/WGCNA/sod1_results/module_genes.json
+                    celltype_marker: database/celltype_signatures.csv
+                    deg_female: datasets/consortium/SOD1-mouse/02_organized_data/proteomics/deg_digestion/de_tables/only_females-mut_vs_ctrl-strict.csv
+                    deg_male: datasets/consortium/SOD1-mouse/02_organized_data/proteomics/deg_digestion/de_tables/only_males-mut_vs_ctrl-strict.csv
+                    ensemblmapping: database/biomaRt/ensembl_to_symbol_mouse.csv
+                    uniprotmapping: database/uniprot/uniprot_MOUSE_10090_idmapping_selected.tab.gz
+                    deg_full_male: datasets/consortium/SOD1-mouse/02_organized_data/proteomics/deg/only_males/mut_vs_ctrl.csv
+                    deg_full_female: datasets/consortium/SOD1-mouse/02_organized_data/proteomics/deg/only_females/mut_vs_ctrl.csv
+              c9orf72:
+                settings: 
+                    species: Mouse
+                outputs: results/WGCNA_graphs/c9orf72_proteomics/
+                inputs: 
+                    graph: results/WGCNA_graphs/c9orf72_proteomics/filtered.gml
+                    layout: results/WGCNA_graphs/c9orf72_proteomics/layout.npz
+                    modules: results/WGCNA/c9orf72_results/module_genes.json
+                    celltype_marker: database/celltype_signatures.csv
+                    deg_female: datasets/consortium/C9orf72-mouse/02_organized_data/proteomics/deg_digestion/de_tables/only_females-mut_vs_ctrl-strict.csv
+                    deg_male: datasets/consortium/C9orf72-mouse/02_organized_data/proteomics/deg_digestion/de_tables/only_males-mut_vs_ctrl-strict.csv
+                    ensemblmapping: database/biomaRt/ensembl_to_symbol_mouse.csv
+                    uniprotmapping: database/uniprot/uniprot_MOUSE_10090_idmapping_selected.tab.gz
+                    deg_full_male: datasets/consortium/C9orf72-mouse/02_organized_data/proteomics/deg/only_males/mut_vs_ctrl.csv
+                    deg_full_female: datasets/consortium/C9orf72-mouse/02_organized_data/proteomics/deg/only_females/mut_vs_ctrl.csv
+              fus:
+                settings: 
+                    species: Mouse
+                outputs: results/WGCNA_graphs/fus_proteomics/
+                inputs: 
+                    graph: results/WGCNA_graphs/fus_proteomics/filtered.gml
+                    layout: results/WGCNA_graphs/fus_proteomics/layout.npz
+                    modules: results/WGCNA/fus_results/module_genes.json
+                    celltype_marker: database/celltype_signatures.csv
+                    deg_female: datasets/consortium/FUS-mouse/02_organized_data/proteomics/deg_digestion/de_tables/only_females-mut_vs_ctrl-strict.csv
+                    deg_male: datasets/consortium/FUS-mouse/02_organized_data/proteomics/deg_digestion/de_tables/only_males-mut_vs_ctrl-strict.csv
+                    ensemblmapping: database/biomaRt/ensembl_to_symbol_mouse.csv
+                    uniprotmapping: database/uniprot/uniprot_MOUSE_10090_idmapping_selected.tab.gz
+                    deg_full_male: datasets/consortium/FUS-mouse/02_organized_data/proteomics/deg/only_males/mut_vs_ctrl.csv
+                    deg_full_female: datasets/consortium/FUS-mouse/02_organized_data/proteomics/deg/only_females/mut_vs_ctrl.csv
+              tdp43:
+                settings: 
+                    species: Mouse
+                outputs: results/WGCNA_graphs/tdp43_proteomics/
+                inputs: 
+                    graph: results/WGCNA_graphs/tdp43_proteomics/filtered.gml
+                    layout: results/WGCNA_graphs/tdp43_proteomics/layout.npz
+                    modules: results/WGCNA/tdp43_results/module_genes.json
+                    celltype_marker: database/celltype_signatures.csv
+                    deg_female: datasets/consortium/TDP43-mouse/02_organized_data/proteomics/deg_digestion/de_tables/only_females-mut_vs_ctrl-strict.csv
+                    deg_male: datasets/consortium/TDP43-mouse/02_organized_data/proteomics/deg_digestion/de_tables/only_males-mut_vs_ctrl-strict.csv
+                    ensemblmapping: database/biomaRt/ensembl_to_symbol_mouse.csv
+                    uniprotmapping: database/uniprot/uniprot_MOUSE_10090_idmapping_selected.tab.gz
+                    deg_full_male: datasets/consortium/TDP43-mouse/02_organized_data/proteomics/deg/only_males/mut_vs_ctrl.csv
+                    deg_full_female: datasets/consortium/TDP43-mouse/02_organized_data/proteomics/deg/only_females/mut_vs_ctrl.csv
+              human:
+                settings: 
+                    species: Human
+                outputs: results/WGCNA_graphs/human_proteomics/
+                inputs: 
+                    graph: results/WGCNA_graphs/human_proteomics/filtered.gml
+                    layout: results/WGCNA_graphs/human_proteomics/layout.npz
+                    modules: results/WGCNA/human_results/module_genes.json
+                    celltype_marker: database/celltype_signatures.csv
+                    deg_female: datasets/consortium/human-datasets/02_organized_data/proteomics/deg_digestion/de_tables/only_females-mut_vs_ctrl-strict.csv
+                    deg_male: datasets/consortium/human-datasets/02_organized_data/proteomics/deg_digestion/de_tables/only_males-mut_vs_ctrl-strict.csv
+                    ensemblmapping: database/biomaRt/ensembl_to_symbol_human.csv
+                    uniprotmapping: database/uniprot/uniprot_HUMAN_9606_idmapping_selected.tab.gz
+                    deg_full_male: datasets/consortium/human-datasets/02_organized_data/proteomics/deg/only_males/mut_vs_ctrl.csv
+                    deg_full_female: datasets/consortium/human-datasets/02_organized_data/proteomics/deg/only_females/mut_vs_ctrl.csv
+

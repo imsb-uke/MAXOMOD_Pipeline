@@ -1,0 +1,3 @@
+[submodule "src/rnaseq/SUPPA"]
+	path = src/rnaseq/SUPPA
+	url = https://github.com/comprna/SUPPA.git

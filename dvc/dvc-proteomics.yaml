@@ -1,0 +1,244 @@
+stages:
+  proteomics_organize_samples:
+    foreach: ${proteomics.organize_samples.stages}
+    do:
+      cmd: ./docker-wrapper.sh ./src/proteomics/10-organize_samples.R --dataset-name ${key}
+      params:
+      - proteomics.organize_samples.default_settings
+      - proteomics.organize_samples.stages.${key}.settings
+      deps:
+      - ./src/proteomics/10-organize_samples.R
+      - ./src/shared/R-helpers/get_args.R
+      - ./src/shared/R-helpers/update_list.R
+      - ./src/shared/R-helpers/get_settings.R
+      - ${item.settings.cohort}
+      - ${item.settings.maxquant_input}
+      - ${item.settings.rename_samples}
+      outs:
+      - ${item.settings.output_directory}
+  proteomics_prefiltering_pca:
+    foreach: ${proteomics.prefiltering_pca.stages}
+    do:
+      cmd: ./docker-wrapper.sh ./src/proteomics/20-prefiltering_pca.R --dataset-name ${key}
+      params:
+      - proteomics.prefiltering_pca.default_settings
+      - proteomics.prefiltering_pca.stages.${key}.settings
+      deps:
+      - ./src/proteomics/20-prefiltering_pca.R
+      - ./src/shared/R-helpers/get_args.R
+      - ./src/shared/R-helpers/update_list.R
+      - ./src/shared/R-helpers/get_settings.R
+      - ./src/shared/R-helpers/get_top_n_variance.R
+      - ./src/shared/R-helpers/pc_scores_loadings_plot.R
+      - ./src/shared/R-helpers/pca_fit.R
+      - ${item.settings.cohort}
+      - ${item.settings.input_directory}
+      outs:
+      - ${item.settings.output_directory}
+  proteomics_missing_values_analysis:
+    cmd: ./docker-wrapper.sh ./src/proteomics/21-missing-values-analysis.R
+    deps:
+    - ./src/proteomics/21-missing-values-analysis.R
+    - ./datasets/consortium/SOD1-mouse/02_organized_data/proteomics/organized/intensity.rds
+    - ./datasets/consortium/TDP43-mouse/02_organized_data/proteomics/organized/intensity.rds
+    - ./datasets/consortium/C9orf72-mouse/02_organized_data/proteomics/organized/intensity.rds
+    - ./datasets/consortium/FUS-mouse/02_organized_data/proteomics/organized/intensity.rds
+    - ./datasets/consortium/human-datasets/02_organized_data/proteomics/organized/intensity.rds
+    - ./datasets/consortium/SOD1-mouse/02_organized_data/proteomics/prefiltering-pca/intensity_mat_filtered.rds
+    - ./datasets/consortium/TDP43-mouse/02_organized_data/proteomics/prefiltering-pca/intensity_mat_filtered.rds
+    - ./datasets/consortium/C9orf72-mouse/02_organized_data/proteomics/prefiltering-pca/intensity_mat_filtered.rds
+    - ./datasets/consortium/FUS-mouse/02_organized_data/proteomics/prefiltering-pca/intensity_mat_filtered.rds
+    - ./datasets/consortium/human-datasets/02_organized_data/proteomics/prefiltering-pca/intensity_mat_filtered.rds
+    outs:
+    - ./results/proteomics-missing-values/
+  proteomics_additional_QC:
+    foreach: ${proteomics.additional_QC.stages}
+    do:
+      cmd: ./docker-wrapper.sh ./src/proteomics/22-additional_QC.R --dataset-name ${key}
+      params:
+      - proteomics.additional_QC.default_settings
+      - proteomics.additional_QC.stages.${key}.settings
+      deps:
+      - ./src/proteomics/22-additional_QC.R
+      - ./src/shared/R-helpers/get_args.R
+      - ./src/shared/R-helpers/update_list.R
+      - ./src/shared/R-helpers/get_settings.R
+      - ${item.settings.cohort}
+      - ${item.settings.input_data}
+      outs:
+      - ${item.settings.output_directory}
+  proteomics_deg:
+    foreach: ${proteomics.deg.stages}
+    do:
+      cmd: ./docker-wrapper.sh ./src/proteomics/30-deg.R --dataset-name ${key}
+      params:
+      - proteomics.deg.default_settings
+      - proteomics.deg.stages.${key}.settings
+      deps:
+      - ./src/proteomics/30-deg.R
+      - ./src/shared/R-helpers/get_args.R
+      - ./src/shared/R-helpers/update_list.R
+      - ./src/shared/R-helpers/get_settings.R
+      - ./src/shared/R-helpers/cohort_to_factors.R
+      - ./src/shared/R-helpers/limma_analysis.R
+      - ${item.settings.cohort}
+      - ${item.settings.intensity_mat_for_limma}
+      outs:
+      - ${item.settings.output_directory}
+  proteomics_ensemble_symbol_mappings_human:
+    cmd: ./src/proteomics/35-download-ensembl-to-symbol-human.R
+    deps:
+    - ./src/proteomics/35-download-ensembl-to-symbol-human.R
+    outs:
+    - database/biomaRt/ensembl_to_symbol_human.csv
+    - database/biomaRt/ensembl_to_symbol_human.rds
+  proteomics_ensemble_symbol_mappings_mouse:
+    cmd: ./src/proteomics/35-download-ensembl-to-symbol-mouse.R
+    deps:
+    - ./src/proteomics/35-download-ensembl-to-symbol-mouse.R
+    outs:
+    - database/biomaRt/ensembl_to_symbol_mouse.csv
+    - database/biomaRt/ensembl_to_symbol_mouse.rds
+  proteomics_uniprot_ensemble_mappings:
+    cmd: ./src/proteomics/44-download-uniprot-to-gene-mappings.sh
+    deps:
+    - ./src/proteomics/44-download-uniprot-to-gene-mappings.sh
+    outs:
+    - database/uniprot/uniprot_MOUSE_10090_idmapping_selected.tab.gz
+    - database/uniprot/uniprot_HUMAN_9606_idmapping_selected.tab.gz
+  proteomics_download_string_ppi:
+    cmd: ./src/proteomics/44-download-string-protein-protein-interactions.sh
+    deps:
+    - ./src/proteomics/44-download-string-protein-protein-interactions.sh
+    outs:
+    - "database/stringdb/mouse.uniprot_2_string.2018.tsv.gz"
+    - "database/stringdb/human.uniprot_2_string.2018.tsv.gz"
+    - "database/stringdb/10090.protein.links.txt.gz"
+    - "database/stringdb/9606.protein.links.txt.gz"
+  proteomics_deg_digestion:
+    foreach: ${proteomics.deg_digestion.stages}
+    do:
+      cmd: ./docker-wrapper.sh ./src/proteomics/40-deg_digestion.R --dataset-name ${key}
+      params:
+      - proteomics.deg_digestion.default_settings
+      - proteomics.deg_digestion.stages.${key}.settings
+      deps:
+      - ./src/proteomics/40-deg_digestion.R
+      - ./src/shared/R-helpers/get_args.R
+      - ./src/shared/R-helpers/update_list.R
+      - ./src/shared/R-helpers/get_settings.R
+      - ./src/shared/R-helpers/create_volcano_plot.R
+      - ${item.settings.de_results_rds}
+      outs:
+      - ${item.settings.output_directory}
+  proteomics_string_ppi:
+    foreach: ${proteomics.string_ppi.stages}
+    do:
+      cmd: ./docker-wrapper.sh ./src/proteomics/45-string_ppi.R --dataset-name ${key}
+      params:
+      - proteomics.string_ppi.default_settings
+      - proteomics.string_ppi.stages.${key}.settings
+      deps:
+      - ./src/proteomics/45-string_ppi.R
+      - ./src/shared/R-helpers/get_args.R
+      - ./src/shared/R-helpers/update_list.R
+      - ./src/shared/R-helpers/get_settings.R
+      - ${item.settings.uniprot_to_string}
+      - ${item.settings.de_result_thresholds_rds}
+      - ${item.settings.string_ppi_file}
+      outs:
+      - ${item.settings.output_directory}
+  proteomics_gsea_enrichment:
+    foreach: ${proteomics.gsea_enrichment.stages}
+    do:
+      cmd: ./docker-wrapper.sh ./src/proteomics/45-gsea_enrichment.R --dataset-name ${key}
+      params:
+      - proteomics.gsea_enrichment.default_settings
+      - proteomics.gsea_enrichment.stages.${key}.settings
+      deps:
+      - ./src/proteomics/45-gsea_enrichment.R
+      - ./src/shared/R-helpers/get_args.R
+      - ./src/shared/R-helpers/update_list.R
+      - ./src/shared/R-helpers/get_settings.R
+      - ./src/shared/R-helpers/gseGO_memoise.R
+      - ./src/shared/R-helpers/gseKEGG_memoise.R
+      - ./src/shared/R-helpers/memoise_decorator.R
+      - ${item.settings.protein_annotations_rds}
+      - ${item.settings.uniprot_to_ensembl}
+      - ${item.settings.de_results_rds}
+      outs:
+      - ${item.settings.output_directory}
+
+  proteomics_deg_count:
+    cmd: ./docker-wrapper.sh python ./src/proteomics/46-get_deg_counts.py
+    deps:
+    - ./src/proteomics/46-get_deg_counts.py
+    - ${proteomics.deg_count.sod1_female}
+    - ${proteomics.deg_count.tdp43_female}
+    - ${proteomics.deg_count.c9_female}
+    - ${proteomics.deg_count.human_female}
+    - ${proteomics.deg_count.fus_female}
+    - ${proteomics.deg_count.human_csf_female}
+    - ${proteomics.deg_count.sod1_male}
+    - ${proteomics.deg_count.tdp43_male}
+    - ${proteomics.deg_count.c9_male}
+    - ${proteomics.deg_count.human_male}
+    - ${proteomics.deg_count.fus_male}
+    - ${proteomics.deg_count.human_csf_male}
+    metrics:
+    - results/integration/proteomics/deg_counts.yaml
+    
+  proteomics_revigo:
+    foreach: ${proteomics.revigo.stages}
+    do:
+      cmd: ./docker-wrapper.sh python ./src/shared/REVIGO/revigo_restful_advanced.py --dataset_name ${key} --omics_type proteomics
+      params:
+      - proteomics.revigo.stages.${key}.settings
+      deps:
+      - ./src/shared/REVIGO/revigo_restful_advanced.py
+      - ./datasets/consortium/${item.settings.biological_model}/02_organized_data/proteomics/gsea_enrichment
+      outs:
+      - ${item.settings.output_directory}
+      
+  proteomics_gofigure:
+    foreach: ${proteomics.gofigure.stages}
+    do:
+      cmd: ./docker-wrapper.sh python3 src/shared/GoFigure/run_gofigure.py --key proteomics --method gofigure --stage ${key}
+      params:
+      - proteomics.gofigure.stages.${key}.settings.level
+      - proteomics.gofigure.stages.${key}.settings.commandline
+      deps:
+      - ${item.inputs}
+      - src/shared/GoFigure/gofigure.py
+      - src/shared/GoFigure/run_gofigure.py
+      - src/shared/GoFigure/data/
+      outs:
+      - ${item.outputs}
+
+  proteomics_nes_mapper:
+      foreach:
+          human: database/uniprot/human_proteome.fasta.gz
+          mouse: database/uniprot/mouse_proteome.fasta.gz
+      do:
+          cmd:  mkdir -p database/NES && zcat ${item} > database/NES/predicted_${key}.tmp && src/proteomics/NESmapper-1.0/NESmapper.pl -p src/proteomics/NESmapper-1.0/NES_profiles_trained.txt database/NES/predicted_${key}.tmp > database/NES/predicted_${key}.txt && rm database/NES/predicted_${key}.tmp 
+          deps: 
+          - ${item}
+          - src/proteomics/NESmapper-1.0/NES_profiles_trained.txt
+          - src/proteomics/NESmapper-1.0/NESmapper.pl
+          outs:
+          - database/NES/predicted_${key}.txt
+
+  proteomics_deg_boxplots:
+    foreach: ${proteomics.deg_boxplots.stages}
+    do:
+      cmd: ./docker-wrapper.sh ./src/proteomics/47-boxplots_deg_results.py --stage ${key}
+      params:
+      - proteomics.deg_boxplots.default_settings
+      - proteomics.deg_boxplots.stages.${key}.settings
+      deps:
+      - ./src/proteomics/47-boxplots_deg_results.py
+      - ${item.inputs.raw}
+      - ${item.inputs.metadata}
+      - ${item.inputs.degpath}
+      outs:
+      - ${item.output}
