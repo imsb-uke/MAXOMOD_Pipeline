@@ -10,6 +10,7 @@ For a detailed understanding of the scientific background and the findings, refe
   - [Data Preparation](#data-preparation)
   - [Organize Data](#organize-data)
 - [Reproducing Results](#reproducing-results)
+- [Contributing](#contributing)
 - [Collaboration](#collaboration)
 
 
@@ -20,13 +21,11 @@ For a detailed understanding of the scientific background and the findings, refe
 - [Nextflow](https://www.nextflow.io/)
 - Container execution engine (e.g. [Docker](https://www.docker.com/) or [Podman](https://podman.io/))
 
-We welcome contributions to enhance the reproducibility and scope of the analysis.
-
 Clone the git repository:
 
-    ```
-    git clone https://github.com/imsb-uke/MAXOMOD_Pipeline.git ./maxomod
-    ```
+```
+git clone https://github.com/imsb-uke/MAXOMOD_Pipeline.git ./maxomod
+```
 
 Enter the cloned directory:
 
@@ -55,9 +54,9 @@ datasets/
                 cohort/
 ```
 
-The pipeline expects `fastq.gz` files for the sequencing data und `txt` files for the proteomics data and `csv` files for the phosphoproteomics data.
+The pipeline expects `fastq.gz` files for the sequencing data, `txt` files for the proteomics data and `csv` files for the phosphoproteomics data.
 
-Please, use DVC to see which exact file names are required:
+Please, use DVC to see, which exact file names are required:
 
 ```bash
 dvc status srna_organize_samples proteomics_organize_samples phosphoproteomics_organize_samples rnaseq_nextflow
@@ -73,6 +72,9 @@ dvc repro
 ```
 
 This command will run the predefined pipelines to process and analyze the data according to the methodology described in the associated publication.
+
+## Contributing
+We welcome contributions to enhance the reproducibility and scope of the analysis.
 
 ## Collaboration
 
