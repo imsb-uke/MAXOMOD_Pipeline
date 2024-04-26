@@ -22,6 +22,7 @@ Dumper.add_representer(str, string_representer)
 
 stages = dict()
 for filename in (
+    "dvc-download.yaml",
     "dvc-rnaseq.yaml",
     "dvc-srna.yaml",
     "dvc-proteomics.yaml",

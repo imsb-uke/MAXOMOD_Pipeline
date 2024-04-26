@@ -1,0 +1,43 @@
+schema: '2.0'
+stages:
+  sra_prefetch:
+    cmd: mkdir -p datasets/consortium/00_download/prefetch && MX_DOCKERIMAGE="ncbi/sra-tools"
+      ./docker-wrapper.sh sh ./src/shared/sra_download.sh
+    deps:
+    - path: ./src/shared/sra_download.sh
+      hash: md5
+      md5: 3c95f4a0c84ee55e7e4a33bab996c39e
+      size: 123
+    - path: datasets/consortium/00_download/SRR_Acc_List.txt
+      hash: md5
+      md5: c06f0ff46b477e6212157f6508f79dd0
+      size: 1896
+    outs:
+    - path: datasets/consortium/00_download/prefetch
+      hash: md5
+      md5: e48d2b2fcbc74574be120656f6865e98.dir
+      size: 125465188491
+      nfiles: 158
+  sra_fastq_dump:
+    cmd: mkdir -p datasets/consortium/00_download/fastq && MX_DOCKERIMAGE="ncbi/sra-tools"
+      ./docker-wrapper.sh sh ./src/shared/sra_fastqdump.sh
+    deps:
+    - path: ./src/shared/sra_fastqdump.sh
+      hash: md5
+      md5: 5204412da0ed007b6e8dc577ce2e872a
+      size: 190
+    - path: datasets/consortium/00_download/SRR_Acc_List.txt
+      hash: md5
+      md5: c06f0ff46b477e6212157f6508f79dd0
+      size: 1896
+    - path: datasets/consortium/00_download/prefetch
+      hash: md5
+      md5: e48d2b2fcbc74574be120656f6865e98.dir
+      size: 125465188491
+      nfiles: 158
+    outs:
+    - path: datasets/consortium/00_download/fastq
+      hash: md5
+      md5: de1249290b202f7a3c617cb4d2cde1aa.dir
+      size: 1095819375848
+      nfiles: 177
