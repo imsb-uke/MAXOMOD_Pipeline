@@ -984,6 +984,50 @@ stages:
       params:
       - splicing_analysis.dtu.stages.${key}.settings
     foreach: ${splicing_analysis.dtu.stages}
+  sra_fastq_dump:
+    cmd: mkdir -p datasets/consortium/00_download/fastq && MX_DOCKERIMAGE="ncbi/sra-tools"
+      ./docker-wrapper.sh sh ./src/shared/sra_fastqdump.sh
+    deps:
+    - ./src/shared/sra_fastqdump.sh
+    - datasets/consortium/00_download/SRR_Acc_List.txt
+    - datasets/consortium/00_download/prefetch
+    frozen: true
+    outs:
+    - datasets/consortium/00_download/fastq:
+        cache: false
+  sra_organize:
+    cmd: ./docker-wrapper.sh python3 ./src/shared/sra_organize.py
+    frozen: true
+    deps:
+    - ./src/shared/sra_organize.py
+    - datasets/consortium/00_download/SraRunTable.txt
+    - datasets/consortium/00_download/fastq
+    - datasets/consortium/00_download/GSE234246-GPL17021_series_matrix.txt.gz
+    - datasets/consortium/00_download/GSE234246-GPL24247_series_matrix.txt.gz
+    outs:
+    - datasets/consortium/FUS-mouse/01_received_data/cohort/sample_annotations.csv
+    - datasets/consortium/FUS-mouse/01_received_data/srna/
+    - datasets/consortium/FUS-mouse/01_received_data/rnaseq/
+    - datasets/consortium/C9orf72-mouse/01_received_data/cohort/sample_annotations.csv
+    - datasets/consortium/C9orf72-mouse/01_received_data/srna/
+    - datasets/consortium/C9orf72-mouse/01_received_data/rnaseq/
+    - datasets/consortium/SOD1-mouse/01_received_data/cohort/sample_annotations.csv
+    - datasets/consortium/SOD1-mouse/01_received_data/srna/
+    - datasets/consortium/SOD1-mouse/01_received_data/rnaseq/
+    - datasets/consortium/TDP43-mouse/01_received_data/cohort/sample_annotations.csv
+    - datasets/consortium/TDP43-mouse/01_received_data/srna/
+    - datasets/consortium/TDP43-mouse/01_received_data/rnaseq/
+  sra_prefetch:
+    cmd: mkdir -p datasets/consortium/00_download/prefetch && MX_DOCKERIMAGE="ncbi/sra-tools"
+      ./docker-wrapper.sh sh ./src/shared/sra_download.sh
+    deps:
+    - ./src/shared/sra_download.sh
+    - datasets/consortium/00_download/SRR_Acc_List.txt
+    frozen: true
+    outs:
+    - datasets/consortium/00_download/prefetch:
+        cache: false
+        persist: true
   srna_deg:
     do:
       cmd: ./docker-wrapper.sh ./src/srna/30-deg.R --dataset-name ${key}

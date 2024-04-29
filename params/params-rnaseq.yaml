@@ -15,7 +15,7 @@ rnaseq:
     # default_settings are those settings that are shared by all the datasets, for instance
     # the nextflow pipeline we want to use.
     default_settings:
-      sample_to_filename_suffix_R1: "_R1.fastq.gz"
+      sample_to_filename_suffix_R1: ".fastq.gz"
       sample_to_filename_suffix_R2: null
       nf_pipeline: "nf-core/rnaseq"
       nf_pipeline_version: "3.0"
@@ -33,38 +33,38 @@ rnaseq:
       sod1:
         settings:
           cohort: "datasets/consortium/SOD1-mouse/01_received_data/cohort/sample_annotations.csv"
-          input_directory: 'datasets/consortium/SOD1-mouse/01_received_data/rnaseq/NovaSeq_20200312_NOV338_o6670_DataDelivery/'
+          input_directory: 'datasets/consortium/SOD1-mouse/01_received_data/rnaseq/'
           output_directory: 'datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/nf-rnaseq/'
-          sample_to_filename_pattern: "S([0-9]+)"
-          sample_to_filename_replacement: '20200312.A-\1_transcriptomics'
+          sample_to_filename_pattern: "(S[0-9]+)"
+          sample_to_filename_replacement: '\1'
           fasta: 'database/align-references/mmusculus/GRCm39.primary_assembly.genome.fa.gz'
           gtf: 'database/align-references/mmusculus/gencode.vM26.annotation.gtf.gz'
       tdp43:
         settings:
           cohort: "datasets/consortium/TDP43-mouse/01_received_data/cohort/sample_annotations.csv"
-          input_directory: 'datasets/consortium/TDP43-mouse/01_received_data/rnaseq/NovaSeq_20200312_NOV338_o6672_DataDelivery/'
+          input_directory: 'datasets/consortium/TDP43-mouse/01_received_data/rnaseq/'
           output_directory: 'datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/nf-rnaseq/'
-          sample_to_filename_pattern: "S([0-9]+)"
-          sample_to_filename_replacement: '20200312.A-\1_transcriptomics'
+          sample_to_filename_pattern: "(S[0-9]+)"
+          sample_to_filename_replacement: '\1'
           fasta: 'database/align-references/mmusculus/GRCm39.primary_assembly.genome.fa.gz'
           gtf: 'database/align-references/mmusculus/gencode.vM26.annotation.gtf.gz'
       c9:
         settings:
           cohort: "datasets/consortium/C9orf72-mouse/01_received_data/cohort/sample_annotations.csv"
-          input_directory: 'datasets/consortium/C9orf72-mouse/01_received_data/rnaseq/NovaSeq_20200702_NOV400_o6998_DataDelivery/'
+          input_directory: 'datasets/consortium/C9orf72-mouse/01_received_data/rnaseq/'
           output_directory: 'datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/nf-rnaseq/'
-          sample_to_filename_pattern: "S([_0-9]+)"
-          sample_to_filename_replacement: '20200702.A-\1'
+          sample_to_filename_pattern: "(S[_0-9]+)"
+          sample_to_filename_replacement: '\1'
           fasta: 'database/align-references/mmusculus/GRCm39.primary_assembly.genome.fa.gz'
           gtf: 'database/align-references/mmusculus/gencode.vM26.annotation.gtf.gz'
           save_reference: false
       fus:
         settings:
           cohort: "datasets/consortium/FUS-mouse/01_received_data/cohort/sample_annotations.csv"
-          input_directory: 'datasets/consortium/FUS-mouse/01_received_data/rnaseq/NovaSeq_20201014_NOV483_o7476_part/'
+          input_directory: 'datasets/consortium/FUS-mouse/01_received_data/rnaseq/'
           output_directory: 'datasets/consortium/FUS-mouse/02_organized_data/rnaseq/nf-rnaseq/'
-          sample_to_filename_pattern: "S([0-9]+)"
-          sample_to_filename_replacement: '20201014.B-\1'
+          sample_to_filename_pattern: "(S[0-9]+)"
+          sample_to_filename_replacement: '\1'
           fasta: 'database/align-references/mmusculus/GRCm39.primary_assembly.genome.fa.gz'
           gtf: 'database/align-references/mmusculus/gencode.vM26.annotation.gtf.gz'
           save_reference: false

@@ -2,8 +2,8 @@
 
 # 64GB = 68719476736 bytes
 
-MX_DOCKERIMAGE="ghcr.io/imsb-uke/maxomod_pipeline-r-python"
-MX_TAG="latest"
+MX_DOCKERIMAGE=${MX_DOCKERIMAGE:="ghcr.io/imsb-uke/maxomod_pipeline-r-python"}
+MX_TAG=${MX_TAG:="latest"}
 
 which docker
 

@@ -1,0 +1,12 @@
+md5: 8f03734b8a3bd9093daa6b8d1302c48c
+frozen: true
+deps:
+- checksum: '"1e4b-616bbdf92343d"'
+  size: 7755
+  path: 
+    https://ftp.ncbi.nlm.nih.gov/geo/series/GSE234nnn/GSE234246/matrix/GSE234246-GPL17021_series_matrix.txt.gz
+  hash: md5
+outs:
+- md5: 1cf10f99c4bd385bdaea1acc6cb7f641
+  size: 7755
+  path: GSE234246-GPL17021_series_matrix.txt.gz
