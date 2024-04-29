@@ -997,6 +997,7 @@ stages:
         cache: false
   sra_organize:
     cmd: ./docker-wrapper.sh python3 ./src/shared/sra_organize.py
+    frozen: true
     deps:
     - ./src/shared/sra_organize.py
     - datasets/consortium/00_download/SraRunTable.txt

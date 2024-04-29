@@ -62,6 +62,15 @@ Please, use DVC to see, which exact file names are required:
 dvc status srna_organize_samples proteomics_organize_samples phosphoproteomics_organize_samples rnaseq_nextflow
 ```
 
+#### Automatic download (optional)
+
+To automatically download the RNAseq & miRNAseq data we provide a download script, which can be executed using the following commands:
+
+```bash
+dvc unfreeze sra_prefetch sra_fastq_dump sra_organize
+dvc repro
+```
+
 
 ## Reproducing Results
 
