@@ -79,7 +79,7 @@ def main():
                     args.append((file, new_name))
             with mp.Pool(processes=8) as pool:
                 list(pool.imap_unordered(gzip_copy, args))
-            pbar.update(len(args))
+            pbar.update(len(tmp))
     pbar.close()
 
 

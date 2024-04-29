@@ -41,3 +41,84 @@ stages:
       md5: de1249290b202f7a3c617cb4d2cde1aa.dir
       size: 1095819375848
       nfiles: 177
+  sra_organize:
+    cmd: ./docker-wrapper.sh python3 ./src/shared/sra_organize.py
+    deps:
+    - path: ./src/shared/sra_organize.py
+      hash: md5
+      md5: 98c373749f8b57e42c72c85b7b3d477f
+      size: 3073
+    - path: datasets/consortium/00_download/GSE234246-GPL17021_series_matrix.txt.gz
+      hash: md5
+      md5: 1cf10f99c4bd385bdaea1acc6cb7f641
+      size: 7755
+    - path: datasets/consortium/00_download/GSE234246-GPL24247_series_matrix.txt.gz
+      hash: md5
+      md5: 1380692d8b9bee503ce3fd1d14651133
+      size: 7345
+    - path: datasets/consortium/00_download/SraRunTable.txt
+      hash: md5
+      md5: cca84775715e39811f9010d71f77648a
+      size: 5084
+    - path: datasets/consortium/00_download/fastq
+      hash: md5
+      md5: de1249290b202f7a3c617cb4d2cde1aa.dir
+      size: 1095819375848
+      nfiles: 177
+    outs:
+    - path: datasets/consortium/C9orf72-mouse/01_received_data/cohort/sample_annotations.csv
+      hash: md5
+      md5: 861fa066172f3e5b1f28242e675035f9
+      size: 1238
+    - path: datasets/consortium/C9orf72-mouse/01_received_data/rnaseq/
+      hash: md5
+      md5: b4eec5dc2215344db5de49ae79d28bef.dir
+      size: 26131272952
+      nfiles: 20
+    - path: datasets/consortium/C9orf72-mouse/01_received_data/srna/
+      hash: md5
+      md5: c927145662353e6baaaf3616ed4139e8.dir
+      size: 9888103693
+      nfiles: 20
+    - path: datasets/consortium/FUS-mouse/01_received_data/cohort/sample_annotations.csv
+      hash: md5
+      md5: a0b52d0056634b5fc845888392be7441
+      size: 1118
+    - path: datasets/consortium/FUS-mouse/01_received_data/rnaseq/
+      hash: md5
+      md5: 3ccd8345006bd583b3f8cf22d75b1d32.dir
+      size: 31859651952
+      nfiles: 19
+    - path: datasets/consortium/FUS-mouse/01_received_data/srna/
+      hash: md5
+      md5: 90054527eb5f03719dcb486eead98813.dir
+      size: 21251504709
+      nfiles: 38
+    - path: datasets/consortium/SOD1-mouse/01_received_data/cohort/sample_annotations.csv
+      hash: md5
+      md5: d4a62a20b040a48e437bfd7bafb0f526
+      size: 1179
+    - path: datasets/consortium/SOD1-mouse/01_received_data/rnaseq/
+      hash: md5
+      md5: 445e2c293d0ca232f1b058da1ae00494.dir
+      size: 25248107738
+      nfiles: 20
+    - path: datasets/consortium/SOD1-mouse/01_received_data/srna/
+      hash: md5
+      md5: 4cabf6fa9e2ca565652b9b2c9b1b9afa.dir
+      size: 16765163811
+      nfiles: 20
+    - path: datasets/consortium/TDP43-mouse/01_received_data/cohort/sample_annotations.csv
+      hash: md5
+      md5: 9bc48222a4093ab3094eb32530b2420f
+      size: 1178
+    - path: datasets/consortium/TDP43-mouse/01_received_data/rnaseq/
+      hash: md5
+      md5: 9db95b78d2f34ae7edfaf176577da5c6.dir
+      size: 27548819901
+      nfiles: 20
+    - path: datasets/consortium/TDP43-mouse/01_received_data/srna/
+      hash: md5
+      md5: a34836f7ebca892240db2bf0c89ada80.dir
+      size: 17602572974
+      nfiles: 20
