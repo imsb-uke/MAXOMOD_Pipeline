@@ -14,30 +14,6 @@ srna:
     stages:
       # For each dataset, we give its specific settings:
       # Files should always be listed here:
-      sod1:
-        settings:
-          input_directory: 'datasets/consortium/SOD1-mouse/01_received_data/srna/HiSeq2500_20200605_RUN542_o6671_DataDelivery/'
-          output_directory: 'datasets/consortium/SOD1-mouse/02_organized_data/srna/fastq_files/'
-          input_name_pattern: '^20200605.B-([0-9]+)_smallRNA_R1.fastq.gz$'
-          output_name_replacement: 'S\1_R1.fastq.gz'
-      tdp43:
-        settings:
-          input_directory: 'datasets/consortium/TDP43-mouse/01_received_data/srna/HiSeq2500_20200605_RUN542_o6673_DataDelivery/'
-          output_directory: 'datasets/consortium/TDP43-mouse/02_organized_data/srna/fastq_files/'
-          input_name_pattern: '^20200605.B-([0-9]+)_smallRNA_R1.fastq.gz$'
-          output_name_replacement: 'S\1_R1.fastq.gz'
-      c9:
-        settings:
-          input_directory: 'datasets/consortium/C9orf72-mouse/01_received_data/srna/HiSeq2500_20200923_RUN547_o6999_DataDelivery/'
-          output_directory: 'datasets/consortium/C9orf72-mouse/02_organized_data/srna/fastq_files/'
-          input_name_pattern: '^20200923.A-([_0-9]+)_R1.fastq.gz$'
-          output_name_replacement: 'S\1_R1.fastq.gz'
-      fus:
-        settings:
-          input_directory: 'datasets/consortium/FUS-mouse/01_received_data/srna/HiSeq2500_20201201_RUN549_o7478_part/'
-          output_directory: 'datasets/consortium/FUS-mouse/02_organized_data/srna/fastq_files/'
-          input_name_pattern: '^20201201.A-([0-9]+)_R([12]).fastq.gz$'
-          output_name_replacement: 'S\1_R\2.fastq.gz'
       human:
         settings:
           input_directory: 'datasets/consortium/human-datasets/srna/HiSeq2500_20200923_RUN547_o6697_DataDelivery/'
@@ -69,32 +45,32 @@ srna:
       # Files should always be listed here:
       sod1:
         settings:
-          input_directory: 'datasets/consortium/SOD1-mouse/02_organized_data/srna/fastq_files/'
-          input_glob: '*_R1.fastq.gz'
+          input_directory: 'datasets/consortium/SOD1-mouse/01_received_data/srna/'
+          input_glob: '*.fastq.gz'
           output_directory: 'datasets/consortium/SOD1-mouse/02_organized_data/srna/nf-smrna/'
           mirna_gtf: 'database/mirbase/mmusculus/mirbase_mmu.gff3'
       tdp43:
         settings:
-          input_directory: 'datasets/consortium/TDP43-mouse/02_organized_data/srna/fastq_files/'
-          input_glob: '*_R1.fastq.gz'
+          input_directory: 'datasets/consortium/TDP43-mouse/01_received_data/srna/'
+          input_glob: '*.fastq.gz'
           output_directory: 'datasets/consortium/TDP43-mouse/02_organized_data/srna/nf-smrna/'
           mirna_gtf: 'database/mirbase/mmusculus/mirbase_mmu.gff3'
       c9:
         settings:
-          input_directory: 'datasets/consortium/C9orf72-mouse/02_organized_data/srna/fastq_files/'
-          input_glob: '*_R1.fastq.gz'
+          input_directory: 'datasets/consortium/C9orf72-mouse/01_received_data/srna/'
+          input_glob: '*.fastq.gz'
           output_directory: 'datasets/consortium/C9orf72-mouse/02_organized_data/srna/nf-smrna/'
           mirna_gtf: 'database/mirbase/mmusculus/mirbase_mmu.gff3'
       fus:
         settings:
-          input_directory: 'datasets/consortium/FUS-mouse/02_organized_data/srna/fastq_files/'
+          input_directory: 'datasets/consortium/FUS-mouse/01_received_data/srna/'
           input_glob: '*.fastq.gz'
           output_directory: 'datasets/consortium/FUS-mouse/02_organized_data/srna/nf-smrna/'
           mirna_gtf: 'database/mirbase/mmusculus/mirbase_mmu.gff3'
       human:
         settings:
           input_directory: 'datasets/consortium/human-datasets/02_organized_data/srna/fastq_files/'
-          input_glob: '*_R1.fastq.gz'
+          input_glob: '*.fastq.gz'
           output_directory: 'datasets/consortium/human-datasets/02_organized_data/srna/nf-smrna/'
           mirna_gtf: 'database/mirbase/hsapiens/mirbase_hsa.gff3'
           genome: "GRCh37"

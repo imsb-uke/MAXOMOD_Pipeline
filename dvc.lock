@@ -122,3 +122,38 @@ stages:
       md5: a34836f7ebca892240db2bf0c89ada80.dir
       size: 17602572974
       nfiles: 20
+  rnaseq_download_refs:
+    cmd: ./src/rnaseq/01-download-alignment-refs.sh
+    outs:
+    - path: database/align-references/hsapiens/GRCh38.p13.genome.fa.gz
+      hash: md5
+      md5: 4f6d1cc1fb7741287c0946389fcbcbb6
+      size: 889409368
+    - path: database/align-references/hsapiens/GRCh38.primary_assembly.genome.fa.gz
+      hash: md5
+      md5: bd46ea3566caa6fc6f95748bb6cf5cc4
+      size: 844691642
+    - path: database/align-references/hsapiens/gencode.v37.annotation.gtf.gz
+      hash: md5
+      md5: 362a1ae2b59bf8a1fcbebb6d626b3a70
+      size: 45208353
+    - path: database/align-references/hsapiens/gencode.v37.transcripts.fa.gz
+      hash: md5
+      md5: 9741f0fe3dc652936b9fe6fee62cbd36
+      size: 75815926
+    - path: database/align-references/mmusculus/GRCm39.genome.fa.gz
+      hash: md5
+      md5: 8f3145b642c23bb492576c9c36b6bbc6
+      size: 773872991
+    - path: database/align-references/mmusculus/GRCm39.primary_assembly.genome.fa.gz
+      hash: md5
+      md5: a26b3a14d158c49ec774d4f18585da21
+      size: 773873008
+    - path: database/align-references/mmusculus/gencode.vM26.annotation.gtf.gz
+      hash: md5
+      md5: bda62cedca8c7268c86c2597986c8655
+      size: 28242075
+    - path: database/align-references/mmusculus/gencode.vM26.transcripts.fa.gz
+      hash: md5
+      md5: 197442d0ae09cf5f78e01aad51ea50d7
+      size: 54420729
