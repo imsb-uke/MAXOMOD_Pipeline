@@ -81,6 +81,7 @@ dvc repro
 ```
 
 This command will run the predefined pipelines to process and analyze the data according to the methodology described in the associated publication.
+All steps will be executed in a docker container automatically using the `docker_wrapper.sh` script. All docker images will be automatically downloaded and are available in the [Packages section](https://github.com/orgs/imsb-uke/packages?repo_name=MAXOMOD_Pipeline) on GitHub.
 
 ## Contributing
 We welcome contributions to enhance the reproducibility and scope of the analysis.
