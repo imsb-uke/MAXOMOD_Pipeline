@@ -1,7 +1,7 @@
 # Multiomic ALS signatures highlight sex differences and molecular subclusters and identify the MAPK pathway as therapeutic target
 This repository contains the analytical pipeline for the MAXOMOD project, which focuses on the multi-omic analysis of axono-synaptic degeneration in the motor neuron disease amyotrophic lateral sclerosis (ALS). The project explores sex differences and molecular subclusters in ALS and investigates the MAPK pathway as a potential therapeutic target.
 
-For a detailed understanding of the scientific background and the findings, refer to our paper published on [bioRxiv](https://www.biorxiv.org/content/10.1101/2023.08.14.553180v1).
+For a detailed understanding of the scientific background and the findings, refer to our paper published on [Nature Communications](https://www.nature.com/articles/s41467-024-49196-y).
 
 ## Table of Contents
 
