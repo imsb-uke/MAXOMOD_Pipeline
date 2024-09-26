@@ -1,0 +1,45 @@
+stages:
+  dorothea:
+    foreach:
+      - human
+      - mouse
+    do:
+      cmd: ./docker-wrapper.sh python3 src/transcriptionfactors/get_dorothea_net.py ${item}
+      deps:
+        - src/transcriptionfactors/get_dorothea_net.py
+      outs:
+        - database/dorothea/${item}.feather
+
+  decouple_rnaseq:
+    foreach: ${transcriptionsfactors.decouple_rnaseq}
+    do:
+      cmd: ./docker-wrapper.sh python3 src/transcriptionfactors/decouple.py --key ${key} --method decouple_rnaseq
+      params:
+        - transcriptionsfactors.decouple_rnaseq.${key}.kwargs
+        - transcriptionsfactors.decouple_rnaseq.${key}.filter
+        - transcriptionsfactors.decouple_rnaseq.${key}.methods
+      deps:
+        - ${item.inputs}
+        - ${item.mapping}
+        - ${item.database}
+        - src/transcriptionfactors/decouple.py
+      outs:
+        - ${item.outputpath}
+
+  decouple_proteomics:
+    foreach: ${transcriptionsfactors.decouple_proteomics}
+    do:
+      cmd: ./docker-wrapper.sh python3 src/transcriptionfactors/decouple.py --key ${key} --method decouple_proteomics
+      params:
+        - transcriptionsfactors.decouple_proteomics.${key}.kwargs
+        - transcriptionsfactors.decouple_proteomics.${key}.filter
+        - transcriptionsfactors.decouple_proteomics.${key}.methods
+      deps:
+        - ${item.inputs}
+        - ${item.mapping}
+        - ${item.database}
+        - ${item.proteinmapping}
+        - src/transcriptionfactors/decouple.py
+      outs:
+        - ${item.outputpath}
+

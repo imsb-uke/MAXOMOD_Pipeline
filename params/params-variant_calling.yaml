@@ -1,0 +1,2120 @@
+variantcalling:
+  annotate:
+    stages:
+      c9_ctrl_R1:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R1.vcf
+        output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R1.annotated.vcf
+      c9_ctrl_R10:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R10.vcf
+        output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R10.annotated.vcf
+      c9_ctrl_R2:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R2.vcf
+        output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R2.annotated.vcf
+      c9_ctrl_R3:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R3.vcf
+        output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R3.annotated.vcf
+      c9_ctrl_R4:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R4.vcf
+        output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R4.annotated.vcf
+      c9_ctrl_R5:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R5.vcf
+        output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R5.annotated.vcf
+      c9_ctrl_R6:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R6.vcf
+        output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R6.annotated.vcf
+      c9_ctrl_R7:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R7.vcf
+        output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R7.annotated.vcf
+      c9_ctrl_R8:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R8.vcf
+        output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R8.annotated.vcf
+      c9_ctrl_R9:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R9.vcf
+        output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R9.annotated.vcf
+      c9_mut_R1:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R1.vcf
+        output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/annotated/mut_R1.annotated.vcf
+      c9_mut_R10:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R10.vcf
+        output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/annotated/mut_R10.annotated.vcf
+      c9_mut_R2:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R2.vcf
+        output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/annotated/mut_R2.annotated.vcf
+      c9_mut_R3:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R3.vcf
+        output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/annotated/mut_R3.annotated.vcf
+      c9_mut_R4:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R4.vcf
+        output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/annotated/mut_R4.annotated.vcf
+      c9_mut_R5:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R5.vcf
+        output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/annotated/mut_R5.annotated.vcf
+      c9_mut_R6:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R6.vcf
+        output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/annotated/mut_R6.annotated.vcf
+      c9_mut_R7:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R7.vcf
+        output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/annotated/mut_R7.annotated.vcf
+      c9_mut_R8:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R8.vcf
+        output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/annotated/mut_R8.annotated.vcf
+      c9_mut_R9:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R9.vcf
+        output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/annotated/mut_R9.annotated.vcf
+      fus_ctrl_R1:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R1.vcf
+        output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R1.annotated.vcf
+      fus_ctrl_R10:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R10.vcf
+        output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R10.annotated.vcf
+      fus_ctrl_R2:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R2.vcf
+        output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R2.annotated.vcf
+      fus_ctrl_R3:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R3.vcf
+        output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R3.annotated.vcf
+      fus_ctrl_R4:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R4.vcf
+        output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R4.annotated.vcf
+      fus_ctrl_R5:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R5.vcf
+        output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R5.annotated.vcf
+      fus_ctrl_R6:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R6.vcf
+        output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R6.annotated.vcf
+      fus_ctrl_R7:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R7.vcf
+        output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R7.annotated.vcf
+      fus_ctrl_R8:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R8.vcf
+        output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R8.annotated.vcf
+      fus_ctrl_R9:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R9.vcf
+        output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R9.annotated.vcf
+      fus_mut_R1:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R1.vcf
+        output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/annotated/mut_R1.annotated.vcf
+      fus_mut_R10:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R10.vcf
+        output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/annotated/mut_R10.annotated.vcf
+      fus_mut_R2:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R2.vcf
+        output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/annotated/mut_R2.annotated.vcf
+      fus_mut_R3:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R3.vcf
+        output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/annotated/mut_R3.annotated.vcf
+      fus_mut_R4:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R4.vcf
+        output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/annotated/mut_R4.annotated.vcf
+      fus_mut_R5:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R5.vcf
+        output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/annotated/mut_R5.annotated.vcf
+      fus_mut_R6:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R6.vcf
+        output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/annotated/mut_R6.annotated.vcf
+      fus_mut_R7:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R7.vcf
+        output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/annotated/mut_R7.annotated.vcf
+      fus_mut_R8:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R8.vcf
+        output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/annotated/mut_R8.annotated.vcf
+      fus_mut_R9:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R9.vcf
+        output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/annotated/mut_R9.annotated.vcf
+      human_als_R1:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R1.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/als_R1.annotated.vcf
+      human_als_R10:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R10.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/als_R10.annotated.vcf
+      human_als_R11:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R11.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/als_R11.annotated.vcf
+      human_als_R12:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R12.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/als_R12.annotated.vcf
+      human_als_R13:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R13.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/als_R13.annotated.vcf
+      human_als_R14:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R14.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/als_R14.annotated.vcf
+      human_als_R15:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R15.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/als_R15.annotated.vcf
+      human_als_R16:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R16.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/als_R16.annotated.vcf
+      human_als_R17:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R17.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/als_R17.annotated.vcf
+      human_als_R18:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R18.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/als_R18.annotated.vcf
+      human_als_R19:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R19.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/als_R19.annotated.vcf
+      human_als_R2:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R2.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/als_R2.annotated.vcf
+      human_als_R20:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R20.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/als_R20.annotated.vcf
+      human_als_R21:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R21.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/als_R21.annotated.vcf
+      human_als_R22:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R22.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/als_R22.annotated.vcf
+      human_als_R23:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R23.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/als_R23.annotated.vcf
+      human_als_R24:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R24.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/als_R24.annotated.vcf
+      human_als_R25:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R25.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/als_R25.annotated.vcf
+      human_als_R26:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R26.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/als_R26.annotated.vcf
+      human_als_R27:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R27.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/als_R27.annotated.vcf
+      human_als_R28:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R28.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/als_R28.annotated.vcf
+      human_als_R29:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R29.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/als_R29.annotated.vcf
+      human_als_R3:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R3.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/als_R3.annotated.vcf
+      human_als_R30:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R30.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/als_R30.annotated.vcf
+      human_als_R31:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R31.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/als_R31.annotated.vcf
+      human_als_R32:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R32.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/als_R32.annotated.vcf
+      human_als_R33:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R33.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/als_R33.annotated.vcf
+      human_als_R34:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R34.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/als_R34.annotated.vcf
+      human_als_R35:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R35.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/als_R35.annotated.vcf
+      human_als_R36:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R36.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/als_R36.annotated.vcf
+      human_als_R37:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R37.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/als_R37.annotated.vcf
+      human_als_R38:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R38.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/als_R38.annotated.vcf
+      human_als_R39:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R39.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/als_R39.annotated.vcf
+      human_als_R4:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R4.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/als_R4.annotated.vcf
+      human_als_R40:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R40.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/als_R40.annotated.vcf
+      human_als_R41:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R41.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/als_R41.annotated.vcf
+      human_als_R42:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R42.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/als_R42.annotated.vcf
+      human_als_R43:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R43.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/als_R43.annotated.vcf
+      human_als_R44:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R44.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/als_R44.annotated.vcf
+      human_als_R45:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R45.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/als_R45.annotated.vcf
+      human_als_R46:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R46.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/als_R46.annotated.vcf
+      human_als_R47:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R47.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/als_R47.annotated.vcf
+      human_als_R48:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R48.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/als_R48.annotated.vcf
+      human_als_R49:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R49.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/als_R49.annotated.vcf
+      human_als_R5:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R5.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/als_R5.annotated.vcf
+      human_als_R50:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R50.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/als_R50.annotated.vcf
+      human_als_R51:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R51.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/als_R51.annotated.vcf
+      human_als_R52:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R52.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/als_R52.annotated.vcf
+      human_als_R6:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R6.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/als_R6.annotated.vcf
+      human_als_R7:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R7.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/als_R7.annotated.vcf
+      human_als_R8:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R8.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/als_R8.annotated.vcf
+      human_als_R9:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R9.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/als_R9.annotated.vcf
+      human_ctrl_R1:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R1.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R1.annotated.vcf
+      human_ctrl_R10:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R10.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R10.annotated.vcf
+      human_ctrl_R11:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R11.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R11.annotated.vcf
+      human_ctrl_R12:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R12.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R12.annotated.vcf
+      human_ctrl_R13:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R13.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R13.annotated.vcf
+      human_ctrl_R14:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R14.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R14.annotated.vcf
+      human_ctrl_R15:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R15.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R15.annotated.vcf
+      human_ctrl_R16:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R16.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R16.annotated.vcf
+      human_ctrl_R17:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R17.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R17.annotated.vcf
+      human_ctrl_R18:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R18.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R18.annotated.vcf
+      human_ctrl_R19:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R19.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R19.annotated.vcf
+      human_ctrl_R2:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R2.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R2.annotated.vcf
+      human_ctrl_R20:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R20.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R20.annotated.vcf
+      human_ctrl_R21:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R21.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R21.annotated.vcf
+      human_ctrl_R22:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R22.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R22.annotated.vcf
+      human_ctrl_R23:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R23.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R23.annotated.vcf
+      human_ctrl_R24:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R24.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R24.annotated.vcf
+      human_ctrl_R25:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R25.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R25.annotated.vcf
+      human_ctrl_R26:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R26.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R26.annotated.vcf
+      human_ctrl_R27:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R27.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R27.annotated.vcf
+      human_ctrl_R28:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R28.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R28.annotated.vcf
+      human_ctrl_R29:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R29.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R29.annotated.vcf
+      human_ctrl_R3:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R3.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R3.annotated.vcf
+      human_ctrl_R30:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R30.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R30.annotated.vcf
+      human_ctrl_R31:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R31.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R31.annotated.vcf
+      human_ctrl_R32:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R32.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R32.annotated.vcf
+      human_ctrl_R33:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R33.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R33.annotated.vcf
+      human_ctrl_R34:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R34.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R34.annotated.vcf
+      human_ctrl_R35:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R35.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R35.annotated.vcf
+      human_ctrl_R36:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R36.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R36.annotated.vcf
+      human_ctrl_R37:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R37.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R37.annotated.vcf
+      human_ctrl_R38:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R38.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R38.annotated.vcf
+      human_ctrl_R39:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R39.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R39.annotated.vcf
+      human_ctrl_R4:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R4.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R4.annotated.vcf
+      human_ctrl_R40:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R40.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R40.annotated.vcf
+      human_ctrl_R41:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R41.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R41.annotated.vcf
+      human_ctrl_R42:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R42.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R42.annotated.vcf
+      human_ctrl_R43:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R43.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R43.annotated.vcf
+      human_ctrl_R44:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R44.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R44.annotated.vcf
+      human_ctrl_R45:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R45.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R45.annotated.vcf
+      human_ctrl_R46:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R46.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R46.annotated.vcf
+      human_ctrl_R47:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R47.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R47.annotated.vcf
+      human_ctrl_R48:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R48.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R48.annotated.vcf
+      human_ctrl_R49:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R49.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R49.annotated.vcf
+      human_ctrl_R5:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R5.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R5.annotated.vcf
+      human_ctrl_R50:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R50.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R50.annotated.vcf
+      human_ctrl_R6:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R6.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R6.annotated.vcf
+      human_ctrl_R7:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R7.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R7.annotated.vcf
+      human_ctrl_R8:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R8.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R8.annotated.vcf
+      human_ctrl_R9:
+        annotation: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R9.vcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R9.annotated.vcf
+      sod1_ctrl_R1:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R1.vcf
+        output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R1.annotated.vcf
+      sod1_ctrl_R10:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R10.vcf
+        output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R10.annotated.vcf
+      sod1_ctrl_R2:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R2.vcf
+        output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R2.annotated.vcf
+      sod1_ctrl_R3:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R3.vcf
+        output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R3.annotated.vcf
+      sod1_ctrl_R4:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R4.vcf
+        output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R4.annotated.vcf
+      sod1_ctrl_R5:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R5.vcf
+        output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R5.annotated.vcf
+      sod1_ctrl_R6:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R6.vcf
+        output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R6.annotated.vcf
+      sod1_ctrl_R7:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R7.vcf
+        output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R7.annotated.vcf
+      sod1_ctrl_R8:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R8.vcf
+        output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R8.annotated.vcf
+      sod1_ctrl_R9:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R9.vcf
+        output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R9.annotated.vcf
+      sod1_mut_R1:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R1.vcf
+        output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/annotated/mut_R1.annotated.vcf
+      sod1_mut_R10:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R10.vcf
+        output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/annotated/mut_R10.annotated.vcf
+      sod1_mut_R2:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R2.vcf
+        output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/annotated/mut_R2.annotated.vcf
+      sod1_mut_R3:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R3.vcf
+        output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/annotated/mut_R3.annotated.vcf
+      sod1_mut_R4:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R4.vcf
+        output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/annotated/mut_R4.annotated.vcf
+      sod1_mut_R5:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R5.vcf
+        output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/annotated/mut_R5.annotated.vcf
+      sod1_mut_R6:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R6.vcf
+        output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/annotated/mut_R6.annotated.vcf
+      sod1_mut_R7:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R7.vcf
+        output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/annotated/mut_R7.annotated.vcf
+      sod1_mut_R8:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R8.vcf
+        output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/annotated/mut_R8.annotated.vcf
+      sod1_mut_R9:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R9.vcf
+        output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/annotated/mut_R9.annotated.vcf
+      tdp43_ctrl_R1:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R1.vcf
+        output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R1.annotated.vcf
+      tdp43_ctrl_R10:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R10.vcf
+        output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R10.annotated.vcf
+      tdp43_ctrl_R2:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R2.vcf
+        output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R2.annotated.vcf
+      tdp43_ctrl_R3:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R3.vcf
+        output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R3.annotated.vcf
+      tdp43_ctrl_R4:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R4.vcf
+        output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R4.annotated.vcf
+      tdp43_ctrl_R5:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R5.vcf
+        output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R5.annotated.vcf
+      tdp43_ctrl_R6:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R6.vcf
+        output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R6.annotated.vcf
+      tdp43_ctrl_R7:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R7.vcf
+        output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R7.annotated.vcf
+      tdp43_ctrl_R8:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R8.vcf
+        output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R8.annotated.vcf
+      tdp43_ctrl_R9:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R9.vcf
+        output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/annotated/ctrl_R9.annotated.vcf
+      tdp43_mut_R1:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R1.vcf
+        output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/annotated/mut_R1.annotated.vcf
+      tdp43_mut_R10:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R10.vcf
+        output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/annotated/mut_R10.annotated.vcf
+      tdp43_mut_R2:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R2.vcf
+        output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/annotated/mut_R2.annotated.vcf
+      tdp43_mut_R3:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R3.vcf
+        output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/annotated/mut_R3.annotated.vcf
+      tdp43_mut_R4:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R4.vcf
+        output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/annotated/mut_R4.annotated.vcf
+      tdp43_mut_R5:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R5.vcf
+        output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/annotated/mut_R5.annotated.vcf
+      tdp43_mut_R6:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R6.vcf
+        output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/annotated/mut_R6.annotated.vcf
+      tdp43_mut_R7:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R7.vcf
+        output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/annotated/mut_R7.annotated.vcf
+      tdp43_mut_R8:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R8.vcf
+        output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/annotated/mut_R8.annotated.vcf
+      tdp43_mut_R9:
+        annotation: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        inputs: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R9.vcf
+        output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/annotated/mut_R9.annotated.vcf
+  call:
+    stages:
+      c9_ctrl_R1:
+        inputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R1.bcf
+        output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R1.vcf
+      c9_ctrl_R10:
+        inputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R10.bcf
+        output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R10.vcf
+      c9_ctrl_R2:
+        inputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R2.bcf
+        output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R2.vcf
+      c9_ctrl_R3:
+        inputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R3.bcf
+        output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R3.vcf
+      c9_ctrl_R4:
+        inputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R4.bcf
+        output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R4.vcf
+      c9_ctrl_R5:
+        inputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R5.bcf
+        output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R5.vcf
+      c9_ctrl_R6:
+        inputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R6.bcf
+        output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R6.vcf
+      c9_ctrl_R7:
+        inputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R7.bcf
+        output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R7.vcf
+      c9_ctrl_R8:
+        inputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R8.bcf
+        output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R8.vcf
+      c9_ctrl_R9:
+        inputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R9.bcf
+        output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R9.vcf
+      c9_mut_R1:
+        inputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R1.bcf
+        output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R1.vcf
+      c9_mut_R10:
+        inputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R10.bcf
+        output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R10.vcf
+      c9_mut_R2:
+        inputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R2.bcf
+        output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R2.vcf
+      c9_mut_R3:
+        inputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R3.bcf
+        output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R3.vcf
+      c9_mut_R4:
+        inputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R4.bcf
+        output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R4.vcf
+      c9_mut_R5:
+        inputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R5.bcf
+        output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R5.vcf
+      c9_mut_R6:
+        inputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R6.bcf
+        output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R6.vcf
+      c9_mut_R7:
+        inputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R7.bcf
+        output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R7.vcf
+      c9_mut_R8:
+        inputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R8.bcf
+        output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R8.vcf
+      c9_mut_R9:
+        inputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R9.bcf
+        output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R9.vcf
+      fus_ctrl_R1:
+        inputs: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R1.bcf
+        output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R1.vcf
+      fus_ctrl_R10:
+        inputs: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R10.bcf
+        output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R10.vcf
+      fus_ctrl_R2:
+        inputs: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R2.bcf
+        output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R2.vcf
+      fus_ctrl_R3:
+        inputs: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R3.bcf
+        output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R3.vcf
+      fus_ctrl_R4:
+        inputs: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R4.bcf
+        output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R4.vcf
+      fus_ctrl_R5:
+        inputs: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R5.bcf
+        output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R5.vcf
+      fus_ctrl_R6:
+        inputs: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R6.bcf
+        output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R6.vcf
+      fus_ctrl_R7:
+        inputs: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R7.bcf
+        output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R7.vcf
+      fus_ctrl_R8:
+        inputs: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R8.bcf
+        output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R8.vcf
+      fus_ctrl_R9:
+        inputs: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R9.bcf
+        output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R9.vcf
+      fus_mut_R1:
+        inputs: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R1.bcf
+        output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R1.vcf
+      fus_mut_R10:
+        inputs: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R10.bcf
+        output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R10.vcf
+      fus_mut_R2:
+        inputs: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R2.bcf
+        output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R2.vcf
+      fus_mut_R3:
+        inputs: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R3.bcf
+        output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R3.vcf
+      fus_mut_R4:
+        inputs: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R4.bcf
+        output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R4.vcf
+      fus_mut_R5:
+        inputs: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R5.bcf
+        output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R5.vcf
+      fus_mut_R6:
+        inputs: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R6.bcf
+        output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R6.vcf
+      fus_mut_R7:
+        inputs: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R7.bcf
+        output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R7.vcf
+      fus_mut_R8:
+        inputs: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R8.bcf
+        output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R8.vcf
+      fus_mut_R9:
+        inputs: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R9.bcf
+        output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R9.vcf
+      human_als_R1:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R1.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R1.vcf
+      human_als_R10:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R10.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R10.vcf
+      human_als_R11:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R11.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R11.vcf
+      human_als_R12:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R12.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R12.vcf
+      human_als_R13:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R13.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R13.vcf
+      human_als_R14:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R14.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R14.vcf
+      human_als_R15:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R15.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R15.vcf
+      human_als_R16:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R16.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R16.vcf
+      human_als_R17:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R17.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R17.vcf
+      human_als_R18:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R18.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R18.vcf
+      human_als_R19:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R19.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R19.vcf
+      human_als_R2:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R2.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R2.vcf
+      human_als_R20:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R20.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R20.vcf
+      human_als_R21:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R21.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R21.vcf
+      human_als_R22:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R22.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R22.vcf
+      human_als_R23:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R23.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R23.vcf
+      human_als_R24:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R24.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R24.vcf
+      human_als_R25:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R25.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R25.vcf
+      human_als_R26:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R26.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R26.vcf
+      human_als_R27:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R27.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R27.vcf
+      human_als_R28:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R28.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R28.vcf
+      human_als_R29:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R29.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R29.vcf
+      human_als_R3:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R3.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R3.vcf
+      human_als_R30:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R30.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R30.vcf
+      human_als_R31:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R31.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R31.vcf
+      human_als_R32:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R32.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R32.vcf
+      human_als_R33:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R33.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R33.vcf
+      human_als_R34:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R34.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R34.vcf
+      human_als_R35:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R35.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R35.vcf
+      human_als_R36:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R36.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R36.vcf
+      human_als_R37:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R37.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R37.vcf
+      human_als_R38:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R38.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R38.vcf
+      human_als_R39:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R39.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R39.vcf
+      human_als_R4:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R4.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R4.vcf
+      human_als_R40:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R40.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R40.vcf
+      human_als_R41:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R41.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R41.vcf
+      human_als_R42:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R42.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R42.vcf
+      human_als_R43:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R43.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R43.vcf
+      human_als_R44:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R44.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R44.vcf
+      human_als_R45:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R45.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R45.vcf
+      human_als_R46:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R46.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R46.vcf
+      human_als_R47:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R47.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R47.vcf
+      human_als_R48:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R48.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R48.vcf
+      human_als_R49:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R49.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R49.vcf
+      human_als_R5:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R5.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R5.vcf
+      human_als_R50:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R50.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R50.vcf
+      human_als_R51:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R51.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R51.vcf
+      human_als_R52:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R52.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R52.vcf
+      human_als_R6:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R6.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R6.vcf
+      human_als_R7:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R7.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R7.vcf
+      human_als_R8:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R8.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R8.vcf
+      human_als_R9:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R9.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R9.vcf
+      human_ctrl_R1:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R1.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R1.vcf
+      human_ctrl_R10:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R10.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R10.vcf
+      human_ctrl_R11:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R11.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R11.vcf
+      human_ctrl_R12:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R12.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R12.vcf
+      human_ctrl_R13:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R13.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R13.vcf
+      human_ctrl_R14:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R14.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R14.vcf
+      human_ctrl_R15:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R15.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R15.vcf
+      human_ctrl_R16:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R16.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R16.vcf
+      human_ctrl_R17:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R17.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R17.vcf
+      human_ctrl_R18:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R18.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R18.vcf
+      human_ctrl_R19:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R19.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R19.vcf
+      human_ctrl_R2:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R2.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R2.vcf
+      human_ctrl_R20:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R20.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R20.vcf
+      human_ctrl_R21:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R21.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R21.vcf
+      human_ctrl_R22:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R22.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R22.vcf
+      human_ctrl_R23:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R23.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R23.vcf
+      human_ctrl_R24:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R24.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R24.vcf
+      human_ctrl_R25:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R25.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R25.vcf
+      human_ctrl_R26:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R26.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R26.vcf
+      human_ctrl_R27:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R27.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R27.vcf
+      human_ctrl_R28:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R28.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R28.vcf
+      human_ctrl_R29:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R29.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R29.vcf
+      human_ctrl_R3:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R3.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R3.vcf
+      human_ctrl_R30:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R30.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R30.vcf
+      human_ctrl_R31:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R31.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R31.vcf
+      human_ctrl_R32:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R32.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R32.vcf
+      human_ctrl_R33:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R33.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R33.vcf
+      human_ctrl_R34:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R34.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R34.vcf
+      human_ctrl_R35:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R35.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R35.vcf
+      human_ctrl_R36:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R36.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R36.vcf
+      human_ctrl_R37:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R37.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R37.vcf
+      human_ctrl_R38:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R38.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R38.vcf
+      human_ctrl_R39:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R39.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R39.vcf
+      human_ctrl_R4:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R4.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R4.vcf
+      human_ctrl_R40:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R40.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R40.vcf
+      human_ctrl_R41:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R41.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R41.vcf
+      human_ctrl_R42:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R42.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R42.vcf
+      human_ctrl_R43:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R43.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R43.vcf
+      human_ctrl_R44:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R44.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R44.vcf
+      human_ctrl_R45:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R45.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R45.vcf
+      human_ctrl_R46:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R46.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R46.vcf
+      human_ctrl_R47:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R47.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R47.vcf
+      human_ctrl_R48:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R48.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R48.vcf
+      human_ctrl_R49:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R49.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R49.vcf
+      human_ctrl_R5:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R5.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R5.vcf
+      human_ctrl_R50:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R50.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R50.vcf
+      human_ctrl_R6:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R6.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R6.vcf
+      human_ctrl_R7:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R7.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R7.vcf
+      human_ctrl_R8:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R8.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R8.vcf
+      human_ctrl_R9:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R9.bcf
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R9.vcf
+      sod1_ctrl_R1:
+        inputs: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R1.bcf
+        output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R1.vcf
+      sod1_ctrl_R10:
+        inputs: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R10.bcf
+        output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R10.vcf
+      sod1_ctrl_R2:
+        inputs: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R2.bcf
+        output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R2.vcf
+      sod1_ctrl_R3:
+        inputs: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R3.bcf
+        output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R3.vcf
+      sod1_ctrl_R4:
+        inputs: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R4.bcf
+        output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R4.vcf
+      sod1_ctrl_R5:
+        inputs: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R5.bcf
+        output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R5.vcf
+      sod1_ctrl_R6:
+        inputs: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R6.bcf
+        output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R6.vcf
+      sod1_ctrl_R7:
+        inputs: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R7.bcf
+        output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R7.vcf
+      sod1_ctrl_R8:
+        inputs: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R8.bcf
+        output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R8.vcf
+      sod1_ctrl_R9:
+        inputs: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R9.bcf
+        output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R9.vcf
+      sod1_mut_R1:
+        inputs: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R1.bcf
+        output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R1.vcf
+      sod1_mut_R10:
+        inputs: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R10.bcf
+        output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R10.vcf
+      sod1_mut_R2:
+        inputs: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R2.bcf
+        output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R2.vcf
+      sod1_mut_R3:
+        inputs: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R3.bcf
+        output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R3.vcf
+      sod1_mut_R4:
+        inputs: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R4.bcf
+        output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R4.vcf
+      sod1_mut_R5:
+        inputs: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R5.bcf
+        output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R5.vcf
+      sod1_mut_R6:
+        inputs: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R6.bcf
+        output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R6.vcf
+      sod1_mut_R7:
+        inputs: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R7.bcf
+        output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R7.vcf
+      sod1_mut_R8:
+        inputs: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R8.bcf
+        output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R8.vcf
+      sod1_mut_R9:
+        inputs: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R9.bcf
+        output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R9.vcf
+      tdp43_ctrl_R1:
+        inputs: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R1.bcf
+        output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R1.vcf
+      tdp43_ctrl_R10:
+        inputs: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R10.bcf
+        output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R10.vcf
+      tdp43_ctrl_R2:
+        inputs: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R2.bcf
+        output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R2.vcf
+      tdp43_ctrl_R3:
+        inputs: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R3.bcf
+        output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R3.vcf
+      tdp43_ctrl_R4:
+        inputs: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R4.bcf
+        output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R4.vcf
+      tdp43_ctrl_R5:
+        inputs: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R5.bcf
+        output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R5.vcf
+      tdp43_ctrl_R6:
+        inputs: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R6.bcf
+        output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R6.vcf
+      tdp43_ctrl_R7:
+        inputs: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R7.bcf
+        output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R7.vcf
+      tdp43_ctrl_R8:
+        inputs: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R8.bcf
+        output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R8.vcf
+      tdp43_ctrl_R9:
+        inputs: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R9.bcf
+        output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R9.vcf
+      tdp43_mut_R1:
+        inputs: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R1.bcf
+        output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R1.vcf
+      tdp43_mut_R10:
+        inputs: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R10.bcf
+        output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R10.vcf
+      tdp43_mut_R2:
+        inputs: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R2.bcf
+        output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R2.vcf
+      tdp43_mut_R3:
+        inputs: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R3.bcf
+        output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R3.vcf
+      tdp43_mut_R4:
+        inputs: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R4.bcf
+        output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R4.vcf
+      tdp43_mut_R5:
+        inputs: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R5.bcf
+        output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R5.vcf
+      tdp43_mut_R6:
+        inputs: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R6.bcf
+        output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R6.vcf
+      tdp43_mut_R7:
+        inputs: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R7.bcf
+        output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R7.vcf
+      tdp43_mut_R8:
+        inputs: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R8.bcf
+        output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R8.vcf
+      tdp43_mut_R9:
+        inputs: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R9.bcf
+        output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R9.vcf
+  de:
+    default_settings:
+      colormapping:
+        als: black
+        ctrl: lightgray
+        female: green
+        male: blue
+      condition: Condition[T.als]
+      filter_heatmap: abs(coef) > 1e-10
+      formula: AV ~ Condition
+      metadata_col:
+      - Condition
+      - Sex
+      plotting:
+        z_score: row
+        xticklabels: True
+        yticklabels: True
+      select: -20
+      select_col: pvalue
+    default_system_settings: {}
+    stages:
+      fus_all:
+        inputs:
+          data: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/pca/all/normalized_filtered.csv
+          metadata: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/prefiltering-pca/cohort_excluded_outliers.csv
+        output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/deg/all/
+        settings: {}
+      fus_female:
+        inputs:
+          data: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/pca/only_female/normalized_filtered.csv
+          metadata: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/prefiltering-pca/cohort_excluded_outliers.csv
+        output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/deg/only_female/
+        settings: {}
+      fus_male:
+        inputs:
+          data: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/pca/only_male/normalized_filtered.csv
+          metadata: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/prefiltering-pca/cohort_excluded_outliers.csv
+        output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/deg/only_male/
+        settings: {}
+      c9_all:
+        inputs:
+          data: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/pca/all/normalized_filtered.csv
+          metadata: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/prefiltering-pca/cohort_excluded_outliers.csv
+        output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/deg/all/
+        settings: {}
+      c9_female:
+        inputs:
+          data: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/pca/only_female/normalized_filtered.csv
+          metadata: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/prefiltering-pca/cohort_excluded_outliers.csv
+        output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/deg/only_female/
+        settings: {}
+      c9_male:
+        inputs:
+          data: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/pca/only_male/normalized_filtered.csv
+          metadata: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/prefiltering-pca/cohort_excluded_outliers.csv
+        output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/deg/only_male/
+        settings: {}
+      human_all:
+        inputs:
+          data: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/pca/all/normalized_filtered.csv
+          metadata: datasets/consortium/human-datasets/02_organized_data/rnaseq/prefiltering-pca/cohort_excluded_outliers.csv
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/deg/all/
+        settings: {}
+      human_female:
+        inputs:
+          data: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/pca/only_female/normalized_filtered.csv
+          metadata: datasets/consortium/human-datasets/02_organized_data/rnaseq/prefiltering-pca/cohort_excluded_outliers.csv
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/deg/only_female/
+        settings: {}
+      human_male:
+        inputs:
+          data: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/pca/only_male/normalized_filtered.csv
+          metadata: datasets/consortium/human-datasets/02_organized_data/rnaseq/prefiltering-pca/cohort_excluded_outliers.csv
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/deg/only_male/
+        settings: {}
+      sod_all:
+        inputs:
+          data: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/pca/all/normalized_filtered.csv
+          metadata: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/prefiltering-pca/cohort_excluded_outliers.csv
+        output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/deg/all/
+        settings: {}
+      sod_female:
+        inputs:
+          data: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/pca/only_female/normalized_filtered.csv
+          metadata: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/prefiltering-pca/cohort_excluded_outliers.csv
+        output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/deg/only_female/
+        settings: {}
+      sod_male:
+        inputs:
+          data: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/pca/only_male/normalized_filtered.csv
+          metadata: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/prefiltering-pca/cohort_excluded_outliers.csv
+        output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/deg/only_male/
+        settings: {}
+      tdp_all:
+        inputs:
+          data: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/pca/all/normalized_filtered.csv
+          metadata: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/prefiltering-pca/cohort_excluded_outliers.csv
+        output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/deg/all/
+        settings: {}
+      tdp_female:
+        inputs:
+          data: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/pca/only_female/normalized_filtered.csv
+          metadata: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/prefiltering-pca/cohort_excluded_outliers.csv
+        output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/deg/only_female/
+        settings: {}
+      tdp_male:
+        inputs:
+          data: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/pca/only_male/normalized_filtered.csv
+          metadata: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/prefiltering-pca/cohort_excluded_outliers.csv
+        output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/deg/only_male/
+        settings: {}
+  mpileup:
+    stages:
+      c9_ctrl_R1:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R1.markdup.sorted.bam
+        output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R1.bcf
+      c9_ctrl_R10:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R10.markdup.sorted.bam
+        output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R10.bcf
+      c9_ctrl_R2:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R2.markdup.sorted.bam
+        output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R2.bcf
+      c9_ctrl_R3:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R3.markdup.sorted.bam
+        output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R3.bcf
+      c9_ctrl_R4:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R4.markdup.sorted.bam
+        output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R4.bcf
+      c9_ctrl_R5:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R5.markdup.sorted.bam
+        output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R5.bcf
+      c9_ctrl_R6:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R6.markdup.sorted.bam
+        output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R6.bcf
+      c9_ctrl_R7:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R7.markdup.sorted.bam
+        output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R7.bcf
+      c9_ctrl_R8:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R8.markdup.sorted.bam
+        output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R8.bcf
+      c9_ctrl_R9:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R9.markdup.sorted.bam
+        output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R9.bcf
+      c9_mut_R1:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R1.markdup.sorted.bam
+        output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R1.bcf
+      c9_mut_R10:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R10.markdup.sorted.bam
+        output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R10.bcf
+      c9_mut_R2:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R2.markdup.sorted.bam
+        output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R2.bcf
+      c9_mut_R3:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R3.markdup.sorted.bam
+        output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R3.bcf
+      c9_mut_R4:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R4.markdup.sorted.bam
+        output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R4.bcf
+      c9_mut_R5:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R5.markdup.sorted.bam
+        output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R5.bcf
+      c9_mut_R6:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R6.markdup.sorted.bam
+        output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R6.bcf
+      c9_mut_R7:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R7.markdup.sorted.bam
+        output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R7.bcf
+      c9_mut_R8:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R8.markdup.sorted.bam
+        output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R8.bcf
+      c9_mut_R9:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R9.markdup.sorted.bam
+        output: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R9.bcf
+      fus_ctrl_R1:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R1.markdup.sorted.bam
+        output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R1.bcf
+      fus_ctrl_R10:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R10.markdup.sorted.bam
+        output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R10.bcf
+      fus_ctrl_R2:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R2.markdup.sorted.bam
+        output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R2.bcf
+      fus_ctrl_R3:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R3.markdup.sorted.bam
+        output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R3.bcf
+      fus_ctrl_R4:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R4.markdup.sorted.bam
+        output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R4.bcf
+      fus_ctrl_R5:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R5.markdup.sorted.bam
+        output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R5.bcf
+      fus_ctrl_R6:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R6.markdup.sorted.bam
+        output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R6.bcf
+      fus_ctrl_R7:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R7.markdup.sorted.bam
+        output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R7.bcf
+      fus_ctrl_R8:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R8.markdup.sorted.bam
+        output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R8.bcf
+      fus_ctrl_R9:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R9.markdup.sorted.bam
+        output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R9.bcf
+      fus_mut_R1:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R1.markdup.sorted.bam
+        output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R1.bcf
+      fus_mut_R10:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R10.markdup.sorted.bam
+        output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R10.bcf
+      fus_mut_R2:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R2.markdup.sorted.bam
+        output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R2.bcf
+      fus_mut_R3:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R3.markdup.sorted.bam
+        output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R3.bcf
+      fus_mut_R4:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R4.markdup.sorted.bam
+        output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R4.bcf
+      fus_mut_R5:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R5.markdup.sorted.bam
+        output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R5.bcf
+      fus_mut_R6:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R6.markdup.sorted.bam
+        output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R6.bcf
+      fus_mut_R7:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R7.markdup.sorted.bam
+        output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R7.bcf
+      fus_mut_R8:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R8.markdup.sorted.bam
+        output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R8.bcf
+      fus_mut_R9:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R9.markdup.sorted.bam
+        output: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R9.bcf
+      human_als_R1:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R1.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R1.bcf
+      human_als_R10:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R10.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R10.bcf
+      human_als_R11:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R11.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R11.bcf
+      human_als_R12:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R12.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R12.bcf
+      human_als_R13:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R13.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R13.bcf
+      human_als_R14:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R14.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R14.bcf
+      human_als_R15:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R15.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R15.bcf
+      human_als_R16:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R16.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R16.bcf
+      human_als_R17:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R17.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R17.bcf
+      human_als_R18:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R18.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R18.bcf
+      human_als_R19:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R19.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R19.bcf
+      human_als_R2:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R2.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R2.bcf
+      human_als_R20:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R20.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R20.bcf
+      human_als_R21:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R21.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R21.bcf
+      human_als_R22:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R22.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R22.bcf
+      human_als_R23:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R23.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R23.bcf
+      human_als_R24:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R24.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R24.bcf
+      human_als_R25:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R25.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R25.bcf
+      human_als_R26:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R26.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R26.bcf
+      human_als_R27:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R27.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R27.bcf
+      human_als_R28:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R28.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R28.bcf
+      human_als_R29:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R29.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R29.bcf
+      human_als_R3:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R3.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R3.bcf
+      human_als_R30:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R30.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R30.bcf
+      human_als_R31:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R31.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R31.bcf
+      human_als_R32:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R32.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R32.bcf
+      human_als_R33:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R33.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R33.bcf
+      human_als_R34:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R34.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R34.bcf
+      human_als_R35:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R35.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R35.bcf
+      human_als_R36:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R36.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R36.bcf
+      human_als_R37:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R37.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R37.bcf
+      human_als_R38:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R38.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R38.bcf
+      human_als_R39:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R39.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R39.bcf
+      human_als_R4:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R4.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R4.bcf
+      human_als_R40:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R40.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R40.bcf
+      human_als_R41:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R41.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R41.bcf
+      human_als_R42:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R42.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R42.bcf
+      human_als_R43:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R43.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R43.bcf
+      human_als_R44:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R44.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R44.bcf
+      human_als_R45:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R45.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R45.bcf
+      human_als_R46:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R46.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R46.bcf
+      human_als_R47:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R47.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R47.bcf
+      human_als_R48:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R48.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R48.bcf
+      human_als_R49:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R49.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R49.bcf
+      human_als_R5:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R5.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R5.bcf
+      human_als_R50:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R50.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R50.bcf
+      human_als_R51:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R51.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R51.bcf
+      human_als_R52:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R52.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R52.bcf
+      human_als_R6:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R6.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R6.bcf
+      human_als_R7:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R7.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R7.bcf
+      human_als_R8:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R8.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R8.bcf
+      human_als_R9:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R9.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/als_R9.bcf
+      human_ctrl_R1:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R1.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R1.bcf
+      human_ctrl_R10:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R10.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R10.bcf
+      human_ctrl_R11:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R11.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R11.bcf
+      human_ctrl_R12:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R12.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R12.bcf
+      human_ctrl_R13:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R13.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R13.bcf
+      human_ctrl_R14:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R14.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R14.bcf
+      human_ctrl_R15:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R15.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R15.bcf
+      human_ctrl_R16:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R16.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R16.bcf
+      human_ctrl_R17:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R17.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R17.bcf
+      human_ctrl_R18:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R18.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R18.bcf
+      human_ctrl_R19:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R19.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R19.bcf
+      human_ctrl_R2:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R2.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R2.bcf
+      human_ctrl_R20:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R20.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R20.bcf
+      human_ctrl_R21:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R21.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R21.bcf
+      human_ctrl_R22:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R22.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R22.bcf
+      human_ctrl_R23:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R23.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R23.bcf
+      human_ctrl_R24:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R24.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R24.bcf
+      human_ctrl_R25:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R25.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R25.bcf
+      human_ctrl_R26:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R26.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R26.bcf
+      human_ctrl_R27:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R27.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R27.bcf
+      human_ctrl_R28:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R28.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R28.bcf
+      human_ctrl_R29:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R29.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R29.bcf
+      human_ctrl_R3:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R3.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R3.bcf
+      human_ctrl_R30:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R30.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R30.bcf
+      human_ctrl_R31:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R31.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R31.bcf
+      human_ctrl_R32:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R32.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R32.bcf
+      human_ctrl_R33:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R33.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R33.bcf
+      human_ctrl_R34:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R34.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R34.bcf
+      human_ctrl_R35:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R35.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R35.bcf
+      human_ctrl_R36:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R36.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R36.bcf
+      human_ctrl_R37:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R37.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R37.bcf
+      human_ctrl_R38:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R38.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R38.bcf
+      human_ctrl_R39:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R39.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R39.bcf
+      human_ctrl_R4:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R4.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R4.bcf
+      human_ctrl_R40:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R40.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R40.bcf
+      human_ctrl_R41:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R41.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R41.bcf
+      human_ctrl_R42:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R42.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R42.bcf
+      human_ctrl_R43:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R43.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R43.bcf
+      human_ctrl_R44:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R44.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R44.bcf
+      human_ctrl_R45:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R45.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R45.bcf
+      human_ctrl_R46:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R46.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R46.bcf
+      human_ctrl_R47:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R47.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R47.bcf
+      human_ctrl_R48:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R48.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R48.bcf
+      human_ctrl_R49:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R49.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R49.bcf
+      human_ctrl_R5:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R5.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R5.bcf
+      human_ctrl_R50:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R50.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R50.bcf
+      human_ctrl_R6:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R6.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R6.bcf
+      human_ctrl_R7:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R7.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R7.bcf
+      human_ctrl_R8:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R8.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R8.bcf
+      human_ctrl_R9:
+        genome: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R9.markdup.sorted.bam
+        output: datasets/consortium/human-datasets/02_organized_data/rnaseq/variantcalling/raw/ctrl_R9.bcf
+      sod1_ctrl_R1:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R1.markdup.sorted.bam
+        output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R1.bcf
+      sod1_ctrl_R10:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R10.markdup.sorted.bam
+        output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R10.bcf
+      sod1_ctrl_R2:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R2.markdup.sorted.bam
+        output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R2.bcf
+      sod1_ctrl_R3:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R3.markdup.sorted.bam
+        output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R3.bcf
+      sod1_ctrl_R4:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R4.markdup.sorted.bam
+        output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R4.bcf
+      sod1_ctrl_R5:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R5.markdup.sorted.bam
+        output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R5.bcf
+      sod1_ctrl_R6:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R6.markdup.sorted.bam
+        output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R6.bcf
+      sod1_ctrl_R7:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R7.markdup.sorted.bam
+        output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R7.bcf
+      sod1_ctrl_R8:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R8.markdup.sorted.bam
+        output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R8.bcf
+      sod1_ctrl_R9:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R9.markdup.sorted.bam
+        output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R9.bcf
+      sod1_mut_R1:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R1.markdup.sorted.bam
+        output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R1.bcf
+      sod1_mut_R10:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R10.markdup.sorted.bam
+        output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R10.bcf
+      sod1_mut_R2:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R2.markdup.sorted.bam
+        output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R2.bcf
+      sod1_mut_R3:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R3.markdup.sorted.bam
+        output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R3.bcf
+      sod1_mut_R4:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R4.markdup.sorted.bam
+        output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R4.bcf
+      sod1_mut_R5:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R5.markdup.sorted.bam
+        output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R5.bcf
+      sod1_mut_R6:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R6.markdup.sorted.bam
+        output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R6.bcf
+      sod1_mut_R7:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R7.markdup.sorted.bam
+        output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R7.bcf
+      sod1_mut_R8:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R8.markdup.sorted.bam
+        output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R8.bcf
+      sod1_mut_R9:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R9.markdup.sorted.bam
+        output: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R9.bcf
+      tdp43_ctrl_R1:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R1.markdup.sorted.bam
+        output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R1.bcf
+      tdp43_ctrl_R10:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R10.markdup.sorted.bam
+        output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R10.bcf
+      tdp43_ctrl_R2:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R2.markdup.sorted.bam
+        output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R2.bcf
+      tdp43_ctrl_R3:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R3.markdup.sorted.bam
+        output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R3.bcf
+      tdp43_ctrl_R4:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R4.markdup.sorted.bam
+        output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R4.bcf
+      tdp43_ctrl_R5:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R5.markdup.sorted.bam
+        output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R5.bcf
+      tdp43_ctrl_R6:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R6.markdup.sorted.bam
+        output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R6.bcf
+      tdp43_ctrl_R7:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R7.markdup.sorted.bam
+        output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R7.bcf
+      tdp43_ctrl_R8:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R8.markdup.sorted.bam
+        output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R8.bcf
+      tdp43_ctrl_R9:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R9.markdup.sorted.bam
+        output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/ctrl_R9.bcf
+      tdp43_mut_R1:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R1.markdup.sorted.bam
+        output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R1.bcf
+      tdp43_mut_R10:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R10.markdup.sorted.bam
+        output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R10.bcf
+      tdp43_mut_R2:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R2.markdup.sorted.bam
+        output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R2.bcf
+      tdp43_mut_R3:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R3.markdup.sorted.bam
+        output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R3.bcf
+      tdp43_mut_R4:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R4.markdup.sorted.bam
+        output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R4.bcf
+      tdp43_mut_R5:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R5.markdup.sorted.bam
+        output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R5.bcf
+      tdp43_mut_R6:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R6.markdup.sorted.bam
+        output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R6.bcf
+      tdp43_mut_R7:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R7.markdup.sorted.bam
+        output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R7.bcf
+      tdp43_mut_R8:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R8.markdup.sorted.bam
+        output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R8.bcf
+      tdp43_mut_R9:
+        genome: database/align-references/mmusculus/GRCm39.genome.fa
+        inputs: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R9.markdup.sorted.bam
+        output: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/variantcalling/raw/mut_R9.bcf

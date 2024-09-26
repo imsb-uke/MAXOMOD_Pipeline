@@ -1,0 +1,63 @@
+stages:
+  rnastability_prepare_gtf_exon_intron:
+    foreach: ${rnastability.prepare.stages}
+    do:
+      cmd: ./docker-wrapper.sh python3 ./src/rnastability/01-prepare-annotation.py "${item.inputs}" "${item.outputs}"
+      deps:
+      - ./src/rnastability/01-prepare-annotation.py
+      - ${item.inputs}
+      outs:
+      - ${item.outputs}/exons.gtf
+      - ${item.outputs}/introns.gtf
+
+  rnastability_htseqcount_exon:
+    foreach: ${rnastability.htseqcount_exon.stages}
+    do:
+      cmd: ./docker-wrapper.sh ./src/rnastability/02-htseq.py --stage ${key} --key rnastability --method htseqcount_exon
+      params:
+      - rnastability.htseqcount_exon.default_settings
+      - rnastability.htseqcount_exon.stages.${key}.settings
+      deps:
+      - ${item.inputs.annotation}
+      - ${item.inputs.bam}
+      outs:
+      - ${item.outputs}
+
+  rnastability_htseqcount_intron:
+    foreach: ${rnastability.htseqcount_intron.stages}
+    do:
+      cmd: ./docker-wrapper.sh ./src/rnastability/02-htseq.py --stage ${key} --key rnastability --method htseqcount_intron
+      params:
+      - rnastability.htseqcount_intron.default_settings
+      - rnastability.htseqcount_intron.stages.${key}.settings
+      deps:
+      - ${item.inputs.annotation}
+      - ${item.inputs.bam}
+      outs:
+      - ${item.outputs}
+
+  rnastability_rembrandts_jobfile:
+    foreach: ${rnastability.rembrandts_jobfile.stages}
+    do:
+      cmd: ./docker-wrapper.sh ./src/rnastability/03-create-jobfile.py --stage ${key}
+      deps:
+      - ${item.inputs}
+      - ./src/rnastability/03-create-jobfile.py
+      outs:
+      - ${item.outputs}
+
+  rnastability_rembrandts:
+    foreach: ${rnastability.rembrandts.stages}
+    do:
+      cmd: ./docker-wrapper.sh ./src/rnastability/04-rembrandts.sh ${item.inputs}/job.tsv ${item.inputs}/counts/ ${item.stringency} ${item.biasmode} ${item.outputs}
+      params:
+      - rnastability.rembrandts.stages.${key}.stringency
+      - rnastability.rembrandts.stages.${key}.biasmode
+      deps:
+      - ${item.inputs}/job.tsv
+      - ${item.inputs}/counts/
+      - ./src/rnastability/04-rembrandts.sh
+      - ./src/rnastability/rembrandts/DESeq.R
+      - ./src/rnastability/rembrandts/REMBRANDTS.R
+      outs:
+      - ${item.outputs}

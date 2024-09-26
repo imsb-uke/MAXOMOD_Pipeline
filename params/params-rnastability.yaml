@@ -1,0 +1,2262 @@
+rnastability:
+  htseqcount_exon:
+    default_settings:
+      method: intersection-strict
+      stranded: 'yes'
+      type: exon
+    default_system_settings: {}
+    stages:
+      c9_ctrl_R1:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R1.markdup.sorted.bam
+        outputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnastability/counts/ctrl_R1.exon.txt
+        settings: {}
+      c9_ctrl_R10:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R10.markdup.sorted.bam
+        outputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnastability/counts/ctrl_R10.exon.txt
+        settings: {}
+      c9_ctrl_R2:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R2.markdup.sorted.bam
+        outputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnastability/counts/ctrl_R2.exon.txt
+        settings: {}
+      c9_ctrl_R3:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R3.markdup.sorted.bam
+        outputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnastability/counts/ctrl_R3.exon.txt
+        settings: {}
+      c9_ctrl_R4:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R4.markdup.sorted.bam
+        outputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnastability/counts/ctrl_R4.exon.txt
+        settings: {}
+      c9_ctrl_R5:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R5.markdup.sorted.bam
+        outputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnastability/counts/ctrl_R5.exon.txt
+        settings: {}
+      c9_ctrl_R6:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R6.markdup.sorted.bam
+        outputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnastability/counts/ctrl_R6.exon.txt
+        settings: {}
+      c9_ctrl_R7:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R7.markdup.sorted.bam
+        outputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnastability/counts/ctrl_R7.exon.txt
+        settings: {}
+      c9_ctrl_R8:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R8.markdup.sorted.bam
+        outputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnastability/counts/ctrl_R8.exon.txt
+        settings: {}
+      c9_ctrl_R9:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R9.markdup.sorted.bam
+        outputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnastability/counts/ctrl_R9.exon.txt
+        settings: {}
+      c9_mut_R1:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R1.markdup.sorted.bam
+        outputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnastability/counts/mut_R1.exon.txt
+        settings: {}
+      c9_mut_R10:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R10.markdup.sorted.bam
+        outputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnastability/counts/mut_R10.exon.txt
+        settings: {}
+      c9_mut_R2:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R2.markdup.sorted.bam
+        outputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnastability/counts/mut_R2.exon.txt
+        settings: {}
+      c9_mut_R3:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R3.markdup.sorted.bam
+        outputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnastability/counts/mut_R3.exon.txt
+        settings: {}
+      c9_mut_R4:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R4.markdup.sorted.bam
+        outputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnastability/counts/mut_R4.exon.txt
+        settings: {}
+      c9_mut_R5:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R5.markdup.sorted.bam
+        outputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnastability/counts/mut_R5.exon.txt
+        settings: {}
+      c9_mut_R6:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R6.markdup.sorted.bam
+        outputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnastability/counts/mut_R6.exon.txt
+        settings: {}
+      c9_mut_R7:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R7.markdup.sorted.bam
+        outputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnastability/counts/mut_R7.exon.txt
+        settings: {}
+      c9_mut_R8:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R8.markdup.sorted.bam
+        outputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnastability/counts/mut_R8.exon.txt
+        settings: {}
+      c9_mut_R9:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R9.markdup.sorted.bam
+        outputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnastability/counts/mut_R9.exon.txt
+        settings: {}
+      fus_ctrl_R1:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R1.markdup.sorted.bam
+        outputs: datasets/consortium/FUS-mouse/02_organized_data/rnastability/counts/ctrl_R1.exon.txt
+        settings: {}
+      fus_ctrl_R10:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R10.markdup.sorted.bam
+        outputs: datasets/consortium/FUS-mouse/02_organized_data/rnastability/counts/ctrl_R10.exon.txt
+        settings: {}
+      fus_ctrl_R2:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R2.markdup.sorted.bam
+        outputs: datasets/consortium/FUS-mouse/02_organized_data/rnastability/counts/ctrl_R2.exon.txt
+        settings: {}
+      fus_ctrl_R3:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R3.markdup.sorted.bam
+        outputs: datasets/consortium/FUS-mouse/02_organized_data/rnastability/counts/ctrl_R3.exon.txt
+        settings: {}
+      fus_ctrl_R4:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R4.markdup.sorted.bam
+        outputs: datasets/consortium/FUS-mouse/02_organized_data/rnastability/counts/ctrl_R4.exon.txt
+        settings: {}
+      fus_ctrl_R5:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R5.markdup.sorted.bam
+        outputs: datasets/consortium/FUS-mouse/02_organized_data/rnastability/counts/ctrl_R5.exon.txt
+        settings: {}
+      fus_ctrl_R6:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R6.markdup.sorted.bam
+        outputs: datasets/consortium/FUS-mouse/02_organized_data/rnastability/counts/ctrl_R6.exon.txt
+        settings: {}
+      fus_ctrl_R7:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R7.markdup.sorted.bam
+        outputs: datasets/consortium/FUS-mouse/02_organized_data/rnastability/counts/ctrl_R7.exon.txt
+        settings: {}
+      fus_ctrl_R8:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R8.markdup.sorted.bam
+        outputs: datasets/consortium/FUS-mouse/02_organized_data/rnastability/counts/ctrl_R8.exon.txt
+        settings: {}
+      fus_ctrl_R9:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R9.markdup.sorted.bam
+        outputs: datasets/consortium/FUS-mouse/02_organized_data/rnastability/counts/ctrl_R9.exon.txt
+        settings: {}
+      fus_mut_R1:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R1.markdup.sorted.bam
+        outputs: datasets/consortium/FUS-mouse/02_organized_data/rnastability/counts/mut_R1.exon.txt
+        settings: {}
+      fus_mut_R10:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R10.markdup.sorted.bam
+        outputs: datasets/consortium/FUS-mouse/02_organized_data/rnastability/counts/mut_R10.exon.txt
+        settings: {}
+      fus_mut_R2:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R2.markdup.sorted.bam
+        outputs: datasets/consortium/FUS-mouse/02_organized_data/rnastability/counts/mut_R2.exon.txt
+        settings: {}
+      fus_mut_R3:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R3.markdup.sorted.bam
+        outputs: datasets/consortium/FUS-mouse/02_organized_data/rnastability/counts/mut_R3.exon.txt
+        settings: {}
+      fus_mut_R4:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R4.markdup.sorted.bam
+        outputs: datasets/consortium/FUS-mouse/02_organized_data/rnastability/counts/mut_R4.exon.txt
+        settings: {}
+      fus_mut_R5:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R5.markdup.sorted.bam
+        outputs: datasets/consortium/FUS-mouse/02_organized_data/rnastability/counts/mut_R5.exon.txt
+        settings: {}
+      fus_mut_R6:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R6.markdup.sorted.bam
+        outputs: datasets/consortium/FUS-mouse/02_organized_data/rnastability/counts/mut_R6.exon.txt
+        settings: {}
+      fus_mut_R7:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R7.markdup.sorted.bam
+        outputs: datasets/consortium/FUS-mouse/02_organized_data/rnastability/counts/mut_R7.exon.txt
+        settings: {}
+      fus_mut_R8:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R8.markdup.sorted.bam
+        outputs: datasets/consortium/FUS-mouse/02_organized_data/rnastability/counts/mut_R8.exon.txt
+        settings: {}
+      fus_mut_R9:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R9.markdup.sorted.bam
+        outputs: datasets/consortium/FUS-mouse/02_organized_data/rnastability/counts/mut_R9.exon.txt
+        settings: {}
+      human_als_R1:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R1.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R1.exon.txt
+        settings: {}
+      human_als_R10:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R10.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R10.exon.txt
+        settings: {}
+      human_als_R11:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R11.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R11.exon.txt
+        settings: {}
+      human_als_R12:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R12.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R12.exon.txt
+        settings: {}
+      human_als_R13:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R13.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R13.exon.txt
+        settings: {}
+      human_als_R14:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R14.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R14.exon.txt
+        settings: {}
+      human_als_R15:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R15.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R15.exon.txt
+        settings: {}
+      human_als_R16:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R16.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R16.exon.txt
+        settings: {}
+      human_als_R17:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R17.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R17.exon.txt
+        settings: {}
+      human_als_R18:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R18.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R18.exon.txt
+        settings: {}
+      human_als_R19:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R19.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R19.exon.txt
+        settings: {}
+      human_als_R2:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R2.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R2.exon.txt
+        settings: {}
+      human_als_R20:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R20.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R20.exon.txt
+        settings: {}
+      human_als_R21:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R21.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R21.exon.txt
+        settings: {}
+      human_als_R22:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R22.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R22.exon.txt
+        settings: {}
+      human_als_R23:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R23.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R23.exon.txt
+        settings: {}
+      human_als_R24:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R24.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R24.exon.txt
+        settings: {}
+      human_als_R25:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R25.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R25.exon.txt
+        settings: {}
+      human_als_R26:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R26.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R26.exon.txt
+        settings: {}
+      human_als_R27:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R27.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R27.exon.txt
+        settings: {}
+      human_als_R28:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R28.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R28.exon.txt
+        settings: {}
+      human_als_R29:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R29.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R29.exon.txt
+        settings: {}
+      human_als_R3:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R3.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R3.exon.txt
+        settings: {}
+      human_als_R30:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R30.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R30.exon.txt
+        settings: {}
+      human_als_R31:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R31.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R31.exon.txt
+        settings: {}
+      human_als_R32:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R32.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R32.exon.txt
+        settings: {}
+      human_als_R33:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R33.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R33.exon.txt
+        settings: {}
+      human_als_R34:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R34.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R34.exon.txt
+        settings: {}
+      human_als_R35:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R35.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R35.exon.txt
+        settings: {}
+      human_als_R36:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R36.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R36.exon.txt
+        settings: {}
+      human_als_R37:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R37.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R37.exon.txt
+        settings: {}
+      human_als_R38:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R38.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R38.exon.txt
+        settings: {}
+      human_als_R39:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R39.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R39.exon.txt
+        settings: {}
+      human_als_R4:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R4.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R4.exon.txt
+        settings: {}
+      human_als_R40:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R40.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R40.exon.txt
+        settings: {}
+      human_als_R41:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R41.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R41.exon.txt
+        settings: {}
+      human_als_R42:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R42.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R42.exon.txt
+        settings: {}
+      human_als_R43:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R43.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R43.exon.txt
+        settings: {}
+      human_als_R44:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R44.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R44.exon.txt
+        settings: {}
+      human_als_R45:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R45.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R45.exon.txt
+        settings: {}
+      human_als_R46:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R46.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R46.exon.txt
+        settings: {}
+      human_als_R47:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R47.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R47.exon.txt
+        settings: {}
+      human_als_R48:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R48.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R48.exon.txt
+        settings: {}
+      human_als_R49:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R49.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R49.exon.txt
+        settings: {}
+      human_als_R5:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R5.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R5.exon.txt
+        settings: {}
+      human_als_R50:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R50.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R50.exon.txt
+        settings: {}
+      human_als_R51:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R51.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R51.exon.txt
+        settings: {}
+      human_als_R52:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R52.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R52.exon.txt
+        settings: {}
+      human_als_R6:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R6.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R6.exon.txt
+        settings: {}
+      human_als_R7:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R7.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R7.exon.txt
+        settings: {}
+      human_als_R8:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R8.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R8.exon.txt
+        settings: {}
+      human_als_R9:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R9.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R9.exon.txt
+        settings: {}
+      human_ctrl_R1:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R1.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R1.exon.txt
+        settings: {}
+      human_ctrl_R10:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R10.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R10.exon.txt
+        settings: {}
+      human_ctrl_R11:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R11.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R11.exon.txt
+        settings: {}
+      human_ctrl_R12:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R12.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R12.exon.txt
+        settings: {}
+      human_ctrl_R13:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R13.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R13.exon.txt
+        settings: {}
+      human_ctrl_R14:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R14.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R14.exon.txt
+        settings: {}
+      human_ctrl_R15:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R15.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R15.exon.txt
+        settings: {}
+      human_ctrl_R16:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R16.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R16.exon.txt
+        settings: {}
+      human_ctrl_R17:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R17.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R17.exon.txt
+        settings: {}
+      human_ctrl_R18:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R18.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R18.exon.txt
+        settings: {}
+      human_ctrl_R19:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R19.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R19.exon.txt
+        settings: {}
+      human_ctrl_R2:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R2.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R2.exon.txt
+        settings: {}
+      human_ctrl_R20:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R20.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R20.exon.txt
+        settings: {}
+      human_ctrl_R21:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R21.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R21.exon.txt
+        settings: {}
+      human_ctrl_R22:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R22.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R22.exon.txt
+        settings: {}
+      human_ctrl_R23:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R23.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R23.exon.txt
+        settings: {}
+      human_ctrl_R24:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R24.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R24.exon.txt
+        settings: {}
+      human_ctrl_R25:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R25.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R25.exon.txt
+        settings: {}
+      human_ctrl_R26:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R26.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R26.exon.txt
+        settings: {}
+      human_ctrl_R27:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R27.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R27.exon.txt
+        settings: {}
+      human_ctrl_R28:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R28.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R28.exon.txt
+        settings: {}
+      human_ctrl_R29:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R29.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R29.exon.txt
+        settings: {}
+      human_ctrl_R3:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R3.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R3.exon.txt
+        settings: {}
+      human_ctrl_R30:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R30.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R30.exon.txt
+        settings: {}
+      human_ctrl_R31:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R31.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R31.exon.txt
+        settings: {}
+      human_ctrl_R32:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R32.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R32.exon.txt
+        settings: {}
+      human_ctrl_R33:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R33.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R33.exon.txt
+        settings: {}
+      human_ctrl_R34:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R34.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R34.exon.txt
+        settings: {}
+      human_ctrl_R35:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R35.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R35.exon.txt
+        settings: {}
+      human_ctrl_R36:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R36.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R36.exon.txt
+        settings: {}
+      human_ctrl_R37:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R37.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R37.exon.txt
+        settings: {}
+      human_ctrl_R38:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R38.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R38.exon.txt
+        settings: {}
+      human_ctrl_R39:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R39.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R39.exon.txt
+        settings: {}
+      human_ctrl_R4:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R4.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R4.exon.txt
+        settings: {}
+      human_ctrl_R40:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R40.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R40.exon.txt
+        settings: {}
+      human_ctrl_R41:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R41.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R41.exon.txt
+        settings: {}
+      human_ctrl_R42:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R42.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R42.exon.txt
+        settings: {}
+      human_ctrl_R43:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R43.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R43.exon.txt
+        settings: {}
+      human_ctrl_R44:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R44.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R44.exon.txt
+        settings: {}
+      human_ctrl_R45:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R45.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R45.exon.txt
+        settings: {}
+      human_ctrl_R46:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R46.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R46.exon.txt
+        settings: {}
+      human_ctrl_R47:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R47.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R47.exon.txt
+        settings: {}
+      human_ctrl_R48:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R48.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R48.exon.txt
+        settings: {}
+      human_ctrl_R49:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R49.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R49.exon.txt
+        settings: {}
+      human_ctrl_R5:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R5.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R5.exon.txt
+        settings: {}
+      human_ctrl_R50:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R50.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R50.exon.txt
+        settings: {}
+      human_ctrl_R6:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R6.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R6.exon.txt
+        settings: {}
+      human_ctrl_R7:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R7.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R7.exon.txt
+        settings: {}
+      human_ctrl_R8:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R8.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R8.exon.txt
+        settings: {}
+      human_ctrl_R9:
+        inputs:
+          annotation: database/align-references/hsapiens/exons.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R9.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R9.exon.txt
+        settings: {}
+      sod1_ctrl_R1:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R1.markdup.sorted.bam
+        outputs: datasets/consortium/SOD1-mouse/02_organized_data/rnastability/counts/ctrl_R1.exon.txt
+        settings: {}
+      sod1_ctrl_R10:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R10.markdup.sorted.bam
+        outputs: datasets/consortium/SOD1-mouse/02_organized_data/rnastability/counts/ctrl_R10.exon.txt
+        settings: {}
+      sod1_ctrl_R2:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R2.markdup.sorted.bam
+        outputs: datasets/consortium/SOD1-mouse/02_organized_data/rnastability/counts/ctrl_R2.exon.txt
+        settings: {}
+      sod1_ctrl_R3:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R3.markdup.sorted.bam
+        outputs: datasets/consortium/SOD1-mouse/02_organized_data/rnastability/counts/ctrl_R3.exon.txt
+        settings: {}
+      sod1_ctrl_R4:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R4.markdup.sorted.bam
+        outputs: datasets/consortium/SOD1-mouse/02_organized_data/rnastability/counts/ctrl_R4.exon.txt
+        settings: {}
+      sod1_ctrl_R5:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R5.markdup.sorted.bam
+        outputs: datasets/consortium/SOD1-mouse/02_organized_data/rnastability/counts/ctrl_R5.exon.txt
+        settings: {}
+      sod1_ctrl_R6:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R6.markdup.sorted.bam
+        outputs: datasets/consortium/SOD1-mouse/02_organized_data/rnastability/counts/ctrl_R6.exon.txt
+        settings: {}
+      sod1_ctrl_R7:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R7.markdup.sorted.bam
+        outputs: datasets/consortium/SOD1-mouse/02_organized_data/rnastability/counts/ctrl_R7.exon.txt
+        settings: {}
+      sod1_ctrl_R8:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R8.markdup.sorted.bam
+        outputs: datasets/consortium/SOD1-mouse/02_organized_data/rnastability/counts/ctrl_R8.exon.txt
+        settings: {}
+      sod1_ctrl_R9:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R9.markdup.sorted.bam
+        outputs: datasets/consortium/SOD1-mouse/02_organized_data/rnastability/counts/ctrl_R9.exon.txt
+        settings: {}
+      sod1_mut_R1:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R1.markdup.sorted.bam
+        outputs: datasets/consortium/SOD1-mouse/02_organized_data/rnastability/counts/mut_R1.exon.txt
+        settings: {}
+      sod1_mut_R10:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R10.markdup.sorted.bam
+        outputs: datasets/consortium/SOD1-mouse/02_organized_data/rnastability/counts/mut_R10.exon.txt
+        settings: {}
+      sod1_mut_R2:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R2.markdup.sorted.bam
+        outputs: datasets/consortium/SOD1-mouse/02_organized_data/rnastability/counts/mut_R2.exon.txt
+        settings: {}
+      sod1_mut_R3:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R3.markdup.sorted.bam
+        outputs: datasets/consortium/SOD1-mouse/02_organized_data/rnastability/counts/mut_R3.exon.txt
+        settings: {}
+      sod1_mut_R4:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R4.markdup.sorted.bam
+        outputs: datasets/consortium/SOD1-mouse/02_organized_data/rnastability/counts/mut_R4.exon.txt
+        settings: {}
+      sod1_mut_R5:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R5.markdup.sorted.bam
+        outputs: datasets/consortium/SOD1-mouse/02_organized_data/rnastability/counts/mut_R5.exon.txt
+        settings: {}
+      sod1_mut_R6:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R6.markdup.sorted.bam
+        outputs: datasets/consortium/SOD1-mouse/02_organized_data/rnastability/counts/mut_R6.exon.txt
+        settings: {}
+      sod1_mut_R7:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R7.markdup.sorted.bam
+        outputs: datasets/consortium/SOD1-mouse/02_organized_data/rnastability/counts/mut_R7.exon.txt
+        settings: {}
+      sod1_mut_R8:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R8.markdup.sorted.bam
+        outputs: datasets/consortium/SOD1-mouse/02_organized_data/rnastability/counts/mut_R8.exon.txt
+        settings: {}
+      sod1_mut_R9:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R9.markdup.sorted.bam
+        outputs: datasets/consortium/SOD1-mouse/02_organized_data/rnastability/counts/mut_R9.exon.txt
+        settings: {}
+      tdp43_ctrl_R1:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R1.markdup.sorted.bam
+        outputs: datasets/consortium/TDP43-mouse/02_organized_data/rnastability/counts/ctrl_R1.exon.txt
+        settings: {}
+      tdp43_ctrl_R10:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R10.markdup.sorted.bam
+        outputs: datasets/consortium/TDP43-mouse/02_organized_data/rnastability/counts/ctrl_R10.exon.txt
+        settings: {}
+      tdp43_ctrl_R2:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R2.markdup.sorted.bam
+        outputs: datasets/consortium/TDP43-mouse/02_organized_data/rnastability/counts/ctrl_R2.exon.txt
+        settings: {}
+      tdp43_ctrl_R3:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R3.markdup.sorted.bam
+        outputs: datasets/consortium/TDP43-mouse/02_organized_data/rnastability/counts/ctrl_R3.exon.txt
+        settings: {}
+      tdp43_ctrl_R4:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R4.markdup.sorted.bam
+        outputs: datasets/consortium/TDP43-mouse/02_organized_data/rnastability/counts/ctrl_R4.exon.txt
+        settings: {}
+      tdp43_ctrl_R5:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R5.markdup.sorted.bam
+        outputs: datasets/consortium/TDP43-mouse/02_organized_data/rnastability/counts/ctrl_R5.exon.txt
+        settings: {}
+      tdp43_ctrl_R6:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R6.markdup.sorted.bam
+        outputs: datasets/consortium/TDP43-mouse/02_organized_data/rnastability/counts/ctrl_R6.exon.txt
+        settings: {}
+      tdp43_ctrl_R7:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R7.markdup.sorted.bam
+        outputs: datasets/consortium/TDP43-mouse/02_organized_data/rnastability/counts/ctrl_R7.exon.txt
+        settings: {}
+      tdp43_ctrl_R8:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R8.markdup.sorted.bam
+        outputs: datasets/consortium/TDP43-mouse/02_organized_data/rnastability/counts/ctrl_R8.exon.txt
+        settings: {}
+      tdp43_ctrl_R9:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R9.markdup.sorted.bam
+        outputs: datasets/consortium/TDP43-mouse/02_organized_data/rnastability/counts/ctrl_R9.exon.txt
+        settings: {}
+      tdp43_mut_R1:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R1.markdup.sorted.bam
+        outputs: datasets/consortium/TDP43-mouse/02_organized_data/rnastability/counts/mut_R1.exon.txt
+        settings: {}
+      tdp43_mut_R10:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R10.markdup.sorted.bam
+        outputs: datasets/consortium/TDP43-mouse/02_organized_data/rnastability/counts/mut_R10.exon.txt
+        settings: {}
+      tdp43_mut_R2:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R2.markdup.sorted.bam
+        outputs: datasets/consortium/TDP43-mouse/02_organized_data/rnastability/counts/mut_R2.exon.txt
+        settings: {}
+      tdp43_mut_R3:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R3.markdup.sorted.bam
+        outputs: datasets/consortium/TDP43-mouse/02_organized_data/rnastability/counts/mut_R3.exon.txt
+        settings: {}
+      tdp43_mut_R4:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R4.markdup.sorted.bam
+        outputs: datasets/consortium/TDP43-mouse/02_organized_data/rnastability/counts/mut_R4.exon.txt
+        settings: {}
+      tdp43_mut_R5:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R5.markdup.sorted.bam
+        outputs: datasets/consortium/TDP43-mouse/02_organized_data/rnastability/counts/mut_R5.exon.txt
+        settings: {}
+      tdp43_mut_R6:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R6.markdup.sorted.bam
+        outputs: datasets/consortium/TDP43-mouse/02_organized_data/rnastability/counts/mut_R6.exon.txt
+        settings: {}
+      tdp43_mut_R7:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R7.markdup.sorted.bam
+        outputs: datasets/consortium/TDP43-mouse/02_organized_data/rnastability/counts/mut_R7.exon.txt
+        settings: {}
+      tdp43_mut_R8:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R8.markdup.sorted.bam
+        outputs: datasets/consortium/TDP43-mouse/02_organized_data/rnastability/counts/mut_R8.exon.txt
+        settings: {}
+      tdp43_mut_R9:
+        inputs:
+          annotation: database/align-references/mmusculus/exons.gtf
+          bam: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R9.markdup.sorted.bam
+        outputs: datasets/consortium/TDP43-mouse/02_organized_data/rnastability/counts/mut_R9.exon.txt
+        settings: {}
+  htseqcount_intron:
+    default_settings:
+      method: union
+      stranded: 'yes'
+      type: intron
+    default_system_settings: {}
+    stages:
+      c9_ctrl_R1:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R1.markdup.sorted.bam
+        outputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnastability/counts/ctrl_R1.intron.txt
+        settings: {}
+      c9_ctrl_R10:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R10.markdup.sorted.bam
+        outputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnastability/counts/ctrl_R10.intron.txt
+        settings: {}
+      c9_ctrl_R2:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R2.markdup.sorted.bam
+        outputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnastability/counts/ctrl_R2.intron.txt
+        settings: {}
+      c9_ctrl_R3:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R3.markdup.sorted.bam
+        outputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnastability/counts/ctrl_R3.intron.txt
+        settings: {}
+      c9_ctrl_R4:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R4.markdup.sorted.bam
+        outputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnastability/counts/ctrl_R4.intron.txt
+        settings: {}
+      c9_ctrl_R5:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R5.markdup.sorted.bam
+        outputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnastability/counts/ctrl_R5.intron.txt
+        settings: {}
+      c9_ctrl_R6:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R6.markdup.sorted.bam
+        outputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnastability/counts/ctrl_R6.intron.txt
+        settings: {}
+      c9_ctrl_R7:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R7.markdup.sorted.bam
+        outputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnastability/counts/ctrl_R7.intron.txt
+        settings: {}
+      c9_ctrl_R8:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R8.markdup.sorted.bam
+        outputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnastability/counts/ctrl_R8.intron.txt
+        settings: {}
+      c9_ctrl_R9:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R9.markdup.sorted.bam
+        outputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnastability/counts/ctrl_R9.intron.txt
+        settings: {}
+      c9_mut_R1:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R1.markdup.sorted.bam
+        outputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnastability/counts/mut_R1.intron.txt
+        settings: {}
+      c9_mut_R10:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R10.markdup.sorted.bam
+        outputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnastability/counts/mut_R10.intron.txt
+        settings: {}
+      c9_mut_R2:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R2.markdup.sorted.bam
+        outputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnastability/counts/mut_R2.intron.txt
+        settings: {}
+      c9_mut_R3:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R3.markdup.sorted.bam
+        outputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnastability/counts/mut_R3.intron.txt
+        settings: {}
+      c9_mut_R4:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R4.markdup.sorted.bam
+        outputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnastability/counts/mut_R4.intron.txt
+        settings: {}
+      c9_mut_R5:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R5.markdup.sorted.bam
+        outputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnastability/counts/mut_R5.intron.txt
+        settings: {}
+      c9_mut_R6:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R6.markdup.sorted.bam
+        outputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnastability/counts/mut_R6.intron.txt
+        settings: {}
+      c9_mut_R7:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R7.markdup.sorted.bam
+        outputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnastability/counts/mut_R7.intron.txt
+        settings: {}
+      c9_mut_R8:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R8.markdup.sorted.bam
+        outputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnastability/counts/mut_R8.intron.txt
+        settings: {}
+      c9_mut_R9:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R9.markdup.sorted.bam
+        outputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnastability/counts/mut_R9.intron.txt
+        settings: {}
+      fus_ctrl_R1:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R1.markdup.sorted.bam
+        outputs: datasets/consortium/FUS-mouse/02_organized_data/rnastability/counts/ctrl_R1.intron.txt
+        settings: {}
+      fus_ctrl_R10:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R10.markdup.sorted.bam
+        outputs: datasets/consortium/FUS-mouse/02_organized_data/rnastability/counts/ctrl_R10.intron.txt
+        settings: {}
+      fus_ctrl_R2:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R2.markdup.sorted.bam
+        outputs: datasets/consortium/FUS-mouse/02_organized_data/rnastability/counts/ctrl_R2.intron.txt
+        settings: {}
+      fus_ctrl_R3:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R3.markdup.sorted.bam
+        outputs: datasets/consortium/FUS-mouse/02_organized_data/rnastability/counts/ctrl_R3.intron.txt
+        settings: {}
+      fus_ctrl_R4:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R4.markdup.sorted.bam
+        outputs: datasets/consortium/FUS-mouse/02_organized_data/rnastability/counts/ctrl_R4.intron.txt
+        settings: {}
+      fus_ctrl_R5:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R5.markdup.sorted.bam
+        outputs: datasets/consortium/FUS-mouse/02_organized_data/rnastability/counts/ctrl_R5.intron.txt
+        settings: {}
+      fus_ctrl_R6:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R6.markdup.sorted.bam
+        outputs: datasets/consortium/FUS-mouse/02_organized_data/rnastability/counts/ctrl_R6.intron.txt
+        settings: {}
+      fus_ctrl_R7:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R7.markdup.sorted.bam
+        outputs: datasets/consortium/FUS-mouse/02_organized_data/rnastability/counts/ctrl_R7.intron.txt
+        settings: {}
+      fus_ctrl_R8:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R8.markdup.sorted.bam
+        outputs: datasets/consortium/FUS-mouse/02_organized_data/rnastability/counts/ctrl_R8.intron.txt
+        settings: {}
+      fus_ctrl_R9:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R9.markdup.sorted.bam
+        outputs: datasets/consortium/FUS-mouse/02_organized_data/rnastability/counts/ctrl_R9.intron.txt
+        settings: {}
+      fus_mut_R1:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R1.markdup.sorted.bam
+        outputs: datasets/consortium/FUS-mouse/02_organized_data/rnastability/counts/mut_R1.intron.txt
+        settings: {}
+      fus_mut_R10:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R10.markdup.sorted.bam
+        outputs: datasets/consortium/FUS-mouse/02_organized_data/rnastability/counts/mut_R10.intron.txt
+        settings: {}
+      fus_mut_R2:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R2.markdup.sorted.bam
+        outputs: datasets/consortium/FUS-mouse/02_organized_data/rnastability/counts/mut_R2.intron.txt
+        settings: {}
+      fus_mut_R3:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R3.markdup.sorted.bam
+        outputs: datasets/consortium/FUS-mouse/02_organized_data/rnastability/counts/mut_R3.intron.txt
+        settings: {}
+      fus_mut_R4:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R4.markdup.sorted.bam
+        outputs: datasets/consortium/FUS-mouse/02_organized_data/rnastability/counts/mut_R4.intron.txt
+        settings: {}
+      fus_mut_R5:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R5.markdup.sorted.bam
+        outputs: datasets/consortium/FUS-mouse/02_organized_data/rnastability/counts/mut_R5.intron.txt
+        settings: {}
+      fus_mut_R6:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R6.markdup.sorted.bam
+        outputs: datasets/consortium/FUS-mouse/02_organized_data/rnastability/counts/mut_R6.intron.txt
+        settings: {}
+      fus_mut_R7:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R7.markdup.sorted.bam
+        outputs: datasets/consortium/FUS-mouse/02_organized_data/rnastability/counts/mut_R7.intron.txt
+        settings: {}
+      fus_mut_R8:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R8.markdup.sorted.bam
+        outputs: datasets/consortium/FUS-mouse/02_organized_data/rnastability/counts/mut_R8.intron.txt
+        settings: {}
+      fus_mut_R9:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/FUS-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R9.markdup.sorted.bam
+        outputs: datasets/consortium/FUS-mouse/02_organized_data/rnastability/counts/mut_R9.intron.txt
+        settings: {}
+      human_als_R1:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R1.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R1.intron.txt
+        settings: {}
+      human_als_R10:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R10.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R10.intron.txt
+        settings: {}
+      human_als_R11:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R11.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R11.intron.txt
+        settings: {}
+      human_als_R12:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R12.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R12.intron.txt
+        settings: {}
+      human_als_R13:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R13.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R13.intron.txt
+        settings: {}
+      human_als_R14:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R14.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R14.intron.txt
+        settings: {}
+      human_als_R15:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R15.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R15.intron.txt
+        settings: {}
+      human_als_R16:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R16.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R16.intron.txt
+        settings: {}
+      human_als_R17:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R17.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R17.intron.txt
+        settings: {}
+      human_als_R18:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R18.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R18.intron.txt
+        settings: {}
+      human_als_R19:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R19.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R19.intron.txt
+        settings: {}
+      human_als_R2:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R2.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R2.intron.txt
+        settings: {}
+      human_als_R20:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R20.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R20.intron.txt
+        settings: {}
+      human_als_R21:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R21.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R21.intron.txt
+        settings: {}
+      human_als_R22:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R22.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R22.intron.txt
+        settings: {}
+      human_als_R23:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R23.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R23.intron.txt
+        settings: {}
+      human_als_R24:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R24.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R24.intron.txt
+        settings: {}
+      human_als_R25:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R25.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R25.intron.txt
+        settings: {}
+      human_als_R26:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R26.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R26.intron.txt
+        settings: {}
+      human_als_R27:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R27.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R27.intron.txt
+        settings: {}
+      human_als_R28:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R28.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R28.intron.txt
+        settings: {}
+      human_als_R29:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R29.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R29.intron.txt
+        settings: {}
+      human_als_R3:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R3.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R3.intron.txt
+        settings: {}
+      human_als_R30:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R30.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R30.intron.txt
+        settings: {}
+      human_als_R31:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R31.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R31.intron.txt
+        settings: {}
+      human_als_R32:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R32.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R32.intron.txt
+        settings: {}
+      human_als_R33:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R33.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R33.intron.txt
+        settings: {}
+      human_als_R34:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R34.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R34.intron.txt
+        settings: {}
+      human_als_R35:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R35.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R35.intron.txt
+        settings: {}
+      human_als_R36:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R36.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R36.intron.txt
+        settings: {}
+      human_als_R37:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R37.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R37.intron.txt
+        settings: {}
+      human_als_R38:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R38.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R38.intron.txt
+        settings: {}
+      human_als_R39:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R39.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R39.intron.txt
+        settings: {}
+      human_als_R4:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R4.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R4.intron.txt
+        settings: {}
+      human_als_R40:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R40.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R40.intron.txt
+        settings: {}
+      human_als_R41:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R41.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R41.intron.txt
+        settings: {}
+      human_als_R42:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R42.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R42.intron.txt
+        settings: {}
+      human_als_R43:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R43.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R43.intron.txt
+        settings: {}
+      human_als_R44:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R44.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R44.intron.txt
+        settings: {}
+      human_als_R45:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R45.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R45.intron.txt
+        settings: {}
+      human_als_R46:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R46.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R46.intron.txt
+        settings: {}
+      human_als_R47:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R47.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R47.intron.txt
+        settings: {}
+      human_als_R48:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R48.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R48.intron.txt
+        settings: {}
+      human_als_R49:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R49.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R49.intron.txt
+        settings: {}
+      human_als_R5:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R5.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R5.intron.txt
+        settings: {}
+      human_als_R50:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R50.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R50.intron.txt
+        settings: {}
+      human_als_R51:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R51.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R51.intron.txt
+        settings: {}
+      human_als_R52:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R52.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R52.intron.txt
+        settings: {}
+      human_als_R6:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R6.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R6.intron.txt
+        settings: {}
+      human_als_R7:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R7.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R7.intron.txt
+        settings: {}
+      human_als_R8:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R8.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R8.intron.txt
+        settings: {}
+      human_als_R9:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/als_R9.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/als_R9.intron.txt
+        settings: {}
+      human_ctrl_R1:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R1.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R1.intron.txt
+        settings: {}
+      human_ctrl_R10:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R10.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R10.intron.txt
+        settings: {}
+      human_ctrl_R11:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R11.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R11.intron.txt
+        settings: {}
+      human_ctrl_R12:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R12.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R12.intron.txt
+        settings: {}
+      human_ctrl_R13:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R13.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R13.intron.txt
+        settings: {}
+      human_ctrl_R14:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R14.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R14.intron.txt
+        settings: {}
+      human_ctrl_R15:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R15.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R15.intron.txt
+        settings: {}
+      human_ctrl_R16:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R16.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R16.intron.txt
+        settings: {}
+      human_ctrl_R17:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R17.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R17.intron.txt
+        settings: {}
+      human_ctrl_R18:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R18.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R18.intron.txt
+        settings: {}
+      human_ctrl_R19:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R19.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R19.intron.txt
+        settings: {}
+      human_ctrl_R2:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R2.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R2.intron.txt
+        settings: {}
+      human_ctrl_R20:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R20.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R20.intron.txt
+        settings: {}
+      human_ctrl_R21:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R21.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R21.intron.txt
+        settings: {}
+      human_ctrl_R22:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R22.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R22.intron.txt
+        settings: {}
+      human_ctrl_R23:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R23.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R23.intron.txt
+        settings: {}
+      human_ctrl_R24:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R24.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R24.intron.txt
+        settings: {}
+      human_ctrl_R25:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R25.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R25.intron.txt
+        settings: {}
+      human_ctrl_R26:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R26.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R26.intron.txt
+        settings: {}
+      human_ctrl_R27:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R27.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R27.intron.txt
+        settings: {}
+      human_ctrl_R28:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R28.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R28.intron.txt
+        settings: {}
+      human_ctrl_R29:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R29.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R29.intron.txt
+        settings: {}
+      human_ctrl_R3:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R3.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R3.intron.txt
+        settings: {}
+      human_ctrl_R30:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R30.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R30.intron.txt
+        settings: {}
+      human_ctrl_R31:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R31.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R31.intron.txt
+        settings: {}
+      human_ctrl_R32:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R32.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R32.intron.txt
+        settings: {}
+      human_ctrl_R33:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R33.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R33.intron.txt
+        settings: {}
+      human_ctrl_R34:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R34.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R34.intron.txt
+        settings: {}
+      human_ctrl_R35:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R35.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R35.intron.txt
+        settings: {}
+      human_ctrl_R36:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R36.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R36.intron.txt
+        settings: {}
+      human_ctrl_R37:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R37.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R37.intron.txt
+        settings: {}
+      human_ctrl_R38:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R38.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R38.intron.txt
+        settings: {}
+      human_ctrl_R39:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R39.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R39.intron.txt
+        settings: {}
+      human_ctrl_R4:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R4.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R4.intron.txt
+        settings: {}
+      human_ctrl_R40:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R40.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R40.intron.txt
+        settings: {}
+      human_ctrl_R41:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R41.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R41.intron.txt
+        settings: {}
+      human_ctrl_R42:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R42.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R42.intron.txt
+        settings: {}
+      human_ctrl_R43:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R43.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R43.intron.txt
+        settings: {}
+      human_ctrl_R44:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R44.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R44.intron.txt
+        settings: {}
+      human_ctrl_R45:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R45.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R45.intron.txt
+        settings: {}
+      human_ctrl_R46:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R46.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R46.intron.txt
+        settings: {}
+      human_ctrl_R47:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R47.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R47.intron.txt
+        settings: {}
+      human_ctrl_R48:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R48.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R48.intron.txt
+        settings: {}
+      human_ctrl_R49:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R49.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R49.intron.txt
+        settings: {}
+      human_ctrl_R5:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R5.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R5.intron.txt
+        settings: {}
+      human_ctrl_R50:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R50.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R50.intron.txt
+        settings: {}
+      human_ctrl_R6:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R6.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R6.intron.txt
+        settings: {}
+      human_ctrl_R7:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R7.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R7.intron.txt
+        settings: {}
+      human_ctrl_R8:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R8.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R8.intron.txt
+        settings: {}
+      human_ctrl_R9:
+        inputs:
+          annotation: database/align-references/hsapiens/introns.gtf
+          bam: datasets/consortium/human-datasets/02_organized_data/rnaseq/nf-rnaseq_merged/results/star_salmon/ctrl_R9.markdup.sorted.bam
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts/ctrl_R9.intron.txt
+        settings: {}
+      sod1_ctrl_R1:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R1.markdup.sorted.bam
+        outputs: datasets/consortium/SOD1-mouse/02_organized_data/rnastability/counts/ctrl_R1.intron.txt
+        settings: {}
+      sod1_ctrl_R10:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R10.markdup.sorted.bam
+        outputs: datasets/consortium/SOD1-mouse/02_organized_data/rnastability/counts/ctrl_R10.intron.txt
+        settings: {}
+      sod1_ctrl_R2:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R2.markdup.sorted.bam
+        outputs: datasets/consortium/SOD1-mouse/02_organized_data/rnastability/counts/ctrl_R2.intron.txt
+        settings: {}
+      sod1_ctrl_R3:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R3.markdup.sorted.bam
+        outputs: datasets/consortium/SOD1-mouse/02_organized_data/rnastability/counts/ctrl_R3.intron.txt
+        settings: {}
+      sod1_ctrl_R4:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R4.markdup.sorted.bam
+        outputs: datasets/consortium/SOD1-mouse/02_organized_data/rnastability/counts/ctrl_R4.intron.txt
+        settings: {}
+      sod1_ctrl_R5:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R5.markdup.sorted.bam
+        outputs: datasets/consortium/SOD1-mouse/02_organized_data/rnastability/counts/ctrl_R5.intron.txt
+        settings: {}
+      sod1_ctrl_R6:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R6.markdup.sorted.bam
+        outputs: datasets/consortium/SOD1-mouse/02_organized_data/rnastability/counts/ctrl_R6.intron.txt
+        settings: {}
+      sod1_ctrl_R7:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R7.markdup.sorted.bam
+        outputs: datasets/consortium/SOD1-mouse/02_organized_data/rnastability/counts/ctrl_R7.intron.txt
+        settings: {}
+      sod1_ctrl_R8:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R8.markdup.sorted.bam
+        outputs: datasets/consortium/SOD1-mouse/02_organized_data/rnastability/counts/ctrl_R8.intron.txt
+        settings: {}
+      sod1_ctrl_R9:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R9.markdup.sorted.bam
+        outputs: datasets/consortium/SOD1-mouse/02_organized_data/rnastability/counts/ctrl_R9.intron.txt
+        settings: {}
+      sod1_mut_R1:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R1.markdup.sorted.bam
+        outputs: datasets/consortium/SOD1-mouse/02_organized_data/rnastability/counts/mut_R1.intron.txt
+        settings: {}
+      sod1_mut_R10:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R10.markdup.sorted.bam
+        outputs: datasets/consortium/SOD1-mouse/02_organized_data/rnastability/counts/mut_R10.intron.txt
+        settings: {}
+      sod1_mut_R2:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R2.markdup.sorted.bam
+        outputs: datasets/consortium/SOD1-mouse/02_organized_data/rnastability/counts/mut_R2.intron.txt
+        settings: {}
+      sod1_mut_R3:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R3.markdup.sorted.bam
+        outputs: datasets/consortium/SOD1-mouse/02_organized_data/rnastability/counts/mut_R3.intron.txt
+        settings: {}
+      sod1_mut_R4:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R4.markdup.sorted.bam
+        outputs: datasets/consortium/SOD1-mouse/02_organized_data/rnastability/counts/mut_R4.intron.txt
+        settings: {}
+      sod1_mut_R5:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R5.markdup.sorted.bam
+        outputs: datasets/consortium/SOD1-mouse/02_organized_data/rnastability/counts/mut_R5.intron.txt
+        settings: {}
+      sod1_mut_R6:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R6.markdup.sorted.bam
+        outputs: datasets/consortium/SOD1-mouse/02_organized_data/rnastability/counts/mut_R6.intron.txt
+        settings: {}
+      sod1_mut_R7:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R7.markdup.sorted.bam
+        outputs: datasets/consortium/SOD1-mouse/02_organized_data/rnastability/counts/mut_R7.intron.txt
+        settings: {}
+      sod1_mut_R8:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R8.markdup.sorted.bam
+        outputs: datasets/consortium/SOD1-mouse/02_organized_data/rnastability/counts/mut_R8.intron.txt
+        settings: {}
+      sod1_mut_R9:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R9.markdup.sorted.bam
+        outputs: datasets/consortium/SOD1-mouse/02_organized_data/rnastability/counts/mut_R9.intron.txt
+        settings: {}
+      tdp43_ctrl_R1:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R1.markdup.sorted.bam
+        outputs: datasets/consortium/TDP43-mouse/02_organized_data/rnastability/counts/ctrl_R1.intron.txt
+        settings: {}
+      tdp43_ctrl_R10:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R10.markdup.sorted.bam
+        outputs: datasets/consortium/TDP43-mouse/02_organized_data/rnastability/counts/ctrl_R10.intron.txt
+        settings: {}
+      tdp43_ctrl_R2:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R2.markdup.sorted.bam
+        outputs: datasets/consortium/TDP43-mouse/02_organized_data/rnastability/counts/ctrl_R2.intron.txt
+        settings: {}
+      tdp43_ctrl_R3:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R3.markdup.sorted.bam
+        outputs: datasets/consortium/TDP43-mouse/02_organized_data/rnastability/counts/ctrl_R3.intron.txt
+        settings: {}
+      tdp43_ctrl_R4:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R4.markdup.sorted.bam
+        outputs: datasets/consortium/TDP43-mouse/02_organized_data/rnastability/counts/ctrl_R4.intron.txt
+        settings: {}
+      tdp43_ctrl_R5:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R5.markdup.sorted.bam
+        outputs: datasets/consortium/TDP43-mouse/02_organized_data/rnastability/counts/ctrl_R5.intron.txt
+        settings: {}
+      tdp43_ctrl_R6:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R6.markdup.sorted.bam
+        outputs: datasets/consortium/TDP43-mouse/02_organized_data/rnastability/counts/ctrl_R6.intron.txt
+        settings: {}
+      tdp43_ctrl_R7:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R7.markdup.sorted.bam
+        outputs: datasets/consortium/TDP43-mouse/02_organized_data/rnastability/counts/ctrl_R7.intron.txt
+        settings: {}
+      tdp43_ctrl_R8:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R8.markdup.sorted.bam
+        outputs: datasets/consortium/TDP43-mouse/02_organized_data/rnastability/counts/ctrl_R8.intron.txt
+        settings: {}
+      tdp43_ctrl_R9:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/ctrl_R9.markdup.sorted.bam
+        outputs: datasets/consortium/TDP43-mouse/02_organized_data/rnastability/counts/ctrl_R9.intron.txt
+        settings: {}
+      tdp43_mut_R1:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R1.markdup.sorted.bam
+        outputs: datasets/consortium/TDP43-mouse/02_organized_data/rnastability/counts/mut_R1.intron.txt
+        settings: {}
+      tdp43_mut_R10:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R10.markdup.sorted.bam
+        outputs: datasets/consortium/TDP43-mouse/02_organized_data/rnastability/counts/mut_R10.intron.txt
+        settings: {}
+      tdp43_mut_R2:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R2.markdup.sorted.bam
+        outputs: datasets/consortium/TDP43-mouse/02_organized_data/rnastability/counts/mut_R2.intron.txt
+        settings: {}
+      tdp43_mut_R3:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R3.markdup.sorted.bam
+        outputs: datasets/consortium/TDP43-mouse/02_organized_data/rnastability/counts/mut_R3.intron.txt
+        settings: {}
+      tdp43_mut_R4:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R4.markdup.sorted.bam
+        outputs: datasets/consortium/TDP43-mouse/02_organized_data/rnastability/counts/mut_R4.intron.txt
+        settings: {}
+      tdp43_mut_R5:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R5.markdup.sorted.bam
+        outputs: datasets/consortium/TDP43-mouse/02_organized_data/rnastability/counts/mut_R5.intron.txt
+        settings: {}
+      tdp43_mut_R6:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R6.markdup.sorted.bam
+        outputs: datasets/consortium/TDP43-mouse/02_organized_data/rnastability/counts/mut_R6.intron.txt
+        settings: {}
+      tdp43_mut_R7:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R7.markdup.sorted.bam
+        outputs: datasets/consortium/TDP43-mouse/02_organized_data/rnastability/counts/mut_R7.intron.txt
+        settings: {}
+      tdp43_mut_R8:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R8.markdup.sorted.bam
+        outputs: datasets/consortium/TDP43-mouse/02_organized_data/rnastability/counts/mut_R8.intron.txt
+        settings: {}
+      tdp43_mut_R9:
+        inputs:
+          annotation: database/align-references/mmusculus/introns.gtf
+          bam: datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/nf-rnaseq/results/star_salmon/mut_R9.markdup.sorted.bam
+        outputs: datasets/consortium/TDP43-mouse/02_organized_data/rnastability/counts/mut_R9.intron.txt
+        settings: {}
+  prepare:
+    default_settings: {}
+    default_system_settings: {}
+    stages:
+      human:
+        inputs: database/align-references/hsapiens/gencode.v37.annotation.gtf.gz
+        outputs: database/align-references/hsapiens/
+      mouse:
+        inputs: database/align-references/mmusculus/gencode.vM26.annotation.gtf.gz
+        outputs: database/align-references/mmusculus/
+
+  rembrandts_jobfile:
+    default_settings: {}
+    default_system_settings: {}
+    stages:
+      tdp43:
+        inputs: datasets/consortium/TDP43-mouse/02_organized_data/rnastability/counts
+        outputs: datasets/consortium/TDP43-mouse/02_organized_data/rnastability/job.tsv
+        settings: {}
+      sod1:
+        inputs: datasets/consortium/SOD1-mouse/02_organized_data/rnastability/counts
+        outputs: datasets/consortium/SOD1-mouse/02_organized_data/rnastability/job.tsv
+        settings: {}
+      fus:
+        inputs: datasets/consortium/FUS-mouse/02_organized_data/rnastability/counts
+        outputs: datasets/consortium/FUS-mouse/02_organized_data/rnastability/job.tsv
+        settings: {}
+      c9:
+        inputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnastability/counts
+        outputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnastability/job.tsv
+        settings: {}
+      human:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnastability/counts
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/job.tsv
+        settings: {}
+
+  rembrandts:
+    stages:
+      tdp43:
+        inputs: datasets/consortium/TDP43-mouse/02_organized_data/rnastability/
+        outputs: datasets/consortium/TDP43-mouse/02_organized_data/rnastability/rembrandts
+        biasmode: linear
+        stringency: 0.99
+      sod1:
+        inputs: datasets/consortium/SOD1-mouse/02_organized_data/rnastability/
+        outputs: datasets/consortium/SOD1-mouse/02_organized_data/rnastability/rembrandts
+        biasmode: linear
+        stringency: 0.99
+      fus:
+        inputs: datasets/consortium/FUS-mouse/02_organized_data/rnastability/
+        outputs: datasets/consortium/FUS-mouse/02_organized_data/rnastability/rembrandts
+        biasmode: linear
+        stringency: 0.99
+      c9:
+        inputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnastability/
+        outputs: datasets/consortium/C9orf72-mouse/02_organized_data/rnastability/rembrandts
+        biasmode: linear
+        stringency: 0.99
+      human:
+        inputs: datasets/consortium/human-datasets/02_organized_data/rnastability/
+        outputs: datasets/consortium/human-datasets/02_organized_data/rnastability/rembrandts
+        biasmode: linear
+        stringency: 0.99

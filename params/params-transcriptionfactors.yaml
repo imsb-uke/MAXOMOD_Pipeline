@@ -1,0 +1,130 @@
+transcriptionsfactors:
+    decouple_rnaseq:
+        human:
+            inputs: "datasets/consortium/human-datasets/02_organized_data/rnaseq/prefiltering-pca/counts_norm_vst.csv"
+            database: "database/dorothea/human.feather"
+            mapping: "datasets/consortium/human-datasets/02_organized_data/rnaseq/prefiltering-pca/ENSG_to_symbol.csv"
+            outputpath: "datasets/consortium/human-datasets/02_organized_data/rnaseq/transcriptionfactors/raw.feather"
+            kwargs: {}
+            filter: "confidence == ('A','B','C')"
+            methods:
+                - mlm
+                - wsum
+                - ulm
+        human_subgroups:
+            inputs: "datasets/consortium/human-datasets/02_organized_data/rnaseq/prefiltering-pca/counts_norm_vst.csv"
+            database: "als_subgroup_genes.feather"
+            mapping: "datasets/consortium/human-datasets/02_organized_data/rnaseq/prefiltering-pca/ENSG_to_symbol.csv"
+            outputpath: "results/subgroups/raw.feather"
+            kwargs: {}
+            filter: "confidence == ('A','B','C')"
+            methods:
+                - mlm
+                - wsum
+                - ulm
+        c9orf72:
+            inputs: "datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/prefiltering-pca/counts_norm_vst.csv"
+            database: "database/dorothea/mouse.feather"
+            mapping: "datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/prefiltering-pca/ENSG_to_symbol.csv"
+            outputpath: "datasets/consortium/C9orf72-mouse/02_organized_data/rnaseq/transcriptionfactors/raw.feather"
+            kwargs: {}
+            filter: "confidence == ('A','B','C')"
+            methods:
+                - mlm
+                - wsum
+                - ulm
+        sod1:
+            inputs: "datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/prefiltering-pca/counts_norm_vst.csv"
+            database: "database/dorothea/mouse.feather"
+            mapping: "datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/prefiltering-pca/ENSG_to_symbol.csv"
+            outputpath: "datasets/consortium/SOD1-mouse/02_organized_data/rnaseq/transcriptionfactors/raw.feather"
+            kwargs: {}
+            filter: "confidence == ('A','B','C')"
+            methods:
+                - mlm
+                - wsum
+                - ulm
+        tdp43:
+            inputs: "datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/prefiltering-pca/counts_norm_vst.csv"
+            database: "database/dorothea/mouse.feather"
+            mapping: "datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/prefiltering-pca/ENSG_to_symbol.csv"
+            outputpath: "datasets/consortium/TDP43-mouse/02_organized_data/rnaseq/transcriptionfactors/raw.feather"
+            kwargs: {}
+            filter: "confidence == ('A','B','C')"
+            methods:
+                - mlm
+                - wsum
+                - ulm
+        fus:
+            inputs: "datasets/consortium/FUS-mouse/02_organized_data/rnaseq/prefiltering-pca/counts_norm_vst.csv"
+            database: "database/dorothea/mouse.feather"
+            mapping: "datasets/consortium/FUS-mouse/02_organized_data/rnaseq/prefiltering-pca/ENSG_to_symbol.csv"
+            outputpath: "datasets/consortium/FUS-mouse/02_organized_data/rnaseq/transcriptionfactors/raw.feather"
+            kwargs: {}
+            filter: "confidence == ('A','B','C')"
+            methods:
+                - mlm
+                - wsum
+                - ulm
+
+    decouple_proteomics:
+        human:
+            inputs: "datasets/consortium/human-datasets/02_organized_data/proteomics/prefiltering-pca/intensity_mat_filtered_imputed_log2transf_norm.csv"
+            proteinmapping: "database/uniprot/uniprot_HUMAN_9606_idmapping_selected.tab.gz"
+            database: "database/dorothea/human.feather"
+            mapping: "database/biomaRt/ensembl_to_symbol_human.csv"
+            outputpath: "datasets/consortium/human-datasets/02_organized_data/proteomics/transcriptionfactors/raw.feather"
+            kwargs: {}
+            filter: "confidence == ('A','B','C')"
+            methods:
+                - mlm
+                - wsum
+                - ulm
+        c9orf72:
+            inputs: "datasets/consortium/C9orf72-mouse/02_organized_data/proteomics/prefiltering-pca/intensity_mat_filtered_imputed_log2transf_norm.csv"
+            proteinmapping: "database/uniprot/uniprot_MOUSE_10090_idmapping_selected.tab.gz"
+            database: "database/dorothea/mouse.feather"
+            mapping: "database/biomaRt/ensembl_to_symbol_mouse.csv"
+            outputpath: "datasets/consortium/C9orf72-mouse/02_organized_data/proteomics/transcriptionfactors/raw.feather"
+            kwargs: {}
+            filter: "confidence == ('A','B','C')"
+            methods:
+                - mlm
+                - wsum
+                - ulm
+        sod1:
+            inputs: "datasets/consortium/SOD1-mouse/02_organized_data/proteomics/prefiltering-pca/intensity_mat_filtered_imputed_log2transf_norm.csv"
+            proteinmapping: "database/uniprot/uniprot_MOUSE_10090_idmapping_selected.tab.gz"
+            database: "database/dorothea/mouse.feather"
+            mapping: "database/biomaRt/ensembl_to_symbol_mouse.csv"
+            outputpath: "datasets/consortium/SOD1-mouse/02_organized_data/proteomics/transcriptionfactors/raw.feather"
+            kwargs: {}
+            filter: "confidence == ('A','B','C')"
+            methods:
+                - mlm
+                - wsum
+                - ulm
+        tdp43:
+            inputs: "datasets/consortium/TDP43-mouse/02_organized_data/proteomics/prefiltering-pca/intensity_mat_filtered_imputed_log2transf_norm.csv"
+            proteinmapping: "database/uniprot/uniprot_MOUSE_10090_idmapping_selected.tab.gz"
+            database: "database/dorothea/mouse.feather"
+            mapping: "database/biomaRt/ensembl_to_symbol_mouse.csv"
+            outputpath: "datasets/consortium/TDP43-mouse/02_organized_data/proteomics/transcriptionfactors/raw.feather"
+            kwargs: {}
+            filter: "confidence == ('A','B','C')"
+            methods:
+                - mlm
+                - wsum
+                - ulm
+        fus:
+            inputs: "datasets/consortium/FUS-mouse/02_organized_data/proteomics/prefiltering-pca/intensity_mat_filtered_imputed_log2transf_norm.csv"
+            proteinmapping: "database/uniprot/uniprot_MOUSE_10090_idmapping_selected.tab.gz"
+            database: "database/dorothea/mouse.feather"
+            mapping: "database/biomaRt/ensembl_to_symbol_mouse.csv"
+            outputpath: "datasets/consortium/FUS-mouse/02_organized_data/proteomics/transcriptionfactors/raw.feather"
+            kwargs: {}
+            filter: "confidence == ('A','B','C')"
+            methods:
+                - mlm
+                - wsum
+                - ulm

@@ -1,0 +1,96 @@
+stages:
+  rnaseq_decompress_genome:
+    foreach:
+      human:
+        inputs: database/align-references/hsapiens/GRCh38.p13.genome.fa.gz
+        output: database/align-references/hsapiens/GRCh38.p13.genome.fa
+      mouse:
+        inputs: database/align-references/mmusculus/GRCm39.genome.fa.gz
+        output: database/align-references/mmusculus/GRCm39.genome.fa
+    do:
+      cmd: zcat ${item.inputs}  > ${item.output}
+      deps:
+      - ${item.inputs}
+      outs:
+      - ${item.output}:
+          cache: false
+
+  rnaseq_index_genome:
+    foreach:
+      human:
+        inputs: database/align-references/hsapiens/GRCh38.p13.genome.fa
+        output: database/align-references/hsapiens/GRCh38.p13.genome.fa.fai
+      mouse:
+        inputs: database/align-references/mmusculus/GRCm39.genome.fa
+        output: database/align-references/mmusculus/GRCm39.genome.fa.fai
+    do:
+      cmd: ./docker-wrapper.sh samtools faidx ${item.inputs}
+      deps:
+      - ${item.inputs}
+      outs:
+      - ${item.output}
+
+  variant_mpileup:
+    foreach: ${variantcalling.mpileup.stages}
+    do:
+      cmd: ./docker-wrapper.sh bcftools mpileup -I -Ob --output ${item.output} -f ${item.genome} ${item.inputs}
+      deps:
+      - ${item.genome}
+      - ${item.genome}.fai
+      - ${item.inputs}
+      - ${item.inputs}.bai
+      outs:
+      - ${item.output}
+
+  variant_call:
+    foreach: ${variantcalling.call.stages}
+    do:
+      cmd: ./docker-wrapper.sh bcftools call -Ov --output ${item.output} -cv ${item.inputs}
+      deps:
+      - ${item.inputs}
+      outs:
+      - ${item.output}
+
+  variant_gtf_to_bed:
+    foreach:
+      human:
+        inputs: database/align-references/hsapiens/gencode.v37.annotation.gtf.gz
+        output: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+      mouse:
+        inputs: database/align-references/mmusculus/gencode.vM26.annotation.gtf.gz
+        output: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+    do:
+      cmd: ./docker-wrapper.sh src/rnaseq/60-gtf_to_bed.sh ${item.inputs} ${item.output}
+      deps:
+      - src/rnaseq/60-gtf_to_bed.sh
+      - ${item.inputs}
+      outs:
+      - ${item.output}:
+          cache: false
+
+  variant_index_bed:
+    foreach:
+      human:
+        inputs: database/align-references/hsapiens/gencode.v37.annotation.bed.gz
+        output: database/align-references/hsapiens/gencode.v37.annotation.bed.gz.tbi
+      mouse:
+        inputs: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz
+        output: database/align-references/mmusculus/gencode.vM26.annotation.bed.gz.tbi
+    do:
+      cmd: ./docker-wrapper.sh tabix -s 1 -f -b 2 -p bed ${item.inputs}
+      deps:
+      - ${item.inputs}
+      outs:
+      - ${item.output}
+
+  variant_annotate:
+    foreach: ${variantcalling.annotate.stages}
+    do:
+     cmd: ./docker-wrapper.sh src/rnaseq/61-variant_annotate.sh "${item.annotation}" "${item.inputs}" "${item.output}"
+     deps:
+     - src/rnaseq/61-variant_annotate.sh
+     - ${item.annotation}
+     - ${item.annotation}.tbi
+     - ${item.inputs}
+     outs:
+     - ${item.output}
